@@ -28,6 +28,8 @@ import {
 import { createPost, saveDraft, newPost } from './editorActions';
 import Editor from '../../components/Editor/Editor';
 import EditorMain from '../../components/Editor/EditorMain';
+import EditorTeardrop from '../../components/Editor/EditorTeardrop';
+import EditorUntalented from '../../components/Editor/EditorUntalented';
 import EditorUlogNed from '../../components/Editor/EditorUlogNed';
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
 import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
@@ -337,9 +339,29 @@ class Write extends React.Component {
                 )}
               />
               <Route
-                path="/surpassinggoogle"
+                path="/teardrops"
                 render={() => (
-                  <EditorSurpassingGoogle
+                  <EditorTeardrop
+                    ref={this.setForm}
+                    saving={saving}
+                    title={initialTitle}
+                    topics={initialTopics}
+                    body={initialBody}
+                    reward={initialReward}
+                    upvote={initialUpvote}
+                    draftId={draftId}
+                    loading={loading}
+                    isUpdating={this.state.isUpdating}
+                    onUpdate={this.saveDraft}
+                    onSubmit={this.onSubmit}
+                    onDelete={this.onDelete}
+                  />
+                )}
+              />
+              <Route
+                path="/untalented"
+                render={() => (
+                  <EditorUntalented
                     ref={this.setForm}
                     saving={saving}
                     title={initialTitle}
