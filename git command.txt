@@ -1,0 +1,2 @@
+git push -f origin develop //force pushing when said not uptodate
+git commit -m "dfdf" --no-verify
