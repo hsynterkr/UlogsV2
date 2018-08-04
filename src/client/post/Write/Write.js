@@ -28,7 +28,10 @@ import {
 import { createPost, saveDraft, newPost } from './editorActions';
 import Editor from '../../components/Editor/Editor';
 import EditorMain from '../../components/Editor/EditorMain';
+import EditorTeardrop from '../../components/Editor/EditorTeardrop';
+import EditorUntalented from '../../components/Editor/EditorUntalented';
 import EditorUlogNed from '../../components/Editor/EditorUlogNed';
+import EditorUlogSurpassingGoogle from '../../components/Editor/EditorUlogSurpassingGoogle';
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
 import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
 import Affix from '../../components/Utils/Affix';
@@ -337,9 +340,29 @@ class Write extends React.Component {
                 )}
               />
               <Route
-                path="/surpassinggoogle"
+                path="/teardrops"
                 render={() => (
-                  <EditorSurpassingGoogle
+                  <EditorTeardrop
+                    ref={this.setForm}
+                    saving={saving}
+                    title={initialTitle}
+                    topics={initialTopics}
+                    body={initialBody}
+                    reward={initialReward}
+                    upvote={initialUpvote}
+                    draftId={draftId}
+                    loading={loading}
+                    isUpdating={this.state.isUpdating}
+                    onUpdate={this.saveDraft}
+                    onSubmit={this.onSubmit}
+                    onDelete={this.onDelete}
+                  />
+                )}
+              />
+              <Route
+                path="/untalented"
+                render={() => (
+                  <EditorUntalented
                     ref={this.setForm}
                     saving={saving}
                     title={initialTitle}
@@ -380,6 +403,26 @@ class Write extends React.Component {
                 path="/ulog-ned"
                 render={() => (
                   <EditorUlogNed
+                    ref={this.setForm}
+                    saving={saving}
+                    title={initialTitle}
+                    topics={initialTopics}
+                    body={initialBody}
+                    reward={initialReward}
+                    upvote={initialUpvote}
+                    draftId={draftId}
+                    loading={loading}
+                    isUpdating={this.state.isUpdating}
+                    onUpdate={this.saveDraft}
+                    onSubmit={this.onSubmit}
+                    onDelete={this.onDelete}
+                  />
+                )}
+              />
+              <Route
+                path="/ulog-surpassinggoogle"
+                render={() => (
+                  <EditorUlogSurpassingGoogle
                     ref={this.setForm}
                     saving={saving}
                     title={initialTitle}
