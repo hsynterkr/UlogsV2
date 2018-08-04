@@ -21,7 +21,7 @@ import './Editor.less';
 @requiresLogin
 @Form.create()
 @withEditor
-class EditorMain extends React.Component {
+class EditorUntalented extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     form: PropTypes.shape().isRequired,
@@ -449,4 +449,4 @@ Want to "mine the human" some more, you can also try one of our specialized edit
   }
 }
 
-export default EditorMain;
+export default EditorUntalented;
