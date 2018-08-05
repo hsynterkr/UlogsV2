@@ -75,10 +75,10 @@ export const editPost = post => dispatch => {
     isUpdating: true,
   };
 
-  let editorUrl = 'editor';
   const editorLocation = getEditorLocation(draft.jsonMetadata.tags);
+  console.log(editorLocation);
   dispatch(saveDraft({ postData: draft, id: post.id })).then(() =>
-    dispatch(push(`/${editorUrl}?draft=${post.id}`)),
+    dispatch(push(`/${editorLocation}?draft=${post.id}`)),
   );
 };
 
