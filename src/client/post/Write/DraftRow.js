@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Checkbox } from 'antd';
 import DeleteDraftModal from './DeleteDraftModal';
 import './DraftRow.less';
-import { getEditorLocation } from '../../helpers/draftEditors';
+import { getEditorLocation } from '../../helpers/editors';
 
 class DraftRow extends React.Component {
   static propTypes = {
