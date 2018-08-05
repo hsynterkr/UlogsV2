@@ -1,14 +1,16 @@
 export function getEditorLocation(tags) {
     let location = 'editor';
     if (tags) {
-      if (tags.length === 1 && tags[0] === "ulog") {
-        location = 'main-editor';
-      } else if (tags.length > 1 && tags[0] === "ulog") {
-        if (tags[1] === "ulog-ned") {
+      if (tags.indexOf("ulog") > -1) {
+        if (tags.indexOf("ulog-ned") > -1) {
+          location = 'ulog-ned';
+        } else if (tags.indexOf("ulog-ned") > -1) {
           location = 'ulog-ned';
         } else {
           location = 'main-editor';
         }
+      } else if (tags.indexOf("untalented") > -1) {
+          location = 'untalented';
       }
     }
     return location;

@@ -23,7 +23,7 @@ const Draft = ({ draft, editorLocation }) => (
 );
 Draft.propTypes = {
   draft: PropTypes.shape().isRequired,
-  editorUrl: PropTypes.string.isRequired,
+  editorLocation: PropTypes.string.isRequired,
 };
 
 const LastDrafts = ({ drafts, loaded }) => {
