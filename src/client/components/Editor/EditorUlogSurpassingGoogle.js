@@ -21,7 +21,7 @@ import './Editor.less';
 @requiresLogin
 @Form.create()
 @withEditor
-class EditorUntalented extends React.Component {
+class EditorUlogSurpassingGoogle extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     form: PropTypes.shape().isRequired,
@@ -82,8 +82,8 @@ class EditorUntalented extends React.Component {
   componentDidMount() {
     this.setValues(this.props);
     this.props.form.setFieldsValue({
-      title: 'UN(dis)TALENTED: ',
-      topics: ['untalented', 'surpassinggoogle'],
+      title: 'ULOG (SurpassingGoogle): ',
+      topics: ['ulog', 'ulog-surpassinggoogle'],
     });
 
     // eslint-disable-next-line react/no-find-dom-node
@@ -233,13 +233,50 @@ class EditorUntalented extends React.Component {
       <div>
         <div>
           <Collapse defaultActiveKey={['1']}>
-            <Panel header="UN(dis)TALENTED" key="1">
+            <Panel header='The "#ulog-surpassinggoogle" Editor' key="1">
               <p>
-              UN(dis)TALENTED (#untalented): We don't want any level of talent or potential talent to go amiss without celebrating it. We seek to reward even "attempts at out-of-the-boxness". If we remove bum, smart or average, "we are genius".
-
-              #untalented is a home (an important aspect of ulogs.org) where "flaws are allowed". When you write under #untalented, "relegate reservations". We will sift even the nonsense to find sense therein.
-              Not too confident? Confident? Too confident? Write under #untalented
+                 <span className="bold-italic">@surpassinggoogle</span> is just <span className="bold-italic">"your boy Terry"</span> and mere dust overall. His entire tired being, "even that", loves you like crazy.
+                  He breaks down and he doesnt mind, so that <span className="bold-italic">"suffering must now have essence"</span> and especially, so that generations yet unborn meet <span className="bold-italic">"lights" inside every tunnel.</span>
+                  He is SurpassingGoogle by means of the Teardrops SMTs, which seeks to reward <span className="bold-italic">"proof of tears".</span> He is helping to bring forth the <span className="bold-italic">art of #ulogging,</span> an entire curriculum that <span className="bold-italic">mines the human "into its awesomest version".</span>
+                  You can support him by voting on his witness called "<span style={{'color':'blue'}}>steemgigs";</span> called so to represent "everyone has something to offer".
               </p>
+            </Panel>
+          </Collapse>
+        </div>
+        <div>
+          <Collapse>
+            <Panel header="Terry Ajayi's Cookies:" key="1">
+              <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                <li>He dedicates his entire steem journey to his mum. Boys do that.</li>
+                <li>He loves humans like crazy, deeply-rootedly, unshakenly.</li>
+                <li>He understands and has done suffering like crazy but loves like crazy still.</li>
+                <li>His substance is deeply-rooted. He will forgive a hundred times.</li>
+                <li>He will sift even the not-so-good to find good in it.</li>
+                <li>He creates beautiful disruptions.</li>
+                <li>He is un(dis)talented, a legit illiterate and possesses rare INTEL.</li>
+                <li>He wants to build every noble dream.</li>
+                <li>He is always on the more testimonial harder route.</li>
+                <li>He celebrates attempts at out-of-the-boxness</li>
+                <li>He will dig, dig, dig, especially if being "this diggist" involves "YOU".</li>
+                <li>To prayers, "his amen is on default".</li>
+                <li>He is ever-unshakenLY "your boy terry".</li>
+                <li>etc</li>
+              </ul>
+            </Panel>
+          </Collapse>
+          <Collapse>
+            <Panel header="When/How/Why use the #ulog-surpassinggoogle editor?/?/?" key="1">
+              <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                <li>If you are ulogging to SurpassingGoogle too.</li>
+                <li>If you want to keep your dreams alive in dream-bits, using your ULOGS.</li>
+                <li>If you want to attempt out-of-the-boxness and some un(dis)talentedness too.</li>
+                <li>If you are ulogging on subjects that you have learned about him as his "true fan".</li>
+                <li>To give back to @surpassinggoogle while ulogging daily.</li>
+                <li>To rehearse CEOism in the art of ulogging.</li>
+                <li>To contribute experiences, selfies, meetups, moments, dreams, imagination etc shared with @surpassinggoogle etc</li>
+                <li>To love @surpassinggoogle like crazy.</li>
+                <li>etc</li>
+              </ul>
             </Panel>
           </Collapse>
         </div>
@@ -283,7 +320,7 @@ class EditorUntalented extends React.Component {
               className="Editor__title"
               placeholder={intl.formatMessage({
                 id: 'title_placeholder',
-                defaultMessage: 'UNTALENTED: ',
+                defaultMessage: 'ULOG (SurpassingGoogle): ',
               })}
             />,
           )}
@@ -325,13 +362,10 @@ class EditorUntalented extends React.Component {
             />,
           )}
         </Form.Item>
-<div>
-Ulogs.org allows you to enjoy the entire steem ecosystem. So, incase you change your mind and want to do a steemit post like normal, that's easy!!! Simply remove the default "Un(dis)Talented:" from Title above and kindly remove the default "#untalented" from among the tags in the Hashtags box.
-Alternatively, click on the editor icon at the topmost right (above) and select "Write a post".
-Please help us as we try to reserve #untalented, only for UN(dis)TALENTED-related posts.
-
-Want to "mine the human" some more, you can also try one of our specialized editors above!!!
-</div>
+        <div style={{ color : 'purple' }}>
+          <span className="bold-italic">Ulogs.org allows you to enjoy the entire steem ecosystem.</span> So, incase you change your mind and want to do a steemit post like normal, that's easy!!! Simply remove the default <span className="bold-italic">"ULOG (SurpassingGoogle):"</span> from Title above and kindly remove the default <span className="bold-italic"> "#ulog & #ulog-surpassinggoogle"</span> from among the tags in the Hashtags box. <span className="bold-italic">(Please help us as we try to reserve #ulog, only for ULOGS.)</span><br/><br/>
+          Want to <span className="bold-italic">"mine the human"</span> some more? <b>You can also try one of our specialized editors above!!!</b>
+        </div>
         <Form.Item>
           {getFieldDecorator('body', {
             rules: [
@@ -449,4 +483,4 @@ Want to "mine the human" some more, you can also try one of our specialized edit
   }
 }
 
-export default EditorUntalented;
+export default EditorUlogSurpassingGoogle;

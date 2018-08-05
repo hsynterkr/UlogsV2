@@ -21,7 +21,7 @@ import './Editor.less';
 @requiresLogin
 @Form.create()
 @withEditor
-class EditorMain extends React.Component {
+class EditorTeardrop extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     form: PropTypes.shape().isRequired,
@@ -446,4 +446,4 @@ Ulogs.org allows you to enjoy the entire steem ecosystem. So, incase you change 
   }
 }
 
-export default EditorMain;
+export default EditorTeardrop;

@@ -21,7 +21,7 @@ import './Editor.less';
 @requiresLogin
 @Form.create()
 @withEditor
-class EditorUntalented extends React.Component {
+class EditorUlogDIY extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     form: PropTypes.shape().isRequired,
@@ -82,8 +82,8 @@ class EditorUntalented extends React.Component {
   componentDidMount() {
     this.setValues(this.props);
     this.props.form.setFieldsValue({
-      title: 'UN(dis)TALENTED: ',
-      topics: ['untalented', 'surpassinggoogle'],
+      title: 'ULOG (DIY): ',
+      topics: ['ulog', 'ulog-diy'],
     });
 
     // eslint-disable-next-line react/no-find-dom-node
@@ -233,20 +233,52 @@ class EditorUntalented extends React.Component {
       <div>
         <div>
           <Collapse defaultActiveKey={['1']}>
-            <Panel header="UN(dis)TALENTED" key="1">
+            <Panel header='The "#ulog-diy" Editor' key="1">
               <p>
-              UN(dis)TALENTED (#untalented): We don't want any level of talent or potential talent to go amiss without celebrating it. We seek to reward even "attempts at out-of-the-boxness". If we remove bum, smart or average, "we are genius".
+              We like to reward #ulogging contributions born solely out of <span className="bold-italic">"your experience" (per day)</span>. We seek to incentivize you to learn something new <span className="bold-italic">(per day)</span>, for the sake of #ulogging. This way, <span className="bold-italic">"not a day slips emptily by" and not a day aren't you capable of reshaping the INTERNET; touching your "true fans" and attaining "true celebrity-hood" etc</span>
+              It's simple. When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh. Simply use this editor to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-DIY(s) born solely out of your experience (per day)</span>.
 
-              #untalented is a home (an important aspect of ulogs.org) where "flaws are allowed". When you write under #untalented, "relegate reservations". We will sift even the nonsense to find sense therein.
-              Not too confident? Confident? Too confident? Write under #untalented
+              Become "true fans"! Visit #ulog-diy daily. Join its community on <span className="bold-italic" style={{'color':'blue'}}>Discord</span> & <span className="bold-italic" style={{'color':'blue'}}>Telegram</span>.
+
               </p>
+            </Panel>
+          </Collapse>
+        </div>
+        <div className="hashtags">
+          <Dropdown overlay={menu} trigger={['click']}>
+            <a className="ant-dropdown-link" href="#">
+              Try More #ulogging? <Icon type="down" />
+            </a>
+          </Dropdown>
+        </div>
+        <div>
+          <Collapse>
+            <Panel header='When/How/Why use the "#ulog-diy" editor?/?/?' key="1">
+              Did you gather some DIY knowledge on a specific skill, craft or expertise today? Are you gathering DIY knowledge as we speak? Do you plan on doing some exciting DIY today, by yourself or with friends etc for the sole reason of contributing a #ulog-DIY post?
+              <br/>
+              <blockquote style={{'border-left':'3px solid #a9a9a9', 'padding' : '0 10px', 'color' : '#a9a9a9'}}>Why not create a post about it right now! Don't let this knowledge stay redundant. The world and your entire audience of "true fans" needs to hear it!</blockquote>
+            </Panel>
+          </Collapse>
+          <Collapse>
+            <Panel header="Tips To Prowess" key="1">
+              <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                <li>Be yourself and as expressive as possible. <span className="bold-italic">The world and generations yet unborn will come here to dig from your ulog-experience</span>.</li>
+                <li>In the art of #ulogging on #ulog-diy, there is no need to resource from the internet. <span className="bold-italic">Keep all videos, images, sound, avatars fresh. Let's gift to internet and re-shape it, with "YOU"!</span></li>
+                <li>Relegate reservations, attempt out-of-the-boxness; <span className="bold-italic">"flaws allowed"!</span></li>
+                <li>Every #ulog-diy post that you write here appears on the decentralized steem blockchain and can earn you a variety of rewards, steem, opportunities etc. <span className="bold-italic">Make the most of each post</span>.</li>
+                <li>Remember that you have <span className="bold-italic">"you"</span> as your first audience, an <span className="bold-italic">audience of "true fans"</span>, an <span className="bold-italic">audience in the search engines and an audience of generations yet unborn</span>. Use each #ulog-diy post <span className="bold-italic">to leave your #ulogacies in lights</span>.</li>
+                <li><span className="bold-italic">Be "true fans" on #ulog-diy, get inspired, grow your "true fan-base"</span>.</li>
+                <li>Grow each time!</li>
+                <li><span className="bold-italic">Join the #ulog-diy community on</span> <span className="bold-italic" style={{'color' : 'blue'}}>Discord</span> & <span className="bold-italic" style={{'color' : 'blue'}}>Telegram</span>.</li>
+                <li>etc</li>
+              </ul>
             </Panel>
           </Collapse>
         </div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>
           <title>
-            {intl.formatMessage({ id: 'write_post', defaultMessage: 'Write post' })} - Ulog
+            {intl.formatMessage({ id: 'write_post', defaultMessage: 'Write post' })} - DIY
           </title>
         </Helmet>
         <Form.Item
@@ -283,7 +315,7 @@ class EditorUntalented extends React.Component {
               className="Editor__title"
               placeholder={intl.formatMessage({
                 id: 'title_placeholder',
-                defaultMessage: 'UNTALENTED: ',
+                defaultMessage: 'ULOG (NED): ',
               })}
             />,
           )}
@@ -325,13 +357,10 @@ class EditorUntalented extends React.Component {
             />,
           )}
         </Form.Item>
-<div>
-Ulogs.org allows you to enjoy the entire steem ecosystem. So, incase you change your mind and want to do a steemit post like normal, that's easy!!! Simply remove the default "Un(dis)Talented:" from Title above and kindly remove the default "#untalented" from among the tags in the Hashtags box.
-Alternatively, click on the editor icon at the topmost right (above) and select "Write a post".
-Please help us as we try to reserve #untalented, only for UN(dis)TALENTED-related posts.
-
-Want to "mine the human" some more, you can also try one of our specialized editors above!!!
-</div>
+        <div style={{ color : 'purple' }}>
+          <span className="bold-italic">Ulogs.org allows you to enjoy the entire steem ecosystem.</span> So, incase you change your mind and want to do a steemit post like normal, that's easy!!! Simply remove the default <span className="bold-italic">"ULOG (DIY):"</span> from Title above and kindly remove the default <span className="bold-italic">"#ulog & #ulog-diy"</span> from among the tags in the Hashtags box. <span className="bold-italic">(Please help us as we try to reserve #ulog, only for ULOGS.)</span><br/><br/>
+          Want to <span className="bold-italic">"mine the human"</span> some more? <b>You can also try one of our specialized editors above!!!</b>
+        </div>
         <Form.Item>
           {getFieldDecorator('body', {
             rules: [
@@ -449,4 +478,4 @@ Want to "mine the human" some more, you can also try one of our specialized edit
   }
 }
 
-export default EditorUntalented;
+export default EditorUlogDIY;

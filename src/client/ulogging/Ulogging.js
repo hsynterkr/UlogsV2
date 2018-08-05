@@ -38,6 +38,9 @@ const fanLoveMenu = (
     <Menu.Item key="0">
       <Link to={'/ulog-ned'}>#ulog-ned (Emulate, Learn, Gratitude, Celebrate etc @ned)</Link>
     </Menu.Item>
+    <Menu.Item key="1">
+      <Link to={'/ulog-surpassinggoogle'}>#ulog-surpassinggoogle (Emulate, Learn, Gratitude, Celebrate etc @surpassinggoogle)</Link>
+    </Menu.Item>
   </Menu>
 );
 
