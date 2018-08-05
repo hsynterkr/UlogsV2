@@ -4,6 +4,7 @@ import { push } from 'react-router-redux';
 import { createAction } from 'redux-actions';
 import { addDraftMetadata, deleteDraftMetadata } from '../../helpers/metadata';
 import { jsonParse } from '../../helpers/formatter';
+import { getEditorLocation } from '../../helpers/editors';
 import { rewardsValues } from '../../../common/constants/rewards';
 import { createPermlink, getBodyPatchIfSmaller } from '../../vendor/steemitHelpers';
 import { saveSettings } from '../../settings/settingsActions';
@@ -75,6 +76,8 @@ export const editPost = post => dispatch => {
   };
 
   let editorUrl = 'editor';
+  const editorLocation = getEditorLocation(draft.jsonMetadata.tags);
+  console.log(editorLocation);
   dispatch(saveDraft({ postData: draft, id: post.id })).then(() =>
     dispatch(push(`/${editorUrl}?draft=${post.id}`)),
   );

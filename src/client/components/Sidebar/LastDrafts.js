@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedRelative } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Icon/Loading';
-import { getEditorLocation } from '../../helpers/draftEditors';
+import { getEditorLocation } from '../../helpers/editors';
 import './LastDrafts.less';
 import './SidebarContentBlock.less';
 
