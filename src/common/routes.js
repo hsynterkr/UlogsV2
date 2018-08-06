@@ -57,7 +57,7 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/(editor|main-editor|teardrops|untalented|surpassinggoogle|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy)',
+        path: '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy)',
         component: Editor,
       },
       {
@@ -141,7 +141,7 @@ const routes = [
         component: Search,
       },
       {
-        path: '/ulogging',
+        path: '/(ulogging|ulog-knowledge-bank|ulog-fanlove|surpassinggoogle)',
         component: Ulogging,
       },
       {
