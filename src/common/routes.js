@@ -141,7 +141,7 @@ const routes = [
         component: Search,
       },
       {
-        path: '/ulogging',
+        path: '/(ulogging|ulog-knowledge-bank|ulog-fanlove|surpassinggoogle)',
         component: Ulogging,
       },
       {
