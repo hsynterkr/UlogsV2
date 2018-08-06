@@ -164,6 +164,23 @@ class Topnav extends React.Component {
     const displayBadge = notificationsCount > 0;
     const notificationsCountDisplay = notificationsCount > 99 ? '99+' : notificationsCount;
 
+    const SubMenu = Menu.SubMenu;
+    const MenuItemGroup = Menu.ItemGroup;
+
+    const ulogSubMenu = (
+      <SubMenu key="sub1" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
+        <Menu.Item key="0">
+          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
+        </Menu.Item>
+        <Menu.Item key="1">
+          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
+        </Menu.Item>
+      </SubMenu>
+    );
+
     const menu = (
       <Menu>
         <Menu.Item key="0">
@@ -175,15 +192,17 @@ class Topnav extends React.Component {
             <Link to={'/main-editor'}>Write a ULOG</Link>
           </Tooltip>
         </Menu.Item>
-        <Menu.Item key="1">
-          <Tooltip
-            placement="left"
-            title={'Pick your appropriate editor'}
-            mouseEnterDelay={1}
-          >
-            <Link to={'/ulogging'}>More ULOGGING?</Link>
-          </Tooltip>
-        </Menu.Item>
+        <SubMenu key="sub4" title={<span>More ULOGGING?</span>}>
+          <Menu.Item key="10">
+            <Link to={'/ulog-knowledge-bank'}>ULOG-Knowledge-Bank</Link>
+          </Menu.Item>
+          <Menu.Item key="11">
+            <Link to={'/ulog-fanlove'}>ULOG-Fan Love</Link>
+          </Menu.Item>
+          <Menu.Item key="12">
+            <Link to={'/surpassinggoogle'}>SurpassingGoogle</Link>
+          </Menu.Item>
+        </SubMenu>
         <Menu.Item key="2">
           <Tooltip
             placement="left"
