@@ -57,7 +57,7 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/(editor|main-editor|teardrops|untalented|surpassinggoogle|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy)',
+        path: '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy)',
         component: Editor,
       },
       {

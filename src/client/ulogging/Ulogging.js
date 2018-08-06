@@ -85,8 +85,6 @@ class Ulogging extends React.Component {
     } else {
       defaultActiveKey = ['1'];
     }
-    console.log('render' + defaultActiveKey);
-
 
     return (
       <div className="shifted">
