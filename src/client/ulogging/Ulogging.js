@@ -35,6 +35,22 @@ class Ulogging extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      const location = this.props.location.pathname.split('/')[1];
+      console.log(location);
+      if (location === 'ulog-knowledge-bank') {
+        this.setState({ activeKey : ['2']});
+      } else if (location === 'ulog-fanlove') {
+        this.setState({ activeKey : ['3']});
+      } else if (location === 'surpassinggoogle') {
+        this.setState({ activeKey : ['4']});
+      } else {
+        this.setState({ activeKey : ['1']});
+      }
+    }
+  }
+
   render() {
 
     const menu = (
@@ -87,6 +103,7 @@ class Ulogging extends React.Component {
     };
 
     const location = this.props.location.pathname.split('/')[1];
+    console.log(location);
     let defaultActiveKey = [];
     if (location === 'ulog-knowledge-bank') {
       defaultActiveKey = ['2'];
