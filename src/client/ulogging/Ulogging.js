@@ -22,7 +22,7 @@ class Ulogging extends React.Component {
     searchResults: [],
   };
 
-  componentDidMount() {
+  componentDidUpdate() {
     const location = this.props.location.pathname.split('/')[1];
     if (location === 'ulog-knowledge-bank') {
       this.setState({ activeKey : ['2']});
