@@ -13,10 +13,6 @@ import Editor from '../components/Editor/Editor';
 
 @injectIntl
 class Ulogging extends React.Component {
-  state = {
-    activeKey: [],
-  }
-
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     location: PropTypes.shape().isRequired,
@@ -37,6 +33,16 @@ class Ulogging extends React.Component {
     } else {
       this.setState({ activeKey : ['1']});
     }
+  }
+
+  state = {
+    activeKey: ['1']
+  }
+  callback = (key) => {
+    console.log(key);
+    this.setState({
+      activeKey: key,
+    });
   }
 
   render() {
@@ -114,7 +120,7 @@ class Ulogging extends React.Component {
             <h3 style={{ background: '#fff' }}>
               <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
             </h3>
-            <Collapse defaultActiveKey={defaultActiveKey} >
+            <Collapse activeKey={this.state.activeKey} onChange={this.callback}>
               <Collapse.Panel
                 header="The art of ULOGGING"
                 key="1"
