@@ -13,6 +13,9 @@ import Editor from '../components/Editor/Editor';
 
 @injectIntl
 class Ulogging extends React.Component {
+  state = {
+    activeKey: [],
+  }
 
   static propTypes = {
     intl: PropTypes.shape().isRequired,
@@ -22,6 +25,19 @@ class Ulogging extends React.Component {
   static defaultProps = {
     searchResults: [],
   };
+
+  componentDidUpdate() {
+    const location = this.props.location.pathname.split('/')[1];
+    if (location === 'ulog-knowledge-bank') {
+      this.setState({ activeKey : ['2']});
+    } else if (location === 'ulog-fanlove') {
+      this.setState({ activeKey : ['3']});
+    } else if (location === 'surpassinggoogle') {
+      this.setState({ activeKey : ['4']});
+    } else {
+      this.setState({ activeKey : ['1']});
+    }
+  }
 
   render() {
 
@@ -98,7 +114,7 @@ class Ulogging extends React.Component {
             <h3 style={{ background: '#fff' }}>
               <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
             </h3>
-            <Collapse defaultActiveKey={defaultActiveKey}>
+            <Collapse defaultActiveKey={defaultActiveKey} activeKey={this.state.activeKey} >
               <Collapse.Panel
                 header="The art of ULOGGING"
                 key="1"
