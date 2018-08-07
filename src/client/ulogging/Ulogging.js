@@ -26,7 +26,7 @@ class Ulogging extends React.Component {
     searchResults: [],
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
     const location = this.props.location.pathname.split('/')[1];
     if (location === 'ulog-knowledge-bank') {
       this.setState({ activeKey : ['2']});
@@ -114,7 +114,7 @@ class Ulogging extends React.Component {
             <h3 style={{ background: '#fff' }}>
               <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
             </h3>
-            <Collapse defaultActiveKey={defaultActiveKey} activeKey={this.state.activeKey} >
+            <Collapse defaultActiveKey={defaultActiveKey} >
               <Collapse.Panel
                 header="The art of ULOGGING"
                 key="1"
