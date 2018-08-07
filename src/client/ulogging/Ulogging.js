@@ -98,7 +98,7 @@ class Ulogging extends React.Component {
             <h3 style={{ background: '#fff' }}>
               <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
             </h3>
-            <Collapse activeKey={defaultActiveKey}>
+            <Collapse defaultActiveKey={defaultActiveKey}>
               <Collapse.Panel
                 header="The art of ULOGGING"
                 key="1"
