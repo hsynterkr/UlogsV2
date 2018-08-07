@@ -24,8 +24,19 @@ class Ulogging extends React.Component {
 
   constructor(props) {
     super(props);
-    // Don't call this.setState() here!
-    this.state = { activeKey: [] };
+
+    let defaultActiveKey = [];
+    const location = this.props.location.pathname.split('/')[1];
+    if (location === 'ulog-knowledge-bank') {
+      defaultActiveKey = ['2'];
+    } else if (location === 'ulog-fanlove') {
+      defaultActiveKey = ['3'];
+    } else if (location === 'surpassinggoogle') {
+      defaultActiveKey = ['4'];
+    } else {
+      defaultActiveKey = ['1'];
+    }
+    this.state = { activeKey: defaultActiveKey };
   }
 
   callback = (key) => {
@@ -38,7 +49,6 @@ class Ulogging extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       const location = this.props.location.pathname.split('/')[1];
-      console.log(location);
       if (location === 'ulog-knowledge-bank') {
         this.setState({ activeKey : ['2']});
       } else if (location === 'ulog-fanlove') {
@@ -103,7 +113,6 @@ class Ulogging extends React.Component {
     };
 
     const location = this.props.location.pathname.split('/')[1];
-    console.log(location);
     let defaultActiveKey = [];
     if (location === 'ulog-knowledge-bank') {
       defaultActiveKey = ['2'];
