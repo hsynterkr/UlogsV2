@@ -40,10 +40,7 @@ class Ulogging extends React.Component {
   }
 
   callback = (key) => {
-    console.log(key);
-    this.setState({
-      activeKey: key,
-    });
+    this.setState({ activeKey: key });
   }
 
   componentDidUpdate(prevProps) {
