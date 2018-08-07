@@ -13,6 +13,7 @@ import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
 import withEditor from './withEditor';
 import EditorInput from './EditorInput';
+import UlogDropdown from './UlogDropdown';
 import { remarkable } from '../Story/Body';
 import BodyContainer from '../../containers/Story/BodyContainer';
 import './Editor.less';
@@ -245,11 +246,7 @@ class EditorUlogDIY extends React.Component {
           </Collapse>
         </div>
         <div className="hashtags">
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a className="ant-dropdown-link" href="#">
-              Try More #ulogging? <Icon type="down" />
-            </a>
-          </Dropdown>
+          <UlogDropdown />
         </div>
         <div>
           <Collapse>

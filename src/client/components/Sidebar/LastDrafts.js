@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedRelative } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { draftType, draftArrayType } from '../../types/drafts';
 import Loading from '../../components/Icon/Loading';
 import { getEditorLocation } from '../../helpers/editors';
 import './LastDrafts.less';
@@ -22,7 +23,7 @@ const Draft = ({ draft, editorLocation }) => (
   </div>
 );
 Draft.propTypes = {
-  draft: PropTypes.shape().isRequired,
+  draft: draftType.isRequired,
   editorLocation: PropTypes.string.isRequired,
 };
 
@@ -60,7 +61,7 @@ const LastDrafts = ({ drafts, loaded }) => {
 };
 
 LastDrafts.propTypes = {
-  drafts: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, title: PropTypes.string })),
+  drafts: draftArrayType,
   loaded: PropTypes.bool,
 };
 
