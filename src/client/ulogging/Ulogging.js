@@ -13,15 +13,50 @@ import Editor from '../components/Editor/Editor';
 
 @injectIntl
 class Ulogging extends React.Component {
-
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     location: PropTypes.shape().isRequired,
   };
 
-  static defaultProps = {
-    searchResults: [],
-  };
+  state = {
+    activeKey: [],
+  }
+
+  constructor(props) {
+    super(props);
+
+    let defaultActiveKey = [];
+    const location = this.props.location.pathname.split('/')[1];
+    if (location === 'ulog-knowledge-bank') {
+      defaultActiveKey = ['2'];
+    } else if (location === 'ulog-fanlove') {
+      defaultActiveKey = ['3'];
+    } else if (location === 'surpassinggoogle') {
+      defaultActiveKey = ['4'];
+    } else {
+      defaultActiveKey = ['1'];
+    }
+    this.state = { activeKey: defaultActiveKey };
+  }
+
+  callback = (key) => {
+    this.setState({ activeKey: key });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      const location = this.props.location.pathname.split('/')[1];
+      if (location === 'ulog-knowledge-bank') {
+        this.setState({ activeKey : ['2']});
+      } else if (location === 'ulog-fanlove') {
+        this.setState({ activeKey : ['3']});
+      } else if (location === 'surpassinggoogle') {
+        this.setState({ activeKey : ['4']});
+      } else {
+        this.setState({ activeKey : ['1']});
+      }
+    }
+  }
 
   render() {
 
@@ -98,7 +133,10 @@ class Ulogging extends React.Component {
             <h3 style={{ background: '#fff' }}>
               <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
             </h3>
-            <Collapse activeKey={defaultActiveKey}>
+            <Collapse
+              defaultActiveKey={defaultActiveKey} 
+              activeKey={this.state.activeKey}
+              onChange={this.callback}>
               <Collapse.Panel
                 header="The art of ULOGGING"
                 key="1"
