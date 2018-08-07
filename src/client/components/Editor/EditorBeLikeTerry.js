@@ -13,6 +13,7 @@ import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
 import withEditor from './withEditor';
 import EditorInput from './EditorInput';
+import UlogDropdown from './UlogDropdown';
 import { remarkable } from '../Story/Body';
 import BodyContainer from '../../containers/Story/BodyContainer';
 import './Editor.less';
@@ -209,23 +210,8 @@ class EditorBeLikeTerry extends React.Component {
     const { intl, form, loading, isUpdating, saving, draftId } = this.props;
     const { getFieldDecorator } = form;
     const { body, bodyHTML } = this.state;
-
     const { words, minutes } = readingTime(bodyHTML);
-
     const Panel = Collapse.Panel;
-    const menu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/editor'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/surpassinggoogle'}>SurpassingGoogle</Link>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Link to={'/fanlove'}>BeLikeTerry (Fan Love)</Link>
-        </Menu.Item>
-      </Menu>
-    );
 
     return (
       <div>
@@ -239,11 +225,7 @@ class EditorBeLikeTerry extends React.Component {
           </Collapse>
         </div>
         <div className="hashtags">
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a className="ant-dropdown-link" href="#">
-              Try More #ulogging? <Icon type="down" />
-            </a>
-          </Dropdown>
+          <UlogDropdown />
         </div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>

@@ -209,25 +209,8 @@ class EditorUlogSurpassingGoogle extends React.Component {
     const { intl, form, loading, isUpdating, saving, draftId } = this.props;
     const { getFieldDecorator } = form;
     const { body, bodyHTML } = this.state;
-
     const { words, minutes } = readingTime(bodyHTML);
-
-    const menu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
     const Panel = Collapse.Panel;
-
 
     return (
       <div>

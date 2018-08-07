@@ -167,20 +167,6 @@ class Topnav extends React.Component {
     const SubMenu = Menu.SubMenu;
     const MenuItemGroup = Menu.ItemGroup;
 
-    const ulogSubMenu = (
-      <SubMenu key="sub1" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-        <Menu.Item key="0">
-          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
-        </Menu.Item>
-      </SubMenu>
-    );
-
     const menu = (
       <Menu>
         <Menu.Item key="0">
