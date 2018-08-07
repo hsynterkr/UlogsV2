@@ -19,7 +19,7 @@ class Ulogging extends React.Component {
   };
 
   state = {
-    activeKey: ['1']
+    activeKey: [],
   }
 
   constructor(props) {
