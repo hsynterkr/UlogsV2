@@ -79,6 +79,9 @@ class Ulogging extends React.Component {
         <Menu.Item key="0">
           <Link to={'/ulog-diy'}>#ulog-diy (Fresh DIY per day)</Link>
         </Menu.Item>
+        <Menu.Item key="1">
+          <Link to={'/ulog-howto'}>#ulog-howto</Link>
+        </Menu.Item>
       </Menu>
     );
 
@@ -89,6 +92,9 @@ class Ulogging extends React.Component {
         </Menu.Item>
         <Menu.Item key="1">
           <Link to={'/ulog-surpassinggoogle'}>#ulog-surpassinggoogle (Emulate, Learn, Gratitude, Celebrate etc @surpassinggoogle)</Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link to={'/ulog-quotes'}>#ulog-quotes</Link>
         </Menu.Item>
       </Menu>
     );

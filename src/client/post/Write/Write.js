@@ -32,6 +32,8 @@ import EditorTeardrop from '../../components/Editor/EditorTeardrop';
 import EditorUntalented from '../../components/Editor/EditorUntalented';
 import EditorUlogNed from '../../components/Editor/EditorUlogNed';
 import EditorUlogDIY from '../../components/Editor/EditorUlogDIY';
+import EditorUlogQuotes from '../../components/Editor/EditorUlogQuotes';
+import EditorUlogHowto from '../../components/Editor/EditorUlogHowto';
 import EditorUlogSurpassingGoogle from '../../components/Editor/EditorUlogSurpassingGoogle';
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
 import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
@@ -424,6 +426,46 @@ class Write extends React.Component {
                 path="/ulog-diy"
                 render={() => (
                   <EditorUlogDIY
+                    ref={this.setForm}
+                    saving={saving}
+                    title={initialTitle}
+                    topics={initialTopics}
+                    body={initialBody}
+                    reward={initialReward}
+                    upvote={initialUpvote}
+                    draftId={draftId}
+                    loading={loading}
+                    isUpdating={this.state.isUpdating}
+                    onUpdate={this.saveDraft}
+                    onSubmit={this.onSubmit}
+                    onDelete={this.onDelete}
+                  />
+                )}
+              />
+              <Route
+                path="/ulog-howto"
+                render={() => (
+                  <EditorUlogHowto
+                    ref={this.setForm}
+                    saving={saving}
+                    title={initialTitle}
+                    topics={initialTopics}
+                    body={initialBody}
+                    reward={initialReward}
+                    upvote={initialUpvote}
+                    draftId={draftId}
+                    loading={loading}
+                    isUpdating={this.state.isUpdating}
+                    onUpdate={this.saveDraft}
+                    onSubmit={this.onSubmit}
+                    onDelete={this.onDelete}
+                  />
+                )}
+              />
+              <Route
+                path="/ulog-quotes"
+                render={() => (
+                  <EditorUlogQuotes
                     ref={this.setForm}
                     saving={saving}
                     title={initialTitle}
