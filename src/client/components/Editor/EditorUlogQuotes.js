@@ -221,8 +221,10 @@ class EditorUlogQuotes extends React.Component {
               <p>
               <b className="bold-italic">"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!" @surpassinggoogle
               "Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel"". @surpassinggoogle</b>
-              #ulog represents <b className="bold-italic">"freshness per day"</b>. A means to gift to the internet each day and not resource from it; reshaping it with freshness. Thus, <b className="bold-italic">"#ulog-quotes"</b> will form a place to deposit freshly-invented quotes born of the histories & stories that we experience (per day); and <b className="bold-italic">"each day and "you" in it, carries its own freshness.
-              "We will start an ever-ongoing movement that will create globally-renown quotes, quotable by the globe. We will use this means to leave our #ulogacies in the spaces". @surpassinggoogle</b>
+              
+              <br/> #ulog represents <b className="bold-italic">"freshness per day"</b>. A means to gift to the internet each day and not resource from it; reshaping it with freshness. Thus, <b className="bold-italic">"#ulog-quotes"</b> will form a place to deposit freshly-invented quotes born of the histories & stories that we experience (per day); and <b className="bold-italic">"each day and "you" in it, carries its own freshness. <br/>
+              
+              <br/> "We will start an ever-ongoing movement that will create globally-renown quotes, quotable by the globe. We will use this means to leave our #ulogacies in the spaces". @surpassinggoogle</b> <br/>
 
               <blockquote style={{'border-left':'3px solid #a9a9a9', 'padding' : '0 10px', 'color' : '#a9a9a9'}}>Join the movement! Be "true fans" on #ulog-quotes! Create #ulog-quotes now! Join us on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>.</blockquote>
               </p>
@@ -257,16 +259,16 @@ class EditorUlogQuotes extends React.Component {
                 <li>May your #ulog-quotes be fresh, born out of your experience, moments, that-moment etc (per day).</li>
                 <li>Recall that ULOGS are spanless! Thus, your #ulog-quotes can cover life; can be funny; can be playful etc</li>
                 <li>Ultimately, you will know it, when you have created a Ulog-Quote. You will end up memorizing it, treasuring it, living by it. You will end up quoting yourself, then the world will end up quoting you.</li>
-                <li>In the art of #ulogging under #ulog-quotes, there is no need to resource from the internet. Keep all videos, images, sound, avatars fresh. As for images, be inventive/innovative. You can use simple applications like paint, autodraw.com etc or you can make it meme-style using <a href="https://imgur.com/memegen">https://imgur.com/memegen</a>. See sample image <a href="https://steemitimages.com/0x0/https://i.imgur.com/sy2A3LG.jpg" rel="nofollow">Here</a>. Let's gift to internet and re-shape it, with "YOU"!</li>
+                <li>In the art of #ulogging under #ulog-quotes, there is no need to resource from the internet. <b className="bold-italic">Keep all videos, images, sound, avatars fresh. As for images, be inventive/innovative. You can use simple applications like paint, autodraw.com etc or you can make it meme-style using <a href="https://imgur.com/memegen">https://imgur.com/memegen</a>. See sample image <a href="https://steemitimages.com/0x0/https://i.imgur.com/sy2A3LG.jpg" rel="nofollow">Here</a>. Let's gift to internet and re-shape it, with "YOU"!</b></li>
                 <li>Where possible, endeavor to add your location as one of your hashtags as well.</li>
                 <li>Relegate reservations, attempt out-of-the-boxness; "flaws allowed"!</li>
                 <li>Have fun but create more testimonial use for fun.</li>
                 <li>Every Ulog-Quote post that you write here appears on the decentralized steem blockchain and can earn you a variety of rewards, steem, opportunities etc. Make the most of each post.</li>
                 <li>Remember that you have "<b className="bold-italic">you</b>" as your first audience, an audience of "true fans", an audience in the search engines and an audience of generations-yet-unborn. Use each Ulog-Quote to leave your #ulogacies in lights.</li>
-                <li>Be "true fans" on #ulog-diy, get inspired, grow your "true fan-base".</li>
+                <li>Be "true fans" on #ulog-quotes, get inspired, grow your "true fan-base".</li>
                 <li>Grow each time!</li>
                 <li>Think of the Creator Jehovah.</li>
-                <li>Join the #ulog-diy community on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>.</li>
+                <li>Join the #ulog-quotes community on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>.</li>
                 <li>etc</li>
               </ul>
             </Panel>
