@@ -237,7 +237,7 @@ class EditorUlogDIY extends React.Component {
             <Panel header='The "#ulog-diy" Editor' key="1">
               <p>
               We like to reward #ulogging contributions born solely out of <span className="bold-italic">"your experience" (per day)</span>. We seek to incentivize you to learn something new <span className="bold-italic">(per day)</span>, for the sake of #ulogging. This way, <span className="bold-italic">"not a day slips emptily by" and not a day aren't you capable of reshaping the INTERNET; touching your "true fans" and attaining "true celebrity-hood" etc</span>
-              It's simple. When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh. Simply use this editor to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-DIY(s) born solely out of your experience (per day)</span>.
+              <br/> It's simple. When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh. Simply use this editor to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-DIY(s) born solely out of your experience (per day)</span>. <br/>
 
               Become "true fans"! Visit #ulog-diy daily. Join its community on <span className="bold-italic" style={{'color':'blue'}}>Discord</span> & <span className="bold-italic" style={{'color':'blue'}}>Telegram</span>.
 
