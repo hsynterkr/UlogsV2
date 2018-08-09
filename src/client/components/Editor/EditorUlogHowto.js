@@ -221,7 +221,7 @@ class EditorUlogHowto extends React.Component {
               <p>
               We like to reward #ulogging contributions born solely out of <span className="bold-italic">"your experience" (per day)</span>. We seek to incentivize you to learn something new <span className="bold-italic">(per day)</span>, for the sake of #ulogging. This way, <span className="bold-italic">"not a day slips emptily by" and not a day aren't you capable of reshaping the INTERNET; touching your "true fans" and attaining "true celebrity-hood" etc</span>
               
-              It's simple. <a href="https://steemit.com/@ulogs/can-ulogging-and-ulogs-org-reshape-the-entire-internet-what-if-we-re-fresh-every-existing-hashtag-birthing-fresh-ulog-based">When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh</a>. Simply use this editor to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-HOWTO(s) born solely out of your experience (per day)</span>.
+              <br/> It's simple. <a href="https://steemit.com/@ulogs/can-ulogging-and-ulogs-org-reshape-the-entire-internet-what-if-we-re-fresh-every-existing-hashtag-birthing-fresh-ulog-based">When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh</a>. Simply use this editor to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-HOWTO(s) born solely out of your experience (per day)</span> <br/>.
 
               Become "<span className="bold-italic">true fans</span>"! Visit #ulog-howto daily. Join its community on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>.
               </p>
