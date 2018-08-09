@@ -220,8 +220,8 @@ class EditorUlogSurpassingGoogle extends React.Component {
               <p>
                  <span className="bold-italic">@surpassinggoogle</span> is just <span className="bold-italic">"your boy Terry"</span> and mere dust overall. His entire tired being, "even that", loves you like crazy.
                   He breaks down and he doesnt mind, so that <span className="bold-italic">"suffering must now have essence"</span> and especially, so that generations yet unborn meet <span className="bold-italic">"lights" inside every tunnel.</span>
-                  He is SurpassingGoogle by means of the Teardrops SMTs, which seeks to reward <span className="bold-italic">"proof of tears".</span> He is helping to bring forth the <span className="bold-italic">art of #ulogging,</span> an entire curriculum that <span className="bold-italic">mines the human "into its awesomest version".</span>
-                  You can support him by voting on his witness called "<span style={{'color':'blue'}}>steemgigs";</span> called so to represent "everyone has something to offer".
+                  <br/> He is SurpassingGoogle by means of the Teardrops SMTs, which seeks to reward <span className="bold-italic">"proof of tears".</span> He is helping to bring forth the <span className="bold-italic">art of #ulogging,</span> an entire curriculum that <span className="bold-italic">mines the human "into its awesomest version".</span> <br/>
+                  <br/> You can support him by voting on his witness called "<span style={{'color':'blue'}}>steemgigs";</span> called so to represent "everyone has something to offer". <br/>
               </p>
             </Panel>
           </Collapse>
