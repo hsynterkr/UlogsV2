@@ -51,6 +51,8 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
+    const displayUlogQuotes = location.pathname === '/created/ulog-quotes';
+    console.log(location.pathname);
 
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
@@ -86,6 +88,9 @@ class Page extends React.Component {
               </div>
             </Affix>
             <div className="center">
+              {displayUlogQuotes &&
+                <div>Display ulog quotes here..</div>
+              }
               {displayTopicSelector && <TrendingTagsMenu />}
               {shouldDisplaySelector && (
                 <TopicSelector
