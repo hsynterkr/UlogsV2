@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Carousel } from 'antd';
+import { Carousel, Collapse } from 'antd';
 import { getFeedContent } from './feedActions';
 import { getIsLoaded, getIsAuthenticated } from '../reducers';
 import SubFeed from './SubFeed';
@@ -15,6 +15,7 @@ import Affix from '../components/Utils/Affix';
 import ScrollToTop from '../components/Utils/ScrollToTop';
 import ScrollToTopOnMount from '../components/Utils/ScrollToTopOnMount';
 import QuickPostEditor from '../components/QuickPostEditor/QuickPostEditor';
+import './Feed.less';
 
 @connect(state => ({
   authenticated: getIsAuthenticated(state),
@@ -51,7 +52,7 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-
+    const displayUlogQuotes = location.pathname === '/created/ulog-quotes';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
     return (
@@ -86,6 +87,24 @@ class Page extends React.Component {
               </div>
             </Affix>
             <div className="center">
+              {displayUlogQuotes &&
+                <div className="ulog-quotes">
+                  <Collapse defaultActiveKey={['1']} >
+                    <Collapse.Panel header="About #ulog-quotes" key="1">
+                      <i>"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!"</i> <b>@surpassinggoogle</b><br/><br/>
+                      <i>"Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel".</i> <b>@surpassinggoogle</b><br/><br/>
+                      <b>
+                        Join the movement! Be "true fans" on #ulog-quotes! Create #ulog-quotes now by <a href="https://ulogs.org/ulog-quotes">Clicking Here</a>! Join us on <a href="https://discord.gg/QFaFj87">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+                        Verified/Certified @uloggers who oversea #ulog-quotes currently:<br/>
+                        <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                          <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic (Follow)</a></li>
+                          <li><a href="https://v2.steemconnect.com/sign/follow?following=surpassinggoogle">@surpassinggoogle (Follow)</a></li>
+                        </ul>
+                      </b>
+                    </Collapse.Panel>
+                  </Collapse>
+                </div>
+              }
               {displayTopicSelector && <TrendingTagsMenu />}
               {shouldDisplaySelector && (
                 <TopicSelector
