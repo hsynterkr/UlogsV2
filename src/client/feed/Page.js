@@ -52,7 +52,7 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-    const displayUlogQuotes = location.pathname === '/created/ulog-quotes';
+    const displayUlogQuotes = category === 'ulog-quotes';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
     return (
