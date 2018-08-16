@@ -57,11 +57,8 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/:category?/@:author/:permlink',
-        component: Post,
-      },
-      {
         path: '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy|ulog-howto|ulog-quotes)',
+        exact: true,
         component: Editor,
       },
       {
@@ -136,6 +133,11 @@ const routes = [
         exact: true,
         component: Discover,
       },
+      {
+        path: '/:category?/@:author/:permlink',
+        component: Post,
+      },
+
       {
         path: '/search',
         component: Search,
