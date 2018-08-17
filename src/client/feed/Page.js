@@ -52,7 +52,7 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-    const displayUlogQuotes = category === 'ulog-quotes';
+    const displayUlogQuotes = category === 'ulog-diy';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
     return (
@@ -90,11 +90,11 @@ class Page extends React.Component {
               {displayUlogQuotes &&
                 <div className="ulog-quotes">
                   <Collapse defaultActiveKey={['1']} >
-                    <Collapse.Panel header="About #ulog-quotes" key="1">
+                    <Collapse.Panel header="About #ulog-diy" key="1">
                       <i>"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!"</i> <b>@surpassinggoogle</b><br/><br/>
                       <i>"Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel".</i> <b>@surpassinggoogle</b><br/><br/>
                       <b>
-                        Join the movement! Be "true fans" on <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a>! You can create <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a> right now by using <a href="https://ulogs.org/ulog-quotes">This Editor</a>! Join us on <a href="https://discord.gg/QFaFj87">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+                        Join the movement! Be "true fans" on <a href="https://ulogs.org/created/ulog-diy">#ulog-diy</a>! You can create <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a> right now by using <a href="https://ulogs.org/ulog-quotes">This Editor</a>! Join us on <a href="https://discord.gg/QFaFj87">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
                         Verified/Certified @uloggers who oversea #ulog-quotes currently:<br/>
                         <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
                           <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [Follow]</a></li>
