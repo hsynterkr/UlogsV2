@@ -52,7 +52,7 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-    const displayUlogQuotes = category === 'ulog-quotes';
+    const displayUlogQuotes = category === 'ulog-diy';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
     return (
@@ -90,14 +90,13 @@ class Page extends React.Component {
               {displayUlogQuotes &&
                 <div className="ulog-quotes">
                   <Collapse defaultActiveKey={['1']} >
-                    <Collapse.Panel header="About #ulog-quotes" key="1">
-                      <i>"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!"</i> <b>@surpassinggoogle</b><br/><br/>
-                      <i>"Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel".</i> <b>@surpassinggoogle</b><br/><br/>
+                    <Collapse.Panel header="About #ulog-diy" key="1">
+                      <i>We like to reward #ulogging contributions born solely out of <span className="bold-italic">"your experience" (per day)</span>. We seek to incentivize you to learn something new <span className="bold-italic">(per day)</span>, for the sake of #ulogging. This way, <span className="bold-italic">"not a day slips emptily by" and not a day aren't you capable of reshaping the INTERNET; touching your "true fans" and attaining "true celebrity-hood" etc</span><br/><br/>
+                      <i>It's simple. When you add #ulog to any existing concept etc an existing concept suddenly turns out all fresh. Simply use <a href="https://ulogs.org/ulog-diy">This Editor</a> to contribute to the Ulog-KnowledgeBank, <span className="bold-italic">freshly-made #ulog-DIY(s) born solely out of your experience (per day)</span>.<br/><br/>
                       <b>
-                        Join the movement! Be "true fans" on <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a>! You can create <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a> right now by using <a href="https://ulogs.org/ulog-quotes">This Editor</a>! Join us on <a href="https://discord.gg/QFaFj87">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
-                        Verified/Certified @uloggers who oversea #ulog-quotes currently:<br/>
-                        <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-                          <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [Follow]</a></li>
+                        Join the movement! Be "true fans" on <a href="https://ulogs.org/created/ulog-diy">#ulog-diy</a>! You can create <a href="https://ulogs.org/created/ulog-diy">#ulog-diy</a> right now by using <a href="https://ulogs.org/ulog-diy">This Editor</a>! Join us on <a href="https://discord.gg/qyY6hAQ">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+                        Verified/Certified @uloggers who oversea #ulog-diy currently:<br/>
+                        <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}
                           <li><a href="https://v2.steemconnect.com/sign/follow?following=surpassinggoogle">@surpassinggoogle [Follow]</a></li>
                         </ul>
                       </b>
