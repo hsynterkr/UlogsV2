@@ -52,7 +52,7 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-    const displayUlogQuotes = category === 'ulog-diy';
+    const displayUlogQuotes = category === 'ulog-quotes';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
     
     return (
@@ -90,7 +90,7 @@ class Page extends React.Component {
               {displayUlogQuotes &&
                 <div className="ulog-quotes">
                   <Collapse defaultActiveKey={['1']} >
-                    <Collapse.Panel header="About #ulog-diy" key="1">
+                    <Collapse.Panel header="About #ulog-quotes" key="1">
                       <i>"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!"</i> <b>@surpassinggoogle</b><br/><br/>
                       <i>"Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel".</i> <b>@surpassinggoogle</b><br/><br/>
                       <b>
