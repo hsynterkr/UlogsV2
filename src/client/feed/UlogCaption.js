@@ -37,9 +37,9 @@ class UlogCaption extends React.Component {
 
     const ulogHowtoCaption = (
       <span>
-        We like to reward #ulogging contributions born solely out of <b><i>"your experience" (per day)</i></b>. We seek to incentivize you to learn something new (per day), for the sake of #ulogging.<br/><br/>
+        We like to reward #ulogging contributions born solely out of <b><i>"your experience" (per day)</i></b>. We seek to incentivize you to learn something new (per day), for the sake of #ulogging.<br/>
         It's simple. <b><i>When you add <a href="https://ulogs.org/created/ulog">#ulog</a> to any existing concept etc an existing concept suddenly turns out all fresh.</i></b><br/><br/>
-        Simply use <a href="https://ulogs.org/ulog-howto>This Editor</a> to contribute to the Ulog-KnowledgeBank, freshly-made <a href="https://ulogs.org/created/ulog-howto">#ulog-HOWTO</a>(s) born solely out of <b><i>your experience (per day)</i></b>.<br/><br/>
+        Simply use <a href="https://ulogs.org/ulog-howto">This Editor</a> to contribute to the Ulog-KnowledgeBank, freshly-made <a href="https://ulogs.org/created/ulog-howto">#ulog-HOWTO</a>(s) born solely out of <b><i>your experience (per day)</i></b>.<br/><br/>
         <b>
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-howto">#ulog-howto</a> daily! Join its community on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
           Verified/Certified @uloggers who oversee #ulog-howto currently:<br/>
@@ -62,7 +62,7 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-howto') {
       caption = ulogHowtoCaption;
     }
-    const about = `About {category}`;
+    const about = `About #${category}`;
 
     return (
       <div className="ulog-quotes">
