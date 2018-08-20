@@ -10,10 +10,6 @@ class UlogCaption extends React.Component {
     category: PropTypes.string.isRequired,
   };
 
-  state = {
-    activeKey: [],
-  }
-
   constructor(props) {
     super(props);
   }
