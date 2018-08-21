@@ -46,20 +46,21 @@ class UlogCaption extends React.Component {
       </span>
     );
 
-    const ulogDiyCaption = (
+    const ulogSurpassinggoogleCaption = (
       <span>
-        We like to reward #ulogging contributions born solely out of <b><i>"your experience" (per day)</i></b>. We seek to incentivize you to learn something new (per day), for the sake of #ulogging.<br/>
-        It's simple. <b><i>When you add <a href="https://ulogs.org/created/ulog">#ulog</a> to any existing concept etc an existing concept suddenly turns out all fresh.</i></b><br/><br/>
-        Simply use <a href="https://ulogs.org/ulog-diy">This Editor</a> to contribute to the Ulog-KnowledgeBank, freshly-made <a href="https://ulogs.org/created/ulog-diy">#ulog-DIY</a>(s) born solely out of <b><i>your experience (per day)</i></b>.<br/><br/>
+        <span className="bold-italic">@surpassinggoogle</span> is just <span className="bold-italic">"your boy Terry"</span> and mere dust overall. His entire tired being, "even that", loves you like crazy.
+        He breaks down and he doesnt mind, so that <span className="bold-italic">"suffering must now have essence"</span> and especially, so that generations yet unborn meet <span className="bold-italic">"lights" inside every tunnel.</span>
+        <br/> He is SurpassingGoogle by means of the Teardrops SMTs, which seeks to reward <span className="bold-italic">"proof of tears".</span> He is helping to bring forth the <span className="bold-italic">art of #ulogging,</span> an entire curriculum that <span className="bold-italic">mines the human "into its awesomest version".</span> <br/>
+        Simply use <a href="https://ulogs.org/ulog-surpassinggoogle">This Editor</a> to "love him like crazy; to emulate him; to learn about him, to be "true fans" of him, to share memories with him etc (per day)<br/><br/>
         <b>
-          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-diy">#ulog-diy</a> daily! Join its community on <a href="https://discord.gg/qyY6hAQ">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
-          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-diy">#ulog-diy</a> currently:<br/>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-surpassinggoogle">#ulog-surpassinggoogle</a> daily! Join its community on <a href="https://discord.gg/2qTW6XV">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-surpassinggoogle">#ulog-surpassinggoogle</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
             <li>[Coming Soon!!!]</li>
           </ul>
         </b>
       </span>
-    );
+    ); 
 
     const customPanelStyle = {
       marginBottom: 5,
@@ -74,6 +75,8 @@ class UlogCaption extends React.Component {
       caption = ulogHowtoCaption;
     } else if (category === 'ulog-diy') {
       caption = ulogDiyCaption;
+    } else if (category === 'ulog-surpassinggoogle') {
+      caption = ulogSurpassinggoogleCaption;
     }
     const about = `About #${category}`;
 
