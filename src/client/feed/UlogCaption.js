@@ -60,6 +60,21 @@ class UlogCaption extends React.Component {
           </ul>
         </b>
       </span>
+    );
+
+    const teardropsCaption = (
+      <span>
+        <span className="bold-italic">Share your @teardrops moments, happy, sad, unfell etc.</span> We seek to reward <span className="bold-italic">"proof of tears".</span> As you <span className="bold-italic">"mine the human"</span> en-route <span className="bold-italic">"breakthrough"</span>, there will be many tears, happy, sad or unfell. <span className="bold-italic">"Each tear has value".</span>
+        <br/> We will celebrate each tear with a "breakthrough token" and "emblem of human" called the "Teardrops Smart Media Tokens". <br/>    
+        <span className="bold-italic">Write a #teardrops post today.</span> Simply use <span className="bold-italic"><a href="https://ulogs.org/teardrops">This Editor.</a></span> You may get some imaginary Teardrops SMT today in the form of steem.<br/><br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/teardrops">#teardrops</a> daily! Join its community on <a href="https://discord.gg/DsqaqNr">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/teardrops">#teardrops</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li>[Coming Soon!!!]</li>
+          </ul>
+        </b>
+      </span>
     ); 
 
     const customPanelStyle = {
@@ -77,6 +92,8 @@ class UlogCaption extends React.Component {
       caption = ulogDiyCaption;
     } else if (category === 'ulog-surpassinggoogle') {
       caption = ulogSurpassinggoogleCaption;
+    } else if (category === 'teardrops') {
+      caption = teardropsCaption;
     }
     const about = `About #${category}`;
 
