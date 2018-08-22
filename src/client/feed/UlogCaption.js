@@ -92,6 +92,21 @@ class UlogCaption extends React.Component {
       </span>
     ); 
 
+    const untalentedCaption = (
+      <span>
+        <span className="bold-italic">We don't want any level of talent or potential talent to go amiss without celebrating it. We seek to reward even "attempts at out-of-the-boxness". If we remove bum, smart or average, "we are genius". </span>
+        <br/> #untalented is a home (an important aspect of ulogs.org) where "flaws are allowed". When you write under <a href="https://ulogs.org/created/untalented">#untalented</a>, "relegate reservations". We will sift even the nonsense to find sense therein. <br/>    
+        <span className="bold-italic">Not too confident? Confident? Too confident? Write under <a href="https://ulogs.org/created/untalented">#untalented</a>.</span> Simply use <span className="bold-italic"><a href="https://ulogs.org/untalented">This Editor.</a></span> <br/><br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/untalented">#untalented</a> daily! Join its community on <a href="https://discord.gg/jsENq3b">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/untalented">#untalented</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li>[Coming Soon!!!]</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -109,6 +124,8 @@ class UlogCaption extends React.Component {
       caption = ulogSurpassinggoogleCaption;
     } else if (category === 'teardrops') {
       caption = teardropsCaption;
+    } else if (category === 'untalented') {
+      caption = untalentedCaption;
     }
     const about = `About #${category}`;
 
