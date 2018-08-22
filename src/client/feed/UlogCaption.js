@@ -107,6 +107,22 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogNedCaption = (
+      <span>
+        Ned Scott is the CEO of Steemit and someone worthy of constant <span className="bold-italic">THANKS</span> or perhaps <span className="bold-italic">emulation</span>. <br/>
+        He sustains the steem blockchain; he is birthing <span className="bold-italic">Smart Media Tokens</span>; he is creating <span className="bold-italic">"beautiful disruptions"</span> by putting <span className="bold-italic">"everyone"</span> in the equation. <br/>
+        <span className="bold-italic">ULOGS.org:</span> He won't request <span className="bold-italic">"true fans"</span> but we say; <span className="bold-italic">"True Celebrity-hood for "everyone" once and for all".</span> <br/>    
+        Simply use <span className="bold-italic"><a href="https://ulogs.org/ulog-ned">This Editor</a></span> to "give back"; to emulate him; to learn about him, to be "true fans" of him, to share memories with him; to reach out to him etc (per day) <br/><br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-ned">#ulog-ned</a> daily! Join its community on <a href="https://discord.gg/Up8eMGa">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-ned">#ulog-ned</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li>[Coming Soon!!!]</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -126,6 +142,8 @@ class UlogCaption extends React.Component {
       caption = teardropsCaption;
     } else if (category === 'untalented') {
       caption = untalentedCaption;
+    } else if (category === 'ulog-ned') {
+      caption = ulogNedCaption;
     }
     const about = `About #${category}`;
 
