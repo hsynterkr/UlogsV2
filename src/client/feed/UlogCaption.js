@@ -123,6 +123,23 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulographyCaption = (
+      <span>
+        <b>Ulography</b>: This is the Ulog-generated hashtag for (Ulog + Photography). <br/>
+        <a href="https://ulogs.org/created/ulography">#ulography</a> allows you to contribute (& curate) <b>photographs created by "YOU" (per day)</b> and it is already birthing a <a href="https://discord.gg/mWVYjxc">growing community of "true fans"</a>. <br/>
+        It's simple! When you add <a href="https://ulogs.org/created/ulog">#ulog</a> to any existing concept etc an existing concept suddenly turns out all fresh. (A major essence of the <a href="https://ulogs.org/created/ulog">#ulog</a> movement is to gift to the internet, instead of resource from it, in a bid to reshape it.) <br/>
+        To create a Ulog under "<a href="https://ulogs.org/created/ulography">#ulography</a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a>  then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog">#ulog</a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulography">#ulography</a>" as your 2nd hashtag. You can then add other hashtags e.g your "#location" etc. Don't forget to add "(Ulog + Photography)" or "ULOG (Photography)" somewhere IN-TITLE. <br/><br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulography">#ulography</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/mWVYjxc">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulography">#ulography</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a></li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=surpassinggoogle">@surpassinggoogle [Follow]</a></li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -144,6 +161,8 @@ class UlogCaption extends React.Component {
       caption = untalentedCaption;
     } else if (category === 'ulog-ned') {
       caption = ulogNedCaption;
+    } else if (category === 'ulography') {
+      caption = ulographyCaption;  
     }
     const about = `About #${category}`;
 
