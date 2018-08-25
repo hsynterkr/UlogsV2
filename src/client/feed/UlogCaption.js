@@ -140,6 +140,24 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogGratefulvibesCaption = (
+      <span>
+        <b>Ulog-GratefulVibes</b>: the <b>Ulog-based hashtag for (Ulog + GratefulVibes)</b>. <br/>
+        It allows you to document <b>your gratefulness (per day)</b>, also as a means to <b>"gift to the internet"</b>, by <b>not resourcing from it</b>; thus, reshaping it. <br/> We want to serve the search engines with <b>"grateful pieces of YOU" (per day)</b> and <b>each day, "You" in it</b>, carries its own <b>gratefulness</b>. <br/>
+        It's simple! When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any "existing concept" etc "an existing concept suddenly turns out all fresh". <b>Let's use the art of <a href="https://ulogs.org/created/ulogging">#ulogging</a>, to pay forward a GratefulVibe today!</b> <br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "<a href="https://ulogs.org/created/gratefulvibes"><b>#gratefulvibes</b></a>" etc. Don't forget to <b>add "(Ulog + GratefulVibes):" or "ULOG (GratefulVibes):" somewhere IN-TITLE</b>. <br/><br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/fpthaj2"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] </li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@paradise-found [Follow]</a>[Contact: <a href="https://discord.gg/qtkdbSc"><b>Discord</b></a>]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@bloghound [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>]</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -162,7 +180,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-ned') {
       caption = ulogNedCaption;
     } else if (category === 'ulography') {
-      caption = ulographyCaption;  
+      caption = ulographyCaption;
+    } else if (category === 'ulog-gratefulvibes') {
+      caption = ulogGratefulvibesCaption;  
     }
     const about = `About #${category}`;
 
