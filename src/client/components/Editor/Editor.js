@@ -235,15 +235,33 @@ class Editor extends React.Component {
           <Collapse defaultActiveKey={['1']}>
             <Panel header="About ULOGS" key="1">
               <p>
-                Ulogs.org allows you to enjoy the entire steem ecosystem. You can browse and read every post on the steem blockchain, comment, upvote, check your wallet and activities etc and you can also create and publish posts. <br/>
-                Each time you use ulogs.org though, you will be reminded of steem's beauty. You will also be giving back to steem, a negligible sum with "Steemit INC" as beneficiary. <br/>
-                To write a post now, you are all set; "Use the editor below!" <br/>
+                Ulogs.org has a bunch of specialized editors for posting Ulogs, whether you are ulogging under #ulog or under a #ulog-subtag etc. You can explore these editors by clicking the "PEN Icon" on the top right area across our website. Alternatively though, if you have found yourself here, you can always use this "General-Purpose Editor" to post your Ulogs, normal blogs etc, after following a few guidelines. Make sure to expand (read) the Style-Guide just below, before you post, to be sure you are posting correctly. 
+                The general principle when posting under #ulog or under any #ulog-subtag is; <b>[the more popular "#ulog" should be your first hashtag, while the "#ulog-subtag" should be the 2nd hashtag]</b>. Note that, you are allowed to birth fresh ulog-subtags along with the "communities" these bring! Inanycase, (for Ulogs) always maintain "#ulog" as your first hashtag, whenever your post is Ulog-related <br/>
+                <b>Special Note:</b> You can also post on steemit like normal, using the "General-Purpose" editor below. In this case, [you have no need to use #ulog] simply chose 5 hashtags related to your subject and chose a Catch Title. <br/><br/>
+                <b>Kindly expand the Style-Guide below for QUICK INSIGHT!!!</b>   
               </p>
             </Panel>
           </Collapse>
         </div>
         <div className="hashtags">
           <UlogDropdown />
+        </div>
+        <div>
+          <Collapse>
+            <Panel header="The General-Purpose Editor (Style-Guide For #ulog/#ulog-subtags)" key="1">
+              <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulography">#ulography</a>:</b> [<b>TAGS:</b> #ulog, #ulography etc] [<b>IN-TITLE:</b> add "<b>(ULOG + Photography):</b>" etc]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-gratefulvibes</b> etc] [IN-TITLE: add <b>"(ULOG + GratefulVibes):"</b> etc.]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-resolutions</b> etc] [IN-TITLE: add <b>"(ULOG + Resolutions):"</b> etc.]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-memes</b> etc] [IN-TITLE: add <b>"(ULOG + Memes):"</b> etc.]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-blocktrades</b> etc] [IN-TITLE: add <b>"(ULOG + Blocktrades):"</b> etc.]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-podcasts">#ulog-podcasts</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-podcasts</b> etc] [IN-TITLE: add <b>"(ULOG + Podcasts):"</b> etc.]</li>
+                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-savetheday">#ulog-savetheday</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-savetheday</b> etc] [IN-TITLE: add <b>"(ULOG + SaveTheDay):"</b> etc.]</li>
+                <li><b>etc</b></li>
+              </ul>
+            </Panel>
+          </Collapse>
+
         </div>
       <Form className="Editor" layout="vertical" onSubmit={this.handleSubmit}>
         <Helmet>
