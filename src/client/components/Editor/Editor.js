@@ -233,12 +233,16 @@ class Editor extends React.Component {
       <div>
         <div>
           <Collapse defaultActiveKey={['1']}>
-            <Panel header="About ULOGS" key="1">
+            <Panel header="The General-Purpose Editor" key="1">
               <p>
-                Ulogs.org has a bunch of specialized editors for posting Ulogs, whether you are ulogging under #ulog or under a #ulog-subtag etc. You can explore these editors by clicking the "PEN Icon" on the top right area across our website. Alternatively though, if you have found yourself here, you can always use this "General-Purpose Editor" to post your Ulogs, normal blogs etc, after following a few guidelines. Make sure to expand (read) the Style-Guide just below, before you post, to be sure you are posting correctly. 
-                The general principle when posting under #ulog or under any #ulog-subtag is; <b>[the more popular "#ulog" should be your first hashtag, while the "#ulog-subtag" should be the 2nd hashtag]</b>. Note that, you are allowed to birth fresh ulog-subtags along with the "communities" these bring! Inanycase, (for Ulogs) always maintain "#ulog" as your first hashtag, whenever your post is Ulog-related <br/>
-                <b>Special Note:</b> You can also post on steemit like normal, using the "General-Purpose" editor below. In this case, [you have no need to use #ulog] simply chose 5 hashtags related to your subject and chose a Catch Title. <br/><br/>
-                <b>Kindly expand the Style-Guide below for QUICK INSIGHT!!!</b>   
+                <b>Ulogs.org has a bunch of specialized editors for posting Ulogs,</b> whether you are ulogging under <a href="https://ulogs.org/created/ulog">#ulog</a> or under a #ulog-subtag (e.g #ulography, #ulog-resolutions, #ulog-hugot etc.). You can explore these editors by clicking the <b>"PEN Icon"</b> on the top right area across our website. <br/> 
+                Alternatively though, <b><i>if you have found yourself here</i></b>, you can always use this <b>"General-Purpose Editor"</b> to post your <b>Ulogs, normal blogs etc</b>, after following a few guidelines. <b>Make sure to expand (read) the Style-Guide just below</b>, before you post, to be sure you are posting correctly. <br/><br/>
+                <b>The general principle</b> when posting under <a href="https://ulogs.org/created/ulog">#ulog</a> or under any #ulog-subtag is; <b><i>[the more popular "<a href="https://ulogs.org/created/ulog">#ulog</a>" should be your first hashtag, while the "#ulog-subtag" should be the 2nd hashtag]</i></b>. <br/><br/> 
+                Note that, <b>you are allowed to birth fresh ulog-subtags along with the "communities" these bring!</b> Inanycase, <b>(for Ulogs)</b> always maintain "<a href="https://ulogs.org/created/ulog">#ulog</a>" as your first hashtag, <b>whenever your post is Ulog-related.</b> <br/>
+                <b>Special Note:</b> You can also post on steemit like normal <b>e.g blogs etc</b>, using the <b>"General-Purpose" editor below.</b> In this case, <b>you have no need to use <a href="https://ulogs.org/created/ulog">#ulog</a></b>. Simply chose 5 hashtags related to your subject and chose a Catch Title. <br/><br/>
+                <div style={{ color : 'purple' }}>
+                  <b><i>Kindly expand the Style-Guide below for QUICK INSIGHT!!!</i></b>
+                </div>     
               </p>
             </Panel>
           </Collapse>
@@ -250,14 +254,14 @@ class Editor extends React.Component {
           <Collapse>
             <Panel header="The General-Purpose Editor (Style-Guide For #ulog/#ulog-subtags)" key="1">
               <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulography">#ulography</a>:</b> [<b>TAGS:</b> #ulog, #ulography etc] [<b>IN-TITLE:</b> add "<b>(ULOG + Photography):</b>" etc]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-gratefulvibes</b> etc] [IN-TITLE: add <b>"(ULOG + GratefulVibes):"</b> etc.]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-resolutions</b> etc] [IN-TITLE: add <b>"(ULOG + Resolutions):"</b> etc.]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-memes</b> etc] [IN-TITLE: add <b>"(ULOG + Memes):"</b> etc.]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-blocktrades</b> etc] [IN-TITLE: add <b>"(ULOG + Blocktrades):"</b> etc.]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-podcasts">#ulog-podcasts</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-podcasts</b> etc] [IN-TITLE: add <b>"(ULOG + Podcasts):"</b> etc.]</li>
-                <li><b>Ulogging under <a href="https://ulogs.org/created/ulog-savetheday">#ulog-savetheday</a>:</b> [TAGS: <b>#ulog</b>, <b>#ulog-savetheday</b> etc] [IN-TITLE: add <b>"(ULOG + SaveTheDay):"</b> etc.]</li>
-                <li><b>etc</b></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulography">#ulography</a>:</b> <b>TAGS:</b> [#ulog, #ulography etc] <b>IN-TITLE:</b> [add "(ULOG + Photography):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a>:</b> <b>TAGS:</b> [#ulog, #ulog-gratefulvibes etc.] <b>IN-TITLE:</b> [add "(ULOG + GratefulVibes):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>:</b> <b>TAGS:</b> [#ulog, #ulog-resolutions etc.] <b>IN-TITLE:</b> [add "(ULOG + Resolutions):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>:</b> <b>TAGS:</b> [#ulog, #ulog-memes etc.] <b>IN-TITLE:</b> [add "(ULOG + Memes):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>:</b> <b>TAGS:</b> [#ulog, #ulog-blocktrades etc] <b>IN-TITLE:</b> [add "(ULOG + Blocktrades):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-podcasts">#ulog-podcasts</a>:</b> <b>TAGS:</b> [#ulog, #ulog-podcasts etc.] <b>IN-TITLE:</b> [add "(ULOG + Podcasts):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-savetheday">#ulog-savetheday</a>:</b> <b>TAGS:</b> [#ulog, #ulog-savetheday etc] <b>IN-TITLE:</b> [add "(ULOG + SaveTheDay):" etc.]</font></li>
+                <li><font size="2"><b>etc</b></font></li>
               </ul>
             </Panel>
           </Collapse>
