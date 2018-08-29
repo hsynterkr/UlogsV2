@@ -7,6 +7,7 @@ export const getFeedFromState = (sortBy, category = 'ulog', state) => {
     case 'trending':
     case 'comments':
     case 'blog':
+    case 'ulog':
     case 'bookmarks':
     case 'replies':
     case 'promoted':
@@ -25,6 +26,7 @@ export const getFeedLoadingFromState = (sortBy, category = 'ulog', feedState) =>
     case 'trending':
     case 'comments':
     case 'blog':
+    case 'ulog':
     case 'bookmarks':
     case 'replies':
     case 'promoted':
@@ -43,6 +45,7 @@ export const getFeedFetchedFromState = (sortBy, category = 'ulog', feedState) =>
     case 'trending':
     case 'comments':
     case 'blog':
+    case 'ulog':
     case 'bookmarks':
     case 'replies':
     case 'promoted':
@@ -62,6 +65,7 @@ export const getFeedHasMoreFromState = (sortBy, listName = 'ulog', feedState) =>
     case 'trending':
     case 'comments':
     case 'blog':
+    case 'ulog':
     case 'bookmarks':
     case 'replies':
     case 'promoted':
@@ -81,6 +85,7 @@ export const getFeedFailedFromState = (sortBy, listName = 'ulog', feedState) => 
     case 'trending':
     case 'comments':
     case 'blog':
+    case 'ulog':
     case 'bookmarks':
     case 'replies':
     case 'promoted':
