@@ -11,6 +11,7 @@ const initialState = {
   trending: {},
   comments: {},
   blog: {},
+  ulog: {},
   bookmarks: {},
   replies: {},
   promoted: {},
