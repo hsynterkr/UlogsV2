@@ -11,6 +11,7 @@ import ProfileSettings from '../client/settings/ProfileSettings';
 import Invite from '../client/invite/Invite';
 import User from '../client/user/User';
 import UserProfile from '../client/user/UserProfile';
+import UserUlogs from '../client/user/UserUlogs';
 import UserComments from '../client/user/UserComments';
 import UserFollowers from '../client/user/UserFollowers';
 import UserFollowing from '../client/user/UserFollowing';
@@ -57,7 +58,8 @@ const routes = [
         component: Wallet,
       },
       {
-        path: '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy|ulog-howto|ulog-quotes)',
+        path:
+          '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy|ulog-howto|ulog-quotes)',
         exact: true,
         component: Editor,
       },
@@ -82,7 +84,7 @@ const routes = [
         component: Notifications,
       },
       {
-        path: '/@:name/(comments|followers|followed|reblogs|feed|transfers|activity)?',
+        path: '/@:name/(ulogs|comments|followers|followed|reblogs|feed|transfers|activity)?',
         component: User,
         exact: true,
         routes: [
@@ -90,6 +92,11 @@ const routes = [
             path: '/@:name',
             exact: true,
             component: UserProfile,
+          },
+          {
+            path: '/@:name/ulogs',
+            exact: true,
+            component: UserUlogs,
           },
           {
             path: '/@:name/comments',
