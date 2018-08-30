@@ -150,7 +150,7 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/fpthaj2"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] </li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>]</li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@paradise-found [Follow]</a>[Contact: <a href="https://discord.gg/qtkdbSc"><b>Discord</b></a>]</li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@bloghound [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>]</li>
           </ul>
@@ -176,6 +176,29 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
             <li>[Coming Soon!!!]</li>
+          </ul>
+        </b>
+      </span>
+    );
+
+    const ulogMemesCaption = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>"Memes plus your Ulogacies become SuperMemes". @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>: is the Ulog-subtag for <b>(Ulog + Memes)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to <b>any existing concept</b> etc <b>an existing concept suddenly turns out all fresh</b>. <br/>
+        Yes, <b>ulogging</b> can be as fun and simple as creating your very own <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a> (per day). With your <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>, <b><i>not a day passes by without your Ulogacies in it</i></b>. <br/>
+        <b>In the art of ulogging</b>, we want to <b><i>"mine the human"</i></b>. We also want to <b><i>"gift to the internet"</i></b> instead of <b><i>"resource from it"</i></b> at least once a day, in a bid to <b>reshape the very internet</b>. So, be inventive, <b>"YOU"</b>, "true celebrity" etc by creating your <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>, solely out of your <b>"freshly-created" images, graphics and text (per day)</b>.<br/><br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Memes):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Memes): A Fly Cannot Bird...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>, etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [Follow]</a>[Contact: <a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a>]</li>
           </ul>
         </b>
       </span>
@@ -207,7 +230,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-gratefulvibes') {
       caption = ulogGratefulvibesCaption;
     } else if (category === 'ulog-resolutions') {
-      caption = ulogResolutionsCaption;  
+      caption = ulogResolutionsCaption; 
+    } else if (category === 'ulog-memes') {
+      caption = ulogMemesCaption;   
     }
     const about = `About #${category}`;
 
