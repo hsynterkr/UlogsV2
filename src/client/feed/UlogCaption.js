@@ -204,6 +204,32 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogBlocktradesCaption = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>If we can gift out "true celebrity-hood" as "true fans", then we gift it to "everyone". @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>: is the Ulog-subtag for <b>(Ulog + Blocktrades)</b>. Basically, <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a> incites you to record your experience etc (per day) with <a href="https://ulogs.org/@blocktrades"><b>@blocktrades</b></a>. <br/>
+        <font size="2">Blocktrades has offered a service of crytocurrency exchange, convenience and has delivered in terms of "trust" etc. Besides all of this, they have supported <b>"dreams" on the steem blockchain</b>, by means of donations, curation and actual community; <b>"true fan-hood"</b>. The blocktrades team and even its CEO is approachable, reachable and prompt.</font> <br/>
+        <font size="2">By ulogging under <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>, you can give back, emulate their enterprise, be "true fan", reach out, share experiences, give feedback, give suggestions etc. Yes, on <a href="https://ulogs.org"><b>ulogs.org</b></a> you can be <b>"true fans" of enterprises, communities, initiatives etc</b> and in this case, you can be <b>"true fans"</b> of <a href="https://blocktrades.us"><b>blocktrades.us</b></a></font> <br/> <font size="2"><a href="https://ulogs.org/@blocktrades"><b>@blocktrades</b></a> may not ask for a <b>"give-back"</b> but with <a href="https://ulogs.org"><b>ulogs.org</b></a>, it is <b>"true celebrity-hood for 'everyone', once and for all".</b></font> <br/><br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Blocktrades):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Blocktrades): How Blocktrades Refunded Me...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Blocktrades): Thank You Blocktrades For Blocks Of Upvotes...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Blocktrades): How Blocktrades Expand Base In My Location...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/xXgMYpS"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=ankarlie">@ankarlie [Follow]</a>[Contact: <a href="https://discord.gg/xXgMYpS"><b>Discord</b></a>]</li>
+            <li>etc.</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -232,7 +258,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-resolutions') {
       caption = ulogResolutionsCaption; 
     } else if (category === 'ulog-memes') {
-      caption = ulogMemesCaption;   
+      caption = ulogMemesCaption;
+    } else if (category === 'ulog-blocktrades') {
+      caption = ulogBlocktradesCaption;   
     }
     const about = `About #${category}`;
 
