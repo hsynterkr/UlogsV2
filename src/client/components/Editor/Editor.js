@@ -277,6 +277,7 @@ class Editor extends React.Component {
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-books">#ulog-books</a>:</b> <b>TAGS:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-books">#ulog-books</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Books):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-funny">#ulog-funny</a>:</b> <b>TAGS:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-funny">#ulog-funny</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Funny):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-savetheday">#ulog-savetheday</a>:</b> <b>TAGS:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-savetheday">#ulog-savetheday</a> etc] <b>IN-TITLE:</b> [add "(ULOG + SaveTheDay):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a>:</b> <b>TAGS:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Zoo):" etc.]</font></li>
                 <li><font size="2"><b>etc</b></font></li>
               </ul>
             </Panel>

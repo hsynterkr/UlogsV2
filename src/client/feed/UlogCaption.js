@@ -142,8 +142,8 @@ class UlogCaption extends React.Component {
 
     const ulogGratefulvibesCaption = (
       <span>
-        <b>Ulog-GratefulVibes</b>: the <b>Ulog-based hashtag for (Ulog + GratefulVibes)</b>. <br/>
-        It allows you to document <b>your gratefulness (per day)</b>, also as a means to <b>"gift to the internet"</b>, by <b>not resourcing from it</b>; thus, reshaping it. <br/> We want to serve the search engines with <b>"grateful pieces of YOU" (per day)</b> and <b>each day, "You" in it</b>, carries its own <b>gratefulness</b>. <br/>
+        <a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a>: the <b>Ulog-subtag for (Ulog + GratefulVibes)</b>. <br/>
+        It allows you to ulog about <b>your gratefulness (per day)</b>, also as a means to <b>"gift to the internet"</b>, by <b>not resourcing from it</b>; thus, reshaping it. <br/> We want to serve the search engines with <b>"grateful pieces of YOU" (per day)</b> and <b>each day, "You" in it</b>, carries its own <b>gratefulness</b>. <br/>
         It's simple! When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any "existing concept" etc "an existing concept suddenly turns out all fresh". <b>Let's use the art of <a href="https://ulogs.org/created/ulogging">#ulogging</a>, to pay forward a GratefulVibe today!</b> <br/>
         To post a Ulog under "<a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "<a href="https://ulogs.org/created/gratefulvibes"><b>#gratefulvibes</b></a>" etc. Don't forget to <b>add "(Ulog + GratefulVibes):" or "ULOG (GratefulVibes):" somewhere IN-TITLE</b>. <br/><br/>
         <b>
@@ -153,6 +153,29 @@ class UlogCaption extends React.Component {
             <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] </li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@paradise-found [Follow]</a>[Contact: <a href="https://discord.gg/qtkdbSc"><b>Discord</b></a>]</li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@bloghound [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>]</li>
+          </ul>
+        </b>
+      </span>
+    );
+
+    const ulogResolutionsCaption = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>"Dreams are buildable but aren't that buildable in a day". @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a>: is the Ulog-subtag for <b>(Ulog + Resolutions)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to <b>any existing concept</b> etc <b>an existing concept suddenly turns out all fresh</b>. <br/>
+        Yes, <b>ulogging</b> can be as fun and simple as telling us about <b>your resolutions</b>. Basically, <b><i>not a day should pass by without your Ulogacies in it</i></b>. Share <b>your resolutions (per day)</b> with us and the world and <b><i>tell us when you meet it or fail to meet it</i></b>. <br/><br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Resolutions):" somewhere IN-TITLE</b> e.g: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Resolutions): Today, I Resolve To Climb 2 Banana Trees...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Resolutions): I Didn't End Up Climbing Because I Ate 2 Bananas...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/ZBUDV66"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li>[Coming Soon!!!]</li>
           </ul>
         </b>
       </span>
@@ -182,7 +205,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulography') {
       caption = ulographyCaption;
     } else if (category === 'ulog-gratefulvibes') {
-      caption = ulogGratefulvibesCaption;  
+      caption = ulogGratefulvibesCaption;
+    } else if (category === 'ulog-resolutions') {
+      caption = ulogResolutionsCaption;  
     }
     const about = `About #${category}`;
 
