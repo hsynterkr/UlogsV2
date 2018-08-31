@@ -230,6 +230,35 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogShowerthoughtsCaption = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>Showerthoughts can be anything but try "evolving" each time. @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>: is the Ulog-subtag for <b>(Ulog + Showerthoughts)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any <b>existing concept</b> etc an <b>existing concept suddenly turns out all fresh</b>. <br/>
+        We can turn even our showerthoughts into a more conscious, directional, fun, testimonial, self-developing, world-adjusting, historical "endeavor" by ulogging about these (per day). <br/>
+        Yes, <b>ulogging</b> can be as fun and simple as creating your very own #ulog-showerthoughts (per day). With your <a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>, <b><i>not a day passes by without your Ulogacies in it</i></b>. <br/>
+        <div style={{ color : 'purple' }}>
+          <b><i>Each time you showerthink and ulog about it, you "mine the human" attaining "true celebrityhood". @surpassinggoogle</i></b> <br/>
+        </div>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Showerthoughts):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Showerthoughts): What If A Fly Could Bird...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Showerthoughts): Let Me Build My Own Country...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Showerthoughts): My Plan To Make Ned Try Ulogging...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/JTm4BSg"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=mermaidvampire">@mermaidvampire [Follow]</a>[Contact: <a href="https://discord.gg/JTm4BSg"><b>Discord</b></a>]</li>
+            <li>etc.</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -260,7 +289,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-memes') {
       caption = ulogMemesCaption;
     } else if (category === 'ulog-blocktrades') {
-      caption = ulogBlocktradesCaption;   
+      caption = ulogBlocktradesCaption; 
+    } else if (category === 'ulog-showerthoughts') {
+      caption = ulogShowerthoughtsCaption;  
     }
     const about = `About #${category}`;
 
