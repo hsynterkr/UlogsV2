@@ -259,6 +259,35 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogSnookmademedoitCaption = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>"Made" can also tell of hearty persistence, love and care. It is strong thing. @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a>: is the Ulog-subtag for <b>(Ulog + SnookMadeMeDoIt)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any <b>existing concept</b> etc an <b>existing concept suddenly turns out all fresh</b>. <br/>
+        Yes, <b>ulogging</b> can be as fun and simple as creating your very own <a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a> Ulogs (per day). This way, <b><i>not a day passes by without your Ulogacies in it</i></b>. <br/>
+        <a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a> will bear forth an entire fun community of Uloggers. Yes, you can ulog about things <a href="https://ulogs.org/@snook"><b>"@snook</b></a> <b>made you do"</b> but in the large scheme of things, it is a means or incentive to celebrate <b>people, steemians, uloggers etc who were able to stand you up, even from the rubble, to make you go out of your way and do something testimonial.</b> <br/>
+        <div style={{ color : 'purple' }}>
+          <font size="2">So e.g, <a href="https://ulogs.org/@shadowspub"><b>"@shadowspub</b></a> geared me up to visit her <a href="https://ulogs.org/@shadowspub/pimp-your-post-thursday-today-aug-23rd-11am-edt-and-7-00pm-edt"><b>"PimpYourPost</b></a> show; <a href="https://ulogs.org/@derangedvisions"><b>"@derangedvisions</b></a> persistently helped me kick the <b>"De"</b> from my 'depression'; <a href="https://ulogs.org/@ecoinstant"><b>"@ecoinstant</b></a> made me <b>'climb my first Banana tree'</b>; <a href="https://ulogs.org/@helpie"><b>"@helpie</b></a> helped me help a helper; <a href="https://ulogs.org/@dynamicgreentk"><b>"@dynamicgreentk</b></a> made me sing offkey; <a href="https://ulogs.org/@dynamicrypto"><b>"@dynamicrypto</b></a> helped me re-find love for gardening; <a href="https://ulogs.org/@quochuy"><b>"@quochuy</b></a> made me dump the guitar; <a href="https://ulogs.org/@dynamicshine"><b>"@dynamicshine</b></a> made me recover shine again etc.</font> <br/>
+        </div>
+        Well, you can also ulog about <b>non-steemians</b> who <b>"made you do something"</b>. Then, share the resulting Ulogs with them. They may sign up on <a href="https://ulogs.org"><b>"ulogs.org</b></a> to ulog about how you <b>"made them do it"</b>. <br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + SnookMadeMeDoIt):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + SnookMadeMeDoIt): @baasteemit Got Me To Say My First "baa"...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a>, etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/wTmMt8W"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=snook">@snook [Follow]</a>[Contact: <a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=shadowspub">@shadowspub [Follow]</a>[Contact: <a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>]</li>
+            <li>etc.</li>
+          </ul>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -291,7 +320,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-blocktrades') {
       caption = ulogBlocktradesCaption; 
     } else if (category === 'ulog-showerthoughts') {
-      caption = ulogShowerthoughtsCaption;  
+      caption = ulogShowerthoughtsCaption;
+    } else if (category === 'ulog-snookmademedoit') {
+      caption = ulogSnookmademedoitCaption;    
     }
     const about = `About #${category}`;
 
