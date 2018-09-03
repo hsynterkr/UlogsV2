@@ -12,6 +12,7 @@ class MainMenu extends React.Component {
   };
 
   handleClick = e => {
+    // handle internal links via js to prevent unnecessary page reloads
     this.props.history.push(`${e.currentTarget.dataset.href}`);
   };
 
