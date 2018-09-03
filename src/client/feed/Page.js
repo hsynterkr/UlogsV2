@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Carousel, Collapse } from 'antd';
+import { Carousel } from 'antd';
 import { getFeedContent } from './feedActions';
 import { getIsLoaded, getIsAuthenticated } from '../reducers';
 import SubFeed from './SubFeed';
@@ -16,6 +16,7 @@ import Affix from '../components/Utils/Affix';
 import ScrollToTop from '../components/Utils/ScrollToTop';
 import ScrollToTopOnMount from '../components/Utils/ScrollToTopOnMount';
 import QuickPostEditor from '../components/QuickPostEditor/QuickPostEditor';
+import MainMenu from '../components/MainMenu';
 import './Feed.less';
 
 @connect(state => ({
@@ -53,9 +54,13 @@ class Page extends React.Component {
 
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
-    const displayUlogCaption = category && category.match(/^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit)$/);
+    const displayUlogCaption =
+      category &&
+      category.match(
+        /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit)$/,
+      );
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
-    
+
     return (
       <div>
         <Helmet>
@@ -65,16 +70,33 @@ class Page extends React.Component {
         <ScrollToTop />
 
         <ScrollToTopOnMount />
-        { authenticated?
-            <Carousel autoplay>
-              <div> <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries"> <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" /> </a> </div>
-              <div> <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-enjieneer-join-in-as-her-true-fans-we-will-fix-many-worries"> <img width={'100%'}  height={'100%'} alt="900x500" src="/images/slide2.jpg" /> </a> </div>
-              <div> <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-kneelyrac-join-in-as-her-true-fans-we-will-fix-many-worries"> <img width={'100%'}  height={'100%'} alt="900x500" src="/images/slide3.jpg" /> </a> </div>
-              <div> <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-sn0white-join-in-as-her-true-fans-we-will-fix-many-worries"> <img width={'100%'}  height={'100%'} alt="900x500" src="/images/slide4.jpg" />  </a> </div>
-            </Carousel>
-                :
-                <HeroBannerContainer />
-              }
+        {authenticated ? (
+          <Carousel autoplay className="feed-carousel">
+            <div>
+              <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" />
+              </a>
+            </div>
+            <div>
+              <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-enjieneer-join-in-as-her-true-fans-we-will-fix-many-worries">
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide2.jpg" />
+              </a>
+            </div>
+            <div>
+              <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-kneelyrac-join-in-as-her-true-fans-we-will-fix-many-worries">
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide3.jpg" />
+              </a>
+            </div>
+            <div>
+              <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-sn0white-join-in-as-her-true-fans-we-will-fix-many-worries">
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide4.jpg" />
+              </a>
+            </div>
+          </Carousel>
+        ) : (
+          <HeroBannerContainer />
+        )}
+        <MainMenu />
         <div className="shifted">
           <div className="feed-layout container">
             <Affix className="leftContainer" stickPosition={77}>
