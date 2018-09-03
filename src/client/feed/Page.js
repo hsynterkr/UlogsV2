@@ -71,7 +71,7 @@ class Page extends React.Component {
 
         <ScrollToTopOnMount />
         {authenticated ? (
-          <Carousel autoplay>
+          <Carousel autoplay className="feed-carousel">
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
                 <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" />
