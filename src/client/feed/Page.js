@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Carousel, Collapse } from 'antd';
+import { Carousel } from 'antd';
 import { getFeedContent } from './feedActions';
 import { getIsLoaded, getIsAuthenticated } from '../reducers';
 import SubFeed from './SubFeed';
@@ -73,32 +73,24 @@ class Page extends React.Component {
         {authenticated ? (
           <Carousel autoplay>
             <div>
-              {' '}
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
-                {' '}
-                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" />{' '}
-              </a>{' '}
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" />
+              </a>
             </div>
             <div>
-              {' '}
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-enjieneer-join-in-as-her-true-fans-we-will-fix-many-worries">
-                {' '}
-                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide2.jpg" />{' '}
-              </a>{' '}
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide2.jpg" />
+              </a>
             </div>
             <div>
-              {' '}
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-kneelyrac-join-in-as-her-true-fans-we-will-fix-many-worries">
-                {' '}
-                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide3.jpg" />{' '}
-              </a>{' '}
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide3.jpg" />
+              </a>
             </div>
             <div>
-              {' '}
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-sn0white-join-in-as-her-true-fans-we-will-fix-many-worries">
-                {' '}
-                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide4.jpg" />{' '}
-              </a>{' '}
+                <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide4.jpg" />
+              </a>
             </div>
           </Carousel>
         ) : (
