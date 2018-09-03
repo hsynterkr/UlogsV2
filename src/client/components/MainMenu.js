@@ -45,6 +45,26 @@ class MainMenu extends React.Component {
                   <FormattedMessage id="untalentedtv" defaultMessage="UntalentedTV" />
                 </a>
               </li>
+              <li role="presentation" className="MainMenu__item">
+                <a href="/@ulogs/ulogs-org-communities">
+                  <FormattedMessage id="communities" defaultMessage="Communities" />
+                </a>
+              </li>
+              <li role="presentation" className="MainMenu__item">
+                <a href="/@ulogs/ulogs-org-support-us">
+                  <FormattedMessage id="supportus" defaultMessage="Support us" />
+                </a>
+              </li>
+              <li role="presentation" className="MainMenu__item">
+                <a href="/@ulogs/ulogs-org-contact-us">
+                  <FormattedMessage id="contactus" defaultMessage="Contact us" />
+                </a>
+              </li>
+              <li role="presentation" className="MainMenu__item">
+                <a href="/@ulogs/ulogs-org-faq-s-and-answers">
+                  <FormattedMessage id="faq" defaultMessage="FAQ" />
+                </a>
+              </li>
             </ul>
           </Scrollbars>
         </div>
