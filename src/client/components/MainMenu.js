@@ -1,8 +1,8 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { FormattedMessage } from 'react-intl';
-import PropTypes from "prop-types"
-import { withRouter } from "react-router-dom"
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import './MainMenu.less';
 
 @withRouter
@@ -11,7 +11,7 @@ class MainMenu extends React.Component {
     history: PropTypes.shape().isRequired,
   };
 
-  handleClick = (e) => {
+  handleClick = e => {
     this.props.history.push(`${e.currentTarget.dataset.href}`);
   };
 
@@ -56,16 +56,36 @@ class MainMenu extends React.Component {
                   <FormattedMessage id="untalentedtv" defaultMessage="UntalentedTV" />
                 </a>
               </li>
-              <li role="presentation" className="MainMenu__item" onClick={this.handleClick} data-href="/@ulogs/ulogs-org-communities">
+              <li
+                role="presentation"
+                className="MainMenu__item"
+                onClick={this.handleClick}
+                data-href="/@ulogs/ulogs-org-communities"
+              >
                 <FormattedMessage id="communities" defaultMessage="Communities" />
               </li>
-              <li role="presentation" className="MainMenu__item" onClick={this.handleClick} data-href="/@ulogs/ulogs-org-support-us">
+              <li
+                role="presentation"
+                className="MainMenu__item"
+                onClick={this.handleClick}
+                data-href="/@ulogs/ulogs-org-support-us"
+              >
                 <FormattedMessage id="supportus" defaultMessage="Support us" />
               </li>
-              <li role="presentation" className="MainMenu__item" onClick={this.handleClick} data-href="/@ulogs/ulogs-org-contact-us">
+              <li
+                role="presentation"
+                className="MainMenu__item"
+                onClick={this.handleClick}
+                data-href="/@ulogs/ulogs-org-contact-us"
+              >
                 <FormattedMessage id="contactus" defaultMessage="Contact us" />
               </li>
-              <li role="presentation" className="MainMenu__item" onClick={this.handleClick} data-href="/@ulogs/ulogs-org-faq-s-and-answers">
+              <li
+                role="presentation"
+                className="MainMenu__item"
+                onClick={this.handleClick}
+                data-href="/@ulogs/ulogs-org-faq-s-and-answers"
+              >
                 <FormattedMessage id="faq" defaultMessage="FAQ" />
               </li>
             </ul>
