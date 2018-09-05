@@ -167,8 +167,8 @@ class UlogCaption extends React.Component {
         Yes, <b>ulogging</b> can be as fun and simple as telling us about <b>your resolutions</b>. Basically, <b><i>not a day should pass by without your Ulogacies in it</i></b>. Share <b>your resolutions (per day)</b> with us and the world and <b><i>tell us when you meet it or fail to meet it</i></b>. <br/><br/>
         To post a Ulog under "<a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-resolutions"><b>#ulog-resolutions</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Resolutions):" somewhere IN-TITLE</b> e.g: <br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><font size="2"><b>(Ulog + Resolutions): Today, I Resolve To Climb 2 Banana Trees...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
-            <li><font size="2"><b>(Ulog + Resolutions): I Didn't End Up Climbing Because I Ate 2 Bananas...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Resolutions): Today, I Resolve To Climb 2 Banana Trees...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Resolutions): I Didn't End Up Climbing Because I Ate 2 Bananas...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, etc.]</b></font></li>
           </ul> 
           <br/>
         <b>
@@ -191,7 +191,7 @@ class UlogCaption extends React.Component {
         <b>In the art of ulogging</b>, we want to <b><i>"mine the human"</i></b>. We also want to <b><i>"gift to the internet"</i></b> instead of <b><i>"resource from it"</i></b> at least once a day, in a bid to <b>reshape the very internet</b>. So, be inventive, <b>"YOU"</b>, "true celebrity" etc by creating your <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>, solely out of your <b>"freshly-created" images, graphics and text (per day)</b>.<br/><br/>
         To post a Ulog under "<a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Memes):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><font size="2"><b>(Ulog + Memes): A Fly Cannot Bird...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Memes): A Fly Cannot Bird...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a>, etc.]</b></font></li>
           </ul> 
           <br/>
         <b>
@@ -209,14 +209,14 @@ class UlogCaption extends React.Component {
         <div style={{ color : 'purple' }}>
           <b><i>If we can gift out "true celebrity-hood" as "true fans", then we gift it to "everyone". @surpassinggoogle</i></b> <br/>
         </div>
-        <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>: is the Ulog-subtag for <b>(Ulog + Blocktrades)</b>. Basically, <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a> incites you to record your experience etc (per day) with <a href="https://ulogs.org/@blocktrades"><b>@blocktrades</b></a>. <br/>
+        <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>: is the Ulog-subtag for <b>(Ulog + Blocktrades.us)</b>. Basically, <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a> incites you to record your experience etc (per day) with <a href="https://ulogs.org/@blocktrades"><b>@blocktrades</b></a>. <br/>
         <font size="2">Blocktrades has offered a service of crytocurrency exchange, convenience and has delivered in terms of "trust" etc. Besides all of this, they have supported <b>"dreams" on the steem blockchain</b>, by means of donations, curation and actual community; <b>"true fan-hood"</b>. The blocktrades team and even its CEO is approachable, reachable and prompt.</font> <br/>
         <font size="2">By ulogging under <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>, you can give back, emulate their enterprise, be "true fan", reach out, share experiences, give feedback, give suggestions etc. Yes, on <a href="https://ulogs.org"><b>ulogs.org</b></a> you can be <b>"true fans" of enterprises, communities, initiatives etc</b> and in this case, you can be <b>"true fans"</b> of <a href="https://blocktrades.us"><b>blocktrades.us</b></a></font> <br/> <font size="2"><a href="https://ulogs.org/@blocktrades"><b>@blocktrades</b></a> may not ask for a <b>"give-back"</b> but with <a href="https://ulogs.org"><b>ulogs.org</b></a>, it is <b>"true celebrity-hood for 'everyone', once and for all".</b></font> <br/><br/>
-        To post a Ulog under "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Blocktrades):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a>" as your 2nd hashtag. You can then add other hashtags e.g <a href="https://ulogs.org/created/blocktrades">#blocktrades</a> etc. Don't forget to <b>add "(Ulog + Blocktrades):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><font size="2"><b>(Ulog + Blocktrades): How Blocktrades Refunded Me...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
-            <li><font size="2"><b>(Ulog + Blocktrades): Thank You Blocktrades For Blocks Of Upvotes...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
-            <li><font size="2"><b>(Ulog + Blocktrades): How Blocktrades Expand Base In My Location...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Blocktrades.us): How Blocktrades Refunded Me...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, <a href="https://ulogs.org/created/blocktrades">#blocktrades</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Blocktrades.us): Thank You Blocktrades For Blocks Of Upvotes...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, <a href="https://ulogs.org/created/blocktrades">#blocktrades</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Blocktrades.us): How Blocktrades Expand Base In My Location...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a>, <a href="https://ulogs.org/created/blocktrades">#blocktrades</a> etc.]</b></font></li>
           </ul> 
           <br/>
         <b>
@@ -243,9 +243,9 @@ class UlogCaption extends React.Component {
         </div>
         To post a Ulog under "<a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Showerthoughts):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><font size="2"><b>(Ulog + Showerthoughts): What If A Fly Could Bird...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
-            <li><font size="2"><b>(Ulog + Showerthoughts): Let Me Build My Own Country...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
-            <li><font size="2"><b>(Ulog + Showerthoughts): My Plan To Make Ned Try Ulogging...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Showerthoughts): What If A Fly Could Bird...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Showerthoughts): Let Me Build My Own Country...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Showerthoughts): My Plan To Make Ned Try Ulogging...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>, etc.]</b></font></li>
           </ul> 
           <br/>
         <b>
@@ -273,7 +273,7 @@ class UlogCaption extends React.Component {
         Well, you can also ulog about <b>non-steemians</b> who <b>"made you do something"</b>. Then, share the resulting Ulogs with them. They may sign up on <a href="https://ulogs.org"><b>"ulogs.org</b></a> to ulog about how you <b>"made them do it"</b>. <br/>
         To post a Ulog under "<a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-snookmademedoit"><b>#ulog-snookmademedoit</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + SnookMadeMeDoIt):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><font size="2"><b>(Ulog + SnookMadeMeDoIt): @baasteemit Got Me To Say My First "baa"...[TAGS: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a>, etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + SnookMadeMeDoIt): @baasteemit Got Me To Say My First "baa"...[TAGS-Order: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a>, etc.]</b></font></li>
           </ul> 
           <br/>
         <b>
@@ -283,6 +283,33 @@ class UlogCaption extends React.Component {
             <li><a href="https://v2.steemconnect.com/sign/follow?following=snook">@snook [Follow]</a>[Contact: <a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>]</li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=shadowspub">@shadowspub [Follow]</a>[Contact: <a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>]</li>
             <li>etc.</li>
+          </ul>
+        </b>
+      </span>
+    );
+
+    const ulogUtopian = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>When you incentivize people to build their noble dreams, it is world-adjusting. @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a>: is the Ulog-subtag for <b>(Ulog + Utopian.io)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any <b>existing concept</b> etc an <b>existing concept suddenly turns out all fresh</b>. <br/>
+        <font size="2">Utopian has created an open source economy that rewards both contributors to open source projects as well as project owners. <br/> Utopian simply incentivizes the <b>art of dream-building.</b> While it looks like a tech-empire; in the broad scheme of things, <b>it brings light right inside tunnels, by empowering "anyone" to build a dream.</b> No longer do people have to wait to get to the <b>"end of the tunnel"</b>. This world-adjusting.</font> <br/>
+        <font size="2">Besides all of this, they have supported <b>"dreams" on the steem blockchain</b>, by means of donations, curation and actual community; <b>"true fan-hood"</b>. The <a href="https://utopian.io"><b>Utopian.io</b></a> team and even its CEO (@elear) is approachable, reachable and prompt.</font> <br/>
+        <font size="2">By ulogging under <a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopians</b></a>, you can give back, emulate their enterprise, be "true fan", reach out, share experiences, give feedback, give suggestions etc. Yes, on <a href="https://ulogs.org"><b>ulogs.org</b></a> you can be <b>"true fans" of enterprises, communities, initiatives etc</b> and in this case, you can be <b>"true fans"</b> of <a href="https://utopian.io"><b>utopian.io</b></a></font> <br/> 
+        <font size="2"><a href="https://ulogs.org/@utopian-io"><b>@utopian-io</b></a> may not ask for a <b>"give-back"</b> but with <a href="https://ulogs.org"><b>ulogs.org</b></a>, it is <b>"true celebrity-hood for 'everyone', once and for all".</b></font> <br/><br/>
+        To post a Ulog under "<a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a>", simply click on <a href="https://ulogs.org/editor"><b>This Editor;</b></a> then, make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "utopian-io" etc. Don't forget to <b>add "(Ulog + Utopian.io):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Utopian.io): @utopian-io Visited My Ulog Today...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-utopian">#ulog-utopian</a>, <a href="https://ulogs.org/created/utopian-io">#utopian-io</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Utopian.io): How Utopian.io Can Expand It Reach In My Location...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-utopian">#ulog-utopian</a>, <a href="https://ulogs.org/created/utopian-io">#utopian-io</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Utopian.io): I Spoke To @elear Of Utopian.io And He Wants To Support My Idea...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-utopian">#ulog-utopian</a>, <a href="https://ulogs.org/created/utopian-io">#utopian-io</a> etc.]</b></font></li>
+          </ul> 
+          <br/>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/JDugtXg"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-utopian">#ulog-utopian</a> currently:<br/>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><b>[Coming Soon!!!]</b></li>
           </ul>
         </b>
       </span>
@@ -322,7 +349,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-showerthoughts') {
       caption = ulogShowerthoughtsCaption;
     } else if (category === 'ulog-snookmademedoit') {
-      caption = ulogSnookmademedoitCaption;    
+      caption = ulogSnookmademedoitCaption;
+    } else if (category === 'ulog-utopian') {
+      caption = ulogUtopian;      
     }
     const about = `About #${category}`;
 
