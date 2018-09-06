@@ -54,7 +54,7 @@ class InterestingUloggersWithAPI extends React.Component {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.sortBy(result, 'following')
+        const users = _.shuffle(result)
           .slice(0, 5)
           .map(user => {
             let name = _.get(user, 0);
