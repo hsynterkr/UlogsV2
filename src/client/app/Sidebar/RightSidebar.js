@@ -12,7 +12,7 @@ import {
 } from '../../reducers';
 import { checkWitnessVote } from '../../helpers/voteHelpers';
 import { updateRecommendations } from '../../user/userActions';
-import InterestingPeople from '../../components/Sidebar/InterestingPeople';
+import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUloggersWithAPI';
 import InterestingPeopleWithAPI from '../../components/Sidebar/InterestingPeopleWithAPI';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
@@ -108,11 +108,11 @@ export default class RightSidebar extends React.Component {
             render={() => (
               <div>
                 {authenticated &&
-                this.props.recommendations.length > 0 &&
                 !showPostRecommendation ? (
-                  <InterestingPeople
-                    users={this.props.recommendations}
-                    onRefresh={this.handleInterestingPeopleRefresh}
+                  <InterestingUloggersWithAPI
+                    authenticatedUser={authenticatedUser}
+                    followingList={followingList}
+                    isFetchingFollowingList={isFetchingFollowingList}
                   />
                 ) : (
                   <div />
