@@ -198,7 +198,7 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/UAYS7Yp"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=samic"><b><u>Click Here</u></b></a>]</li>
           </ul>
         </b>
       </span>
@@ -283,8 +283,8 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=snook">@snook [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=shadowspub">@shadowspub [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/wTmMt8W"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=snook">@snook [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=shadowspub">@shadowspub [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=shadowspub"><b><u>Click Here</u></b></a>]</li>
             <li>etc.</li>
           </ul>
           </div>
@@ -325,8 +325,8 @@ class UlogCaption extends React.Component {
 
     const ulogThejohalfiles = (
       <span>
-        <a href="https://ulogs.org/created/@thejohalfiles"><b>@thejohalfiles</b></a> is a <b>behind-the-scener</b>. He stealthily leaves the <b>"Johal files"</b> in every space, <b><i>taking light right inside tunnels.</i></b> He has supported <b>"dreams" on the steem blockchain</b>, by means of mentorship, timely engagement, curation and actual community; <b>"true fan-hood"</b>. <br/>
-        <a href="https://ulogs.org/created/@thejohalfiles"><b>@thejohalfiles</b></a> is approachable, reachable and prompt. He has touched many. <b>Without accolades, he touches many.</b> <br/>
+        <a href="https://ulogs.org/@thejohalfiles"><b>@thejohalfiles</b></a> is a <b>behind-the-scener</b>. He stealthily leaves the <b>"Johal files"</b> in every space, <b><i>taking light right inside tunnels.</i></b> He has supported <b>"dreams" on the steem blockchain</b>, by means of mentorship, timely engagement, curation and actual community; <b>"true fan-hood"</b>. <br/>
+        <a href="https://ulogs.org/@thejohalfiles"><b>@thejohalfiles</b></a> is approachable, reachable and prompt. He has touched many. <b>Without accolades, he touches many.</b> <br/>
         <u>Some of his cookies:</u> <br/>
         <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
@@ -386,6 +386,45 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogSurfyogi = (
+      <span>
+        <a href="https://ulogs.org/@surfyogi"><b>@surfyogi</b></a> <b>is plain to see.</b> Without much noise, he surfs the spaces taking <b>"light"</b> by means of his shine into <b>"the nooks and crannies of every tunnel".</b> He bore forth <a href="https://ulogs.org/@wafrica"><b>@wafrica</b></a> & <a href="https://ulogs.org/@artzone"><b>@artzone</b></a> as a means to reach (inside) tunnels. No longer do many have to wait to get to the <b>"end of the tunnel"</b>. <br/>
+        He has supported <b>"dreams" on the steem blockchain</b>, by means of mentorship, timely engagement, curation and actual community; <b>"true fan-hood"</b>. <br/>
+        <a href="https://ulogs.org/@surfyogi"><b>@surfyogi</b></a> is approachable, reachable and prompt. Well, he cares. He may reach all-the-way out to you. <b>He has touched many. Without accolades, he touches many.</b> <br/>
+        <u>Some of his cookies:</u> <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2">He is more of <b>"a behind-the-scener".</b></font></li>
+            <li><font size="2">He knows of the notion <b>"humanity is the brother next to you".</b></font></li>
+            <li><font size="2">He knows of <b>"directional fun"</b>.</font></li>
+            <li><font size="2"><b>He is a "true fan" of your very own shine</b>.</font></li>
+            <li><font size="2">He wants one to <b>truly grow</b>, than to keep on <b>hand-to-mouthing</b>.</font></li>
+            <li><font size="2"><b>He loves steem</b>.</font></li>
+            <li><font size="2">Accolades or none, he creates <b>beautiful disruptions</b>.</font></li>
+            <li><font size="2"><b>He loves community.</b></font></li>
+          </ul>
+        </div>   
+        <br/>   
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor</a></span> to <b>"give back"</b>; to emulate him; to learn about him, to be <b>"true fans"</b> of him, to share memories with him; to reach out to him etc <b>(per day)</b>. <br/> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-surfyogi"><b>#ulog-surfyogi</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + SurfYogi):" somewhere IN-TITLE</b>. See <b>sample</b>: <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + SurfYogi): My Attempt To Get Him To Do His First Ulog...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + SurfYogi): I Sent SurfYogi A White Tshirt...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + SurfYogi): I Am Learning To Do Deeds Without Noise ...[TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/EpVxmW4">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=surfyogi">@surfyogi [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EpVxmW4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -427,6 +466,8 @@ class UlogCaption extends React.Component {
       caption = ulogThejohalfiles;
     } else if (category === 'ulogifs') {
       caption = uloGifs;
+    } else if (category === 'ulog-surfyogi') {
+      caption = ulogSurfyogi;  
     }
     const about = `About #${category}`;
 
