@@ -253,6 +253,8 @@ class Editor extends React.Component {
         <div>
           <Collapse>
             <Panel header="The General-Purpose Editor (Style-Guide For #ulog/#ulog-subtags)" key="1">
+            <u><b>Ulog-KnowledgeBank:</b></u>
+            <div style={{ color : 'purple' }}>
               <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulography">#ulography</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulography">#ulography</a> etc] <b>IN-TITLE:</b> [add "(ULOG + Photography):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + GratefulVibes):" etc.]</font></li>
@@ -263,8 +265,6 @@ class Editor extends React.Component {
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + ShowerThoughts):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + SnookMadeMeDoIt):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-terrysays">#ulog-terrysays</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-terrysays">#ulog-terrysays</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + TerrySays):" etc.]</font></li>
-                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Curie):" etc.]</font></li>
-                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a>:</b> <b>TAGS-order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + OCD):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-recipes">#ulog-recipes</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-recipes">#ulog-recipes</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Recipes):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-hugot">#ulog-hugot</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-hugot">#ulog-hugot</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Hugot):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-steem">#ulog-steem</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-steem">#ulog-steem</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Steem):" etc.]</font></li>
@@ -286,6 +286,14 @@ class Editor extends React.Component {
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Zoo):" etc.]</font></li>
                 <li><font size="2"><b>etc</b></font></li>
               </ul>
+            </div>  
+            <u><b>Ulog-FanLove (BeLikeTerry):</b></u>
+            <div style={{ color : 'purple' }}>
+              <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Curie):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a>:</b> <b>TAGS-order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + OCD):" etc.]</font></li>
+              </ul>
+            </div>     
             </Panel>
           </Collapse>
 
