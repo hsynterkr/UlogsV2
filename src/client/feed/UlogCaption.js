@@ -425,6 +425,45 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogBobbylee = (
+      <span>
+        <a href="https://ulogs.org/@bobbylee"><b>@bobbylee</b></a> manages to constitute <b>"light". </b> Without much noise, he surfs the spaces taking <b>"light"</b> by means of his shine into <b>"the nooks and crannies of every tunnel".</b> He relishes this. No longer do many have to wait to get to the <b>"end of the tunnel"</b>. <br/>
+        He cares. He evolves in his ability to show care. <b>Bulls or bears, his care is on default.</b> He offers a lee to those seeking a haven, supporting <b>"dreams" on the steem blockchain</b>, by means of mentorship, timely engagement, curation and actual community; <b>"true fan-hood"</b>. <br/>
+        <a href="https://ulogs.org/@bobbylee"><b>@bobbylee</b></a> is approachable, reachable and prompt. Well, he cares. He may reach all-the-way out to you. <b>He has touched many. Without accolades, he touches many.</b> <br/>
+        <u>Some of his cookies:</u> <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2">He is more of <b>"a behind-the-scener".</b></font></li>
+            <li><font size="2">He knows of the notion <b>"humanity is the brother next to you".</b></font></li>
+            <li><font size="2"><b><i>He has a soft-spot and let's you reach it</i></b>.</font></li>
+            <li><font size="2"><b>He is a "true fan" of your very own shine</b>.</font></li>
+            <li><font size="2">He wants one to <b>truly grow</b>, than to keep on <b>hand-to-mouthing</b>.</font></li>
+            <li><font size="2"><b>He loves steem</b>.</font></li>
+            <li><font size="2">Accolades or none, he creates <b>beautiful disruptions</b>.</font></li>
+            <li><font size="2"><b>He allows you to relegate reservations in his space.</b></font></li>
+          </ul>
+        </div>   
+        <br/>   
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor</a></span> to <b>"give back"</b>; to emulate him; to learn about him, to be <b>"true fans"</b> of him, to share memories with him; to reach out to him etc <b>(per day)</b>. <br/> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-bobbylee"><b>#ulog-bobbylee</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + BobbyLee):" somewhere IN-TITLE</b>. See <b>sample</b>:
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + BobbyLee): My Attempt To Get Him To Do His First Ulog. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + BobbyLee): I Wrote Bobby A "Thank You" Ulog And He Said "Wow". [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + BobbyLee): I Drew A BobbyLee Portrait From My Image Nation. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/PEfzyM4">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=iyanpol12">@iyanpol12 [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/PEfzyM4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=iyanpol12"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -467,7 +506,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulogifs') {
       caption = uloGifs;
     } else if (category === 'ulog-surfyogi') {
-      caption = ulogSurfyogi;  
+      caption = ulogSurfyogi;
+    } else if (category === 'ulog-bobbylee') {
+      caption = ulogBobbylee;   
     }
     const about = `About #${category}`;
 
