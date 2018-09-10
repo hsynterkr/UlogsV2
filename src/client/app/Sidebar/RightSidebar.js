@@ -95,7 +95,7 @@ export default class RightSidebar extends React.Component {
             path="/@:name"
             render={() =>
               authenticated && (
-                <InterestingPeopleWithAPI
+                <InterestingUloggersWithAPI
                   authenticatedUser={authenticatedUser}
                   followingList={followingList}
                   isFetchingFollowingList={isFetchingFollowingList}

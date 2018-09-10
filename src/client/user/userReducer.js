@@ -10,6 +10,12 @@ const initialState = {
     isFetching: false,
     fetched: false,
   },
+  uloggersFollowing: {
+    list: [],
+    pendingFollows: [],
+    isFetching: false,
+    fetched: false,
+  },
   notifications: [],
   latestNotification: {},
   loadingNotifications: false,
@@ -62,6 +68,39 @@ export default function userReducer(state = initialState, action) {
           fetched: true,
         },
         fetchFollowListError: false,
+      };
+    case actions.GET_ULOGGERS_FOLLOWING_START:
+      return {
+        ...state,
+        uloggersFollowing: {
+          ...state.uloggersFollowing,
+          list: [],
+          isFetching: true,
+          fetched: false,
+        },
+        fetchUloggersFollowListError: false,
+      };
+    case actions.GET_ULOGGERS_FOLLOWING_ERROR:
+      return {
+        ...state,
+        uloggersFollowing: {
+          ...state.uloggersFollowing,
+          list: [],
+          isFetching: false,
+          fetched: true,
+        },
+        fetchUloggersFollowListError: true,
+      };
+    case actions.GET_ULOGGERS_FOLLOWING_SUCCESS:
+      return {
+        ...state,
+        uloggersFollowing: {
+          ...state.uloggersFollowing,
+          list: action.payload,
+          isFetching: false,
+          fetched: true,
+        },
+        fetchUloggersFollowListError: false,
       };
     case actions.FOLLOW_USER_START:
     case actions.UNFOLLOW_USER_START:
@@ -153,3 +192,7 @@ export const getNotifications = state => state.notifications;
 export const getIsLoadingNotifications = state => state.loadingNotifications;
 export const getFetchFollowListError = state => state.fetchFollowListError;
 export const getLatestNotification = state => state.latestNotification;
+export const getUloggersFollowingList = state => state.uloggersFollowing.list;
+export const getIsFetchingUloggersFollowingList = state => state.uloggersFollowing.isFetching;
+export const getUloggersFollowingFetched = state => state.uloggersFollowing.fetched;
+export const getFetchUloggersFollowListError = state => state.fetchUloggersFollowListError;

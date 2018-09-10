@@ -72,6 +72,28 @@ export const getFollowing = username => (dispatch, getState) => {
   });
 };
 
+export const GET_ULOGGERS_FOLLOWING = '@user/GET_ULOGGERS_FOLLOWING';
+export const GET_ULOGGERS_FOLLOWING_START = '@user/GET_ULOGGERS_FOLLOWING_START';
+export const GET_ULOGGERS_FOLLOWING_SUCCESS = '@user/GET_ULOGGERS_FOLLOWING_SUCCESS';
+export const GET_ULOGGERS_FOLLOWING_ERROR = '@user/GET_ULOGGERS_FOLLOWING_ERROR';
+
+export const getUloggersFollowing = () => (dispatch, getState) => {
+  const state = getState();
+
+  if (!getIsAuthenticated(state)) {
+    return dispatch({ type: GET_ULOGGERS_FOLLOWING_ERROR });
+  }
+
+  return dispatch({
+    type: GET_ULOGGERS_FOLLOWING,
+    meta: 'uloggers',
+    payload: {
+      promise: getAllFollowing('uloggers').catch(() => dispatch({ type: GET_ULOGGERS_FOLLOWING_ERROR })),
+    },
+  });
+};
+
+
 export const UPDATE_RECOMMENDATIONS = '@user/UPDATE_RECOMMENDATIONS';
 export const updateRecommendations = createAction(UPDATE_RECOMMENDATIONS);
 
