@@ -17,9 +17,15 @@ import {
   getUsedLocale,
   getTranslations,
   getUseBeta,
+  getUloggersFollowingList,
+  getIsFetchingUloggersFollowingList,
 } from './reducers';
 import { login, logout, busyLogin } from './auth/authActions';
-import { getFollowing, getNotifications } from './user/userActions';
+import {
+  getFollowing,
+  getUloggersFollowing,
+  getNotifications,
+} from './user/userActions';
 import {
   getRate,
   getRewardFund,
@@ -43,11 +49,14 @@ import BBackTop from './components/BBackTop';
     usedLocale: getUsedLocale(state),
     translations: getTranslations(state),
     locale: getLocale(state),
+    uloggersFollowingList: getUloggersFollowingList(state),
+    isFetchingUloggersFollowingList: getIsFetchingUloggersFollowingList(state),
   }),
   {
     login,
     logout,
     getFollowing,
+    getUloggersFollowing,
     getNotifications,
     getRate,
     getRewardFund,
@@ -69,6 +78,7 @@ export default class Wrapper extends React.PureComponent {
     login: PropTypes.func,
     logout: PropTypes.func,
     getFollowing: PropTypes.func,
+    getUloggersFollowing: PropTypes.func,
     getRewardFund: PropTypes.func,
     getRebloggedList: PropTypes.func,
     getRate: PropTypes.func,
@@ -85,6 +95,7 @@ export default class Wrapper extends React.PureComponent {
     login: () => {},
     logout: () => {},
     getFollowing: () => {},
+    getUloggersFollowing: () => {},
     getRewardFund: () => {},
     getRebloggedList: () => {},
     getRate: () => {},
@@ -133,6 +144,7 @@ export default class Wrapper extends React.PureComponent {
   componentDidMount() {
     this.props.login().then(() => {
       this.props.getFollowing();
+      this.props.getUloggersFollowing();
       this.props.getNotifications();
       this.props.busyLogin();
     });
