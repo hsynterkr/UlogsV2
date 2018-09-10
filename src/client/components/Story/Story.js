@@ -306,6 +306,12 @@ class Story extends React.Component {
                   <h4>
                     <span className="username">{post.author}</span>
                     <ReputationTag reputation={post.author_reputation} />
+                    {postState.isCertifiedUlogger &&
+                      <img
+                        src="/images/certified_44.png"
+                        className="Story__header__certified"
+                      />
+                    }
                   </h4>
                 </Link>
                 <span className="Story__topics">
