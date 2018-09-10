@@ -15,6 +15,7 @@ import {
 import withAuthActions from '../../auth/withAuthActions';
 import BTooltip from '../BTooltip';
 import ReputationTag from '../ReputationTag';
+import CertifiedUlogger from '../CertifiedUlogger';
 import StoryPreview from './StoryPreview';
 import StoryFooter from '../StoryFooter/StoryFooter';
 import Avatar from '../Avatar';
@@ -307,10 +308,7 @@ class Story extends React.Component {
                     <span className="username">{post.author}</span>
                     <ReputationTag reputation={post.author_reputation} />
                     {postState.isCertifiedUlogger &&
-                      <img
-                        src="/images/certified_44.png"
-                        className="Story__header__certified"
-                      />
+                      <CertifiedUlogger />
                     }
                   </h4>
                 </Link>
