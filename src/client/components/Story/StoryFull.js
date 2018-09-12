@@ -22,6 +22,7 @@ import { getProxyImageURL } from '../../helpers/image';
 import Popover from '../Popover';
 import BTooltip from '../BTooltip';
 import ReputationTag from '../ReputationTag';
+import CertifiedUlogger from '../CertifiedUlogger';
 import { getHtml } from './Body';
 import BodyContainer from '../../containers/Story/BodyContainer';
 import StoryDeleted from './StoryDeleted';
@@ -378,6 +379,9 @@ class StoryFull extends React.Component {
             <Link to={`/@${post.author}`}>
               <span className="username">{post.author}</span>
               <ReputationTag reputation={post.author_reputation} />
+              {postState.isCertifiedUlogger &&
+                <CertifiedUlogger />
+              }
             </Link>
             <BTooltip
               title={

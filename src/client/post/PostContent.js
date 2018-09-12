@@ -15,6 +15,7 @@ import {
   getRebloggedList,
   getPendingReblogs,
   getFollowingList,
+  getUloggersFollowingList,
   getPendingFollows,
   getIsEditorSaving,
   getVotingPower,
@@ -43,6 +44,7 @@ import DMCARemovedMessage from '../components/Story/DMCARemovedMessage';
     reblogList: getRebloggedList(state),
     pendingReblogs: getPendingReblogs(state),
     followingList: getFollowingList(state),
+    uloggersFollowingList: getUloggersFollowingList(state),
     pendingFollows: getPendingFollows(state),
     saving: getIsEditorSaving(state),
     sliderMode: getVotingPower(state),
@@ -70,6 +72,7 @@ class PostContent extends React.Component {
     reblogList: PropTypes.arrayOf(PropTypes.number),
     pendingReblogs: PropTypes.arrayOf(PropTypes.number),
     followingList: PropTypes.arrayOf(PropTypes.string),
+    uloggersFollowingList: PropTypes.arrayOf(PropTypes.string),
     pendingFollows: PropTypes.arrayOf(PropTypes.string),
     pendingBookmarks: PropTypes.arrayOf(PropTypes.number).isRequired,
     saving: PropTypes.bool.isRequired,
@@ -94,6 +97,7 @@ class PostContent extends React.Component {
     reblogList: [],
     pendingReblogs: [],
     followingList: [],
+    uloggersFollowingList: [],
     pendingFollows: [],
     bookmarks: {},
     sliderMode: 'auto',
@@ -165,6 +169,7 @@ class PostContent extends React.Component {
       reblogList,
       pendingReblogs,
       followingList,
+      uloggersFollowingList,
       pendingFollows,
       bookmarks,
       pendingBookmarks,
@@ -195,6 +200,7 @@ class PostContent extends React.Component {
       isLiked: userVote.percent > 0,
       isReported: userVote.percent < 0,
       userFollowed: followingList.includes(content.author),
+      isCertifiedUlogger: uloggersFollowingList.includes(content.author),
     };
 
     const pendingLike =
