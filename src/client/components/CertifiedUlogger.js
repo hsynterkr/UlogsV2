@@ -8,7 +8,7 @@ function CertifiedUlogger({ intl }) {
   return (
     <BTooltip
       title={intl.formatMessage(
-        { id: 'verified_ulogger', defaultMessage: 'Verified Ulogger' },
+        { id: 'certified_ulogger', defaultMessage: 'Certified Ulogger' },
       )}
     >
       <img
