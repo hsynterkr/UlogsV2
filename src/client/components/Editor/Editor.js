@@ -292,6 +292,8 @@ class Editor extends React.Component {
               <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-curie">#ulog-curie</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Curie):" etc.]</font></li>
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a>:</b> <b>TAGS-order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-ocd">#ulog-ocd</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + OCD):" etc.]</font></li>
+                <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-thejohalfiles">#ulog-thejohalfiles</a>?</b> <b>TAGS-order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-thejohalfiles">#ulog-thejohalfiles</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + TheJohalFiles):" etc.]</font></li>
+
               </ul>
             </div>     
             </Panel>
