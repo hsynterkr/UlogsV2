@@ -78,12 +78,6 @@ export const GET_ULOGGERS_FOLLOWING_SUCCESS = '@user/GET_ULOGGERS_FOLLOWING_SUCC
 export const GET_ULOGGERS_FOLLOWING_ERROR = '@user/GET_ULOGGERS_FOLLOWING_ERROR';
 
 export const getUloggersFollowing = () => (dispatch, getState) => {
-  const state = getState();
-
-  if (!getIsAuthenticated(state)) {
-    return dispatch({ type: GET_ULOGGERS_FOLLOWING_ERROR });
-  }
-
   return dispatch({
     type: GET_ULOGGERS_FOLLOWING,
     meta: 'uloggers',

@@ -464,6 +464,89 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogStellabelle = (
+      <span>
+        <a href="https://ulogs.org/@stellabelle"><b>@stellabelle</b></a> is <b>non-stop</b> in how <b>she moves</b>. For a great noble cause; to play roles in things that can constitute historical-history; <b>she simply moves!</b> She leaves <b>her ulogacies</b> in every space, leading matters. <br/>
+        <b><i>Her mind’s eye has spanless arrays of colors.</i></b> She dreams yet she maintains <b>real-hood</b>. As she finds herself, <b>she lays bare her cookies</b>, so others can find themselves too. <br/> She takes light right inside tunnels. Not any longer does one have to wait till <b>“the end of the tunnel”</b>. <br/>
+        <b>She has supported "dreams" on the steem blockchain</b>, by means of mentorship, partnerships, generousity, timely engagement, curation and actual community; <b>"true fan-hood"</b>. <br/>
+        <a href="https://ulogs.org/@stellabelle"><b>@stellabelle</b></a> is approachable, reachable and prompt. Well, she cares. She may reach all-the-way out to you. <b>She has touched many. Without accolades, she touches many.</b> <br/>
+        <u>Some of her cookies:</u> <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2">She is a <b>"a behind-the-scener".</b> She is an <b>on-the-scener</b>.</font></li>
+            <li><font size="2">She can bear <b>your consequence</b>. She bears <b>her consequence</b>.</font></li>
+            <li><font size="2">She knows of the term <b>"sister"</b>.</font></li>
+            <li><font size="2">Her <b>mind’s eye</b>, she let’s wander into <b>states of spanlessness</b>.</font></li>
+            <li><font size="2">She is a <b>“true fan”</b> of your noble dreams; <b>met or unmet</b>.</font></li>
+            <li><font size="2">She attempts <b>out-of-the-boxness</b>. She creates. She recreates. <b>(UnDisTalented)</b>.</font></li>
+            <li><font size="2">She wants one to <b>truly grow</b>, than to keep on <b>hand-to-mouthing</b>.</font></li>
+            <li><font size="2"><b><i>She loves steem.</i></b></font></li>
+            <li><font size="2">She is a <b>Ulogger-Mum</b>.</font></li>
+            <li><font size="2"><b>Accolades or none, she creates beautiful disruptions</b>.</font></li>
+          </ul>
+        </div>   
+        <br/>   
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor</a></span> to <b>"give back"</b>; to emulate her; to learn about her, to be <b>"true fans"</b> of her, to share memories with her; to reach out to her etc <b>(per day)</b>. <br/> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-stellabelle"><b>#ulog-stellabelle</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Stellabelle):" somewhere IN-TITLE</b>. See <b>sample</b>:
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Stellabelle): My Attempt To Get Her To Do Her First UloGIF. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Stellabelle): I Created Some UloGIFs That I Am Sure She Will Like. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Stellabelle): Because Of Her, I Re-loved My Woman. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/b2NzBn8">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=@stellabelle">@stellabelle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/b2NzBn8"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=stellabelle"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
+    const ulogSweetsssj = (
+      <span>
+        <a href="https://ulogs.org/@sweetsssj"><b>@sweetsssj</b></a> brightens the spaces. She wanders across <b>Mama Earth</b> and manages to let us peer into her adventures. <b>Spots-from-creation</b> she carries behind her, <b>re-telling us of the Creator Jehovah</b>. <br/>
+        She <b>YaoMings</b> on the steem blockchain, <b>leaving her Ulogacies in lights</b> for all to see. <br/>
+        <b>She has supported "dreams" on the steem blockchain</b>, by means of mentorship, timely engagement, curation and actual community etc; <b>"true fan-hood"</b>. <br/>
+        <a href="https://ulogs.org/@sweetsssj"><b>@sweetsssj</b></a> is approachable, reachable and prompt. She uses <b>her smile</b> to cut down on <b>"distances"</b>. <br/>
+        <u>Some of her cookies:</u> <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2">She is <b>“human”</b>. She can afford to show it.</font></li>
+            <li><font size="2"><b><i>She airs her mind.</i></b></font></li>
+            <li><font size="2">She knows of the term <b>"sister"</b>.</font></li>
+            <li><font size="2">She understands the notion <b>“nations are locations”</b>.</font></li>
+            <li><font size="2"><b>She travels</b>. As she travels, she grows <b><i>her opinions</i></b>.</font></li>
+            <li><font size="2">She attempts <b>out-of-the-boxness</b>. She creates. She recreates. <b>(UnDisTalented)</b>.</font></li>
+            <li><font size="2"><b><i>She loves steem.</i></b></font></li>
+            <li><font size="2">She loves cats</font></li>
+            <li><font size="2">She is not Gulliver. <b><i>She is Sweetsssj</i></b>.</font></li>
+          </ul>
+        </div>   
+        <br/>   
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor</a></span> to <b>"give back"</b>; to emulate her; to learn about her, to be <b>"true fans"</b> of her, to share memories with her; to reach out to her etc <b>(per day)</b>. <br/> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-sweetsssj"><b>#ulog-sweetsssj</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "your location" etc. Don't forget to <b>add "(Ulog + Sweetsssj):" somewhere IN-TITLE</b>. See <b>sample</b>:
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Sweetsssj): My Attempt To Get Her To Do Her First Ulog. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Sweetsssj): I Ulogged About Travel "Sweetsssj-Style". [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + Sweetsssj): My Selfie-Moments With Sweetssj Earlier Today In Beijin. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/xrbRM9Y">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=@sweetsssj">@sweetsssj [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/xrbRM9Y"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=sweetsssj"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -508,7 +591,11 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-surfyogi') {
       caption = ulogSurfyogi;
     } else if (category === 'ulog-bobbylee') {
-      caption = ulogBobbylee;   
+      caption = ulogBobbylee;
+    } else if (category === 'ulog-stellabelle') {
+      caption = ulogStellabelle;
+    } else if (category === 'ulog-sweetsssj') {
+      caption = ulogSweetsssj;       
     }
     const about = `About #${category}`;
 
