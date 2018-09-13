@@ -23,6 +23,7 @@ class Comments extends React.Component {
     comments: PropTypes.shape(),
     rootLevelComments: PropTypes.arrayOf(PropTypes.shape()),
     commentsChildren: PropTypes.shape(),
+    uloggersFollowingList: PropTypes.arrayOf(PropTypes.string),
     pendingVotes: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -47,6 +48,7 @@ class Comments extends React.Component {
     comments: {},
     rootLevelComments: [],
     commentsChildren: undefined,
+    uloggersFollowingList: [],
     pendingVotes: [],
     rewriteLinks: false,
     sliderMode: 'auto',
@@ -194,6 +196,7 @@ class Comments extends React.Component {
       comments,
       rootLevelComments,
       commentsChildren,
+      uloggersFollowingList,
       loading,
       show,
       pendingVotes,
@@ -268,6 +271,7 @@ class Comments extends React.Component {
               sort={sort}
               rootPostAuthor={this.props.parentPost && this.props.parentPost.author}
               commentsChildren={commentsChildren}
+              uloggersFollowingList={uloggersFollowingList}
               pendingVotes={pendingVotes}
               notify={this.props.notify}
               rewardFund={rewardFund}
