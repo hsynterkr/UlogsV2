@@ -9,6 +9,7 @@ import {
   getComments,
   getCommentsList,
   getCommentsPendingVotes,
+  getUloggersFollowingList,
   getIsAuthenticated,
   getAuthenticatedUserName,
   getVotingPower,
@@ -26,6 +27,7 @@ import './Comments.less';
     user: getAuthenticatedUser(state),
     comments: getComments(state),
     commentsList: getCommentsList(state),
+    uloggersFollowingList: getUloggersFollowingList(state),
     pendingVotes: getCommentsPendingVotes(state),
     authenticated: getIsAuthenticated(state),
     username: getAuthenticatedUserName(state),
@@ -58,6 +60,7 @@ export default class Comments extends React.Component {
     post: PropTypes.shape(),
     comments: PropTypes.shape(),
     commentsList: PropTypes.shape(),
+    uloggersFollowingList: PropTypes.arrayOf(PropTypes.string),
     pendingVotes: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -77,6 +80,7 @@ export default class Comments extends React.Component {
     post: {},
     comments: {},
     commentsList: {},
+    uloggersFollowingList: [],
     pendingVotes: [],
     show: false,
     notify: () => {},
@@ -150,6 +154,7 @@ export default class Comments extends React.Component {
       user,
       post,
       comments,
+      uloggersFollowingList,
       pendingVotes,
       show,
       sliderMode,
@@ -180,6 +185,7 @@ export default class Comments extends React.Component {
           comments={comments.comments}
           rootLevelComments={rootLevelComments}
           commentsChildren={commentsChildren}
+          uloggersFollowingList={uloggersFollowingList}
           authenticated={this.props.authenticated}
           username={this.props.username}
           pendingVotes={pendingVotes}
