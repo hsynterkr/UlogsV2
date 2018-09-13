@@ -15,6 +15,7 @@ import formatter from '../../helpers/steemitFormatter';
 import { MAXIMUM_UPLOAD_SIZE_HUMAN } from '../../helpers/image';
 import { sortComments } from '../../helpers/sortHelpers';
 import ReputationTag from '../../components/ReputationTag';
+import CertifiedUlogger from '../../components/CertifiedUlogger';
 import CommentForm from './CommentForm';
 import EmbeddedCommentForm from './EmbeddedCommentForm';
 import Avatar from '../Avatar';
@@ -37,6 +38,7 @@ class Comment extends React.Component {
     sliderMode: PropTypes.oneOf(['on', 'off', 'auto']),
     rootPostAuthor: PropTypes.string,
     commentsChildren: PropTypes.shape(),
+    uloggersFollowingList: PropTypes.arrayOf(PropTypes.string),
     pendingVotes: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -56,6 +58,7 @@ class Comment extends React.Component {
     rewriteLinks: false,
     rootPostAuthor: undefined,
     commentsChildren: undefined,
+    uloggersFollowingList: [],
     pendingVotes: [],
     depth: 0,
     notify: () => {},
@@ -216,6 +219,7 @@ class Comment extends React.Component {
       sort,
       rootPostAuthor,
       commentsChildren,
+      uloggersFollowingList,
       pendingVotes,
       depth,
       sliderMode,
@@ -230,6 +234,8 @@ class Comment extends React.Component {
     const editable = comment.author === user.name && comment.cashout_time !== '1969-12-31T23:59:59';
     const commentAuthorReputation = formatter.reputation(comment.author_reputation);
     const showCommentContent = commentAuthorReputation >= 0 || showHiddenComment;
+    const isCertifiedUlogger = uloggersFollowingList.includes(comment.author);
+
 
     let content = null;
 
@@ -287,6 +293,9 @@ class Comment extends React.Component {
                 <Tag color="#4f545c">OP</Tag>
               </BTooltip>
             )}
+            {isCertifiedUlogger &&
+              <CertifiedUlogger />
+            }
           </Link>
           <span className="Comment__date">
             <BTooltip
@@ -358,6 +367,7 @@ class Comment extends React.Component {
                   pendingVotes={pendingVotes}
                   rootPostAuthor={rootPostAuthor}
                   commentsChildren={commentsChildren}
+                  uloggersFollowingList={uloggersFollowingList}
                   notify={this.props.notify}
                   rewardFund={rewardFund}
                   sliderMode={sliderMode}
