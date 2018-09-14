@@ -547,6 +547,54 @@ class UlogCaption extends React.Component {
       </span>
     );
 
+    const ulogDimimp = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>"Looking is starkly different from Seeing". @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/@dimimp"><b>@dimimp</b></a> can see. H(s)e wanders the spaces. H(s)e is putting the <b>“smallers things”</b> in its places. H(s)e is putting <b>“money”</b> in its place, <b>re-telling people of their very own shine</b>. H(s)e allows that the masses roam but directionally within <b>the nooks & crannies of their very own dreams</b>. <br/>
+        Tunnels can no longer stay <b>dim</b>, for <b>lights must go therein</b>. <a href="https://ulogs.org/@steemjet"><b>"@steemjet</b></a> <b>go un-dim the spaces"</b>. <br/> H(s)e is full of context. Each word coded and encoded. Just when you see <b>DIM</b>, check again, in the shadows is the <b>IMP</b>; <b><i>“gIANT”!</i></b> <br/>
+        <a href="https://ulogs.org/@dimimp"><b>@dimimp</b></a> has supported <b>"dreams"</b> on the steem blockchain, by means of mentorship, dream-building, timely engagement, educationally giving, curation and actual community etc; "true fan-hood". <br/> <a href="https://ulogs.org/@dimimp"><b>@dimimp</b></a> is approachable, reachable and prompt. <b>Within hishe silence h(s)e reaches out</b>. <br/>
+        <u>Some of @dimimp's cookies:</u> <br/>
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2">H(s)e thinks <b>“the world”</b>.</font></li>
+            <li><font size="2">H(s)e thinks <b>“tomorrow”</b>.</font></li>
+            <li><font size="2">H(s)e knows <b>“tomorrow” can be “today”</b>.</font></li>
+            <li><font size="2"><b>H(s)e is Un(dis)talented</b>.</font></li>
+            <li><font size="2">H(s)e knows of the notion, <b>"mentality is key"</b>.</font></li>
+            <li><font size="2">H(s)e understands the mentality, <b>“nations are locations”</b>.</font></li>
+            <li><font size="2">H(s)e gives testimonial essence to <b>mystery</b>.</font></li>
+            <li><font size="2">H(s)e invents Wreck-It-Ralph use for <b>suspense</b>.</font></li>
+            <li><font size="2">H(s)e is more of a <b>behind-the-scener</b>.</font></li>
+            <li><font size="2">H(s)e <b>dreams</b> by letting you <b>dream</b>.</font></li>
+            <li><font size="2"><b>He doesn't react to each stimuli. He can see things and walk past</b>.</font></li>
+            <li><font size="2">H(s)e attempts out-of-the-boxness. H(s)e creates. She recreates.</font></li>
+            <li><font size="2"><b>H(s)e loves steem.</b></font></li>
+            <li><font size="2"><b>Accolades or none</b>, he creates <b>beautiful disruptions</b>.</font></li>
+          </ul>
+        </div>   
+        <br/>   
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor</a></span> to <b>"give back"</b>; to emulate him(er); to learn about him(er), to be <b>"true fans"</b> of him(er), to share memories with him(er); to reach out to him(er) etc <b>(per day)</b>. <br/> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-dimimp"><b>#ulog-dimimp</b></a>" as your 2nd hashtag. You can then add other hashtags e.g "<a href="https://ulogs.org/created/steemjet">#steemjet</a>" etc. Don't forget to <b>add "(Ulog + DimImp):" somewhere IN-TITLE</b>. See <b>sample</b>:
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + DimImp): My Attempt To Get @dimimp To Ulog. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> <a href="https://ulogs.org/created/steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + DimImp): What I Learned From @dimimp Today. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> <a href="https://ulogs.org/created/steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + DimImp): My Mentality Improved After An Encounter With @dimpimp. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> <a href="https://ulogs.org/created/steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/EBRJxQM">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=@surpassinggoogle">@surpassinggoogle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EBRJxQM"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=surpassinggoogle"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
@@ -595,7 +643,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-stellabelle') {
       caption = ulogStellabelle;
     } else if (category === 'ulog-sweetsssj') {
-      caption = ulogSweetsssj;       
+      caption = ulogSweetsssj;
+    } else if (category === 'ulog-dimimp') {
+      caption = ulogDimimp;         
     }
     const about = `About #${category}`;
 
