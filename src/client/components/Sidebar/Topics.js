@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import Topic from '../Button/Topic';
 import Loading from '../Icon/Loading';
+import ulogTopics from '../../helpers/ulogTopics';
 import './Topics.less';
 
 class Topics extends React.Component {
@@ -10,6 +11,7 @@ class Topics extends React.Component {
     favorite: PropTypes.bool,
     topics: PropTypes.arrayOf(PropTypes.string),
     maxItems: PropTypes.number,
+    maxUlogTopics: PropTypes.number,
     loading: PropTypes.bool,
   };
 
@@ -17,6 +19,7 @@ class Topics extends React.Component {
     favorite: false,
     topics: [],
     maxItems: 5,
+    maxUlogTopics: 7,
     loading: false,
   };
 
@@ -24,6 +27,7 @@ class Topics extends React.Component {
     super(props);
     this.state = {
       showMore: false,
+      showMoreUlogTopics: false,
     };
   }
 
@@ -31,44 +35,62 @@ class Topics extends React.Component {
     this.setState({ showMore });
   }
 
+  changeMoreUlogTopicsVisibility(showMoreUlogTopics) {
+    this.setState({ showMoreUlogTopics });
+  }
+
   render() {
-    const { topics, favorite, maxItems, loading } = this.props;
+    const { topics, favorite, maxItems, maxUlogTopics, loading } = this.props;
 
     const displayedTopics = this.state.showMore ? topics : topics.slice(0, maxItems);
+    const displayedUlogTopics = this.state.showMoreUlogTopics ? ulogTopics : ulogTopics.slice(0, maxUlogTopics);
 
     return (
       <div className="Topics">
         <h4>
           <FormattedMessage
-            id={favorite ? 'favorite_topics' : 'trending_topics'}
-            defaultMessage={favorite ? 'Favorite topics' : 'Trending topics'}
+            id={'ulog_and_ulog_subtags'}
+            defaultMessage={'Ulog & Ulog sub-tags'}
           />
         </h4>
         {loading && <Loading center={false} />}
         {!loading && (
           <ul className="Topics__list">
-              <li key='ulog'>
-                <Topic name='ulog' favorite={favorite} />
+            {displayedUlogTopics.map(topic => (
+              <li key={topic}>
+                <Topic name={topic} favorite={favorite} />
               </li>
-              <li key='ulogs'>
-                <Topic name='ulogs' favorite={favorite} />
-              </li>
-              <li key='surpassinggoogle'>
-                <Topic name='surpassinggoogle' favorite={favorite} />
-              </li>
-              <li key='steemgigs'>
-                <Topic name='steemgigs' favorite={favorite} />
-              </li>
-              <li key='teardrops'>
-                <Topic name='teardrops' favorite={favorite} />
-              </li>
-              <li key='untalented'>
-                <Topic name='untalented' favorite={favorite} />
-              </li>
-              <li key='philippines'>
-                <Topic name='philippines' favorite={favorite} />
-              </li>
-              
+            ))}
+          </ul>
+        )}
+        {!loading && ulogTopics.length > maxUlogTopics && !this.state.showMoreUlogTopics ? (
+          <a role="button" tabIndex={0} onClick={() => this.changeMoreUlogTopicsVisibility(true)}>
+            <FormattedMessage id="show_more" defaultMessage="View more" />
+          </a>
+        ) : null}
+        {!loading && ulogTopics.length > maxUlogTopics && this.state.showMoreUlogTopics ? (
+          <a role="button" tabIndex={0} onClick={() => this.changeMoreUlogTopicsVisibility(false)}>
+            <FormattedMessage id="show_less" defaultMessage="View less" />
+          </a>
+        ) : null}
+        <h4>
+          <FormattedMessage
+            id={favorite ? 'favorite_topics' : 'steem_hashtags'}
+            defaultMessage={favorite ? 'Favorite topics' : 'Steem Hashtags'}
+          />
+        </h4>
+        {loading && <Loading center={false} />}
+        {!loading && (
+          <ul className="Topics__list">
+            <li key='teardrops'>
+              <Topic name='teardrops' favorite={favorite} />
+            </li>
+            <li key='untalented'>
+              <Topic name='untalented' favorite={favorite} />
+            </li>
+            <li key='surpassinggoogle'>
+              <Topic name='surpassinggoogle' favorite={favorite} />
+            </li>
             {displayedTopics.map(topic => (
               <li key={topic}>
                 <Topic name={topic} favorite={favorite} />
