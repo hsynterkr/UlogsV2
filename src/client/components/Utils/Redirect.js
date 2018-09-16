@@ -4,12 +4,6 @@ import { connect } from 'react-redux';
 import { getUseBeta } from '../../reducers';
 
 const Redirect = ({ useBeta }) => {
-  if (typeof window !== 'undefined' && window.location.host === 'ulogs.org' && useBeta) {
-    const url = window.location.href.split('/');
-    url[2] = 'staging.ulogs.org';
-    window.location.replace(url.join('/'));
-  }
-
   return <div />;
 };
 
