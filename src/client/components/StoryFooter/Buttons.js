@@ -11,6 +11,7 @@ import { sortVotes } from '../../helpers/sortHelpers';
 import { getUpvotes, getDownvotes } from '../../helpers/voteHelpers';
 import Popover from '../Popover';
 import BTooltip from '../BTooltip';
+import CertifiedUlogger from '../CertifiedUlogger';
 import PopoverMenu, { PopoverMenuItem } from '../PopoverMenu/PopoverMenu';
 import ReactionsModal from '../Reactions/ReactionsModal';
 import USDDisplay from '../Utils/USDDisplay';
@@ -349,6 +350,9 @@ export default class Buttons extends React.Component {
           </BTooltip>
         )}
         {this.renderPostPopoverMenu()}
+        {postState.isCertifiedUlogger &&
+          <CertifiedUlogger />
+        }
         {!postState.isReblogged && (
           <Modal
             title={intl.formatMessage({
