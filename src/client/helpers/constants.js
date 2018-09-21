@@ -25,3 +25,12 @@ export const people = [
   'snook',
   'surpassinggoogle',
 ];
+
+
+export const delegationAmounts = [
+  10,
+  20,
+  50,
+  100,
+  'Custom',
+];
