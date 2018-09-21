@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import take from 'lodash/take';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { scroller } from 'react-scroll';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
 import classNames from 'classnames';
 import SteemConnect from '../../steemConnectAPI';
@@ -21,9 +21,12 @@ import './Buttons.less';
 
 @injectIntl
 @withAuthActions
+@withRouter
 export default class Buttons extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
     post: PropTypes.shape().isRequired,
     postState: PropTypes.shape().isRequired,
     defaultVotePercent: PropTypes.number.isRequired,
@@ -375,16 +378,18 @@ export default class Buttons extends React.Component {
           </BTooltip>
         )}
         {this.renderPostPopoverMenu()}
-        {postState.isCertifiedUlogger &&
-          <CertifiedUlogger />
-        }
-        <Dropdown overlay={menu} trigger={['click']}>
-          <Button
-            style={{ marginLeft: 8 }}
-            type={'primary'}>
-            Delegate <Icon type="down" />
-          </Button>
-        </Dropdown>
+        {postState.isCertifiedUlogger && (
+          <span>
+            <CertifiedUlogger />
+            <Dropdown overlay={menu} trigger={['click']}>
+              <Button
+                style={{ marginLeft: 8 }}
+                type={'primary'}>
+                Delegate <Icon type="down" />
+              </Button>
+            </Dropdown>
+          </span>
+        )}
         {!postState.isReblogged && (
           <Modal
             title={intl.formatMessage({
