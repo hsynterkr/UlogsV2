@@ -4,13 +4,16 @@ import take from 'lodash/take';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { scroller } from 'react-scroll';
 import { Link } from 'react-router-dom';
-import { Icon, Modal } from 'antd';
+import { Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
 import classNames from 'classnames';
+import SteemConnect from '../../steemConnectAPI';
 import withAuthActions from '../../auth/withAuthActions';
 import { sortVotes } from '../../helpers/sortHelpers';
 import { getUpvotes, getDownvotes } from '../../helpers/voteHelpers';
+import { delegationAmounts } from '../../helpers/constants';
 import Popover from '../Popover';
 import BTooltip from '../BTooltip';
+import CertifiedUlogger from '../CertifiedUlogger';
 import PopoverMenu, { PopoverMenuItem } from '../PopoverMenu/PopoverMenu';
 import ReactionsModal from '../Reactions/ReactionsModal';
 import USDDisplay from '../Utils/USDDisplay';
@@ -296,6 +299,29 @@ export default class Buttons extends React.Component {
       );
     }
 
+    const menu = (
+      <Menu>
+        {delegationAmounts.map(
+          amount => {
+            const delegateQuery = {
+              delegatee: post.author,
+              vesting_shares: `${amount} SP`,
+            };
+            return (
+              <Menu.Item key={amount}>
+                <Link
+                  target="_blank"
+                  to={SteemConnect.sign('delegateVestingShares', delegateQuery)}
+                >
+                  <Icon type="rocket" /> {amount} SP
+                </Link>
+              </Menu.Item>
+            );
+          }
+        )}
+      </Menu>
+    );
+
     return (
       <div className="Buttons">
         <BTooltip title={likeTooltip}>
@@ -349,6 +375,16 @@ export default class Buttons extends React.Component {
           </BTooltip>
         )}
         {this.renderPostPopoverMenu()}
+        {postState.isCertifiedUlogger &&
+          <CertifiedUlogger />
+        }
+        <Dropdown overlay={menu} trigger={['click']}>
+          <Button
+            style={{ marginLeft: 8 }}
+            type={'primary'}>
+            Delegate <Icon type="down" />
+          </Button>
+        </Dropdown>
         {!postState.isReblogged && (
           <Modal
             title={intl.formatMessage({
