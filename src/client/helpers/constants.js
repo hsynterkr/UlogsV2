@@ -32,5 +32,4 @@ export const delegationAmounts = [
   20,
   50,
   100,
-  'Custom',
 ];
