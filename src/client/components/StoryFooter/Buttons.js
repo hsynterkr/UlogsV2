@@ -72,6 +72,7 @@ export default class Buttons extends React.Component {
       shareModalLoading: false,
       reactionsModalVisible: false,
       loadingEdit: false,
+      delegateSpMenuVisible: false,
     };
 
     this.handleLikeClick = this.handleLikeClick.bind(this);
@@ -238,16 +239,18 @@ export default class Buttons extends React.Component {
     );
   }
 
-  onChangeCustomSP = (e) => {
+  handleInputCustomSP = (e) => {
     this.setState({ customSP: e.target.value });
-    console.log(this.state.customSP);
   }
 
-  menuHandleClick = (e) => {
-    console.log('custom', e);
-    if (e.key === 'custom') {
-      e.preventDefault();
+  handleDelegateSpMenuClick = (e) => {
+    if (e.key !== 'custom') {
+      this.setState({ delegateSpMenuVisible: false });
     }
+  }
+
+  handleDelegateSpVisibleChange = (flag) => {
+    this.setState({ delegateSpMenuVisible: flag });
   }
 
   render() {
@@ -314,9 +317,10 @@ export default class Buttons extends React.Component {
       );
     }
 
-    const menu = (
+    const delegateSpMenu = (
       <Menu
-        onClick={this.menuHandleClick}
+        onClick={this.handleDelegateSpMenuClick}
+        style={{ width: '65%' }}
       >
         {delegationAmounts.map(
           amount => {
@@ -337,19 +341,23 @@ export default class Buttons extends React.Component {
           }
         )}
         <Menu.Item key={'custom'}>
-          <Input
-            placeholder="Custom SP"
-            width={12}
-            onChange={this.onChangeCustomSP}
-            addonAfter={
-              <Button
-                type='primary'
-                shape='circle'
-                icon='rocket' 
-                target='_blank'
-                href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
-                />
-            }/>
+          <Input.Group compact>
+            <Input
+              placeholder="Custom"
+              type={'number'}
+              onChange={this.handleInputCustomSP}
+              addonAfter={
+                <span>
+                SP <Button
+                  type='primary'
+                  shape='circle'
+                  icon='rocket' 
+                  target='_blank'
+                  href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
+                  />
+                </span>
+              }/>
+          </Input.Group>
         </Menu.Item>
       </Menu>
     );
@@ -410,7 +418,12 @@ export default class Buttons extends React.Component {
         {postState.isCertifiedUlogger && (
           <span>
             <CertifiedUlogger />
-            <Dropdown overlay={menu} trigger={['click']}>
+            <Dropdown
+              overlay={delegateSpMenu}
+              trigger={['click']}
+              onVisibleChange={this.handleDelegateSpVisibleChange}
+              visible={this.state.delegateSpMenuVisible}
+            >
               <Button
                 size={'small'}
                 style={{ marginLeft: 8, fontSize: 12 }}
