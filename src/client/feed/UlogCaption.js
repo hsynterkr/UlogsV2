@@ -299,7 +299,7 @@ class UlogCaption extends React.Component {
         </div>
         <a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a>: is the Ulog-subtag for <b>(Ulog + Utopian.io)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any <b>existing concept</b> etc an <b>existing concept suddenly turns out all fresh</b>. <br/>
         <div style={{ color : 'purple' }}>
-        <font size="2">Utopian has created an open source economy that rewards both contributors to open source projects as well as project owners. <br/> Utopian simply incentivizes the <b>art of dream-building.</b> While it looks like a tech-empire; in the broad scheme of things, <b>it brings light right inside tunnels, by empowering "anyone" to build a dream.</b> No longer do people have to wait to get to the <b>"end of the tunnel"</b>. This world-adjusting.</font> <br/>
+        <font size="2">Utopian has created an open source economy that rewards both contributors to open source projects as well as project owners. <br/> Utopian simply incentivizes the <b>art of dream-building.</b> While it looks like a tech-empire; in the broad scheme of things, <b>it brings light right inside tunnels, by empowering "anyone" to build a dream.</b> No longer do people have to wait to get to the <b>"end of the tunnel"</b>. This is world-adjusting.</font> <br/>
         <font size="2">Besides all of this, they have supported <b>"dreams" on the steem blockchain</b>, by means of donations, curation and actual community; <b>"true fan-hood"</b>. The <a href="https://utopian.io"><b>Utopian.io</b></a> team and even its CEO (@elear) is approachable, reachable and prompt.</font> <br/>
         <font size="2">By ulogging under <a href="https://ulogs.org/created/ulog-utopian"><b>#ulog-utopian</b></a>, you can give back, emulate their enterprise, be "true fan", reach out, share experiences, give feedback, give suggestions etc. Yes, on <a href="https://ulogs.org"><b>ulogs.org</b></a> you can be <b>"true fans" of enterprises, communities, initiatives etc</b> and in this case, you can be <b>"true fans"</b> of <a href="https://utopian.io"><b>utopian.io</b></a></font> <br/> 
         <font size="2"><a href="https://ulogs.org/@utopian-io"><b>@utopian-io</b></a> may not ask for a <b>"give-back"</b> but with <a href="https://ulogs.org"><b>ulogs.org</b></a>, it is <b>"true celebrity-hood for 'everyone', once and for all".</b></font> <br/><br/>
@@ -694,7 +694,7 @@ class UlogCaption extends React.Component {
           <b><i>"Homing can gradually adjust the world". @surpassinggoogle</i></b> <br/>
         </div>
         <a href="https://ulogs.org/@papa-pepper"><b>@papa-pepper</b></a> is that <b>family guy</b>. He extends his <b>family-hood into heights of globalhood.</b> <br/>
-        He tends to the gardens. <b>He turns new leaves</b>. He makes <b>homes</b> out of <b>jungles</b>. He stirs peace, calm, laughs. He is brother. <b>He spices "spices"</b>. He shines forth, so that <b>tunnels can get light</b>. The birds love him. Snakes do too! The <a href="https://ulogs.org/@little-peppers"><b>@little-peppers</b></a> love him and <b><i>Mama Pepper</i></b> too. <br/> 
+        He tends to the gardens. <b>He turns new leaves</b>. He makes <b>homes</b> out of <b>jungles</b>. He stirs peace, calm, laughs. He is brother. <b>He spices "spices"</b>. He shines forth, so that <b>tunnels can get light</b>. The birds love him. Snakes do too! The <a href="https://ulogs.org/@little-peppers"><b>@little-peppers</b></a> love him and <a href="https://ulogs.org/@mama-pepper"><b><i>@mama-pepper</i></b></a> too. <br/> 
         <a href="https://ulogs.org/@papa-pepper"><b>@papa-pepper</b></a> is a steem veteran. He loves creation. <b>He loves "humans"</b>. As he wonders the spaces, <b>he puts the steem blockchain to more spanless use, inventing out-of-the-box ways to touch and re-touch lives.</b> <br/>
         <a href="https://ulogs.org/@papa-pepper"><b>@papa-pepper</b></a> has supported <b>"dreams"</b> on the steem blockchain, by means of mentorship, dream-building, timely engagement, educationally giving, curation, directional fun/play and actual community etc; <b>"true fan-hood"</b>. <br/> 
         <a href="https://ulogs.org/@papa-pepper"><b>@papa-pepper</b></a> is approachable, reachable and prompt. Alas, he will reach to you, send you silver coin(s), some shirts and laugh-moment with you. Alas! <br/>
@@ -732,6 +732,36 @@ class UlogCaption extends React.Component {
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=@papa-pepper">@papa-pepper [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=papa-pepper"><b><u>Click Here</u></b></a>]</li>
             <li><a href="https://v2.steemconnect.com/sign/follow?following=@ulogs">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
+          </ul>
+          </div>
+        </b>
+      </span>
+    );
+
+    const ulogSteemjet = (
+      <span>
+        <div style={{ color : 'purple' }}>
+          <b><i>“Blockchain technology will become more than just another tech, only by means of our own shine”. @surpassinggoogle</i></b> <br/>
+        </div>
+        <a href="https://ulogs.org/created/ulog-steemjet"><b>#ulog-steemjet</b></a>: is the Ulog-subtag for <b>(Ulog + SteemJet)</b>. When you add <a href="https://ulogs.org/created/ulog"><b>#ulog</b></a> to any <b>existing concept</b> etc an <b>existing concept</b> suddenly turns out all <b>fresh.</b> <br/>
+        <a href="https://ulogs.org/@steemjet"><b>@steemjet</b></a> is timely<b>ly</b>-placed to take <b>steem</b> and <b>each thing that blockchain represents</b> into <b>outer-space</b> and <b>back down-to-earth</b>; then, <b>right inside every “tunnel”</b>.  It is applying the <b>spanless beauty of “human”</b> to this effect. <b><i>It is creating a world of “brothers”</i></b>. <br/> 
+        <a href="https://ulogs.org/@steemjet"><b>@steemjet</b></a> simply spurs the <b>art of dream-building</b>. In the broad scheme of things, <b>it brings light right inside tunnels</b>, by empowering <b>"anyone"</b> to build a noble dream. <b>No longer do many have to wait to get to the "end of the tunnel"</b>. <b><i>This is world-adjusting.</i></b> <br/> They have supported <b>"dreams" on the steem blockchain</b>, by means of donations, curation, mentality-adjusting and actual community; <b><i>"true fan-hood"</i></b> <br/>
+        By ulogging under <a href="https://ulogs.org/created/ulog-steemjet"><b>#ulog-steemjet</b></a>, you can <b>give back, emulate their enterprise, be "true fan", reach out, share experiences, give feedback, give suggestions, create ulogacies, grow etc</b>. Yes, on <a href="https://ulogs.org"><b>ulogs.org</b></a> you can be <b>"true fans" of enterprises, communities, initiatives etc</b> and in this case, <b>you can be "true fans" of <a href="https://ulogs.org/@steemjet"><b>@steemjet</b></a></b> <br/> <a href="https://ulogs.org/@steemjet"><b>@steemjet</b></a> may not ask for a "give-back" but with <a href="https://ulogs.org"><b>ulogs.org</b></a>, it is <b><i>"true celebrity-hood for 'everyone', once and for all"</i></b>. <br/> <br/>    
+        To post a Ulog under <a href="https://ulogs.org/created/ulog-steemjet"><b>#ulog-steemjet</b></a>, simply use <span className="bold-italic"><a href="https://ulogs.org/editor">This Editor.</a></span> Make sure to use the more popular "<a href="https://ulogs.org/created/ulog"><b>#ulog</b></a>" as your 1st hashtag & "<a href="https://ulogs.org/created/ulog-steemjet"><b>#ulog-steemjet</b></a>" as your 2nd hashtag. You can then add other hashtags e.g <a href="https://ulogs.org/created/steemjet"><b>#steemjet</b></a>, "your location" etc. Don't forget to <b>add "(Ulog + SteemJet):" somewhere IN-TITLE</b>. See <b>sample</b>:
+        <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><font size="2"><b>(Ulog + Steemjet): "I Just Found Myself, Thanks To @steemjet". [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + SteemJet): How I Spent My Today As A SpaceForcer. [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+            <li><font size="2"><b>(Ulog + SteemJet): Applying Steem Technology To More "Wreck-It-Ralph Use. My SteemJet Suggestion! [TAGS-ORDER: <a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> etc.]</b></font></li>
+          </ul>
+        </div>
+        <b>
+          Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/9Bhxtm">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
+          Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> currently:<br/>
+          <div style={{ color : 'purple' }}>
+          <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=@uche-nna">@uche-nna [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=uche-nna"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://v2.steemconnect.com/sign/follow?following=@ulogs">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -794,7 +824,9 @@ class UlogCaption extends React.Component {
     } else if (category === 'ulog-kusknee') {
       caption = ulogKusknee;
     } else if (category === 'ulog-papapepper') {
-      caption = ulogPapapepper;           
+      caption = ulogPapapepper;
+    } else if (category === 'ulog-steemjet') {
+      caption = ulogSteemjet;             
     }
     const about = `About #${category}`;
 

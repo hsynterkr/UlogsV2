@@ -4,7 +4,7 @@ import take from 'lodash/take';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { scroller } from 'react-scroll';
 import { withRouter, Link } from 'react-router-dom';
-import { Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
+import { Input, Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
 import classNames from 'classnames';
 import SteemConnect from '../../steemConnectAPI';
 import withAuthActions from '../../auth/withAuthActions';
@@ -72,6 +72,7 @@ export default class Buttons extends React.Component {
       shareModalLoading: false,
       reactionsModalVisible: false,
       loadingEdit: false,
+      delegateSpMenuVisible: false,
     };
 
     this.handleLikeClick = this.handleLikeClick.bind(this);
@@ -238,6 +239,20 @@ export default class Buttons extends React.Component {
     );
   }
 
+  handleInputCustomSP = (e) => {
+    this.setState({ customSP: e.target.value });
+  }
+
+  handleDelegateSpMenuClick = (e) => {
+    if (e.key !== 'custom') {
+      this.setState({ delegateSpMenuVisible: false });
+    }
+  }
+
+  handleDelegateSpVisibleChange = (flag) => {
+    this.setState({ delegateSpMenuVisible: flag });
+  }
+
   render() {
     const { intl, post, postState, pendingLike, ownPost, defaultVotePercent } = this.props;
 
@@ -302,8 +317,11 @@ export default class Buttons extends React.Component {
       );
     }
 
-    const menu = (
-      <Menu>
+    const delegateSpMenu = (
+      <Menu
+        onClick={this.handleDelegateSpMenuClick}
+        style={{ width: '65%' }}
+      >
         {delegationAmounts.map(
           amount => {
             const delegateQuery = {
@@ -313,15 +331,34 @@ export default class Buttons extends React.Component {
             return (
               <Menu.Item key={amount}>
                 <Link
-                  target="_blank"
+                  target='_blank'
                   to={SteemConnect.sign('delegateVestingShares', delegateQuery)}
                 >
-                  <Icon type="rocket" /> {amount} SP
+                  <Icon type='rocket' /> {amount} SP
                 </Link>
               </Menu.Item>
             );
           }
         )}
+        <Menu.Item key={'custom'}>
+          <Input.Group compact>
+            <Input
+              placeholder="Custom"
+              type={'number'}
+              onChange={this.handleInputCustomSP}
+              addonAfter={
+                <span>
+                SP <Button
+                  type='primary'
+                  shape='circle'
+                  icon='rocket' 
+                  target='_blank'
+                  href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
+                  />
+                </span>
+              }/>
+          </Input.Group>
+        </Menu.Item>
       </Menu>
     );
 
@@ -381,9 +418,15 @@ export default class Buttons extends React.Component {
         {postState.isCertifiedUlogger && (
           <span>
             <CertifiedUlogger />
-            <Dropdown overlay={menu} trigger={['click']}>
+            <Dropdown
+              overlay={delegateSpMenu}
+              trigger={['click']}
+              onVisibleChange={this.handleDelegateSpVisibleChange}
+              visible={this.state.delegateSpMenuVisible}
+            >
               <Button
-                style={{ marginLeft: 8 }}
+                size={'small'}
+                style={{ marginLeft: 8, fontSize: 12 }}
                 type={'primary'}>
                 Delegate <Icon type="down" />
               </Button>
