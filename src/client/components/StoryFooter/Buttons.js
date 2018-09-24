@@ -35,6 +35,7 @@ export default class Buttons extends React.Component {
     pendingFlag: PropTypes.bool,
     pendingFollow: PropTypes.bool,
     pendingBookmark: PropTypes.bool,
+    displayDelegateButton: PropTypes.bool,
     saving: PropTypes.bool,
     onLikeClick: PropTypes.func,
     onShareClick: PropTypes.func,
@@ -47,6 +48,7 @@ export default class Buttons extends React.Component {
     pendingFlag: false,
     pendingFollow: false,
     pendingBookmark: false,
+    displayDelegateButton: false,
     saving: false,
     onLikeClick: () => {},
     onShareClick: () => {},
@@ -302,7 +304,6 @@ export default class Buttons extends React.Component {
     }
 
     const { match, location } = this.props
-    const displayDelegateButton = postState.isCertifiedUlogger && (!match.params.author && !match.params.permlink);
 
     return (
       <div className="Buttons">
@@ -360,7 +361,7 @@ export default class Buttons extends React.Component {
         {postState.isCertifiedUlogger && (
           <CertifiedUlogger />
         )}
-        {displayDelegateButton && (
+        {this.props.displayDelegateButton && (
           <DelegateButton post={post} />
         )}
 
