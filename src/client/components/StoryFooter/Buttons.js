@@ -301,6 +301,9 @@ export default class Buttons extends React.Component {
       );
     }
 
+    const { match, location } = this.props
+    const displayDelegateButton = postState.isCertifiedUlogger && (!match.params.author && !match.params.permlink);
+
     return (
       <div className="Buttons">
         <BTooltip title={likeTooltip}>
@@ -355,11 +358,12 @@ export default class Buttons extends React.Component {
         )}
         {this.renderPostPopoverMenu()}
         {postState.isCertifiedUlogger && (
-          <span>
-            <CertifiedUlogger />
-            <DelegateButton post={post} />
-          </span>
+          <CertifiedUlogger />
         )}
+        {displayDelegateButton && (
+          <DelegateButton post={post} />
+        )}
+
         {!postState.isReblogged && (
           <Modal
             title={intl.formatMessage({
