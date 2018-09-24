@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import { Input, Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
+import { Input, InputNumber, Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
 import SteemConnect from '../../steemConnectAPI';
 import { delegationAmounts } from '../../helpers/constants';
 
@@ -26,8 +26,8 @@ class DelegateButton extends React.Component {
     this.handleDelegateSpVisibleChange = this.handleDelegateSpVisibleChange.bind(this);
   }
 
-  handleInputCustomSP = (e) => {
-    this.setState({ customSP: e.target.value });
+  handleInputCustomSP = (value) => {
+    this.setState({ customSP: value });
   }
 
   handleDelegateSpMenuClick = (e) => {
@@ -45,7 +45,7 @@ class DelegateButton extends React.Component {
     const delegateSpMenu = (
       <Menu
         onClick={this.handleDelegateSpMenuClick}
-        style={{ width: '65%' }}
+        style={{ marginLeft: '50%' }}
       >
         {delegationAmounts.map(
           amount => {
@@ -54,7 +54,10 @@ class DelegateButton extends React.Component {
               vesting_shares: `${amount} SP`,
             };
             return (
-              <Menu.Item key={amount}>
+              <Menu.Item
+                key={amount}
+                style={{fontSize: '14px'}}
+              >
                 <Link
                   target='_blank'
                   to={SteemConnect.sign('delegateVestingShares', delegateQuery)}
@@ -66,22 +69,21 @@ class DelegateButton extends React.Component {
           }
         )}
         <Menu.Item key={'custom'}>
-          <Input.Group compact>
-            <Input
-              placeholder="Custom"
+          <Input.Group>
+            <InputNumber
               type={'number'}
               onChange={this.handleInputCustomSP}
-              addonAfter={
-                <span>
-                  SP <Button
-                      type='primary'
-                      shape='circle'
-                      icon='rocket'
-                      target='_blank'
-                      href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
-                  />
-                </span>
-              }
+              style={{ width: '78%', fontSize: '14px' }}
+              min={0}
+            />
+            <Button
+              type='primary'
+              shape='circle'
+              icon='rocket'
+              target='_blank'
+              href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
+              style={{ margin: '0px 5px' }}
+              size={'small'}
             />
           </Input.Group>
         </Menu.Item>
@@ -94,6 +96,7 @@ class DelegateButton extends React.Component {
         trigger={['click']}
         onVisibleChange={this.handleDelegateSpVisibleChange}
         visible={this.state.delegateSpMenuVisible}
+        placement={'bottomRight'}
       >
         <Button
           size={'small'}
