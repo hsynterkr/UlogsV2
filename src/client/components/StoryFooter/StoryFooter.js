@@ -27,6 +27,7 @@ class StoryFooter extends React.Component {
     pendingFlag: PropTypes.bool,
     pendingFollow: PropTypes.bool,
     pendingBookmark: PropTypes.bool,
+    displayDelegateButton: PropTypes.bool,
     saving: PropTypes.bool,
     onLikeClick: PropTypes.func,
     onShareClick: PropTypes.func,
@@ -40,6 +41,7 @@ class StoryFooter extends React.Component {
     ownPost: false,
     pendingFollow: false,
     pendingBookmark: false,
+    displayDelegateButton: false,
     saving: false,
     sliderMode: 'auto',
     onLikeClick: () => {},
@@ -116,6 +118,7 @@ class StoryFooter extends React.Component {
       defaultVotePercent,
       pendingFollow,
       pendingBookmark,
+      displayDelegateButton,
       saving,
       handlePostPopoverMenuClick,
     } = this.props;
@@ -135,6 +138,7 @@ class StoryFooter extends React.Component {
               pendingFlag={pendingFlag}
               pendingFollow={pendingFollow}
               pendingBookmark={pendingBookmark}
+              displayDelegateButton={displayDelegateButton}
               saving={saving}
               ownPost={ownPost}
               defaultVotePercent={defaultVotePercent}

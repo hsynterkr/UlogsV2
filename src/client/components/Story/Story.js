@@ -363,6 +363,7 @@ class Story extends React.Component {
               onEditClick={this.handleEditClick}
               pendingFollow={pendingFollow}
               pendingBookmark={pendingBookmark}
+              displayDelegateButton={true}
               saving={saving}
               handlePostPopoverMenuClick={this.handlePostPopoverMenuClick}
             />
