@@ -71,13 +71,17 @@ class DelegateButton extends React.Component {
               placeholder="Custom"
               type={'number'}
               onChange={this.handleInputCustomSP}
-            /> SP
-           <Button
-              type='primary'
-              shape='circle'
-              icon='rocket' 
-              target='_blank'
-              href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
+              addonAfter={
+                <span>
+                  SP <Button
+                      type='primary'
+                      shape='circle'
+                      icon='rocket'
+                      target='_blank'
+                      href={SteemConnect.sign('delegateVestingShares', {delegatee: post.author, vesting_shares: `${this.state.customSP} SP`,})}
+                  />
+                </span>
+              }
             />
           </Input.Group>
         </Menu.Item>
