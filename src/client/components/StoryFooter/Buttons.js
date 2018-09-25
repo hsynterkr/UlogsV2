@@ -361,7 +361,7 @@ export default class Buttons extends React.Component {
         {postState.isCertifiedUlogger && (
           <CertifiedUlogger />
         )}
-        {this.props.displayDelegateButton && (
+        {(postState.isCertifiedUlogger && this.props.displayDelegateButton) && (
           <DelegateButton post={post} />
         )}
 
