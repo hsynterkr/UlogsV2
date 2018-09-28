@@ -840,7 +840,7 @@ class UlogCaption extends React.Component {
         </Collapse>
         <Collapse defaultActiveKey={['2']}>
             <Collapse.Panel header={'contact verified Uloggers'} key='2'>
-                <div className='test'>
+                <div className='VerifiedUloggers-container'>
                     <VerifiedUloggers/>
                 </div>
             </Collapse.Panel>
