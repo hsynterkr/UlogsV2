@@ -841,8 +841,9 @@ class UlogCaption extends React.Component {
         <Collapse defaultActiveKey={['2']}>
             <Collapse.Panel header={'contact verified Uloggers'} key='2'>
                 <div className='VerifiedUloggers-container'>
-                    <VerifiedUloggers/>
-                </div>
+                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"snook"}/>
+                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"ankarlie"}/>
+               </div>
             </Collapse.Panel>
         </Collapse>
 
