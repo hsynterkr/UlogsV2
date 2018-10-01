@@ -839,10 +839,10 @@ class UlogCaption extends React.Component {
           </Collapse.Panel>
         </Collapse>
         <Collapse defaultActiveKey={['2']}>
-            <Collapse.Panel header={'contact verified Uloggers'} key='2'>
+            <Collapse.Panel header={'Verified/Certified @uloggers who oversee #ulog-snookmademedoit currently:'} key='2'>
                 <div className='VerifiedUloggers-container'>
                     <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"snook"}/>
-                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"ankarlie"}/>
+                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"shadowspub"}/>
                </div>
             </Collapse.Panel>
         </Collapse>
