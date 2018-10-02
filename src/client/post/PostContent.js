@@ -255,6 +255,7 @@ class PostContent extends React.Component {
           pendingFlag={pendingFlag}
           pendingFollow={pendingFollows.includes(content.author)}
           pendingBookmark={pendingBookmarks.includes(content.id)}
+          displayDelegateButton={false}
           saving={saving}
           rewardFund={rewardFund}
           ownPost={author === user.name}

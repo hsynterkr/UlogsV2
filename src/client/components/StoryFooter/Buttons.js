@@ -35,6 +35,7 @@ export default class Buttons extends React.Component {
     pendingFlag: PropTypes.bool,
     pendingFollow: PropTypes.bool,
     pendingBookmark: PropTypes.bool,
+    displayDelegateButton: PropTypes.bool,
     saving: PropTypes.bool,
     onLikeClick: PropTypes.func,
     onShareClick: PropTypes.func,
@@ -47,6 +48,7 @@ export default class Buttons extends React.Component {
     pendingFlag: false,
     pendingFollow: false,
     pendingBookmark: false,
+    displayDelegateButton: false,
     saving: false,
     onLikeClick: () => {},
     onShareClick: () => {},
@@ -301,6 +303,8 @@ export default class Buttons extends React.Component {
       );
     }
 
+    const { match, location } = this.props
+
     return (
       <div className="Buttons">
         <BTooltip title={likeTooltip}>
@@ -355,11 +359,12 @@ export default class Buttons extends React.Component {
         )}
         {this.renderPostPopoverMenu()}
         {postState.isCertifiedUlogger && (
-          <span>
-            <CertifiedUlogger />
-            <DelegateButton post={post} />
-          </span>
+          <CertifiedUlogger />
         )}
+        {(postState.isCertifiedUlogger && this.props.displayDelegateButton) && (
+          <DelegateButton post={post} />
+        )}
+
         {!postState.isReblogged && (
           <Modal
             title={intl.formatMessage({

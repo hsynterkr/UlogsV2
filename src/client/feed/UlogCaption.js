@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import VerifiedUloggers from '../components/VerifiedUloggers/VerifiedUloggers.js';
 import { Layout, Card, Icon, Avatar, Row, Col, Collapse, Menu, Dropdown, Button } from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
@@ -837,6 +838,15 @@ class UlogCaption extends React.Component {
             {caption}
           </Collapse.Panel>
         </Collapse>
+        <Collapse defaultActiveKey={['2']}>
+            <Collapse.Panel header={'Verified/Certified @uloggers who oversee #ulog-snookmademedoit currently:'} key='2'>
+                <div className='VerifiedUloggers-container'>
+                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"snook"}/>
+                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"shadowspub"}/>
+               </div>
+            </Collapse.Panel>
+        </Collapse>
+
       </div>
     );
   }

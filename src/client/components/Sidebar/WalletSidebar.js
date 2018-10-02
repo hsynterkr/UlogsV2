@@ -32,32 +32,51 @@ class WalletSidebar extends React.Component {
     isCurrentUser: false,
   };
 
-  handleOpenTransfer = () => {
+handleOpenTransfer = () => {
     const { match, user, isCurrentUser } = this.props;
     const username = match.params.name === user.name || isCurrentUser ? '' : match.params.name;
     this.props.openTransfer(username);
   };
+  handleVerifiedOpenTransfer = () =>{
+      this.props.openTransfer(this.props.username);
+  };
 
   render() {
-    const { match, user, isCurrentUser } = this.props;
+    const { verified, match, user, isCurrentUser } = this.props;
     const displayClaimRewards = match.params.name === user.name || isCurrentUser;
     const cryptos = [STEEM.symbol, SBD.symbol];
-
-    return (
-      <div>
-        <Action
-          primary
-          big
-          style={{ width: '100%', marginBottom: '10px' }}
-          onClick={this.handleOpenTransfer}
-        >
-          <FormattedMessage id="transfer" defaultMessage="Transfer" />
-        </Action>
-        <CryptoTrendingCharts cryptos={cryptos} />
-        {displayClaimRewards && <ClaimRewardsBlock />}
-      </div>
-    );
+    if(verified === true){
+        return (
+          <div>
+            <Action
+              primary
+              big
+              style={{ width: '100%', marginBottom: '10px' }}
+              onClick={this.handleVerifiedOpenTransfer}
+            >
+              <FormattedMessage id="Contact" defaultMessage="Contact" />
+            </Action>
+          </div>
+        );
+    }
+      else{
+        return (
+                    <div>
+            <Action
+              primary
+              big
+              style={{ width: '100%', marginBottom: '10px' }}
+              onClick={this.handleOpenTransfer}
+            >
+              <FormattedMessage id="transfer" defaultMessage="Transfer" />
+            </Action>
+            <CryptoTrendingCharts cryptos={cryptos} />
+            {displayClaimRewards && <ClaimRewardsBlock />}
+          </div>
+        );
+      }
   }
 }
 
 export default WalletSidebar;
+

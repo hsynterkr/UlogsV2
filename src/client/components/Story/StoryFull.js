@@ -51,6 +51,7 @@ class StoryFull extends React.Component {
     pendingFlag: PropTypes.bool,
     pendingFollow: PropTypes.bool,
     pendingBookmark: PropTypes.bool,
+    displayDelegateButton: PropTypes.bool,
     commentCount: PropTypes.number,
     saving: PropTypes.bool,
     ownPost: PropTypes.bool,
@@ -70,6 +71,7 @@ class StoryFull extends React.Component {
     pendingFlag: false,
     pendingFollow: false,
     pendingBookmark: false,
+    displayDelegateButton: false,
     commentCount: 0,
     saving: false,
     ownPost: false,
@@ -194,6 +196,7 @@ class StoryFull extends React.Component {
       pendingFlag,
       pendingFollow,
       pendingBookmark,
+      displayDelegateButton,
       commentCount,
       saving,
       rewardFund,
@@ -493,6 +496,7 @@ class StoryFull extends React.Component {
           pendingFlag={pendingFlag}
           pendingFollow={pendingFollow}
           pendingBookmark={pendingBookmark}
+          displayDelegateButton={displayDelegateButton}
           ownPost={ownPost}
           rewardFund={rewardFund}
           saving={saving}
