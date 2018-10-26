@@ -25,8 +25,8 @@ class UlogCaption extends React.Component {
           Join the movement! Be "true fans" on <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a>! You can create <a href="https://ulogs.org/created/ulog-quotes">#ulog-quotes</a> right now by using <a href="https://ulogs.org/ulog-quotes">This Editor</a>! Join us on <a href="https://discord.gg/QFaFj87">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
           Verified/Certified @uloggers who oversee #ulog-quotes currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [Follow]</a></li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=surpassinggoogle">@surpassinggoogle [Follow]</a></li>
+            <li><a href="https://steemconnect.com/sign/follow?following=samic" target="_blank">@samic [Follow]</a></li>
+            <li><a href="https://steemconnect.com/sign/follow?following=surpassinggoogle" target="_blank">@surpassinggoogle [Follow]</a></li>
           </ul>
         </b>
       </span>
@@ -134,8 +134,8 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulography">#ulography</a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/mWVYjxc">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulography">#ulography</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a></li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=surpassinggoogle">@surpassinggoogle [Follow]</a></li>
+            <li><a href="https://steemconnect.com/sign/follow?following=sunnylife" target="_blank">@sunnylife [Follow]</a></li>
+            <li><a href="https://steemconnect.com/sign/follow?following=surpassinggoogle" target="_blank">@surpassinggoogle [Follow]</a></li>
           </ul>
         </b>
       </span>
@@ -151,9 +151,9 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-gratefulvibes"><b>#ulog-gratefulvibes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/fpthaj2"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-gratefulvibes">#ulog-gratefulvibes</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=sunnylife">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@paradise-found [Follow]</a>[Contact: <a href="https://discord.gg/qtkdbSc"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=paradise-found">@bloghound [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=sunnylife" target="_blank">@sunnylife [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=paradise-found" target="_blank">@paradise-found [Follow]</a>[Contact: <a href="https://discord.gg/qtkdbSc"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=bloghound" target="_blank">@bloghound [Follow]</a>[Contact: <a href="https://discord.gg/fpthaj2"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
           </ul>
         </b>
       </span>
@@ -199,7 +199,7 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-memes"><b>#ulog-memes</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-memes">#ulog-memes</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=samic">@samic [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/UAYS7Yp"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=samic"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=samic" target="_blank">@samic [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/UAYS7Yp"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=samic"><b><u>Click Here</u></b></a>]</li>
           </ul>
         </b>
       </span>
@@ -224,7 +224,7 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-blocktrades"><b>#ulog-blocktrades</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/xXgMYpS"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-blocktrades">#ulog-blocktrades</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=ankarlie">@ankarlie [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/xXgMYpS"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=ankarlie" target="_blank">@ankarlie [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/xXgMYpS"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
             <li>etc.</li>
           </ul>
         </b>
@@ -253,7 +253,7 @@ class UlogCaption extends React.Component {
           Become "true fans"! Visit <a href="https://ulogs.org/created/ulog-showerthoughts"><b>#ulog-showerthoughts</b></a> daily, to curate, engage, support, contribute etc! Join its community on <a href="https://discord.gg/JTm4BSg"><b>Discord</b></a> & <a href="https://t.me/teardrops_smt"><b>Telegram</b></a>. <br/><br/>
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-showerthoughts">#ulog-showerthoughts</a> currently:<br/>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=mermaidvampire">@mermaidvampire [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/JTm4BSg"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=mermaidvampire" target="_blank">@mermaidvampire [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/JTm4BSg"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
             <li>etc.</li>
           </ul>
         </b>
@@ -284,8 +284,8 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-snookmademedoit">#ulog-snookmademedoit</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=snook">@snook [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=shadowspub">@shadowspub [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=shadowspub"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=snook" target="_blank">@snook [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=shadowspub" target="_blank">@shadowspub [<b><u>Follow</u></b>]</a> Contact: [<a href="https://discord.gg/wTmMt8W"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=shadowspub"><b><u>Click Here</u></b></a>]</li>
             <li>etc.</li>
           </ul>
           </div>
@@ -380,7 +380,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulogifs">#ulogifs</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=stellabelle">@stellabelle [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=stellabelle" target="_blank">@stellabelle [Follow]</a> <u>Contact:</u> [<a href="https://discord.gg/UAYS7Yp"><b>Discord</b></a>] <u>Delegate:</u> [Coming Soon!]</li>
           </ul>
           </div>
         </b>
@@ -419,7 +419,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-surfyogi">#ulog-surfyogi</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=surfyogi">@surfyogi [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EpVxmW4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=surfyogi" target="_blank">@surfyogi [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EpVxmW4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=snook"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -458,7 +458,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-bobbylee">#ulog-bobbylee</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=iyanpol12">@iyanpol12 [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/PEfzyM4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=iyanpol12"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=iyanpol12" target="_blank">@iyanpol12 [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/PEfzyM4"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=iyanpol12"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -500,7 +500,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-stellabelle">#ulog-stellabelle</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@stellabelle">@stellabelle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/b2NzBn8"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=stellabelle"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@stellabelle" target="_blank">@stellabelle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/b2NzBn8"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=stellabelle"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -541,7 +541,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-sweetsssj">#ulog-sweetsssj</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@sweetsssj">@sweetsssj [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/xrbRM9Y"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=sweetsssj"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@sweetsssj" target="_blank">@sweetsssj [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/xrbRM9Y"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=sweetsssj"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -589,7 +589,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-dimimp">#ulog-dimimp</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@surpassinggoogle">@surpassinggoogle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EBRJxQM"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=surpassinggoogle"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@surpassinggoogle" target="_blank">@surpassinggoogle [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/EBRJxQM"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=surpassinggoogle"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -632,7 +632,7 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-teamsteem">#ulog-teamsteem</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@teamsteem">@teamsteem [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/3jTA4Tt"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=teamsteem"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@teamsteem" target="_blank">@teamsteem [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/3jTA4Tt"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=teamsteem"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -681,8 +681,8 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-kusknee">#ulog-kusknee</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@kusknee">@kusknee [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/SFYBHp5"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=kusknee"><b><u>Click Here</u></b></a>]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@ulogs">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/SFYBHp5"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@kusknee" target="_blank">@kusknee [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/SFYBHp5"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=kusknee"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@ulogs" target="_blank">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/SFYBHp5"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -731,8 +731,8 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-papapepper">#ulog-papapepper</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@papa-pepper">@papa-pepper [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=papa-pepper"><b><u>Click Here</u></b></a>]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@ulogs">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@papa-pepper" target="_blank">@papa-pepper [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=papa-pepper"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@ulogs" target="_blank">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/M847Kvs"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -761,8 +761,8 @@ class UlogCaption extends React.Component {
           Verified/Certified @uloggers who oversee <a href="https://ulogs.org/created/ulog-steemjet">#ulog-steemjet</a> currently:<br/>
           <div style={{ color : 'purple' }}>
           <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@uche-nna">@uche-nna [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=uche-nna"><b><u>Click Here</u></b></a>]</li>
-            <li><a href="https://v2.steemconnect.com/sign/follow?following=@ulogs">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@uche-nna" target="_blank">@uche-nna [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=uche-nna"><b><u>Click Here</u></b></a>]</li>
+            <li><a href="https://steemconnect.com/sign/follow?following=@ulogs" target="_blank">@ulogs [<u>Follow</u>]</a> Contact: [<a href="https://discord.gg/9Bhxtm"><b><u>Discord</u></b></a>] Delegate: [<a href="https://steembottracker.com/delegation.html?delegatee=ulogs"><b><u>Click Here</u></b></a>]</li>
           </ul>
           </div>
         </b>
@@ -838,14 +838,16 @@ class UlogCaption extends React.Component {
             {caption}
           </Collapse.Panel>
         </Collapse>
-        <Collapse defaultActiveKey={['2']}>
-            <Collapse.Panel header={'Verified/Certified @uloggers who oversee #ulog-snookmademedoit currently:'} key='2'>
-                <div className='VerifiedUloggers-container'>
-                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"snook"}/>
-                    <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"shadowspub"}/>
-               </div>
-            </Collapse.Panel>
-        </Collapse>
+        {(category === 'ulog-snookmademedoit') &&
+          <Collapse defaultActiveKey={['2']}>
+              <Collapse.Panel header={'Verified/Certified @uloggers who oversee #ulog-snookmademedoit currently:'} key='2'>
+                  <div className='VerifiedUloggers-container'>
+                      <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"snook"}/>
+                      <VerifiedUloggers contactURL={"https://discord.gg/wTmMt8W"} username={"shadowspub"}/>
+                 </div>
+              </Collapse.Panel>
+          </Collapse>
+        }
 
       </div>
     );
