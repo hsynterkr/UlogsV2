@@ -27,6 +27,7 @@ import Ulogging from '../client/ulogging/Ulogging';
 import Notifications from '../client/notifications/Notifications';
 import Error404 from '../client/statics/Error404';
 import ExitPage from '../client/statics/ExitPage';
+import Witnesses from '../client/witnesses/Witnesses';
 
 const routes = [
   {
@@ -139,6 +140,11 @@ const routes = [
         path: '/discover',
         exact: true,
         component: Discover,
+      },
+      {
+        path: '/vote-ulog-witnesses',
+        exact: true,
+        component: Witnesses,
       },
       {
         path: '/:category?/@:author/:permlink',
