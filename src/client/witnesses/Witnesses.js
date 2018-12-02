@@ -62,11 +62,11 @@ class Witnesses extends React.Component {
           <div className="Discover">
             <div className="Discover__title">
               <h1>
-                <FormattedMessage id="vote_ulog_witnesses" defaultMessage="Vote on Your Ulog-Witness" />
+                <FormattedMessage id="vote_ulog_witnesses" defaultMessage="Vote On Your Ulog-Witnesses" />
               </h1>
               <FormattedMessage
                 id="vote_ulog_witnesses_description"
-                defaultMessage="Ulog witnesses are also 'Certified Uloggers'. On ulogs.org, we want to celebrate these witnesses, drawing in 'true fans' their way. You can vote for as many as 30 witnesses. This page will constantly populate with more of these ulog-witnesses over the course of time. Visit regularly to support these ones."
+                defaultMessage="Ulog-Witnesses are also 'Certified Uloggers'. On ulogs.org, we want to celebrate these witnesses, drawing in 'true fans' their way. You can vote for as many as 30 witnesses. This page will constantly populate with more of these ulog-witnesses over the course of time. Visit regularly to support these ones."
               />
             </div>
             <div className="Discover__content">
