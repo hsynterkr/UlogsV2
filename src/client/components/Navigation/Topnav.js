@@ -227,14 +227,9 @@ class Topnav extends React.Component {
       >
         <Menu selectedKeys={[]} className="Topnav__menu-container__menu" mode="horizontal">
           <Menu.Item key="editor">
-            <Dropdown
-              overlay={menu}
-              trigger={['click']}
-            >
-              <a className="Topnav__link Topnav__link--action" href="#">
+            <Link to={'/ulogging'}>
                 <i className="iconfont icon-write" /><Icon type="down" />
-              </a>
-            </Dropdown>
+            </Link>
           </Menu.Item>
           <Menu.Item key="notifications" className="Topnav__item--badge">
             <BTooltip

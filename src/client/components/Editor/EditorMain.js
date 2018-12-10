@@ -84,7 +84,7 @@ class EditorMain extends React.Component {
     this.setValues(this.props);
     this.props.form.setFieldsValue({
       title: 'ULOG: ',
-      topics: ['ulog', 'surpassinggoogle'],
+      topics: ['ulog'],
     });
 
     // eslint-disable-next-line react/no-find-dom-node
@@ -151,11 +151,20 @@ class EditorMain extends React.Component {
   }
 
   checkTopics = intl => (rule, value, callback) => {
+    if (value[0] != 'ulog') {
+      callback(
+        intl.formatMessage({
+          id: 'ulog_not_topic',
+          defaultMessage: '#ulog must be the first tag for posts.',
+        })
+      )
+    }
+
     if (!value || value.length < 1 || value.length > 5) {
       callback(
         intl.formatMessage({
           id: 'topics_error_count',
-          defaultMessage: 'You have to add 1 to 5 topics.',
+          defaultMessage: 'You must add 1 to 4 topics with #ulog as the first.',
         }),
       );
     }

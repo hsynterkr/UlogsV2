@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Input, InputNumber, Icon, Modal, Menu, Dropdown, Button, message  } from 'antd';
 import SteemConnect from '../../steemConnectAPI';
 import { delegationAmounts } from '../../helpers/constants';
+import './DelegateButton.less';
 
 class DelegateButton extends React.Component {
   static propTypes = {
@@ -62,27 +63,29 @@ class DelegateButton extends React.Component {
 
   render() {
     const { post } = this.props;
-    const SubMenu = Menu.SubMenu;
 
     const delegateSpMenu = (
-      <Menu>
-        <SubMenu
-          key={ post.author + '-sub' }
-          title={
-            <span><Icon type='user' /><span>@{post.author}</span></span>
-          }
-        >
-          {this.renderDelegateSpSubMenu(post.author, delegationAmounts)}
-        </SubMenu>
-        <SubMenu
-          key='ulogs-sub'
-          title={
-            <span><Icon type='user' /><span>@ulogs</span></span>
-          }
-        >
-          {this.renderDelegateSpSubMenu('ulogs', delegationAmounts)}
-        </SubMenu>
-      </Menu>
+        <Menu
+          style={{zIndex: '1500'}}>
+          <Menu.SubMenu
+            className="delegateSubMenu"
+            key={ post.author + '-sub' }
+            title={
+              <span><Icon type='user' /><span>@{post.author}</span></span>
+            }
+          >
+            {this.renderDelegateSpSubMenu(post.author, delegationAmounts)}
+          </Menu.SubMenu>
+          <Menu.SubMenu
+            className="delegateSubMenu"
+            key='ulogs-sub'
+            title={
+              <span><Icon type='user' /><span>@ulogs</span></span>
+            }
+          >
+            {this.renderDelegateSpSubMenu('ulogs', delegationAmounts)}
+          </Menu.SubMenu>
+        </Menu>
     );
 
     return (
@@ -90,6 +93,7 @@ class DelegateButton extends React.Component {
         overlay={delegateSpMenu}
         trigger={['click']}
         placement={'bottomRight'}
+        overlayStyle={{zIndex: '1500'}}
       >
         <Button
           size={'small'}

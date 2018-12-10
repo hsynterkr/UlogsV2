@@ -151,11 +151,20 @@ class EditorUlogQuotes extends React.Component {
   }
 
   checkTopics = intl => (rule, value, callback) => {
+    if (value[0] != 'ulog') {
+      callback(
+        intl.formatMessage({
+          id: 'ulog_not_topic',
+          defaultMessage: '#ulog must be the first tag for posts.',
+        })
+      )
+    }
+
     if (!value || value.length < 1 || value.length > 5) {
       callback(
         intl.formatMessage({
           id: 'topics_error_count',
-          defaultMessage: 'You have to add 1 to 5 topics.',
+          defaultMessage: 'You must add 1 to 4 topics with #ulog as the first.',
         }),
       );
     }
@@ -221,9 +230,9 @@ class EditorUlogQuotes extends React.Component {
               <p>
               <b className="bold-italic">"We have all created quotes. We tend to quote others; we can quote ourselves too; we can have others quote us. We can have the world quote us. Let's have the world quote us!" @surpassinggoogle
               "Let's become reasons for the world to find glow. Let's be that light and let's move inside the tunnel. Let's bring that very light closer and inside, to the masses who seek the "end of the tunnel"". @surpassinggoogle</b>
-              
+
               <br/> #ulog represents <b className="bold-italic">"freshness per day"</b>. A means to gift to the internet each day and not resource from it; reshaping it with freshness. Thus, <b className="bold-italic">"#ulog-quotes"</b> will form a place to deposit freshly-invented quotes born of the histories & stories that we experience (per day); and <b className="bold-italic">"each day and "you" in it, carries its own freshness. <br/>
-              
+
               <br/> "We will start an ever-ongoing movement that will create globally-renown quotes, quotable by the globe. We will use this means to leave our #ulogacies in the spaces". @surpassinggoogle</b> <br/>
 
               <blockquote style={{'border-left':'3px solid #a9a9a9', 'padding' : '0 10px', 'color' : '#a9a9a9'}}>Join the movement! Be "true fans" on #ulog-quotes! Create #ulog-quotes now! Join us on <a href="https://discord.gg/EkynDXt">Discord</a> & <a href="https://t.me/teardrops_smt">Telegram</a>.</blockquote>
