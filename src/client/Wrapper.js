@@ -206,6 +206,20 @@ export default class Wrapper extends React.PureComponent {
       case 'my-profile':
         this.props.history.push(`/@${this.props.username}`);
         break;
+      case 'ulog-witnesses':
+        this.props.history.push('/vote-ulog-witnesses');
+        break;
+      case 'about-ulogs':
+        this.props.history.push('/@ulogs/ulogs-org-faq-s-and-answers');
+        break;
+      case 'custom-profile':
+      case 'ulog-faucet':
+      case 'get-certified':
+      case 'merchandise':
+      case 'exchange':
+      case 'teardrop-smt':
+        alert("Coming soon!")
+        break;
       default:
         break;
     }
