@@ -27,14 +27,24 @@ class Ulogging extends React.Component {
 
     let defaultActiveKey = [];
     const location = this.props.location.pathname.split('/')[1];
-    if (location === 'ulog-knowledge-bank') {
-      defaultActiveKey = ['2'];
-    } else if (location === 'ulog-fanlove') {
-      defaultActiveKey = ['3'];
-    } else if (location === 'surpassinggoogle') {
-      defaultActiveKey = ['4'];
-    } else {
+    if (location === 'art-of-ulogging') {
       defaultActiveKey = ['1'];
+    } else if (location === 'main-editor') {
+      defaultActiveKey = ['2'];
+    } else if (location === 'ulog-knowledge-bank') {
+      defaultActiveKey = ['3'];
+    } else if (location === 'ulog-fanlove') {
+      defaultActiveKey = ['4'];
+    } else if (location === 'surpassinggoogle') {
+      defaultActiveKey = ['5'];
+    } else if (location === 'teardrops-editor') {
+      defaultActiveKey = ['6'];
+    } else if (location === 'untalented-editor') {
+      defaultActiveKey = ['7'];
+    } else if (location === 'general-editor') {
+      defaultActiveKey = ['8'];
+    } else {
+      defaultActiveKey = ['0'];
     }
     this.state = { activeKey: defaultActiveKey };
   }
@@ -46,14 +56,24 @@ class Ulogging extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       const location = this.props.location.pathname.split('/')[1];
-      if (location === 'ulog-knowledge-bank') {
-        this.setState({ activeKey : ['2']});
-      } else if (location === 'ulog-fanlove') {
-        this.setState({ activeKey : ['3']});
-      } else if (location === 'surpassinggoogle') {
-        this.setState({ activeKey : ['4']});
-      } else {
+      if (location === 'art-of-ulogging') {
         this.setState({ activeKey : ['1']});
+      } else if (location === 'main-editor') {
+        this.setState({ activeKey : ['2']});
+      } else if (location === 'ulog-knowledge-bank') {
+        this.setState({ activeKey : ['3']});
+      } else if (location === 'ulog-fanlove') {
+        this.setState({ activeKey : ['4']});
+      } else if (location === 'surpassinggoogle') {
+        this.setState({ activeKey : ['5']});
+      } else if (location === 'teardrops-editor') {
+        this.setState({ activeKey : ['6']});
+      } else if (location === 'untalented-editor') {
+        this.setState({ activeKey : ['7']});
+      } else if (location === 'general-editor') {
+        this.setState({ activeKey : ['8']});
+      } else {
+        this.setState({ activeKey : ['0']});
       }
     }
   }
@@ -62,14 +82,29 @@ class Ulogging extends React.Component {
 
     const menu = (
       <Menu>
-        <Menu.Item key="0">
-          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
         <Menu.Item key="1">
-          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
+          <Link to={'/ulogging/#art-of-ulogging'}>The art of ULOGGING</Link>
         </Menu.Item>
         <Menu.Item key="2">
+          <Link to={'/ulogging/#main-editor'}>Go To The Main Ulog Editor</Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
+        </Menu.Item>
+        <Menu.Item key="4">
+          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
+        </Menu.Item>
+        <Menu.Item key="5">
           <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
+        </Menu.Item>
+        <Menu.Item key="6">
+          <Link to={'/ulogging#teardrops-editor'}>Go To The #teardrops Editor</Link>
+        </Menu.Item>
+        <Menu.Item key="7">
+          <Link to={'/ulogging#untalented-editor'}>Go To The #untalented Editor</Link>
+        </Menu.Item>
+        <Menu.Item key="8">
+          <Link to={'/ulogging#general-editor'}>Go To Our General-Purpose Editor</Link>
         </Menu.Item>
       </Menu>
     );
@@ -113,18 +148,38 @@ class Ulogging extends React.Component {
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden',
+      textAlign: 'center',
+    };
+
+    const customCardStyle = {
+      marginBottom: 8,
+      marginTop: 8,
+      border: '2px solid purple',
+      color: 'purple',
+      textAlign: 'center',
+      borderRadius: '5px',
     };
 
     const location = this.props.location.pathname.split('/')[1];
     let defaultActiveKey = [];
-    if (location === 'ulog-knowledge-bank') {
-      defaultActiveKey = ['2'];
-    } else if (location === 'ulog-fanlove') {
-      defaultActiveKey = ['3'];
-    } else if (location === 'surpassinggoogle') {
-      defaultActiveKey = ['4'];
-    } else {
+    if (location === 'art-of-ulogging') {
       defaultActiveKey = ['1'];
+    } else if (location === 'main-editor') {
+      defaultActiveKey = ['2'];
+    } else if (location === 'ulog-knowledge-bank') {
+      defaultActiveKey = ['3'];
+    } else if (location === 'ulog-fanlove') {
+      defaultActiveKey = ['4'];
+    } else if (location === 'surpassinggoogle') {
+      defaultActiveKey = ['5'];
+    } else if (location === 'teardrops-editor') {
+      defaultActiveKey = ['6'];
+    } else if (location === 'untalented-editor') {
+      defaultActiveKey = ['7'];
+    } else if (location === 'general-editor') {
+      defaultActiveKey = ['8'];
+    } else {
+      defaultActiveKey = ['0'];
     }
 
     return (
@@ -135,12 +190,11 @@ class Ulogging extends React.Component {
               <LastDraftsContainer />
             </div>
           </Affix>
-          <div className="center">
-            <h3 style={{ background: '#fff' }}>
-              <a href="#">#ulogging to create a better world of "true celebrity-hood" for "Everyone", once and for all.</a>
-            </h3>
+          <div className="center" style={{marginBottom: '50px'}}>
+            <h2 style={{ color: 'purple', textDecoration: 'underline', textAlign: 'center'}}>On Ulogs.org, Your Content Is Queen</h2>
+            <h5 style={{ color: 'purple', fontStyle: 'italic', textAlign: 'center', marginBottom: '3px'}}>Be inventive. Try out one of our content-creation editors below</h5>
             <Collapse
-              defaultActiveKey={defaultActiveKey} 
+              defaultActiveKey={defaultActiveKey}
               activeKey={this.state.activeKey}
               onChange={this.callback}>
               <Collapse.Panel
@@ -155,10 +209,57 @@ class Ulogging extends React.Component {
                   <u>Special Note:</u> Everytime you make use of ulogs.org to post, comment etc, you are supporting steemians, projects, ULOGGERS etc by being their "true fans". Too, you "mine the human" some more, becoming "true celebrities". You will also give back to steem/steemit in gratitude as we contribute a "negligible sum" from our rewards with Steemit INC as beneficiary. <br/>
                 </p>
               </Collapse.Panel>
+            </Collapse>
 
+            <Card
+              bordered={false}
+              bodyStyle={customCardStyle}>
+              <h3 style={{color: 'purple'}}>Write A Ulog?</h3>
+              <p>
+                Writing a ulog is easier with the right editor. Simply expand the tab below to choose the appropriate editor.<br/>
+                Ulogging is for "everyone", both private and public figures!<br/>
+              </p>
+            </Card>
+
+            <Collapse
+              defaultActiveKey={defaultActiveKey}
+              activeKey={this.state.activeKey}
+              onChange={this.callback}>
+              <Collapse.Panel
+                header="Go To The Main Ulog Editor"
+                key="2"
+                style={customPanelStyle}>
+                <p>
+                  You can write an <b>entire ulog</b> today, with the aim of <b>recounting your entire day</b> and all the activities in it. The <b>U</b> in <b>U</b>log stands for "You".<br/>
+                  <i>Ulogging is for both public & private figures.</i><br/>
+                  <b>A ulog</b> is a kind of content that is <b>freshly-created by "You"</b>, containing only experiences, events, feelings, moments, knowledge etc <b>drawn from a particular day.</b><br/>
+                  <b>A ulog written today</b>, should not have existed anywhere online, yesterday; as <i>"each day and 'you' in it, carries its own freshness.</i><br/>
+                  Our aim while ulogging is to <b>"mine the human into its awesomest version"</b>, while managing to <i>reshape the entire internet</i>. Thus, while ulogging, we aim to <b>gift the internet with our "freshly-made" content</b>, at least once a day, <b>instead of resourcing from the internet.</b><br/>
+                  You can write an entire ulog right now. To do so, simply select our <b>"main ulog editor"</b> below.<br/><br/>
+                </p>
+                <Button>
+                  <Link to="/main-editor">Main Ulog Editor</Link>
+                </Button>
+              </Collapse.Panel>
+            </Collapse>
+
+            <Card
+              bordered={false}
+              bodyStyle={customCardStyle}>
+              <h3 style={{color: 'purple'}}>Do You Want To Ulog Under A Ulog-Subtag?</h3>
+              <p>
+                Ulogging under a ulogsubtag allows you to contribute ulogs to specific niches (per day). This further simplifies "the art of ulogging", while maintaining the power and essence of ulogging.<br/>
+                Simply expand any of the tabs below, to select an appropriate specialized editor.<br/>
+              </p>
+            </Card>
+
+            <Collapse
+              defaultActiveKey={defaultActiveKey}
+              activeKey={this.state.activeKey}
+              onChange={this.callback}>
               <Collapse.Panel
                 header="ULOG-Knowledge-Bank"
-                key="2"
+                key="3"
                 style={customPanelStyle}>
                 <p>
                   We like to reward #ulogging contributions born solely out of <i>"your experience"</i> per day. We seek to incentivize you to learn something new per day, for the sake of #ulogging. This way, <i>"not a day slips emptily by"</i> and not a day aren't you capable of reshaping the INTERNET; touching your <i>"true fans"</i> and attaining <i>"true celebrity-hood"</i> etc <br/>
@@ -173,7 +274,7 @@ class Ulogging extends React.Component {
 
               <Collapse.Panel
                 header="ULOG-fanlove (BeLikeTerry)"
-                key="3"
+                key="4"
                 style={customPanelStyle}>
                 <p>
                   To become like me, you will need to stubbornly become the <i>"awesomest version of YOU"</i>. @surpassinggoogle <br/>
@@ -189,7 +290,7 @@ class Ulogging extends React.Component {
 
               <Collapse.Panel
                 header="SurpassingGoogle"
-                key="4"
+                key="5"
                 style={customPanelStyle}>
                 <p>
                   Note that ulogs.org integrates 4 websites into one. Thus, we are integrating all the paradigms from SurpassingGoogle, Teardrops, Un(dis)Talented into ulogs.org, so that instead of 4 standalone steem-based websites, we can have one grand website that "mines the human" into its awesomest version. <br/>
@@ -201,6 +302,78 @@ class Ulogging extends React.Component {
                     Select An Editor <Icon type="down" />
                   </Button>
                 </Dropdown>
+              </Collapse.Panel>
+            </Collapse>
+
+            <Card
+              bordered={false}
+              bodyStyle={customCardStyle}
+              key="11">
+              <h3 style={{color: 'purple'}}>Write A Post Related To #teardrops or #untalented?</h3>
+              <p>
+                Do you remember #teardrops or #untalented on Steemit? You can continue contributing "your content" under these hashtags by selecting the appropriate editor from the expandable area below.
+              </p>
+            </Card>
+
+            <Collapse
+              defaultActiveKey={defaultActiveKey}
+              activeKey={this.state.activeKey}
+              onChange={this.callback}>
+              <Collapse.Panel
+                header="Go To The #teardrops Editor"
+                key="6"
+                style={customPanelStyle}>
+                <p>
+                  Share your @teardrops moments. We reward "proof of  tears".<br/>
+                  As you "mine the human" & en-route "breakthrough", there will be many tears, happy, sad or un-fell. "Each tear has value". We will celebrate <b>each tear</b> with a <b>"breakthrough token"</b> & <b>"emblem of human"</b> called the <b>"Teardrops Smart Media Tokens".</b> <br/>
+                  Write a #teardrops post today. You may get some imaginary Teardrops SMT today, in the form of steem. Select the editor below to write a post now.<br/><br/>
+                </p>
+                <Button>
+                  <Link to="/teardrops">Teardrops Editor</Link>
+                </Button>
+              </Collapse.Panel>
+
+              <Collapse.Panel
+                header="Go To The #untalented Editor"
+                key="7"
+                style={customPanelStyle}>
+                <p>
+                  We don't want any level of talent or potential talent to go amiss without celebrating it. We seek to reward  even <b>"attempts at out-of-the-boxness"</b>. <i>If we remove bum, smart or  average, "we are genius".</i><br/>
+                  #untalented is a home (an important aspect of  ulogs.org) where <b>"flaws are allowed".</b> When you write under #untalented, <b>"relegate reservations".</b> We will sift even the non<b>sense</b> to find <b>sense</b> therein. <br/>
+                  <i>Not too confident? Confident? Too confident?</i> Write under a post now under <b>"#untalented".</b> Select the editor below!<br/><br/>
+                </p>
+                <Button>
+                  <Link to="/untalented">Untalented Editor</Link>
+                </Button>
+              </Collapse.Panel>
+            </Collapse>
+
+            <Card
+              bordered={false}
+              bodyStyle={customCardStyle}
+              key="10">
+              <h3 style={{color: 'purple'}}>Write A Post?</h3>
+              <p>
+                On Ulogs.org "your content" is queen. Whether it is a blog, ulog, or vlog, we want you to create fresh content daily. If you want to "write a post" (post to Steem) like you normally would, simply go to our general purpose editor below.
+              </p>
+            </Card>
+
+            <Collapse
+              defaultActiveKey={defaultActiveKey}
+              activeKey={this.state.activeKey}
+              onChange={this.callback}>
+              <Collapse.Panel
+                header="Go To The General-Purpose Editor"
+                key="8"
+                style={customPanelStyle}>
+                <p>
+                  <b>On ulogs.org, your freshly-made content is queen.</b> We want to incite you create content on a daily basis as that in itself is rewarding. Anytime you invest in creating "your own content" you have managed to "mine the human" some more. This is world adjusting!<br/>
+                  <b>Ulogs.org allows you to explore and enjoy the entire steem ecosystem.</b> Thus, whether is it is a blog, ulog or vlog, we welcome your contributions and will look forward to celebrating <b>'the you'</b> in it; <b>we as your "true fans".</b><br/>
+                  You can post to steem like you normally would (<b>e.g blogs etc</b>), using the <b>"General-Purpose" editor below.</b><br/><br/>
+                </p>
+                <Button>
+                  <Link to="/editor">General Purpose Editor</Link>
+                </Button>
               </Collapse.Panel>
             </Collapse>
           </div>
