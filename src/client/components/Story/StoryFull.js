@@ -496,7 +496,7 @@ class StoryFull extends React.Component {
           pendingFlag={pendingFlag}
           pendingFollow={pendingFollow}
           pendingBookmark={pendingBookmark}
-          displayDelegateButton={displayDelegateButton}
+          displayDelegateButton={true}
           ownPost={ownPost}
           rewardFund={rewardFund}
           saving={saving}

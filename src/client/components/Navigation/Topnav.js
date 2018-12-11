@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Menu, Input, AutoComplete, Dropdown, Icon, Tooltip } from 'antd';
+import { Menu, Input, AutoComplete, Dropdown, Icon, Tooltip, Alert } from 'antd';
 import classNames from 'classnames';
 import { searchAutoComplete } from '../../search/searchActions';
 import { getUpdatedSCUserMetadata } from '../../auth/authActions';
@@ -167,57 +167,7 @@ class Topnav extends React.Component {
     const SubMenu = Menu.SubMenu;
     const MenuItemGroup = Menu.ItemGroup;
 
-    const menu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Tooltip
-            placement="left"
-            title={'The Main ULOG editor'}
-            mouseEnterDelay={1}
-          >
-            <Link to={'/main-editor'}>Write a ULOG</Link>
-          </Tooltip>
-        </Menu.Item>
-        <SubMenu key="sub4" title={<span>More ULOGGING?</span>}>
-          <Menu.Item key="10">
-            <Link to={'/ulog-knowledge-bank'}>ULOG-Knowledge-Bank</Link>
-          </Menu.Item>
-          <Menu.Item key="11">
-            <Link to={'/ulog-fanlove'}>ULOG-Fan Love</Link>
-          </Menu.Item>
-          <Menu.Item key="12">
-            <Link to={'/surpassinggoogle'}>SurpassingGoogle</Link>
-          </Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">
-          <Tooltip
-            placement="left"
-            title={'Your common editor'}
-            mouseEnterDelay={1}
-          >
-            <Link to={'/editor'}>Write a Post</Link>
-          </Tooltip>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Tooltip
-            placement="left"
-            title={'Have a tear drop to share?'}
-            mouseEnterDelay={1}
-          >
-            <Link to={'/teardrops'}>Write #teardrops</Link>
-          </Tooltip>
-        </Menu.Item>
-        <Menu.Item key="4">
-          <Tooltip
-            placement="left"
-            title={'Share your (un)talents'}
-            mouseEnterDelay={1}
-          >
-            <Link to={'/untalented'}>Write #untalented</Link>
-          </Tooltip>
-        </Menu.Item>
-      </Menu>
-    );
+
 
     return (
       <div
@@ -226,15 +176,10 @@ class Topnav extends React.Component {
         })}
       >
         <Menu selectedKeys={[]} className="Topnav__menu-container__menu" mode="horizontal">
-          <Menu.Item key="editor">
-            <Dropdown
-              overlay={menu}
-              trigger={['click']}
-            >
-              <a className="Topnav__link Topnav__link--action" href="#">
-                <i className="iconfont icon-write" /><Icon type="down" />
-              </a>
-            </Dropdown>
+          <Menu.Item key="editor"  className="Topnav__item--badge">
+            <Link to={'/ulogging'} className="Topnav__link Topnav__link--action">
+                <i className="iconfont icon-write" />
+            </Link>
           </Menu.Item>
           <Menu.Item key="notifications" className="Topnav__item--badge">
             <BTooltip
@@ -311,6 +256,30 @@ class Topnav extends React.Component {
                   </PopoverMenuItem>
                   <PopoverMenuItem key="settings">
                     <FormattedMessage id="settings" defaultMessage="Settings" />
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="ulog-witnesses">
+                    <FormattedMessage id="ulog-witnesses" defaultMessage="Ulog-Witnesses"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="custom-profile">
+                    <FormattedMessage id="custom_profile" defaultMessage="Custom Profile"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="get-certified">
+                    <FormattedMessage id="get_certified" defaultMessage='Get "Certified"'/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="ulog-faucet" fullScreenHidden>
+                    <FormattedMessage id="ulog_faucet" defaultMessage="Ulog-Faucet"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="merchandise" fullScreenHidden>
+                    <FormattedMessage id="merchandise" defaultMessage="Merchandise"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="exchange" fullScreenHidden>
+                    <FormattedMessage id="exchange" defaultMessage="Exchange"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="teardrop-smt" fullScreenHidden>
+                    <FormattedMessage id="teardrop_smt" defaultMessage="Teardrop SMT"/>
+                  </PopoverMenuItem>
+                  <PopoverMenuItem key="about-ulogs">
+                    <FormattedMessage id="about-ulogs" defaultMessage="About Ulogs.org"/>
                   </PopoverMenuItem>
                   <PopoverMenuItem key="logout">
                     <FormattedMessage id="logout" defaultMessage="Logout" />

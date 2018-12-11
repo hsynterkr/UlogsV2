@@ -171,7 +171,7 @@ class Editor extends React.Component {
       callback(
         intl.formatMessage({
           id: 'topics_error_count',
-          defaultMessage: 'You have to add 1 to 5 topics.',
+          defaultMessage: 'Please add 1 to 5 topics.',
         }),
       );
     }
@@ -235,14 +235,12 @@ class Editor extends React.Component {
           <Collapse defaultActiveKey={['1']}>
             <Panel header="The General-Purpose Editor" key="1">
               <p>
-                <b>Ulogs.org has a bunch of specialized editors for posting Ulogs,</b> whether you are ulogging under <a href="https://ulogs.org/created/ulog">#ulog</a> or under a #ulog-subtag (e.g <a href="https://ulogs.org/created/ulography">#ulography</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, <a href="https://ulogs.org/created/ulog-hugot">#ulog-hugot</a> etc.). You can explore these editors by clicking the <b>"PEN Icon"</b> on the top right area across our website. <br/> 
+                <b>Ulogs.org has a bunch of specialized editors for posting Ulogs,</b> whether you are ulogging under <a href="https://ulogs.org/created/ulog">#ulog</a> or under a #ulog-subtag (e.g <a href="https://ulogs.org/created/ulography">#ulography</a>, <a href="https://ulogs.org/created/ulog-resolutions">#ulog-resolutions</a>, <a href="https://ulogs.org/created/ulog-hugot">#ulog-hugot</a> etc.). You can explore these editors by clicking the <b>"PEN Icon"</b> on the top right area across our website. <br/>
                 Alternatively though, <b><i>if you have found yourself here</i></b>, you can always use this <b>"General-Purpose Editor"</b> to post your <b>Ulogs, normal blogs etc</b>, after following a few guidelines. <b>Make sure to expand (read) the Style-Guide just below</b>, before you post, to be sure you are posting correctly. <br/><br/>
-                <b>The general principle</b> when posting under <a href="https://ulogs.org/created/ulog">#ulog</a> or under any #ulog-subtag is; <b><i>[the more popular "<a href="https://ulogs.org/created/ulog">#ulog</a>" should be your first hashtag, while the "#ulog-subtag" should be the 2nd hashtag]</i></b>. <br/><br/> 
+                <b>The general principle</b> when posting under <a href="https://ulogs.org/created/ulog">#ulog</a> or under any #ulog-subtag is; <b><i>[the more popular "<a href="https://ulogs.org/created/ulog">#ulog</a>" should be your first hashtag, while the "#ulog-subtag" should be the 2nd hashtag]</i></b>. <br/><br/>
                 Note that, <b>you are allowed to birth fresh ulog-subtags along with the "communities" these bring!</b> Inanycase, <b>(for Ulogs)</b> always maintain "<a href="https://ulogs.org/created/ulog">#ulog</a>" as your first hashtag, <b>whenever your post is Ulog-related.</b> <br/>
                 <b>Special Note:</b> You can also post on steemit like normal <b>e.g blogs etc</b>, using the <b>"General-Purpose" editor below.</b> In this case, <b>you have no need to use <a href="https://ulogs.org/created/ulog">#ulog</a></b>. Simply chose 5 hashtags related to your subject and chose a Catch Title. <br/><br/>
-                <div style={{ color : 'purple' }}>
-                  <b><i>Kindly expand the Style-Guide below for QUICK INSIGHT!!!</i></b>
-                </div>     
+                <span style={{color: 'purple'}}><b><i>Kindly expand the Style-Guide below for QUICK INSIGHT!!!</i></b></span>
               </p>
             </Panel>
           </Collapse>
@@ -286,7 +284,7 @@ class Editor extends React.Component {
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a>:</b> <b>TAGS-Order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-zoo">#ulog-zoo</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + Zoo):" etc.]</font></li>
                 <li><font size="2"><b>etc</b></font></li>
               </ul>
-            </div>  
+            </div>
             <u><b>Ulog-FanLove (BeLikeTerry):</b></u>
             <div style={{ color : 'purple' }}>
               <ul style={{ 'listStyleType' : 'circle', marginLeft : '20px' }}>
@@ -295,7 +293,7 @@ class Editor extends React.Component {
                 <li><font size="2"><b>Ulogging_<a href="https://ulogs.org/created/ulog-thejohalfiles">#ulog-thejohalfiles</a>?</b> <b>TAGS-order:</b> [<a href="https://ulogs.org/created/ulog">#ulog</a>, <a href="https://ulogs.org/created/ulog-thejohalfiles">#ulog-thejohalfiles</a> etc.] <b>IN-TITLE:</b> [add "(ULOG + TheJohalFiles):" etc.]</font></li>
 
               </ul>
-            </div>     
+            </div>
             </Panel>
           </Collapse>
 
@@ -384,7 +382,7 @@ class Editor extends React.Component {
         </Form.Item>
         <div className="Editor__hashtags">
           <p>
-            Choose 5 hashtags closely related to your content. These will make your post searchable by readers, rank them better in the search engines and expose your posts to better curation, accruing you a "true-fanbase". <br/>
+            Choose 1 to 5 hashtags closely related to your content. These will make your post searchable by readers, rank them better in the search engines and expose your posts to better curation, accruing you a "true-fanbase". <br/>
             Want to "mine the human" some more? Try one of our #ulogging editors from the drop-down just above. <br/>
           </p>
         </div>
