@@ -260,6 +260,9 @@ class Topnav extends React.Component {
                   <PopoverMenuItem key="ulog-witnesses">
                     <FormattedMessage id="ulog-witnesses" defaultMessage="Ulog-Witnesses"/>
                   </PopoverMenuItem>
+                  <PopoverMenuItem key="ulog-subtags">
+                    <FormattedMessage id="ulog-subtags" defaultMessage="Ulog-Subtags"/>
+                  </PopoverMenuItem>
                   <PopoverMenuItem key="custom-profile">
                     <FormattedMessage id="custom_profile" defaultMessage="Custom Profile"/>
                   </PopoverMenuItem>
