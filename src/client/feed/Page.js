@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Carousel } from 'antd';
+import YoutubePlayer from 'react-player/lib/players/YouTube';
 import { getFeedContent } from './feedActions';
 import { getIsLoaded, getIsAuthenticated } from '../reducers';
 import SubFeed from './SubFeed';
@@ -70,28 +71,58 @@ class Page extends React.Component {
         <ScrollToTop />
 
         <ScrollToTopOnMount />
-        {authenticated ? (
+        {true ? (
           <Carousel autoplay className="feed-carousel">
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
                 <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide1.jpg" />
               </a>
             </div>
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/5tq_rCZURUg"
+              width= '100%'
+              controls />
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-enjieneer-join-in-as-her-true-fans-we-will-fix-many-worries">
                 <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide2.jpg" />
               </a>
             </div>
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/pKoW5HJ1l84"
+              width= '100%'
+              controls />
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/K8G97hEls_U"
+              width= '100%'
+              controls />
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-kneelyrac-join-in-as-her-true-fans-we-will-fix-many-worries">
                 <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide3.jpg" />
               </a>
             </div>
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/kKZ1CixLG2s"
+              width= '100%'
+              controls />
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/UqNsKU4lnLo"
+              width= '100%'
+              controls />
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-sn0white-join-in-as-her-true-fans-we-will-fix-many-worries">
                 <img width={'100%'} height={'100%'} alt="900x500" src="/images/slide4.jpg" />
               </a>
             </div>
+            <YoutubePlayer
+              className='youtube-player'
+              url="https://youtu.be/MAPKUato1K8"
+              width= '100%'
+              controls />
           </Carousel>
         ) : (
           <HeroBannerContainer />

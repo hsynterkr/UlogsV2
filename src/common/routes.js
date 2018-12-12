@@ -28,6 +28,7 @@ import Notifications from '../client/notifications/Notifications';
 import Error404 from '../client/statics/Error404';
 import ExitPage from '../client/statics/ExitPage';
 import Witnesses from '../client/witnesses/Witnesses';
+import UlogTags from '../client/tags/UlogTags';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
         path: '/bookmarks',
         exact: true,
         component: Bookmarks,
+      },
+      {
+        path: '/ulog-subtags',
+        exact: true,
+        component: UlogTags,
       },
       {
         path: '/drafts',

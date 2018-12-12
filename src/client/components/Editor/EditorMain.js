@@ -151,7 +151,7 @@ class EditorMain extends React.Component {
   }
 
   checkTopics = intl => (rule, value, callback) => {
-    if (value[0] != 'ulog') {
+    if (value[0] !== 'ulog') {
       callback(
         intl.formatMessage({
           id: 'ulog_not_topic',

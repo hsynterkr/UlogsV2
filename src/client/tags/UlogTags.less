@@ -1,0 +1,59 @@
+.ulogTags {
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
+
+  table, th, td {
+    border: 1px solid #fafbfc;
+    border-collapse: separate;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #f6f6f6;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+
+  thead tr th {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #dddddd;
+  }
+
+  table tr {
+    th a {
+      text-align: center;
+      position: relative;
+      transition: 0.3s all ease-in-out;
+      @include font-size(17px);
+      color: purple;
+    }
+    th a:hover::after {
+      content: '\2193';
+      position: absolute;
+      padding-left: 4px;
+    }
+    td, th {
+      padding-right: 20px;
+      text-align: right;
+      &:first-child {
+        text-align: left;
+        padding-left: .625rem;
+      }
+    }
+    td a {
+      color: purple;
+      text-align: center;
+    }
+  }
+
+  text-align: center;
+}
+
+.ulogheader {
+  color: purple;
+  margin-bottom: 3px;
+}
