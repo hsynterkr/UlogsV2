@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import topics from '../helpers/ulogTopics';
 import { getTrendingTags } from '../helpers/apiHelpers';
+import Loading from '../components/Icon/Loading';
 import './UlogTags.less'
 
 @injectIntl
@@ -92,7 +93,7 @@ export default class UlogTags extends React.Component {
     if(!Array.isArray(tags) || !tags.length )
     {
       return (
-        <div></div>
+        <div style={{marginTop: '25px'}}><Loading/></div>
       )
     } else {
       const rows = tags
