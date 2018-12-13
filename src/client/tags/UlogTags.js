@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import topics from '../helpers/ulogTopics';
 import { getTrendingTags } from '../helpers/apiHelpers';
+import Loading from '../components/Icon/Loading';
 import './UlogTags.less'
 
 @injectIntl
@@ -62,7 +63,6 @@ export default class UlogTags extends React.Component {
   };
 
   renderTags = async() => {
-    console.log("Rendering.");
     try {
       var reqNum = 0;
       var arr = await getTrendingTags();
@@ -70,7 +70,6 @@ export default class UlogTags extends React.Component {
           return topics.includes(el.name);
         });
       var last = arr[arr.length - 1].name;
-      console.log(catarr);
       while (catarr.length < topics.length && reqNum < 10)
       {
         arr = await getTrendingTags(last);
@@ -78,9 +77,7 @@ export default class UlogTags extends React.Component {
         var arrtwo = arr.filter(function(el) {
             return topics.includes(el.name);
           });
-        console.log(arrtwo);
         catarr = catarr.concat(arrtwo);
-        console.log(reqNum);
         reqNum++;
       }
 
@@ -96,7 +93,7 @@ export default class UlogTags extends React.Component {
     if(!Array.isArray(tags) || !tags.length )
     {
       return (
-        <div></div>
+        <div style={{marginTop: '25px'}}><Loading/></div>
       )
     } else {
       const rows = tags
