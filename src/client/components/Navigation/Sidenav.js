@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
+import { Icon, message, Button } from 'antd';
 import './Sidenav.less';
 
 const isNews = (match, location) => location.pathname.match(/trending/);
 const isWallet = (match, location) => location.pathname.match(/wallet/);
 const isReplies = (match, location) => location.pathname.match(/replies/);
+
+const success = () => {
+  message.success('Coming soon!', 3);
+};
 
 const Sidenav = ({ username }) =>
   username ? (
@@ -40,6 +45,12 @@ const Sidenav = ({ username }) =>
           <i className="iconfont icon-wallet" />
           <FormattedMessage id="wallet" defaultMessage="Wallet" />
         </NavLink>
+      </li>
+      <li>
+        <a aria-current="false" onClick={success} role='button' >
+          <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#2088ff' }} />
+          <FormattedMessage id="marketplace" defaultMessage="Marketplace" />
+        </a>
       </li>
     </ul>
   ) : null;

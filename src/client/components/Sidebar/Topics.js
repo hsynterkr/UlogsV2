@@ -108,6 +108,28 @@ class Topics extends React.Component {
             <FormattedMessage id="show_less" defaultMessage="View less" />
           </a>
         ) : null}
+
+        <h4>
+          <FormattedMessage
+            id={'explore'}
+            defaultMessage={'Explore'}
+          />
+        </h4>
+          <ul className="Topics__list">
+            <li>
+            <Topic name={'Ulog Communities'} favorite={favorite} />
+            </li>
+            <li>
+              <Topic name={'Exchanges'} favorite={favorite} />
+            </li>
+            <li>
+              <Topic name={'Giveaways'} favorite={favorite} />
+            </li>
+            <li>
+              <Topic name={'Crowdfunds'} favorite={favorite} />
+            </li>
+            <br/>
+          </ul>
       </div>
     );
   }

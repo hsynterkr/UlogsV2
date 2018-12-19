@@ -13,7 +13,7 @@ import {
 import { checkWitnessVote } from '../../helpers/voteHelpers';
 import { updateRecommendations } from '../../user/userActions';
 import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUloggersWithAPI';
-import InterestingPeopleWithAPI from '../../components/Sidebar/InterestingPeopleWithAPI';
+import UlogStories from '../../components/Sidebar/UlogStories';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
 import PostRecommendation from '../../components/Sidebar/PostRecommendation';
@@ -109,11 +109,18 @@ export default class RightSidebar extends React.Component {
               <div>
                 {authenticated &&
                 !showPostRecommendation ? (
-                  <InterestingUloggersWithAPI
-                    authenticatedUser={authenticatedUser}
-                    followingList={followingList}
-                    isFetchingFollowingList={isFetchingFollowingList}
-                  />
+                  <div>
+                    <InterestingUloggersWithAPI
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                  </div>
                 ) : (
                   <div />
                 )}
