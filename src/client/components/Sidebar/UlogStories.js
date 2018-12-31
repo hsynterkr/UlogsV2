@@ -39,6 +39,7 @@ class UlogStories extends React.Component {
   }
 
   componentDidMount() {
+    this.isMount = true;
     if (!this.props.isFetchingFollowingList) {
       this.getCertifiedUloggers();
     }
@@ -48,6 +49,10 @@ class UlogStories extends React.Component {
     if (!nextProps.isFetchingFollowingList) {
       this.getCertifiedUloggers();
     }
+  }
+
+  componentWillUnmount() {
+    this.isMount = false;
   }
 
 
@@ -68,21 +73,25 @@ class UlogStories extends React.Component {
             };
           });
         if (users.length > 0) {
-          this.setState({
-            users,
-            loading: false,
-            noUsers: false,
-          });
-        } else {
+          if (this.isMount) {
+            this.setState({
+              users,
+              loading: false,
+              noUsers: false,
+            });
+          }
+        } else if (this.isMount) {
           this.setState({
             noUsers: true,
           });
         }
       })
       .catch(() => {
-        this.setState({
-          noUsers: true,
-        });
+        if (this.isMount) {
+          this.setState({
+            noUsers: true,
+          });
+        }
       });
   }
 

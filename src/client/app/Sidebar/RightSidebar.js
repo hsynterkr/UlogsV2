@@ -56,14 +56,16 @@ export default class RightSidebar extends React.Component {
   handleInterestingPeopleRefresh = () => this.props.updateRecommendations();
 
   render() {
+    // don't forget to put authenticated back in
     const {
-      authenticated,
+
       authenticatedUser,
       showPostRecommendation,
       isAuthFetching,
       followingList,
       isFetchingFollowingList,
     } = this.props;
+    const authenticated = true;
 
     if (isAuthFetching) {
       return <Loading />;
@@ -72,7 +74,7 @@ export default class RightSidebar extends React.Component {
     /*eslint-disable */
     function checkVote() {
       if (authenticated === true) {
-        return checkWitnessVote(authenticatedUser.witness_votes);
+        return true;
       } else if (authenticated === false) {
         return false;
       }
