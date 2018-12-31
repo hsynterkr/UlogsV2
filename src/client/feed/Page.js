@@ -18,6 +18,7 @@ import ScrollToTop from '../components/Utils/ScrollToTop';
 import ScrollToTopOnMount from '../components/Utils/ScrollToTopOnMount';
 import QuickPostEditor from '../components/QuickPostEditor/QuickPostEditor';
 import MainMenu from '../components/MainMenu';
+import ChatBar from '../app/Sidebar/ChatBar';
 import './Feed.less';
 
 @connect(state => ({
@@ -136,6 +137,7 @@ class Page extends React.Component {
               </div>
             </Affix>
             <Affix className="rightContainer" stickPosition={77}>
+            { authenticated && <ChatBar/> }
               <div className="right">
                 <RightSidebar />
               </div>
