@@ -7,6 +7,7 @@ import _ from 'lodash';
 import Story from './Story';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
+import ModalEditor from '../ModalEditor/ModalEditor';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 
@@ -33,6 +34,7 @@ class UlogStories extends React.Component {
       users: [],
       loading: true,
       noUsers: false,
+      showModal: false,
     };
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
@@ -95,6 +97,20 @@ class UlogStories extends React.Component {
       });
   }
 
+  handleClickAdd = e => {
+    e.preventDefault();
+    this.setState({
+      showModal: true,
+    });
+  };
+
+  handleCloseModal = e => {
+    e.preventDefault();
+    this.setState({
+      showModal: false,
+    });
+  };
+
   render() {
     const { users, loading, noUsers } = this.state;
 
@@ -106,24 +122,30 @@ class UlogStories extends React.Component {
       return <Loading />;
     }
 
-    return (
-      <div className="SidebarContentBlock">
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="ulog_stories" defaultMessage="Ulog Stories" />
-          <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
-            <i className="iconfont icon-refresh" />
-          </button>
-        </h4>
-        <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
-        <Button type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
+    // users.includes(this.props.authenticateduser.name);
+    const cert = users.includes('petertag');
 
-          <div style={{ fontWeight: 'bold', paddingTop: 10 }}>Add A Ulog-Story</div>
-          <br/>
-          <div style={{ textAlign: 'left', padding: 3 }}>
-            Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
+    return (
+      <div>
+        <ModalEditor show={this.state.showModal} closeModal={this.handleCloseModal} certified={cert}/>
+        <div className="SidebarContentBlock">
+          <h4 className="SidebarContentBlock__title">
+            <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
+            <FormattedMessage id="ulog_stories" defaultMessage="Ulog Stories" />
+            <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
+              <i className="iconfont icon-refresh" />
+            </button>
+          </h4>
+          <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
+          <Button type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} onClick={this.handleClickAdd}/>
+
+            <div style={{ fontWeight: 'bold', paddingTop: 10 }}>Add A Ulog-Story</div>
+            <br/>
+            <div style={{ textAlign: 'left', padding: 3 }}>
+              Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
+            </div>
+            {users && users.map(user => <Story key={user.name} user={user} />)}
           </div>
-          {users && users.map(user => <Story key={user.name} user={user} />)}
         </div>
       </div>
     );

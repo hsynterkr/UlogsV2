@@ -80,7 +80,7 @@ export default class RightSidebar extends React.Component {
       }
     }
     const isWitnessVoted = checkVote();
-
+    
     return (
       <div>
         {!authenticated && <SignUp />}
