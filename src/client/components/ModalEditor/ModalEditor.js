@@ -273,6 +273,7 @@ class ModalEditor extends React.Component {
             footer={null}
             visible={this.props.show}
             onCancel={this.props.closeModal}
+            style={{width: '50%', height: '50%'}}
           >
             <div className="QuickPostEditor">
               <div className="QuickPostEditor__contents">
