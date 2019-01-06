@@ -47,10 +47,10 @@ const Sidenav = ({ username }) =>
         </NavLink>
       </li>
       <li>
-        <a aria-current="false" onClick={success} role='button' >
+        <NavLink activeClassName="Sidenav__item--active" onClick={success} isActive={false}>
           <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#2088ff' }} />
           <FormattedMessage id="marketplace" defaultMessage="Marketplace" />
-        </a>
+        </NavLink>
       </li>
     </ul>
   ) : null;

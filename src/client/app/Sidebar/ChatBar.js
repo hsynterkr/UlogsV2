@@ -55,33 +55,30 @@ export default class ChatBar extends React.PureComponent {
                 }}>
         <span style={{ fontWeight: 'bold', paddingLeft: 5 }} >Ulog-Games</span>
         <div style={{ whiteSpace: 'nowrap', overflowX: 'auto', msOverflowX: 'auto' }} >
-          { this.getChatList(5).map(username => {
-            return (
+          { this.getChatList(5).map(username => (
               <div style={{ display: 'inline-block', margin: 5 }} >
                 <Avatar username={username} size={48} />
               </div>
             )
-          }) }
+          ) }
         </div>
         <span style={{ fontWeight: 'bold', paddingLeft: 5 }} >UloggersTV</span>
         <div style={{ whiteSpace: 'nowrap', overflowX: 'auto', msOverflowX: 'auto' }} >
-          { this.getChatList(5).map(username => {
-            return (
+          { this.getChatList(5).map(username => (
               <div style={{ display: 'inline-block', margin: 5 }} >
                 <Avatar username={username} size={48} />
               </div>
             )
-          }) }
+          ) }
         </div>
         <span style={{ fontWeight: 'bold', paddingLeft: 5 }} >Buy/Sell Steem</span>
         <div style={{ whiteSpace: 'nowrap', overflowX: 'auto', msOverflowX: 'auto' }} >
-          { this.getChatList(5).map(username => {
-            return (
+          { this.getChatList(5).map(username => (
               <div style={{ display: 'inline-block', margin: 5 }} >
                 <Avatar username={username} size={48} />
               </div>
             )
-          }) }
+          ) }
         </div>
         <br/>
         <span style={{ fontWeight: 'bold',  paddingLeft: 5 }} >Direct Messaging</span>
