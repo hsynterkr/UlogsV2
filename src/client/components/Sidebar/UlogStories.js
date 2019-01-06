@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
-import {
+/* import {
   getPostContent,
   getIsPostEdited,
   getIsPostFetching,
@@ -13,9 +13,9 @@ import {
   getIsPostFailed,
   getUser,
   getIsAuthFetching,
-} from '../../reducers';
-import { getContent } from '../../post/postActions';
-import { getAccount } from '../../user/usersActions';
+} from '../../reducers'; */
+// import { getContent } from '../../post/postActions';
+// import { getAccount } from '../../user/usersActions';
 import Story from './Story';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
@@ -24,7 +24,7 @@ import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 
 @withRouter
-@connect(
+/* @connect(
   (state, ownProps) => ({
     edited: getIsPostEdited(state, ownProps.match.params.permlink),
     content: getPostContent(state, ownProps.match.params.author, ownProps.match.params.permlink),
@@ -39,23 +39,23 @@ import './SidebarContentBlock.less';
     user: getUser(state, ownProps.match.params.author),
   }),
   { getContent, getAccount },
-)
+) */
 class UlogStories extends React.Component {
   static propTypes = {
     authenticatedUser: PropTypes.shape({
       name: PropTypes.string,
     }),
-    match: PropTypes.shape().isRequired,
+    // match: PropTypes.shape().isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
     isAuthFetching: PropTypes.bool.isRequired,
     user: PropTypes.shape(),
-    edited: PropTypes.bool,
+    /* edited: PropTypes.bool,
     content: PropTypes.shape(),
     fetching: PropTypes.bool,
     loaded: PropTypes.bool,
     failed: PropTypes.bool,
     getContent: PropTypes.func,
-    getAccount: PropTypes.func,
+    getAccount: PropTypes.func, */
   };
 
   static defaultProps = {
@@ -63,22 +63,22 @@ class UlogStories extends React.Component {
       name: '',
     },
     user: {},
-    edited: false,
+    /* edited: false,
     content: undefined,
     fetching: false,
     loaded: false,
     failed: false,
     getContent: () => {},
-    getAccount: () => {},
+    getAccount: () => {}, */
   };
 
-  static fetchData({ store, match }) {
+  /* static fetchData({ store, match }) {
     const { author, permlink } = match.params;
     return Promise.all([
       store.dispatch(getAccount(author)),
       store.dispatch(getContent(author, permlink)),
     ]);
-  }
+  } */
 
   constructor(props) {
     super(props);
@@ -99,7 +99,7 @@ class UlogStories extends React.Component {
       this.getCertifiedUloggers();
     }
 
-    const { match, edited, fetching, loaded, failed, content } = this.props;
+    /* const { match, edited, fetching, loaded, failed, content } = this.props;
     const { author, permlink } = match.params;
 
     const shouldUpdate = (!loaded && !failed) || edited;
@@ -114,7 +114,7 @@ class UlogStories extends React.Component {
         '',
         `/@${content.author}/${content.permlink}${window.location.hash}`,
       );
-    }
+    } */
   }
 
   componentWillReceiveProps(nextProps) {
@@ -122,7 +122,7 @@ class UlogStories extends React.Component {
       this.getCertifiedUloggers();
     }
 
-    const { author, permlink } = nextProps.match.params;
+    /* const { author, permlink } = nextProps.match.params;
     const { author: prevAuthor, permlink: prevPermlink } = this.props.match.params;
 
     const shouldUpdate = author !== prevAuthor || permlink !== prevPermlink;
@@ -131,7 +131,7 @@ class UlogStories extends React.Component {
         this.props.getContent(author, permlink);
         this.props.getAccount(author);
       });
-    }
+    } */
   }
 
   componentWillUnmount() {
@@ -140,7 +140,7 @@ class UlogStories extends React.Component {
 
 
   getCertifiedUloggers() {
-    const stories = [];
+    // const stories = [];
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
@@ -213,7 +213,7 @@ class UlogStories extends React.Component {
     }
 
     // users.includes(this.props.authenticateduser.name);
-    const cert = users.includes('petertag');
+    const cert = users.includes(this.props.authenticatedUser.name);
 
     return (
       <div>
