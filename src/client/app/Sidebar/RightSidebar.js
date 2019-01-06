@@ -56,6 +56,7 @@ export default class RightSidebar extends React.Component {
   handleInterestingPeopleRefresh = () => this.props.updateRecommendations();
 
   render() {
+    // don't forget to put authenticated back in
     const {
       authenticated,
       authenticatedUser,
@@ -78,7 +79,7 @@ export default class RightSidebar extends React.Component {
       }
     }
     const isWitnessVoted = checkVote();
-
+    
     return (
       <div>
         {!authenticated && <SignUp />}
