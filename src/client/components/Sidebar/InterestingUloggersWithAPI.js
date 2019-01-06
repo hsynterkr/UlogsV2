@@ -38,7 +38,6 @@ class InterestingUloggersWithAPI extends React.Component {
   }
 
   componentDidMount() {
-    this.isMount = true;
     if (!this.props.isFetchingFollowingList) {
       this.getCertifiedUloggers();
     }
@@ -50,9 +49,6 @@ class InterestingUloggersWithAPI extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    this.isMount = false;
-  }
 
   getCertifiedUloggers() {
     steemAPI
@@ -71,25 +67,21 @@ class InterestingUloggersWithAPI extends React.Component {
             };
           });
         if (users.length > 0) {
-          if (this.isMount) { 
-            this.setState({
-              users,
-              loading: false,
-              noUsers: false,
-            });
-          }
-        } else if (this.isMount) {
+          this.setState({
+            users,
+            loading: false,
+            noUsers: false,
+          });
+        } else {
           this.setState({
             noUsers: true,
           });
         }
       })
       .catch(() => {
-        if (this.isMount) {
-          this.setState({
-            noUsers: true,
-          });
-        }
+        this.setState({
+          noUsers: true,
+        });
       });
   }
 
