@@ -139,7 +139,7 @@ class Page extends React.Component {
             <Affix className="rightContainer" stickPosition={77}>
               <div className="right">
                 <RightSidebar />
-                { authenticated && <ChatBar/> }
+                { /* authenticated && <ChatBar/> */ }
               </div>
             </Affix>
             <div className="center">
