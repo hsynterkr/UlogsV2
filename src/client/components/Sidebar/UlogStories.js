@@ -206,14 +206,15 @@ class UlogStories extends React.Component {
 
     if (noUsers) {
       return <div />;
-    }
-
+    } 
+    
     if (loading) {
       return <Loading />;
     }
-
-    // users.includes(this.props.authenticateduser.name);
+    
     const cert = users.includes(this.props.authenticatedUser.name);
+    // users.includes(this.props.authenticateduser.name);
+    
 
     return (
       <div>
