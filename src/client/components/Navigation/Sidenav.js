@@ -46,7 +46,6 @@ const Sidenav = ({ username }) =>
           <FormattedMessage id="wallet" defaultMessage="Wallet" />
         </NavLink>
       </li>
-      <li>
         <a aria-current="false" onClick={success} role='button' >
           <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#2088ff' }} />
           <FormattedMessage id="marketplace" defaultMessage="Marketplace" />
