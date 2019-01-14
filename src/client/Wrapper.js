@@ -19,6 +19,7 @@ import {
   getUseBeta,
   getUloggersFollowingList,
   getIsFetchingUloggersFollowingList,
+  getNightmode,
 } from './reducers';
 import { login, logout, busyLogin } from './auth/authActions';
 import {
@@ -38,6 +39,7 @@ import Redirect from './components/Utils/Redirect';
 import NotificationPopup from './notifications/NotificationPopup';
 import Topnav from './components/Navigation/Topnav';
 import Transfer from './wallet/Transfer';
+import PowerUpOrDown from './wallet/PowerUpOrDown';
 import BBackTop from './components/BBackTop';
 
 @withRouter
@@ -51,6 +53,7 @@ import BBackTop from './components/BBackTop';
     locale: getLocale(state),
     uloggersFollowingList: getUloggersFollowingList(state),
     isFetchingUloggersFollowingList: getIsFetchingUloggersFollowingList(state),
+    nightmode: getNightmode(state),
   }),
   {
     login,
@@ -86,6 +89,7 @@ export default class Wrapper extends React.PureComponent {
     getNotifications: PropTypes.func,
     setUsedLocale: PropTypes.func,
     busyLogin: PropTypes.func,
+    nightmode: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -103,6 +107,7 @@ export default class Wrapper extends React.PureComponent {
     getNotifications: () => {},
     setUsedLocale: () => {},
     busyLogin: () => {},
+    nightmode: false,
   };
 
   static async fetchData({ store, req, res }) {
@@ -160,6 +165,14 @@ export default class Wrapper extends React.PureComponent {
 
     if (locale !== nextProps.locale) {
       this.loadLocale(nextProps.locale);
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.nightmode) {
+      document.body.classList.add('nightmode');
+    } else {
+      document.body.classList.remove('nightmode');
     }
   }
 
@@ -244,8 +257,9 @@ export default class Wrapper extends React.PureComponent {
               {renderRoutes(this.props.route.routes)}
               <Redirect />
               <Transfer />
+              <PowerUpOrDown />
               <NotificationPopup />
-              <BBackTop />
+              <BBackTop className="primary-modal" />
             </div>
           </Layout>
         </LocaleProvider>

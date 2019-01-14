@@ -1,9 +1,9 @@
 import { createAction } from 'redux-actions';
 import { createCommentPermlink, getBodyPatchIfSmaller } from '../vendor/steemitHelpers';
 import { notify } from '../app/Notification/notificationActions';
-import { jsonParse } from '../../client/helpers/formatter';
-
-const version = require('../../../package.json').version;
+import { jsonParse } from '../helpers/formatter';
+import { createPostMetadata } from '../helpers/postHelpers';
+import { getPostKey } from '../helpers/stateHelpers';
 
 export const GET_COMMENTS = 'GET_COMMENTS';
 export const GET_COMMENTS_START = 'GET_COMMENTS_START';
@@ -22,19 +22,19 @@ export const LIKE_COMMENT_ERROR = '@comments/LIKE_COMMENT_ERROR';
 
 export const RELOAD_EXISTING_COMMENT = '@comments/RELOAD_EXISTING_COMMENT';
 export const reloadExistingComment = createAction(RELOAD_EXISTING_COMMENT, undefined, data => ({
-  commentId: data.id,
+  commentId: getPostKey(data),
 }));
 
 const getRootCommentsList = apiRes =>
   Object.keys(apiRes.content)
     .filter(commentKey => apiRes.content[commentKey].depth === 1)
-    .map(commentKey => apiRes.content[commentKey].id);
+    .map(commentKey => getPostKey(apiRes.content[commentKey]));
 
 const getCommentsChildrenLists = apiRes => {
   const listsById = {};
   Object.keys(apiRes.content).forEach(commentKey => {
-    listsById[apiRes.content[commentKey].id] = apiRes.content[commentKey].replies.map(
-      childKey => apiRes.content[childKey].id,
+    listsById[getPostKey(apiRes.content[commentKey])] = apiRes.content[commentKey].replies.map(
+      childKey => getPostKey(apiRes.content[childKey]),
     );
   });
 
@@ -99,10 +99,11 @@ export const sendComment = (parentPost, body, isUpdating = false, originalCommen
     ? originalComment.permlink
     : createCommentPermlink(parentAuthor, parentPermlink);
 
-  const defaultJsonMetadata = { tags: [category], community: 'ulogs', app: `ulogs/${version}` };
-  const jsonMetadata = isUpdating
-    ? jsonParse(originalComment.json_metadata) || defaultJsonMetadata
-    : defaultJsonMetadata;
+  const jsonMetadata = createPostMetadata(
+    body,
+    [category],
+    isUpdating && jsonParse(originalComment.json_metadata),
+  );
 
   const newBody = isUpdating ? getBodyPatchIfSmaller(originalComment.body, body) : body + '<br/><div class="pull-right promo"><sub>' +'<p>This comment was made from https://ulogs.org</p></sub></div>';
 
