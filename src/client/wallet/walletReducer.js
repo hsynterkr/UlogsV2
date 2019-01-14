@@ -6,8 +6,6 @@ import { getUserDetailsKey } from '../helpers/stateHelpers';
 const initialState = {
   transferVisible: false,
   transferTo: '',
-  powerUpOrDownVisible: false,
-  powerDown: false,
   totalVestingShares: '',
   totalVestingFundSteem: '',
   usersTransactions: {},
@@ -34,17 +32,6 @@ export default function walletReducer(state = initialState, action) {
       return {
         ...state,
         transferVisible: false,
-      };
-    case walletActions.OPEN_POWER_UP_OR_DOWN:
-      return {
-        ...state,
-        powerUpOrDownVisible: true,
-        powerDown: !!action.payload,
-      };
-    case walletActions.CLOSE_POWER_UP_OR_DOWN:
-      return {
-        ...state,
-        powerUpOrDownVisible: false,
       };
     case walletActions.GET_GLOBAL_PROPERTIES.START:
       return {
@@ -192,8 +179,6 @@ export default function walletReducer(state = initialState, action) {
 
 export const getIsTransferVisible = state => state.transferVisible;
 export const getTransferTo = state => state.transferTo;
-export const getIsPowerUpOrDownVisible = state => state.powerUpOrDownVisible;
-export const getIsPowerDown = state => state.powerDown;
 export const getTotalVestingShares = state => state.totalVestingShares;
 export const getTotalVestingFundSteem = state => state.totalVestingFundSteem;
 export const getUsersTransactions = state => state.usersTransactions;

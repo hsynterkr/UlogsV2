@@ -5,7 +5,7 @@ import TopicSelector from '../TopicSelector';
 describe('<TopicSelector />', () => {
   it('renders without exploding', () => {
     const props = {
-      sort: 'trending',
+      sort: 'active',
       isSingle: true,
       bold: true,
       topics: ['busy', 'introduceyourself', 'steemfest'],

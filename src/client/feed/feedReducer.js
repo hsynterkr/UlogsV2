@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import * as feedTypes from './feedActions';
 import { TOGGLE_BOOKMARK } from '../bookmarks/bookmarksActions';
-import { getPostKey } from '../helpers/stateHelpers';
 
 const initialState = {
   feed: {},
@@ -20,20 +19,14 @@ const initialState = {
 
 const feedIdsList = (state = [], action) => {
   switch (action.type) {
-    case feedTypes.GET_FEED_CONTENT.START:
-    case feedTypes.GET_USER_COMMENTS.START:
-    case feedTypes.GET_REPLIES.START:
-    case feedTypes.GET_BOOKMARKS.START:
-      return [];
     case feedTypes.GET_FEED_CONTENT.SUCCESS:
-    case feedTypes.GET_USER_COMMENTS.SUCCESS:
-    case feedTypes.GET_REPLIES.SUCCESS:
-    case feedTypes.GET_BOOKMARKS.SUCCESS:
-      return action.payload.map(getPostKey);
     case feedTypes.GET_MORE_FEED_CONTENT.SUCCESS:
+    case feedTypes.GET_USER_COMMENTS.SUCCESS:
     case feedTypes.GET_MORE_USER_COMMENTS.SUCCESS:
+    case feedTypes.GET_REPLIES.SUCCESS:
     case feedTypes.GET_MORE_REPLIES.SUCCESS:
-      return _.uniq([...state, ...action.payload.map(getPostKey)]);
+    case feedTypes.GET_BOOKMARKS.SUCCESS:
+      return _.uniq([...state, ...action.payload.map(post => post.id)]);
     default:
       return state;
   }
@@ -155,7 +148,7 @@ const feed = (state = initialState, action) => {
           ...state.bookmarks,
           all: {
             ...state.bookmarks.all,
-            list: state.bookmarks.all.list.filter(item => item !== action.meta.id),
+            list: state.bookmarks.all.list.filter(item => item !== action.payload),
           },
         },
       };

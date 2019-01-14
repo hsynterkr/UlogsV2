@@ -18,8 +18,6 @@ class Comments extends React.Component {
     intl: PropTypes.shape().isRequired,
     user: PropTypes.shape().isRequired,
     authenticated: PropTypes.bool.isRequired,
-    loading: PropTypes.bool.isRequired,
-    loaded: PropTypes.bool.isRequired,
     username: PropTypes.string,
     parentPost: PropTypes.shape(),
     comments: PropTypes.shape(),
@@ -36,6 +34,7 @@ class Comments extends React.Component {
     defaultVotePercent: PropTypes.number.isRequired,
     rewriteLinks: PropTypes.bool,
     sliderMode: PropTypes.oneOf(['on', 'off', 'auto']),
+    loading: PropTypes.bool,
     show: PropTypes.bool,
     notify: PropTypes.func,
     onLikeClick: PropTypes.func,
@@ -53,6 +52,7 @@ class Comments extends React.Component {
     pendingVotes: [],
     rewriteLinks: false,
     sliderMode: 'auto',
+    loading: false,
     show: false,
     notify: () => {},
     onLikeClick: () => {},
@@ -198,7 +198,6 @@ class Comments extends React.Component {
       commentsChildren,
       uloggersFollowingList,
       loading,
-      loaded,
       show,
       pendingVotes,
       onLikeClick,
@@ -252,13 +251,12 @@ class Comments extends React.Component {
           />
         )}
         {loading && <Loading />}
-        {loaded &&
-          commentsToRender.length === 0 && (
-            <div className="Comments__empty">
-              <FormattedMessage id="empty_comments" defaultMessage="There are no comments yet." />
-            </div>
-          )}
-        {loaded &&
+        {parentPost.children === 0 && (
+          <div className="Comments__empty">
+            <FormattedMessage id="empty_comments" defaultMessage="There are no comments yet." />
+          </div>
+        )}
+        {!loading &&
           show &&
           comments &&
           commentsToRender.map(comment => (

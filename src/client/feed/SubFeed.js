@@ -61,25 +61,29 @@ class SubFeed extends React.Component {
   componentDidMount() {
     const { authenticated, loaded, user, match, feed } = this.props;
     const category = match.params.category;
+    let content = [];
 
     if (!loaded && Cookie.get('access_token')) return;
 
     if (match.url === '/' && authenticated) {
-      const fetched = getUserFeedFetchedFromState(user.name, feed);
-      if (fetched) return;
-      this.props.getFeedContent('feed', user.name);
+       const sortBy = match.params.sortBy || 'created';
+      content = getFeedFromState(sortBy, match.params.category, feed);
+      if (_.isEmpty(content)) {
+        this.props.getFeedContent(sortBy, category);
+      }
     } else {
-      const sortBy = match.params.sortBy || 'trending';
-      const fetched = getFeedFetchedFromState(sortBy, category, feed);
-      if (fetched) return;
-      this.props.getFeedContent(sortBy, category);
+      const sortBy = match.params.sortBy || 'created';
+      content = getFeedFromState(sortBy, match.params.category, feed);
+      if (_.isEmpty(content)) {
+        this.props.getFeedContent(sortBy, category);
+      }
     }
   }
 
   componentWillReceiveProps(nextProps) {
     const { authenticated, loaded, user, match, feed } = nextProps;
     const oldSortBy = this.props.match.params.sortBy;
-    const newSortBy = match.params.sortBy;
+    const newSortBy = match.params.sortBy || 'created';
     const oldCategory = this.props.match.params.category;
     const newCategory = match.params.category;
     const wasAuthenticated = this.props.authenticated;
@@ -94,14 +98,16 @@ class SubFeed extends React.Component {
       ((match.url !== this.props.match.url && isAuthenticated) ||
         (isAuthenticated && !wasAuthenticated))
     ) {
-      const fetching = getUserFeedLoadingFromState(user.name, feed);
-      if (!fetching) {
-        this.props.getFeedContent('feed', user.name);
+     const fetching = getFeedLoadingFromState(newSortBy, newCategory, feed);
+      const fetched = getFeedFetchedFromState(newSortBy, newCategory, feed);
+      if (!fetching && !fetched) {
+        this.props.getFeedContent(newSortBy, newCategory);
       }
     } else if (oldSortBy !== newSortBy || oldCategory !== newCategory || (!wasLoaded && isLoaded)) {
-      const fetching = getFeedLoadingFromState(newSortBy || 'trending', newCategory, feed);
-      if (!fetching) {
-        this.props.getFeedContent(newSortBy || 'trending', newCategory);
+      const fetching = getFeedLoadingFromState(newSortBy, newCategory, feed);
+      const fetched = getFeedFetchedFromState(newSortBy, newCategory, feed);
+      if (!fetching && !fetched) {
+        this.props.getFeedContent(newSortBy, newCategory);
       }
     }
   }

@@ -176,7 +176,7 @@ export default class Buttons extends React.Component {
 
     let popoverMenu = [];
 
-    if (ownPost) {
+    if (ownPost && post.cashout_time !== '1969-12-31T23:59:59') {
       popoverMenu = [
         ...popoverMenu,
         <PopoverMenuItem key="edit">
@@ -318,7 +318,7 @@ export default class Buttons extends React.Component {
             )}
           </a>
         </BTooltip>
-        {post.active_votes.length > 0 && (
+        {upVotes.length > 0 && (
           <span
             className="Buttons__number Buttons__reactions-count"
             role="presentation"
@@ -327,11 +327,7 @@ export default class Buttons extends React.Component {
             <BTooltip
               title={
                 <div>
-                  {upVotes.length > 0 ? (
-                    upVotesPreview
-                  ) : (
-                    <FormattedMessage id="no_likes" defaultMessage="No likes yet" />
-                  )}
+                  {upVotesPreview}
                   {upVotesMore}
                 </div>
               }

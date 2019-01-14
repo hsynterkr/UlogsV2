@@ -23,38 +23,28 @@
     color: @grey-nightRider;
     display: flex;
     padding: 10px 15px;
+    border-right: @base-border;
+    border-left: @base-border;
     border-bottom: @base-border;
 
     &:nth-of-type(2) {
       border-top: @base-border;
-    }
-
-    @media @small {
-      border-right: @base-border;
-      border-left: @base-border;
-
-      &:nth-of-type(2),
-      &:last-of-type {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      @media @small {
         border-top-left-radius: @border-radius-base;
         border-top-right-radius: @border-radius-base;
       }
+    }
 
-      &:last-of-type {
+    &:last-of-type {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      @media @small {
         border-bottom-left-radius: @border-radius-base;
         border-bottom-right-radius: @border-radius-base;
       }
-    }
-  }
-
-  &__loader {
-    border-bottom: @base-border;
-    padding: 20px;
-
-    @media @small {
-      border-right: @base-border;
-      border-left: @base-border;
-      border-bottom-left-radius: @border-radius-base;
-      border-bottom-right-radius: @border-radius-base;
     }
   }
 
@@ -191,5 +181,3 @@ div[data-dir='rtl'] .UserActivityActions {
     padding-right: 10px;
   }
 }
-
-@import 'UserActivityActions-nightmode';

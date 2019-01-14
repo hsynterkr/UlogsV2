@@ -146,7 +146,7 @@ export default class Transfer extends React.Component {
       if (!errors) {
         const transferQuery = {
           to: values.to,
-          amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
+          amount: `${values.amount} ${values.currency}`,
         };
         if (values.memo) transferQuery.memo = values.memo;
 
@@ -175,28 +175,18 @@ export default class Transfer extends React.Component {
   validateMemo = (rule, value, callback) => {
     const { intl } = this.props;
     const recipientIsExchange = Transfer.exchangeRegex.test(this.props.form.getFieldValue('to'));
-
     if (recipientIsExchange && (!value || value === '')) {
-      return callback([
+      callback([
         new Error(
           intl.formatMessage({
-            id: 'memo_exchange_error',
+            id: 'memo_error_exchange',
             defaultMessage: 'Memo is required when sending to an exchange.',
           }),
         ),
       ]);
-    } else if (value && value.trim()[0] === '#') {
-      return callback([
-        new Error(
-          intl.formatMessage({
-            id: 'memo_encryption_error',
-            defaultMessage: 'Encrypted memos are not supported.',
-          }),
-        ),
-      ]);
+    } else {
+      callback();
     }
-
-    return callback();
   };
 
   validateUsername = (rule, value, callback) => {

@@ -12,7 +12,7 @@ import {
   getFeedFromState,
 } from '../helpers/stateHelpers';
 import { getFeedContent, getMoreFeedContent } from '../feed/feedActions';
-import { showPostModal } from '../app/appActions';
+import { showPostModal, hidePostModal } from '../app/appActions';
 import EmptyUserProfile from '../statics/EmptyUserProfile';
 import EmptyUserOwnProfile from '../statics/EmptyUserOwnProfile';
 import PostModal from '../post/PostModalContainer';
@@ -28,6 +28,7 @@ import PostModal from '../post/PostModalContainer';
     getFeedContent,
     getMoreFeedContent,
     showPostModal,
+    hidePostModal,
   },
 )
 export default class UserProfile extends React.Component {
@@ -37,6 +38,7 @@ export default class UserProfile extends React.Component {
     feed: PropTypes.shape().isRequired,
     match: PropTypes.shape().isRequired,
     showPostModal: PropTypes.func.isRequired,
+    hidePostModal: PropTypes.func.isRequired,
     limit: PropTypes.number,
     getFeedContent: PropTypes.func,
     getMoreFeedContent: PropTypes.func,
@@ -50,14 +52,35 @@ export default class UserProfile extends React.Component {
   };
 
   componentDidMount() {
-    const { match, limit } = this.props;
-    const { name } = match.params;
+    const { feed } = this.props;
+    const username = this.props.match.params.name;
+    const content = getFeedFromState('blog', username, feed);
 
-    this.props.getFeedContent({
-      sortBy: 'blog',
-      category: name,
-      limit,
-    });
+    if (_.isEmpty(content)) {
+      this.props.getFeedContent({
+        sortBy: 'blog',
+        category: this.props.match.params.name,
+        limit: this.props.limit,
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { feed } = nextProps;
+    const username = nextProps.match.params.name;
+    const content = getFeedFromState('blog', username, feed);
+
+    if (_.isEmpty(content) && nextProps.match.url !== this.props.match.url) {
+      if (window) {
+        window.scrollTo(0, 0);
+      }
+      this.props.getFeedContent({
+        sortBy: 'blog',
+        category: nextProps.match.params.name,
+        limit: nextProps.limit,
+      });
+      this.props.hidePostModal();
+    }
   }
 
   render() {

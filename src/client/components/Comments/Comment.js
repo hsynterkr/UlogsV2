@@ -231,7 +231,7 @@ class Comment extends React.Component {
     const anchorId = `@${comment.author}/${comment.permlink}`;
     const anchorLink = `${comment.url.slice(0, comment.url.indexOf('#'))}#${anchorId}`;
 
-    const editable = comment.author === user.name;
+    const editable = comment.author === user.name && comment.cashout_time !== '1969-12-31T23:59:59';
     const commentAuthorReputation = formatter.reputation(comment.author_reputation);
     const showCommentContent = commentAuthorReputation >= 0 || showHiddenComment;
     const isCertifiedUlogger = uloggersFollowingList.includes(comment.author);
