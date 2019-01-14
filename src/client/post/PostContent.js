@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import _ from 'lodash';
@@ -35,6 +36,7 @@ import { jsonParse } from '../helpers/formatter';
 import StoryFull from '../components/Story/StoryFull';
 import DMCARemovedMessage from '../components/Story/DMCARemovedMessage';
 
+@injectIntl
 @connect(
   state => ({
     user: getAuthenticatedUser(state),
@@ -65,6 +67,7 @@ import DMCARemovedMessage from '../components/Story/DMCARemovedMessage';
 )
 class PostContent extends React.Component {
   static propTypes = {
+    intl: PropTypes.shape().isRequired,
     user: PropTypes.shape().isRequired,
     content: PropTypes.shape().isRequired,
     signature: PropTypes.string,
@@ -155,9 +158,9 @@ class PostContent extends React.Component {
   };
 
   handleEditClick = post => {
-    if (post.depth === 0) return this.props.editPost(post);
-    this.props.push(`${post.url}-edit`);
-    return Promise.resolve(null);
+    const { intl } = this.props;
+    if (post.depth === 0) return this.props.editPost(post, intl);
+    return this.props.push(`${post.url}-edit`);
   };
 
   render() {
@@ -187,7 +190,7 @@ class PostContent extends React.Component {
     const busyHost = appUrl || 'https://ulogs.org';
     let canonicalHost = busyHost;
 
-    if (_.indexOf(postMetaData.app, 'steemit') === 0) {
+    if (postMetaData && _.indexOf(postMetaData.app, 'steemit') === 0) {
       canonicalHost = 'https://steemit.com';
     }
 
@@ -214,7 +217,7 @@ class PostContent extends React.Component {
         (pendingLikes[content.id].weight === 0 && postState.isReported));
 
     const { title, category, created, author, body } = content;
-    const postMetaImage = postMetaData.image && postMetaData.image[0];
+    const postMetaImage = postMetaData && postMetaData.image && postMetaData.image[0];
     const htmlBody = getHtml(body, {}, 'text');
     const bodyText = sanitize(htmlBody, { allowedTags: [] });
     const desc = `${_.truncate(bodyText, { length: 143 })} by ${author}`;
