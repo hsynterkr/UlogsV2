@@ -288,68 +288,24 @@ export default class Settings extends React.Component {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="Settings__section">
-                  <h3>
-                    <FormattedMessage id="nightmode" defaultMessage="Nightmode" />
-                  </h3>
-                  <p>
-                    <FormattedMessage
-                      id="nightmode_details"
-                      defaultMessage="You can enable this option for a more eye-friendly experience at night."
-                    />
-                  </p>
-                  <div className="Settings__section__checkbox">
-                    <Checkbox
-                      name="nightmode"
-                      defaultChecked={initialNightmode}
-                      checked={nightmode}
-                      onChange={this.handleNightmode}
-                    >
-                      <FormattedMessage id="use_nightmode" defaultMessage="Use Nightmode" />
-                    </Checkbox>
-                  </div>
-                </div>
-                <div className="Settings__section">
-                  <h3>
-                    <FormattedMessage id="rewrite_links" defaultMessage="Rewrite links" />
-                  </h3>
-                  <p>
-                    <FormattedMessage
-                      id="rewrite_links_details"
-                      defaultMessage="You can enable this option to replace Steemit.com links with Busy.org links."
-                    />
-                  </p>
-                  <div className="Settings__section__checkbox">
-                    <Checkbox
-                      name="rewrite_links"
-                      checked={rewriteLinks}
-                      onChange={this.handleRewriteLinksChange}
-                    >
-                      {languageOptions}
-                    </Select>
-                  </div>
                   <div className="Settings__section">
                     <h3>
-                      <FormattedMessage id="nsfw_posts" defaultMessage="NSFW Posts" />
+                      <FormattedMessage id="nightmode" defaultMessage="Nightmode" />
                     </h3>
                     <p>
                       <FormattedMessage
-                        id="display_nsfw_posts_details"
-                        defaultMessage="You can enable all posts tagged with NSFW to be shown as default."
+                        id="nightmode_details"
+                        defaultMessage="You can enable this option for a more eye-friendly experience at night."
                       />
                     </p>
                     <div className="Settings__section__checkbox">
                       <Checkbox
-                        name="nsfw_posts"
-                        defaultChecked={initialShowNSFWPosts}
-                        checked={showNSFWPosts}
-                        onChange={this.handleShowNSFWPosts}
+                        name="nightmode"
+                        defaultChecked={initialNightmode}
+                        checked={nightmode}
+                        onChange={this.handleNightmode}
                       >
-                        <FormattedMessage
-                          id="display_nsfw_posts"
-                          defaultMessage="Display NSFW Posts"
-                        />
+                        <FormattedMessage id="use_nightmode" defaultMessage="Use Nightmode" />
                       </Checkbox>
                     </div>
                   </div>
@@ -369,61 +325,105 @@ export default class Settings extends React.Component {
                         checked={rewriteLinks}
                         onChange={this.handleRewriteLinksChange}
                       >
+                        {languageOptions}
+                      </Checkbox>
+                    </div>
+                    <div className="Settings__section">
+                      <h3>
+                        <FormattedMessage id="nsfw_posts" defaultMessage="NSFW Posts" />
+                      </h3>
+                      <p>
+                        <FormattedMessage
+                          id="display_nsfw_posts_details"
+                          defaultMessage="You can enable all posts tagged with NSFW to be shown as default."
+                        />
+                      </p>
+                      <div className="Settings__section__checkbox">
+                        <Checkbox
+                          name="nsfw_posts"
+                          defaultChecked={initialShowNSFWPosts}
+                          checked={showNSFWPosts}
+                          onChange={this.handleShowNSFWPosts}
+                        >
+                          <FormattedMessage
+                            id="display_nsfw_posts"
+                            defaultMessage="Display NSFW Posts"
+                          />
+                        </Checkbox>
+                      </div>
+                    </div>
+                    <div className="Settings__section">
+                      <h3>
                         <FormattedMessage id="rewrite_links" defaultMessage="Rewrite links" />
-                      </Checkbox>
+                      </h3>
+                      <p>
+                        <FormattedMessage
+                          id="rewrite_links_details"
+                          defaultMessage="You can enable this option to replace Steemit.com links with Busy.org links."
+                        />
+                      </p>
+                      <div className="Settings__section__checkbox">
+                        <Checkbox
+                          name="rewrite_links"
+                          checked={rewriteLinks}
+                          onChange={this.handleRewriteLinksChange}
+                        >
+                          <FormattedMessage id="rewrite_links" defaultMessage="Rewrite links" />
+                        </Checkbox>
+                      </div>
                     </div>
-                  </div>
-                  <div className="Settings__section">
-                    <h3>
-                      <FormattedMessage id="upvote_setting" defaultMessage="Like my posts" />
-                    </h3>
-                    <p>
-                      <FormattedMessage
-                        id="upvote_setting_details"
-                        defaultMessage="Enable this option to automatically like your own posts."
-                      />
-                    </p>
-                    <div className="Settings__section__checkbox">
-                      <Checkbox
-                        name="upvote_setting"
-                        checked={upvoteSetting}
-                        onChange={this.handleUpvoteSettingChange}
-                      >
+                    <div className="Settings__section">
+                      <h3>
                         <FormattedMessage id="upvote_setting" defaultMessage="Like my posts" />
-                      </Checkbox>
+                      </h3>
+                      <p>
+                        <FormattedMessage
+                          id="upvote_setting_details"
+                          defaultMessage="Enable this option to automatically like your own posts."
+                        />
+                      </p>
+                      <div className="Settings__section__checkbox">
+                        <Checkbox
+                          name="upvote_setting"
+                          checked={upvoteSetting}
+                          onChange={this.handleUpvoteSettingChange}
+                        >
+                          <FormattedMessage id="upvote_setting" defaultMessage="Like my posts" />
+                        </Checkbox>
+                      </div>
                     </div>
-                  </div>
-                  <div className="Settings__section">
-                    <h3>
-                      <FormattedMessage id="enable_exit_page" defaultMessage="Enable exit page" />
-                    </h3>
-                    <p>
-                      <FormattedMessage
-                        id="enable_exit_page_details"
-                        defaultMessage="Enable this option to use the exit page when clicking on an external link."
-                      />
-                    </p>
-                    <div className="Settings__section__checkbox">
-                      <Checkbox
-                        name="exit_page_setting"
-                        checked={exitPageSetting}
-                        onChange={this.handleExitPageSettingChange}
-                      >
+                    <div className="Settings__section">
+                      <h3>
                         <FormattedMessage id="enable_exit_page" defaultMessage="Enable exit page" />
-                      </Checkbox>
+                      </h3>
+                      <p>
+                        <FormattedMessage
+                          id="enable_exit_page_details"
+                          defaultMessage="Enable this option to use the exit page when clicking on an external link."
+                        />
+                      </p>
+                      <div className="Settings__section__checkbox">
+                        <Checkbox
+                          name="exit_page_setting"
+                          checked={exitPageSetting}
+                          onChange={this.handleExitPageSettingChange}
+                        >
+                          <FormattedMessage id="enable_exit_page" defaultMessage="Enable exit page" />
+                        </Checkbox>
+                      </div>
                     </div>
-                  </div>
-                  <Action primary big loading={loading} onClick={this.handleSave}>
-                    <FormattedMessage id="save" defaultMessage="Save" />
-                  </Action>
-                  <div className="Settings__version">
-                    <p>
-                      <FormattedMessage
-                        id="version"
-                        defaultMessage="Version: {version}"
-                        values={{ version: packageJson.version }}
-                      />
-                    </p>
+                    <Action primary big loading={loading} onClick={this.handleSave}>
+                      <FormattedMessage id="save" defaultMessage="Save" />
+                    </Action>
+                    <div className="Settings__version">
+                      <p>
+                        <FormattedMessage
+                          id="version"
+                          defaultMessage="Version: {version}"
+                          values={{ version: packageJson.version }}
+                        />
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
