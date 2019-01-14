@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie';
 import { createAction } from 'redux-actions';
-import { getAuthenticatedUserName, getIsAuthenticated, getIsLoaded } from '../reducers';
+import { getAuthenticatedUserName, getIsAuthenticated } from '../reducers';
 import { createAsyncActionType } from '../helpers/stateHelpers';
 import { addNewNotification } from '../app/appActions';
 import { getFollowing } from '../user/userActions';
@@ -24,11 +24,9 @@ export const BUSY_LOGIN = createAsyncActionType('@auth/BUSY_LOGIN');
 const loginError = createAction(LOGIN_ERROR);
 
 export const login = () => (dispatch, getState, { steemConnectAPI }) => {
-  const state = getState();
-
   let promise = Promise.resolve(null);
 
-  if (getIsLoaded(state)) {
+  if (getIsAuthenticated(getState())) {
     promise = Promise.resolve(null);
   } else if (!steemConnectAPI.options.accessToken) {
     promise = Promise.reject(new Error('There is not accessToken present'));
@@ -42,7 +40,7 @@ export const login = () => (dispatch, getState, { steemConnectAPI }) => {
       promise,
     },
     meta: {
-      refresh: getIsLoaded(state),
+      refresh: getIsAuthenticated(getState()),
     },
   }).catch(() => dispatch(loginError()));
 };

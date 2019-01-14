@@ -16,6 +16,7 @@ import UserComments from '../client/user/UserComments';
 import UserFollowers from '../client/user/UserFollowers';
 import UserFollowing from '../client/user/UserFollowing';
 import UserReblogs from '../client/user/UserReblogs';
+import UserFeed from '../client/user/UserFeed';
 import UserWallet from '../client/user/UserWallet';
 import UserActivity from '../client/activity/UserActivity';
 import Post from '../client/post/Post';
@@ -68,7 +69,6 @@ const routes = [
           '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy|ulog-howto|ulog-quotes)',
         exact: true,
         component: Editor,
-        exact: true,
       },
       {
         path: '/settings',
@@ -126,6 +126,11 @@ const routes = [
             component: UserReblogs,
           },
           {
+            path: '/@:name/feed',
+            exact: true,
+            component: UserFeed,
+          },
+          {
             path: '/@:name/transfers',
             exact: true,
             component: UserWallet,
@@ -165,7 +170,12 @@ const routes = [
         component: ExitPage,
       },
       {
-        path: '/:sortBy(trending|created|hot|promoted)?/:category?',
+        path: '/:sortBy(trending|created|active|hot|promoted)/:category?',
+        component: Page,
+      },
+      {
+        path: '/',
+        exact: true,
         component: Page,
       },
       {

@@ -2,7 +2,6 @@ import _ from 'lodash';
 import * as feedTypes from '../feed/feedActions';
 import * as postsActions from './postActions';
 import * as commentsActions from '../comments/commentsActions';
-import { getPostKey } from '../helpers/stateHelpers';
 
 const postItem = (state = {}, action) => {
   switch (action.type) {
@@ -32,8 +31,7 @@ const posts = (state = initialState, action) => {
     case feedTypes.GET_MORE_USER_COMMENTS.SUCCESS: {
       const commentsMoreList = {};
       action.payload.forEach(comment => {
-        const key = getPostKey(comment);
-        commentsMoreList[key] = { ...comment, id: key };
+        commentsMoreList[comment.id] = comment;
       });
       return {
         ...state,
@@ -56,9 +54,8 @@ const posts = (state = initialState, action) => {
       };
 
       _.each(action.payload, post => {
-        const key = getPostKey(post);
-        list[key] = { ...post, id: key };
-        postsStates[key] = {
+        list[post.id] = post;
+        postsStates[`${post.author}/${post.permlink}}`] = {
           fetching: false,
           loaded: true,
           failed: false,
@@ -77,7 +74,7 @@ const posts = (state = initialState, action) => {
         ...state,
         postsStates: {
           ...state.postsStates,
-          [getPostKey(action.meta)]: {
+          [`${action.meta.author}/${action.meta.permlink}}`]: {
             fetching: true,
             loaded: false,
             failed: false,
@@ -85,21 +82,24 @@ const posts = (state = initialState, action) => {
         },
       };
     case postsActions.GET_CONTENT.SUCCESS: {
-      const key = getPostKey(action.payload);
+      const {
+        reblogged_by: rebloggedBy,
+        first_reblogged_on: firstRebloggedOn,
+        ...newPost
+      } = action.payload;
 
       const baseState = {
         ...state,
         list: {
           ...state.list,
-          [key]: {
-            ...state.list[key],
-            ...action.payload,
-            id: key,
+          [action.payload.id]: {
+            ...state.list[action.payload.id],
+            ...newPost,
           },
         },
         postsStates: {
           ...state.postsStates,
-          [getPostKey(action.meta)]: {
+          [`${action.meta.author}/${action.meta.permlink}}`]: {
             fetching: false,
             loaded: true,
             failed: false,
@@ -109,7 +109,7 @@ const posts = (state = initialState, action) => {
       if (action.meta.afterLike) {
         return {
           ...baseState,
-          pendingLikes: _.omit(state.pendingLikes, getPostKey(action.payload)),
+          pendingLikes: _.omit(state.pendingLikes, action.payload.id),
         };
       }
       return baseState;
@@ -119,7 +119,7 @@ const posts = (state = initialState, action) => {
         ...state,
         postsStates: {
           ...state.postsStates,
-          [getPostKey(action.meta)]: {
+          [`${action.meta.author}/${action.meta.permlink}}`]: {
             fetching: false,
             loaded: false,
             failed: true,

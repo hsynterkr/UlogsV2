@@ -1,13 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  injectIntl,
-  FormattedMessage,
-  FormattedRelative,
-  FormattedDate,
-  FormattedTime,
-} from 'react-intl';
+import { FormattedMessage, FormattedRelative, FormattedDate, FormattedTime } from 'react-intl';
 import { Link, withRouter } from 'react-router-dom';
 import { Tag } from 'antd';
 import formatter from '../../helpers/steemitFormatter';
@@ -32,12 +26,10 @@ import DMCARemovedMessage from './DMCARemovedMessage';
 import PostedFrom from './PostedFrom';
 import './Story.less';
 
-@injectIntl
 @withRouter
 @withAuthActions
 class Story extends React.Component {
   static propTypes = {
-    intl: PropTypes.shape().isRequired,
     user: PropTypes.shape().isRequired,
     post: PropTypes.shape().isRequired,
     postState: PropTypes.shape().isRequired,
@@ -152,8 +144,7 @@ class Story extends React.Component {
   }
 
   handleEditClick(post) {
-    const { intl } = this.props;
-    if (post.depth === 0) return this.props.editPost(post, intl);
+    if (post.depth === 0) return this.props.editPost(post);
     return this.props.push(`${post.url}-edit`);
   }
 

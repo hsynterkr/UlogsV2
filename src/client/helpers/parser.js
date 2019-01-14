@@ -46,7 +46,7 @@ export function extractImageTags(body) {
 }
 
 export function extractLinks(body) {
-  return extract(body, hrefRegex).map(_.unescape);
+  return extract(body, hrefRegex);
 }
 
 export default null;

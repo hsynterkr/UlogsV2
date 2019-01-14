@@ -50,14 +50,12 @@ class PostModal extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof document !== 'undefined') {
+    if (document) {
       const modalContents = document.getElementsByClassName('ant-modal-wrap');
       const modalContentElement = _.get(modalContents, 0);
       if (modalContentElement) {
         modalContentElement.scrollTop = 0;
       }
-
-      document.body.classList.add('post-modal');
     }
 
     const { currentShownPost } = this.props;
@@ -66,10 +64,6 @@ class PostModal extends React.Component {
   }
 
   componentWillUnmount() {
-    if (typeof document !== 'undefined') {
-      document.body.classList.remove('post-modal');
-    }
-
     this.props.hidePostModal();
   }
 

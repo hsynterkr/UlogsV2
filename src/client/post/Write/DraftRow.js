@@ -4,7 +4,6 @@ import _ from 'lodash';
 import { FormattedMessage, FormattedRelative } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Checkbox } from 'antd';
-import { draftType } from '../../types/drafts';
 import DeleteDraftModal from './DeleteDraftModal';
 import './DraftRow.less';
 import { getEditorLocation } from '../../helpers/editors';
@@ -12,7 +11,7 @@ import { getEditorLocation } from '../../helpers/editors';
 class DraftRow extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    draft: draftType.isRequired,
+    data: PropTypes.shape().isRequired,
     selected: PropTypes.bool,
     onCheck: PropTypes.func,
   };
@@ -48,12 +47,12 @@ class DraftRow extends React.Component {
   }
 
   render() {
-    const { id, draft, selected } = this.props;
-    const { lastUpdated } = draft;
+    const { id, data, selected } = this.props;
+    const { lastUpdated } = data;
     const hasLastUpdated = !_.isUndefined(lastUpdated);
-    const editorLocation = getEditorLocation(draft.jsonMetadata.tags)
+    const editorLocation = getEditorLocation(data.jsonMetadata.tags)
 
-    let { title = '', body = '' } = draft;
+    let { title = '', body = '' } = data;
     title = title.trim();
     body = body.replace(/\r?\n|\r|[\u200B-\u200D\uFEFF]/g, ' ').substring(0, 50);
 

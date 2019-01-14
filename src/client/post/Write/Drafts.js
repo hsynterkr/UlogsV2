@@ -149,7 +149,7 @@ class Drafts extends React.Component {
               _.map(sortedDraftPosts, draft => (
                 <DraftRow
                   key={draft.id}
-                  draft={draft}
+                  data={draft}
                   id={draft.id}
                   selected={selectedDrafts.includes(draft.id)}
                   pending={pendingDrafts.includes(draft.id)}

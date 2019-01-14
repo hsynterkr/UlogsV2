@@ -13,23 +13,16 @@
   }
 
   &__loader {
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
     border-bottom: @base-border;
+    border-left: @base-border;
+    border-right: @base-border;
     padding: 20px;
 
     &:nth-of-type(2) {
       border-top: @base-border;
-    }
-
-    @media @small {
-      border-right: @base-border;
-      border-left: @base-border;
-      border-bottom-left-radius: @border-radius-base;
-      border-bottom-right-radius: @border-radius-base;
-
-      &:nth-of-type(2) {
-        border-top-left-radius: @border-radius-base;
-        border-top-right-radius: @border-radius-base;
-      }
+      border-radius: @border-radius-base;
     }
   }
 
@@ -37,21 +30,19 @@
     color: @grey-nightRider;
     display: flex;
     padding: 10px 15px;
+    border-right: @base-border;
+    border-left: @base-border;
     border-bottom: @base-border;
 
     &:nth-of-type(2) {
       border-top: @base-border;
+      border-top-left-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
     }
 
-    @media @small {
-      border-right: @base-border;
-      border-left: @base-border;
-
-      &:nth-of-type(2),
-      &:last-of-type {
-        border-top-left-radius: @border-radius-base;
-        border-top-right-radius: @border-radius-base;
-      }
+    &:last-of-type {
+      border-bottom-left-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
     }
   }
 
@@ -159,5 +150,3 @@ div[data-dir='rtl'] .UserWalletTransactions {
     margin-left: 0;
   }
 }
-
-@import 'UserWalletTransactions-nightmode';

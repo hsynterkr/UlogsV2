@@ -6,7 +6,7 @@ export default [
     variants: ['en', 'en-US'],
     rtl: false,
     localeData: 'en',
-    translations: 'default.json',
+    translations: 'en-US.json',
   },
   {
     id: 'id-ID',
