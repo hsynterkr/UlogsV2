@@ -47,7 +47,7 @@ const Sidenav = ({ username }) =>
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="Sidenav__item--active" onClick={success} isActive={false}>
+        <NavLink to="/marketplace" activeClassName="Sidenav__item--active" onClick={success} isActive={false}>
           <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#2088ff' }} />
           <FormattedMessage id="marketplace" defaultMessage="Marketplace" />
         </NavLink>
