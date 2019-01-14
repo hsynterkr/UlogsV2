@@ -118,12 +118,16 @@ export const getFavoriteCategories = state => fromFavorites.getFavoriteCategorie
 
 export const getIsTransferVisible = state => fromWallet.getIsTransferVisible(state.wallet);
 export const getTransferTo = state => fromWallet.getTransferTo(state.wallet);
+export const getIsPowerUpOrDownVisible = state =>
+  fromWallet.getIsPowerUpOrDownVisible(state.wallet);
+export const getIsPowerDown = state => fromWallet.getIsPowerDown(state.wallet);
 
 export const getIsSettingsLoading = state => fromSettings.getIsLoading(state.settings);
 export const getLocale = state => fromSettings.getLocale(state.settings);
 export const getVotingPower = state => fromSettings.getVotingPower(state.settings);
 export const getVotePercent = state => fromSettings.getVotePercent(state.settings);
 export const getShowNSFWPosts = state => fromSettings.getShowNSFWPosts(state.settings);
+export const getNightmode = state => fromSettings.getNightmode(state.settings);
 export const getRewriteLinks = state => fromSettings.getRewriteLinks(state.settings);
 export const getUpvoteSetting = state => fromSettings.getUpvoteSetting(state.settings);
 export const getExitPageSetting = state => fromSettings.getExitPageSetting(state.settings);

@@ -39,22 +39,26 @@ export const saveDraft = (post, redirect, intl) => dispatch => {
   return dispatch({
     type: SAVE_DRAFT,
     payload: {
-      promise: addDraftMetadata(post).catch(() => {
-        let errorMessage =
-          'Oops! You hit the storage limit of 16mb, delete some drafts to go forward';
-        if (intl) {
-          errorMessage = intl.formatMessage({
-            id: 'drafts_memory_usage_error',
-            defaultMessage:
-              'Oops! You hit the storage limit of 16mb, delete some drafts to go forward',
-          });
-        }
+      promise: addDraftMetadata(post).catch(err => {
+        const isLoggedOut = err.error === 'invalid_grant';
+
+        const errorMessage = intl.formatMessage({
+          id: isLoggedOut ? 'draft_save_auth_error' : 'draft_save_error',
+          defaultMessage: isLoggedOut
+            ? "Couldn't save this draft, because you are logged out. Please backup your post and log in again."
+            : "Couldn't save this draft. Make sure you are connected to the internet and don't have too much drafts already",
+        });
+
         dispatch(notify(errorMessage, 'error'));
+
+        throw new Error();
       }),
     },
     meta: { postId: post.id },
+  }).then(() => {
+    if (redirect) dispatch(push(`/editor?draft=${post.id}`));
   });
-};
+}
 
 export const deleteDraft = draftIds => dispatch =>
   dispatch({
@@ -65,7 +69,7 @@ export const deleteDraft = draftIds => dispatch =>
     meta: { ids: draftIds },
   });
 
-export const editPost = post => dispatch => {
+export const editPost = (post, intl) => dispatch => {
   const jsonMetadata = jsonParse(post.json_metadata);
   const draft = {
     ...post,
