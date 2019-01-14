@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
-import { Icon, message } from 'antd';
+import { Icon, message, Button } from 'antd';
 import './Sidenav.less';
 
 const isNews = (match, location) => location.pathname.match(/trending/);
 const isWallet = (match, location) => location.pathname.match(/wallet/);
 const isReplies = (match, location) => location.pathname.match(/replies/);
-const isMarket = (match, location) => location.pathname.match(/marketplace/);
 
 const success = () => {
   message.success('Coming soon!', 3);
@@ -48,8 +47,8 @@ const Sidenav = ({ username }) =>
         </NavLink>
       </li>
       <li>
-        <NavLink to="/wallet" activeClassName="Sidenav__item--active" onClick={success} isActive={isMarket}>
-          <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#99aab5' }} />
+        <NavLink activeClassName="Sidenav__item--active" onClick={success} isActive={false}>
+          <Icon type="tags" theme="twoTone" style={{ fontSize: 26, color: '#2088ff' }} />
           <FormattedMessage id="marketplace" defaultMessage="Marketplace" />
         </NavLink>
       </li>
