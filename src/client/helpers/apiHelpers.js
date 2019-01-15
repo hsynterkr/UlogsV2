@@ -43,11 +43,11 @@ export function getDiscussionsFromAPI(sortBy, query, steemAPI) {
 /**
  * gets trending tags (replacement of getState(\tags))
  * @param  {String} [start='ulog'] first tag to return
- * @param  {Number} [limit=1000]   number of tags to return (1000 is max)
+ * @param  {Number} [limit=250]   number of tags to return (250 is max)
  * @return {[type]}                array of trending tags (json)
  */
-export const getTrendingTags = (start = 'ulog', limit = 1000) =>
-  SteemAPI.sendAsync('call', ['tags_api', 'get_trending_tags', [start, limit]]);
+export const getTrendingTags = (start = 'ulog', limit = 250) =>
+  SteemAPI.sendAsync('call', ['condenser_api', 'get_trending_tags', [start, limit]]);
 
 export const getAccount = username =>
   SteemAPI.sendAsync('get_accounts', [[username]]).then(result => {
