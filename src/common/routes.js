@@ -23,6 +23,7 @@ import Page from '../client/feed/Page';
 import Discover from '../client/discover/Discover';
 import Search from '../client/search/Search';
 import Ulogging from '../client/ulogging/Ulogging';
+import Grow from '../client/grow/Grow';
 import Notifications from '../client/notifications/Notifications';
 import Error404 from '../client/statics/Error404';
 import ExitPage from '../client/statics/ExitPage';
@@ -159,6 +160,10 @@ const routes = [
       {
         path: '/(ulogging|ulog-knowledge-bank|ulog-fanlove|surpassinggoogle)',
         component: Ulogging,
+      },
+      {
+        path: '/grow',
+        component: Grow,
       },
       {
         path: '/exit',
