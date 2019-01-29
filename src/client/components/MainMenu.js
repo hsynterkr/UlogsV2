@@ -89,6 +89,14 @@ class MainMenu extends React.Component {
               >
                 <FormattedMessage id="faq" defaultMessage="FAQ" />
               </li>
+              <li
+                role="presentation"
+                className="MainMenu__item"
+                onClick={this.handleClick}
+                data-href="/@ulogs/ulogs-org-privacy-policy"
+              >
+                <FormattedMessage id="privacy" defaultMessage="Privacy Policy" />
+              </li>
             </ul>
           </Scrollbars>
         </div>
