@@ -28,6 +28,7 @@ class DiscoverUloggers extends React.Component {
 
     this.state = {
       users: [],
+      userNames: [],
       loading: true,
       noUsers: false,
     };
@@ -49,9 +50,9 @@ class DiscoverUloggers extends React.Component {
 
   getCertifiedUloggers() {
     steemAPI
-      .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
+      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.sortBy(result, 'following')
+        const userNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
@@ -62,11 +63,9 @@ class DiscoverUloggers extends React.Component {
               name,
             };
           });
-        if (users.length > 0) {
+        if (userNames.length > 0) {
           this.setState({
-            users,
-            loading: false,
-            noUsers: false,
+            userNames,
           });
         } else {
           this.setState({
@@ -74,21 +73,23 @@ class DiscoverUloggers extends React.Component {
           });
         }
       })
-      .catch(() => {
-        this.setState({
-          noUsers: true,
-        });
-      })
-     .then(() => {
-        const uloggers = this.state.users.map(user => {
+      .then(() => {
+        const uloggers = this.state.userNames.map(user => {
             return user.name;
           });
         steemAPI.sendAsync('get_accounts', [uloggers]).then(users =>
           this.setState({
             users,
-          }),
+            loading: false,
+            noUsers: false,
+          })
         );
-     });
+     })
+     .catch(() => {
+        this.setState({
+          noUsers: true,
+        });
+      });
   }
 
   render() {
