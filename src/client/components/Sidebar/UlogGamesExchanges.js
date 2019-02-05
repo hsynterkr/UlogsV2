@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Modal } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
 import UlogGamesExchangesUser from './UlogGamesExchangesUser';
 import Loading from '../../components/Icon/Loading';
@@ -85,13 +86,15 @@ class UlogGamesExchanges extends React.Component {
       });
   }
 
-  handleUserAccountClick(event) {
+  handleUserAccountClick(event, alertText) {
     console.log(this.state);
     event.preventDefault();
     Modal.info({
       content: (
         <div>
-          <p>This DM feature is coming soon</p>
+          <p>
+            <ReactMarkdown source={alertText} />
+          </p>
         </div>
       ),
       onOk() {},
@@ -99,24 +102,7 @@ class UlogGamesExchanges extends React.Component {
   }
 
   render() {
-    const { users, loading, noUsers, visible } = this.state;
-    const viewRows = [
-      {
-        title: <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />,
-        users,
-        id: 'ulogs_games',
-      },
-      {
-        title: <FormattedMessage id="uloggerstv" defaultMessage="UloggersTV" />,
-        users,
-        id: 'uloggerstv',
-      },
-      {
-        title: <FormattedMessage id="buy_sell_steem" defaultMessage="Buy/Sell Steem" />,
-        users,
-        id: 'buy_sell_steem',
-      },
-    ];
+    const { users, loading, noUsers } = this.state;
     if (noUsers) {
       return <div />;
     }
@@ -127,28 +113,75 @@ class UlogGamesExchanges extends React.Component {
 
     return (
       <div className="SidebarContentBlock">
-        {viewRows.map(row => (
-          <div key={row.id}>
-            <h4 className="SidebarContentBlock__title">{row.title}</h4>
-            <div
-              className="SidebarContentBlock__content"
-              style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
-            >
-              {row.users &&
-                users.map(user => (
-                  <UlogGamesExchangesUser
-                    key={user.name}
-                    user={user}
-                    handleUserAccountClick={this.handleUserAccountClick}
-                  />
-                ))}
-            </div>
+        <div>
+          <h4 className="SidebarContentBlock__title">
+            <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />
+          </h4>
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+          >
+            {users &&
+              users.map(user => (
+                <UlogGamesExchangesUser
+                  key={user.name}
+                  user={user}
+                  handleUserAccountClick={event => {
+                    this.handleUserAccountClick(
+                      event,
+                      `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-games](https://ulogs.org/created/ulog-games). In the long term, there will be an entire #ulog-games application playable by the entire globe. Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
+                    );
+                  }}
+                />
+              ))}
           </div>
-        ))}
-
-        <Modal title="Title" visible={visible} onOk={this.handleOk} onCancel={this.handleOk}>
-          <p>This DM feature is coming soon</p>
-        </Modal>
+        </div>
+        <div>
+          <h4 className="SidebarContentBlock__title">
+            <FormattedMessage id="uloggerstv" defaultMessage="UloggersTV" />
+          </h4>
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+          >
+            {users &&
+              users.map(user => (
+                <UlogGamesExchangesUser
+                  key={user.name}
+                  user={user}
+                  handleUserAccountClick={event => {
+                    this.handleUserAccountClick(
+                      event,
+                      `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-games](https://ulogs.org/created/ulog-games). In the long term, there will be an entire #ulog-games application playable by the entire globe. Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
+                    );
+                  }}
+                />
+              ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="SidebarContentBlock__title">
+            <FormattedMessage id="buy_sell_steem" defaultMessage="Buy/Sell Steem" />
+          </h4>
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+          >
+            {users &&
+              users.map(user => (
+                <UlogGamesExchangesUser
+                  key={user.name}
+                  user={user}
+                  handleUserAccountClick={event => {
+                    this.handleUserAccountClick(
+                      event,
+                      `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-exchanges](https://ulogs.org/created/ulog-exchanges). Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
+                    );
+                  }}
+                />
+              ))}
+          </div>
+        </div>
       </div>
     );
   }
