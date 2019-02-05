@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Input, Modal } from 'antd';
+import { Modal } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
-
 import _ from 'lodash';
-import ChatUser from './ChatUser';
+import UlogGamesExchangesUser from './UlogGamesExchangesUser';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 
 @withRouter
-class ChatBar extends React.Component {
+class UlogGamesExchanges extends React.Component {
   static propTypes = {
     isFetchingFollowingList: PropTypes.bool.isRequired,
-    intl: PropTypes.shape().isRequired,
   };
 
   static defaultProps = {
@@ -35,7 +33,6 @@ class ChatBar extends React.Component {
     };
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
-    this.handleSearchForInput = this.handleSearchForInput.bind(this);
     this.handleUserAccountClick = this.handleUserAccountClick.bind(this);
   }
 
@@ -55,6 +52,7 @@ class ChatBar extends React.Component {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 1000]])
       .then(result => {
+        console.log('result', result);
         const users = _.shuffle(result)
           // .slice(0, 5)
           .map(user => {
@@ -100,25 +98,25 @@ class ChatBar extends React.Component {
     });
   }
 
-  handleSearchForInput(event) {
-    const value = event.target.value;
-    const users = this.state.allUsers
-      .map(user => {
-        let name = _.get(user, 0);
-        if (_.isEmpty(name)) {
-          name = _.get(user, 'following');
-        }
-        return {
-          name,
-        };
-      })
-      .filter(user => (value ? user.name.toLowerCase().indexOf(value.toLowerCase()) !== -1 : true));
-    this.setState({ users });
-  }
-
   render() {
     const { users, loading, noUsers, visible } = this.state;
-    const { intl } = this.props;
+    const viewRows = [
+      {
+        title: <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />,
+        users,
+        id: 'ulogs_games',
+      },
+      {
+        title: <FormattedMessage id="uloggerstv" defaultMessage="UloggersTV" />,
+        users,
+        id: 'uloggerstv',
+      },
+      {
+        title: <FormattedMessage id="buy_sell_steem" defaultMessage="Buy/Sell Steem" />,
+        users,
+        id: 'buy_sell_steem',
+      },
+    ];
     if (noUsers) {
       return <div />;
     }
@@ -129,38 +127,25 @@ class ChatBar extends React.Component {
 
     return (
       <div className="SidebarContentBlock">
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />
-        </h4>
-        <div
-          className="SidebarContentBlock__content"
-          style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
-        >
-          {users &&
-            users.map(user => (
-              <ChatUser
-                key={user.name}
-                user={user}
-                handleUserAccountClick={this.handleUserAccountClick}
-              />
-            ))}
-        </div>
-        <div className="Search_input">
-          <Input
-            ref={ref => {
-              this.searchInputRef = ref;
-            }}
-            onChange={this.handleSearchForInput}
-            placeholder={intl.formatMessage({
-              id: 'search_in_uloggers',
-              defaultMessage: 'Search in uloggers',
-            })}
-            autoCapitalize="off"
-            autoCorrect="off"
-          />{' '}
-          <i className="iconfont icon-search" />
-        </div>
+        {viewRows.map(row => (
+          <div key={row.id}>
+            <h4 className="SidebarContentBlock__title">{row.title}</h4>
+            <div
+              className="SidebarContentBlock__content"
+              style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+            >
+              {row.users &&
+                users.map(user => (
+                  <UlogGamesExchangesUser
+                    key={user.name}
+                    user={user}
+                    handleUserAccountClick={this.handleUserAccountClick}
+                  />
+                ))}
+            </div>
+          </div>
+        ))}
+
         <Modal title="Title" visible={visible} onOk={this.handleOk} onCancel={this.handleOk}>
           <p>This DM feature is coming soon</p>
         </Modal>
@@ -169,4 +154,4 @@ class ChatBar extends React.Component {
   }
 }
 
-export default injectIntl(ChatBar);
+export default injectIntl(UlogGamesExchanges);
