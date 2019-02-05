@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Cookie from 'js-cookie';
 import _ from 'lodash';
-import AdSense from 'react-adsense';
 import { showPostModal } from '../app/appActions';
 import { getFeedContent, getMoreFeedContent } from './feedActions';
 import {
@@ -151,11 +150,6 @@ class SubFeed extends React.Component {
           loadMoreContent={loadMoreContent}
           showPostModal={this.props.showPostModal}
         />
-        <AdSense.Google 
-            client="ca-pub-2353631475559839"
-            slot="7806394673"
-            style={{ display: "block" }} 
-            layout="in-article" format="auto" />
         {ready && failed && <FetchFailed />}
         {displayEmptyFeed && <EmptyFeed />}
         <PostModal />
