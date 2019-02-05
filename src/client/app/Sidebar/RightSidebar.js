@@ -16,6 +16,8 @@ import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUlog
 import UlogStories from '../../components/Sidebar/UlogStories';
 import ChatBar from '../../components/Sidebar/ChatBar';
 import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
+import VideoExample from '../../components/Sidebar/VideoExample';
+import AbountUlogsQuotesBlock from '../../components/Sidebar/AbountUlogsQuotesBlock';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
 import PostRecommendation from '../../components/Sidebar/PostRecommendation';
@@ -109,6 +111,8 @@ export default class RightSidebar extends React.Component {
               <div>
                 {authenticated && !showPostRecommendation ? (
                   <div>
+                    <AbountUlogsQuotesBlock />
+                    <VideoExample />
                     <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
