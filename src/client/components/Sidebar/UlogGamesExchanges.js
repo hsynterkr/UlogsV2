@@ -6,6 +6,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
 import UlogGamesExchangesUser from './UlogGamesExchangesUser';
+import UloggerTVThumbnailView from './UloggerTVThumbnailView';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
@@ -35,17 +36,20 @@ class UlogGamesExchanges extends React.Component {
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
     this.handleUserAccountClick = this.handleUserAccountClick.bind(this);
+    this.getUloggersTVVideaos = this.getUloggersTVVideaos.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.isFetchingFollowingList) {
       this.getCertifiedUloggers();
+      this.getUloggersTVVideaos();
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isFetchingFollowingList) {
       this.getCertifiedUloggers();
+      this.getUloggersTVVideaos();
     }
   }
 
@@ -86,6 +90,21 @@ class UlogGamesExchanges extends React.Component {
       });
   }
 
+  async getUloggersTVVideaos() {
+    const apiRequset = await fetch(
+      'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCzI3Rjamg7zSe_o0BwSeIQQ&maxResults=25&key=AIzaSyAr0UshcXLKk9e2IKMiNq7KzbzUa0jWVh0',
+      {
+        url: '',
+        method: 'GET',
+      },
+    );
+    const apiResponse = await apiRequset.json();
+    console.log(apiResponse);
+    this.setState({
+      uloggersTvVideos: apiResponse,
+    });
+  }
+
   handleUserAccountClick(event, alertText) {
     console.log(this.state);
     event.preventDefault();
@@ -102,7 +121,7 @@ class UlogGamesExchanges extends React.Component {
   }
 
   render() {
-    const { users, loading, noUsers } = this.state;
+    const { users, loading, noUsers, uloggersTvVideos } = this.state;
     if (noUsers) {
       return <div />;
     }
@@ -144,18 +163,9 @@ class UlogGamesExchanges extends React.Component {
             className="SidebarContentBlock__content"
             style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
           >
-            {users &&
-              users.map(user => (
-                <UlogGamesExchangesUser
-                  key={user.name}
-                  user={user}
-                  handleUserAccountClick={event => {
-                    this.handleUserAccountClick(
-                      event,
-                      `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-games](https://ulogs.org/created/ulog-games). In the long term, there will be an entire #ulog-games application playable by the entire globe. Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
-                    );
-                  }}
-                />
+            {uloggersTvVideos &&
+              uloggersTvVideos.items.map(video => (
+                <UloggerTVThumbnailView key={video.id.videoId} video={video} />
               ))}
           </div>
         </div>
