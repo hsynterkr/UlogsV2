@@ -136,77 +136,44 @@ class ChatBar extends React.Component {
 
     return (
       <div className="SidebarContentBlock">
-        <div className="toogle-div" role="presentation" onClick={this.toggleChatBar}>
-          <h4>Direct Messaging</h4>
-          <i className="iconfont icon-refresh" />
-        </div>
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />
-        </h4>
-        <div
-          className="SidebarContentBlock__content"
-          style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
-        >
-          {users &&
-            users.map(user => (
-              <ChatUser
-                key={user.name}
-                user={user}
-                handleUserAccountClick={this.handleUserAccountClick}
-              />
-            ))}
-        </div>
-        <div className="Search_input">
-          <Input
-            ref={ref => {
-              this.searchInputRef = ref;
-            }}
-            onChange={this.handleSearchForInput}
-            placeholder={intl.formatMessage({
-              id: 'search_in_uloggers',
-              defaultMessage: 'Search in uloggers',
-            })}
-            autoCapitalize="off"
-            autoCorrect="off"
-          />{' '}
-          <i className="iconfont icon-search" />
-        </div>
-        {showChatBar && [
+        <div role="presentation" onClick={this.toggleChatBar}>
           <h4 className="SidebarContentBlock__title">
             <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
             <FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />
-          </h4>,
-          <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }}>
-            {users &&
-              users.map(user => (
-                <ChatUser
-                  key={user.name}
-                  user={user}
-                  handleUserAccountClick={this.handleUserAccountClick}
-                />
-              ))}
-            <div className="Search_input">
-              <Input
-                ref={ref => {
-                  this.searchInputRef = ref;
-                }}
-                onChange={this.handleSearchForInput}
-                placeholder={intl.formatMessage({
-                  id: 'search_in_uloggers',
-                  defaultMessage: 'Search in uloggers',
-                })}
-                autoCapitalize="off"
-                autoCorrect="off"
-              />{' '}
-              <i className="iconfont icon-search" />
+          </h4>
+          {showChatBar && (
+            <div>
+              <div
+                className="SidebarContentBlock__content"
+                style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
+              >
+                {users &&
+                  users.map(user => (
+                    <ChatUser
+                      key={user.name}
+                      user={user}
+                      handleUserAccountClick={this.handleUserAccountClick}
+                    />
+                  ))}
+              </div>
+              <div className="Search_input">
+                <Input
+                  ref={ref => {
+                    this.searchInputRef = ref;
+                  }}
+                  onChange={this.handleSearchForInput}
+                  placeholder={intl.formatMessage({
+                    id: 'search_in_uloggers',
+                    defaultMessage: 'Search in uloggers',
+                  })}
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                />{' '}
+                <i className="iconfont icon-search" />
+              </div>
             </div>
-          </div>,
-        ]}
-
-        <Modal title="Title" visible={visible} onOk={this.handleOk} onCancel={this.handleOk}>
-          <p>This DM feature is coming soon</p>
-        </Modal>
+          )}
+        </div>
       </div>
     );
   }
