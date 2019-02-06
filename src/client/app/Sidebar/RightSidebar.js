@@ -113,7 +113,7 @@ export default class RightSidebar extends React.Component {
                   <div>
                     <AbountUlogsQuotesBlock />
                     <VideoExample />
-                    <InterestingUloggersWithAPI
+                    <UlogGamesExchanges
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
@@ -128,7 +128,7 @@ export default class RightSidebar extends React.Component {
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
-                    <UlogGamesExchanges
+                    <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
