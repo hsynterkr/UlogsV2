@@ -6,7 +6,6 @@ import Cookie from 'js-cookie';
 import _ from 'lodash';
 import { showPostModal } from '../app/appActions';
 import { getFeedContent, getMoreFeedContent } from './feedActions';
-
 import {
   getFeedFromState,
   getFeedLoadingFromState,
@@ -61,6 +60,7 @@ class SubFeed extends React.Component {
   componentDidMount() {
     const { authenticated, loaded, user, match, feed } = this.props;
     const category = match.params.category;
+    if(window) (window.adsbygoogle = window.adsbygoogle || []).push({});
 
     if (!loaded && Cookie.get('access_token')) return;
 

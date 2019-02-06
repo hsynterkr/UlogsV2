@@ -14,6 +14,8 @@ import { checkWitnessVote } from '../../helpers/voteHelpers';
 import { updateRecommendations } from '../../user/userActions';
 import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUloggersWithAPI';
 import UlogStories from '../../components/Sidebar/UlogStories';
+import ChatBar from '../../components/Sidebar/ChatBar';
+import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
 import PostRecommendation from '../../components/Sidebar/PostRecommendation';
@@ -42,7 +44,6 @@ export default class RightSidebar extends React.Component {
     authenticatedUser: PropTypes.shape().isRequired,
     isAuthFetching: PropTypes.bool.isRequired,
     showPostRecommendation: PropTypes.bool,
-    recommendations: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })).isRequired,
     updateRecommendations: PropTypes.func,
     followingList: PropTypes.arrayOf(PropTypes.string).isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
@@ -106,8 +107,7 @@ export default class RightSidebar extends React.Component {
             path="/"
             render={() => (
               <div>
-                {authenticated &&
-                !showPostRecommendation ? (
+                {authenticated && !showPostRecommendation ? (
                   <div>
                     <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
@@ -115,6 +115,16 @@ export default class RightSidebar extends React.Component {
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
                     <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <ChatBar
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <UlogGamesExchanges
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
