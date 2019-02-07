@@ -13,6 +13,7 @@ const Avatar = ({ username, size }) => {
     minWidth: `${size}px`,
     width: `${size}px`,
     height: `${size}px`,
+    margin: `0 10px`,
   };
 
   const url = getAvatarURL(username, size);

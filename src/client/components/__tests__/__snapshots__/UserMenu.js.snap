@@ -67,6 +67,18 @@ ShallowWrapper {
               />
             </li>
             <li
+              className="UserMenu__item"
+              data-key="ulogs"
+              onClick={[Function]}
+              role="presentation"
+            >
+              <FormattedMessage
+                defaultMessage="My Ulogs"
+                id="myulogs"
+                values={Object {}}
+              />
+            </li>
+            <li
               className="UserMenu__item UserMenu__item--active"
               data-key="comments"
               onClick={[Function]}
@@ -194,6 +206,18 @@ ShallowWrapper {
                 />
               </li>
               <li
+                className="UserMenu__item"
+                data-key="ulogs"
+                onClick={[Function]}
+                role="presentation"
+              >
+                <FormattedMessage
+                  defaultMessage="My Ulogs"
+                  id="myulogs"
+                  values={Object {}}
+                />
+              </li>
+              <li
                 className="UserMenu__item UserMenu__item--active"
                 data-key="comments"
                 onClick={[Function]}
@@ -312,6 +336,18 @@ ShallowWrapper {
                 />
               </li>
               <li
+                className="UserMenu__item"
+                data-key="ulogs"
+                onClick={[Function]}
+                role="presentation"
+              >
+                <FormattedMessage
+                  defaultMessage="My Ulogs"
+                  id="myulogs"
+                  values={Object {}}
+                />
+              </li>
+              <li
                 className="UserMenu__item UserMenu__item--active"
                 data-key="comments"
                 onClick={[Function]}
@@ -420,6 +456,18 @@ ShallowWrapper {
                   />
                 </li>,
                 <li
+                  className="UserMenu__item"
+                  data-key="ulogs"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <FormattedMessage
+                    defaultMessage="My Ulogs"
+                    id="myulogs"
+                    values={Object {}}
+                  />
+                </li>,
+                <li
                   className="UserMenu__item UserMenu__item--active"
                   data-key="comments"
                   onClick={[Function]}
@@ -521,6 +569,37 @@ ShallowWrapper {
                   "props": Object {
                     "defaultMessage": "Discussions",
                     "id": "discussions",
+                    "values": Object {},
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FormattedMessage
+                    defaultMessage="My Ulogs"
+                    id="myulogs"
+                    values={Object {}}
+                  />,
+                  "className": "UserMenu__item",
+                  "data-key": "ulogs",
+                  "onClick": [Function],
+                  "role": "presentation",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "defaultMessage": "My Ulogs",
+                    "id": "myulogs",
                     "values": Object {},
                   },
                   "ref": null,
@@ -815,6 +894,18 @@ ShallowWrapper {
                 />
               </li>
               <li
+                className="UserMenu__item"
+                data-key="ulogs"
+                onClick={[Function]}
+                role="presentation"
+              >
+                <FormattedMessage
+                  defaultMessage="My Ulogs"
+                  id="myulogs"
+                  values={Object {}}
+                />
+              </li>
+              <li
                 className="UserMenu__item UserMenu__item--active"
                 data-key="comments"
                 onClick={[Function]}
@@ -942,6 +1033,18 @@ ShallowWrapper {
                   />
                 </li>
                 <li
+                  className="UserMenu__item"
+                  data-key="ulogs"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <FormattedMessage
+                    defaultMessage="My Ulogs"
+                    id="myulogs"
+                    values={Object {}}
+                  />
+                </li>
+                <li
                   className="UserMenu__item UserMenu__item--active"
                   data-key="comments"
                   onClick={[Function]}
@@ -1060,6 +1163,18 @@ ShallowWrapper {
                   />
                 </li>
                 <li
+                  className="UserMenu__item"
+                  data-key="ulogs"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <FormattedMessage
+                    defaultMessage="My Ulogs"
+                    id="myulogs"
+                    values={Object {}}
+                  />
+                </li>
+                <li
                   className="UserMenu__item UserMenu__item--active"
                   data-key="comments"
                   onClick={[Function]}
@@ -1168,6 +1283,18 @@ ShallowWrapper {
                     />
                   </li>,
                   <li
+                    className="UserMenu__item"
+                    data-key="ulogs"
+                    onClick={[Function]}
+                    role="presentation"
+                  >
+                    <FormattedMessage
+                      defaultMessage="My Ulogs"
+                      id="myulogs"
+                      values={Object {}}
+                    />
+                  </li>,
+                  <li
                     className="UserMenu__item UserMenu__item--active"
                     data-key="comments"
                     onClick={[Function]}
@@ -1269,6 +1396,37 @@ ShallowWrapper {
                     "props": Object {
                       "defaultMessage": "Discussions",
                       "id": "discussions",
+                      "values": Object {},
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <FormattedMessage
+                      defaultMessage="My Ulogs"
+                      id="myulogs"
+                      values={Object {}}
+                    />,
+                    "className": "UserMenu__item",
+                    "data-key": "ulogs",
+                    "onClick": [Function],
+                    "role": "presentation",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "defaultMessage": "My Ulogs",
+                      "id": "myulogs",
                       "values": Object {},
                     },
                     "ref": null,
