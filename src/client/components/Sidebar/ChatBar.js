@@ -32,7 +32,7 @@ class ChatBar extends React.Component {
       loading: true,
       noUsers: false,
       allUsers: [],
-      showChatBar: false,
+      showChatBar: true,
     };
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
@@ -136,44 +136,44 @@ class ChatBar extends React.Component {
 
     return (
       <div className="SidebarContentBlock">
-        <div role="presentation" onClick={this.toggleChatBar}>
-          <h4 className="SidebarContentBlock__title">
+        <div className="toogle-div" role="presentation" onClick={this.toggleChatBar}>
+          <h4>
             <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
             <FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />
           </h4>
-          {showChatBar && (
-            <div>
-              <div
-                className="SidebarContentBlock__content"
-                style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
-              >
-                {users &&
-                  users.map(user => (
-                    <ChatUser
-                      key={user.name}
-                      user={user}
-                      handleUserAccountClick={this.handleUserAccountClick}
-                    />
-                  ))}
-              </div>
-              <div className="Search_input">
-                <Input
-                  ref={ref => {
-                    this.searchInputRef = ref;
-                  }}
-                  onChange={this.handleSearchForInput}
-                  placeholder={intl.formatMessage({
-                    id: 'search_in_uloggers',
-                    defaultMessage: 'Search in uloggers',
-                  })}
-                  autoCapitalize="off"
-                  autoCorrect="off"
-                />{' '}
-                <i className="iconfont icon-search" />
-              </div>
-            </div>
-          )}
+          <i className="iconfont icon-back-top" />
         </div>
+
+        {showChatBar && [
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
+          >
+            {users &&
+              users.map(user => (
+                <ChatUser
+                  key={user.name}
+                  user={user}
+                  handleUserAccountClick={this.handleUserAccountClick}
+                />
+              ))}
+          </div>,
+          <div className="Search_input">
+            <Input
+              ref={ref => {
+                this.searchInputRef = ref;
+              }}
+              onChange={this.handleSearchForInput}
+              placeholder={intl.formatMessage({
+                id: 'search_in_uloggers',
+                defaultMessage: 'Search in uloggers',
+              })}
+              autoCapitalize="off"
+              autoCorrect="off"
+            />{' '}
+            <i className="iconfont icon-search" />
+          </div>,
+        ]}
       </div>
     );
   }

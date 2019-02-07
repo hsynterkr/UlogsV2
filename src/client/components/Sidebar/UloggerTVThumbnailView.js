@@ -13,6 +13,7 @@ const UloggerTVThumbnail = ({ video }) => (
           minWidth: '34px',
           width: '34px',
           height: '34px',
+          margin: `0 10px`,
         }}
       />
     </a>

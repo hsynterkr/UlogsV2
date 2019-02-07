@@ -7,7 +7,7 @@ const VideoExample = () => (
     <h4 className="mr-10"> See Video Explanation</h4>
     <YoutubePlayer
       className="youtube-player"
-      url="https://youtu.be/5tq_rCZURUg"
+      url="https://youtu.be/kKZ1CixLG2s"
       width="auto"
       height="auto"
       controls
