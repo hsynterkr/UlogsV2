@@ -52,12 +52,12 @@ const scrollToRight = (to, duration, id) => {
 
 const moveRightDiv = id => {
   const start = document.getElementById(id).scrollLeft;
-  scrollToRight(start + 300, 200, id);
+  scrollToRight(start + 100, 200, id);
 };
 
 const moveLeftDiv = id => {
   const start = document.getElementById(id).scrollLeft;
-  scrollToRight(start - 300, 200, id);
+  scrollToRight(start - 100, 200, id);
 };
 @withRouter
 class UlogGamesExchanges extends React.Component {
