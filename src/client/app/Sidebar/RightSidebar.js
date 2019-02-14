@@ -109,7 +109,7 @@ export default class RightSidebar extends React.Component {
               <div>
                 {authenticated && !showPostRecommendation ? (
                   <div>
-                    <InterestingUloggersWithAPI
+                    <UlogGamesExchanges
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
@@ -124,14 +124,25 @@ export default class RightSidebar extends React.Component {
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
-                    <UlogGamesExchanges
+                    <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
                   </div>
                 ) : (
-                  <div />
+                  <div>
+                    <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <UlogGamesExchanges
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                  </div>
                 )}
                 {authenticated && !isWitnessVoted ? <WitnessVote /> : ''}
               </div>
