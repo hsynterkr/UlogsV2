@@ -9,6 +9,7 @@ import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
+import { Modal } from 'antd';
 
 @withRouter
 class UlogStories extends React.Component {
@@ -33,9 +34,18 @@ class UlogStories extends React.Component {
       users: [],
       loading: true,
       noUsers: false,
+      showModalLogin: false
     };
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.modalHandleOk = this.modalHandleOk.bind(this);
+  }
+  showModal(){
+    const {showModalLogin} = this.state;
+    this.setState({
+      showModalLogin: !showModalLogin
+    })
   }
 
   componentDidMount() {
@@ -85,9 +95,15 @@ class UlogStories extends React.Component {
         });
       });
   }
+  modalHandleOk(){
+    const showModalLogin = this.state;
+    this.setState({
+      showModalLogin : !showModalLogin
+    })
+  }
 
   render() {
-    const { users, loading, noUsers } = this.state;
+    const { users, loading, noUsers, showModalLogin } = this.state;
 
     if (noUsers) {
       return <div />;
@@ -107,7 +123,7 @@ class UlogStories extends React.Component {
           </button>
         </h4>
         <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
-        <Button type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
+        <Button onClick={this.showModal} type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
 
           <div style={{ fontWeight: 'bold', paddingTop: 10 }}>Add A Ulog-Story</div>
           <br/>
@@ -116,6 +132,9 @@ class UlogStories extends React.Component {
           </div>
           {users && users.map(user => <Story key={user.name} user={user} />)}
         </div>
+        <Modal title="Title" visible={showModalLogin} onOk={this.modalHandleOk} onCancel={this.modalHandleOk}>
+          <p>This features requires login, else sign-up</p>
+        </Modal>
       </div>
     );
   }
