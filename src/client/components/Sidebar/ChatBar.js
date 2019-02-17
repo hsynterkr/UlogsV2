@@ -119,7 +119,6 @@ class ChatBar extends React.Component {
   render() {
     const { users, loading, noUsers, visible } = this.state;
     const { intl, authenticatedUser, authenticated } = this.props;
-    console.log(authenticated, 'authenticated')
     if (noUsers) {
       return <div />;
     }
