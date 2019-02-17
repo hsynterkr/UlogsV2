@@ -123,6 +123,7 @@ export default class RightSidebar extends React.Component {
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
+                      authenticated={authenticated}
                     />
                     <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
@@ -133,6 +134,11 @@ export default class RightSidebar extends React.Component {
                 ) : (
                   <div>
                     <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <ChatBar
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}

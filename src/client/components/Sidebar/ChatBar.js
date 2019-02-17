@@ -88,15 +88,15 @@ class ChatBar extends React.Component {
   }
 
   handleUserAccountClick(event) {
-    console.log(this.state);
+    const { authenticated } = this.props;
     event.preventDefault();
     Modal.info({
       content: (
         <div>
-          <p>This DM feature is coming soon</p>
+          {authenticated ? <p>This DM feature is coming soon</p> : <p>This features requires login, else sign-up</p>}
         </div>
       ),
-      onOk() {},
+      onOk() { },
     });
   }
 
@@ -118,7 +118,8 @@ class ChatBar extends React.Component {
 
   render() {
     const { users, loading, noUsers, visible } = this.state;
-    const { intl } = this.props;
+    const { intl, authenticatedUser, authenticated } = this.props;
+    console.log(authenticated, 'authenticated')
     if (noUsers) {
       return <div />;
     }
@@ -162,7 +163,8 @@ class ChatBar extends React.Component {
           <i className="iconfont icon-search" />
         </div>
         <Modal title="Title" visible={visible} onOk={this.handleOk} onCancel={this.handleOk}>
-          <p>This DM feature is coming soon</p>
+          {authenticated && <p>This DM feature is coming soon</p>}
+          {!authenticated && <p>This features requires login, else sign-up</p>}
         </Modal>
       </div>
     );
