@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Modal } from 'antd';
+import { Modal, Collapse } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
@@ -84,7 +84,6 @@ class UlogGamesExchanges extends React.Component {
 
     this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
     this.getUloggersTVVideaos = this.getUloggersTVVideaos.bind(this);
-    this.toggleGamesExchangeBar = this.toggleGamesExchangeBar.bind(this);
   }
 
   componentDidMount() {
@@ -151,15 +150,8 @@ class UlogGamesExchanges extends React.Component {
     });
   }
 
-  toggleGamesExchangeBar() {
-    const { showUlogsGames } = this.state;
-    this.setState({
-      showUlogsGames: !showUlogsGames,
-    });
-  }
-
   render() {
-    const { users, loading, noUsers, showUlogsGames, uloggersTvVideos } = this.state;
+    const { users, loading, noUsers, uloggersTvVideos } = this.state;
     if (noUsers) {
       return <div />;
     }
@@ -169,20 +161,23 @@ class UlogGamesExchanges extends React.Component {
     }
 
     return (
-      <div className="SidebarContentBlock">
-        <div className="toogle-div" role="presentation" onClick={this.toggleGamesExchangeBar}>
-          <h4>
-            <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />
-          </h4>
-          <i className="iconfont icon-back-top" />
-        </div>
-        {showUlogsGames && (
+      <Collapse defaultActiveKey={['1']}>
+        <Collapse.Panel
+          header={<FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />}
+          key="1"
+        >
           <React.Fragment>
             <div>
               <div
                 id="ulogsGameContainer"
                 className="SidebarContentBlock__content"
-                style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+                style={{
+                  textAlign: 'center',
+                  overflowX: 'auto',
+                  width: '260px',
+                  display: 'flex',
+                  paddingLeft: 25,
+                }}
               >
                 <i
                   role="presentation"
@@ -265,8 +260,8 @@ class UlogGamesExchanges extends React.Component {
               />
             </div>
           </React.Fragment>
-        )}
-      </div>
+        </Collapse.Panel>
+      </Collapse>
     );
   }
 }
