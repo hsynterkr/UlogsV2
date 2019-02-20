@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Input, Modal } from 'antd';
+import { Input, Modal, Collapse } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
-
+import { connect } from 'react-redux';
 import _ from 'lodash';
 import ChatUser from './ChatUser';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
+import { getIsAuthenticated } from '../../reducers';
 
 @withRouter
 class ChatBar extends React.Component {
   static propTypes = {
+    authenticated: PropTypes.bool.isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
     intl: PropTypes.shape().isRequired,
   };
@@ -88,12 +90,16 @@ class ChatBar extends React.Component {
   }
 
   handleUserAccountClick(event) {
-    console.log(this.state);
+    const { authenticated } = this.props;
     event.preventDefault();
     Modal.info({
       content: (
         <div>
-          <p>This DM feature is coming soon</p>
+          {authenticated ? (
+            <p>This DM feature is coming soon</p>
+          ) : (
+            <p>This features requires login, else sign-up</p>
+          )}
         </div>
       ),
       onOk() {},
@@ -117,7 +123,7 @@ class ChatBar extends React.Component {
   }
 
   render() {
-    const { users, loading, noUsers, visible } = this.state;
+    const { users, loading, noUsers } = this.state;
     const { intl } = this.props;
     if (noUsers) {
       return <div />;
@@ -128,45 +134,47 @@ class ChatBar extends React.Component {
     }
 
     return (
-      <div className="SidebarContentBlock">
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />
-        </h4>
-        <div
-          className="SidebarContentBlock__content"
-          style={{ textAlign: 'center', overflowY: 'auto', height: '300px' }}
+      <Collapse defaultActiveKey={['1']}>
+        <Collapse.Panel
+          header={<FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />}
+          key="1"
         >
-          {users &&
-            users.map(user => (
-              <ChatUser
-                key={user.name}
-                user={user}
-                handleUserAccountClick={this.handleUserAccountClick}
-              />
-            ))}
-        </div>
-        <div className="Search_input">
-          <Input
-            ref={ref => {
-              this.searchInputRef = ref;
-            }}
-            onChange={this.handleSearchForInput}
-            placeholder={intl.formatMessage({
-              id: 'search_in_uloggers',
-              defaultMessage: 'Search in uloggers',
-            })}
-            autoCapitalize="off"
-            autoCorrect="off"
-          />{' '}
-          <i className="iconfont icon-search" />
-        </div>
-        <Modal title="Title" visible={visible} onOk={this.handleOk} onCancel={this.handleOk}>
-          <p>This DM feature is coming soon</p>
-        </Modal>
-      </div>
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowY: 'auto', height: '300px', paddingLeft: 0 }}
+          >
+            {users &&
+              users.map(user => (
+                <ChatUser
+                  key={user.name}
+                  user={user}
+                  handleUserAccountClick={this.handleUserAccountClick}
+                />
+              ))}
+          </div>
+          <div className="Search_input">
+            <Input
+              ref={ref => {
+                this.searchInputRef = ref;
+              }}
+              onChange={this.handleSearchForInput}
+              placeholder={intl.formatMessage({
+                id: 'search_in_uloggers',
+                defaultMessage: 'Search in uloggers',
+              })}
+              autoCapitalize="off"
+              autoCorrect="off"
+            />{' '}
+            <i className="iconfont icon-search" />
+          </div>
+        </Collapse.Panel>
+      </Collapse>
     );
   }
 }
 
-export default injectIntl(ChatBar);
+const mapStateToProps = state => ({
+  authenticated: getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(injectIntl(ChatBar));
