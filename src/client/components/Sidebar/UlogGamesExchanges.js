@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Modal, Collapse } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
 import UlogGamesExchangesUser from './UlogGamesExchangesUser';
@@ -11,6 +12,7 @@ import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
+import { getIsAuthenticated } from '../../reducers';
 
 const easeInOutQuad = (t, b, c, d) => {
   let updatedT = t;
@@ -63,6 +65,7 @@ const moveLeftDiv = id => {
 class UlogGamesExchanges extends React.Component {
   static propTypes = {
     isFetchingFollowingList: PropTypes.bool.isRequired,
+    authenticated: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
@@ -152,6 +155,7 @@ class UlogGamesExchanges extends React.Component {
 
   render() {
     const { users, loading, noUsers, uloggersTvVideos } = this.state;
+    const { authenticated } = this.props;
     if (noUsers) {
       return <div />;
     }
@@ -161,7 +165,7 @@ class UlogGamesExchanges extends React.Component {
     }
 
     return (
-      <Collapse defaultActiveKey={['1']}>
+      <Collapse accordion>
         <Collapse.Panel
           header={<FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />}
           key="1"
@@ -195,6 +199,7 @@ class UlogGamesExchanges extends React.Component {
                           `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-games](https://ulogs.org/created/ulog-games). In the long term, there will be an entire #ulog-games application playable by the entire globe. Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
                         );
                       }}
+                      authenticated={authenticated}
                     />
                   ))}
                 <i
@@ -251,6 +256,7 @@ class UlogGamesExchanges extends React.Component {
                         `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-exchanges](https://ulogs.org/created/ulog-exchanges). Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
                       );
                     }}
+                    authenticated={authenticated}
                   />
                 ))}
               <i
@@ -266,4 +272,7 @@ class UlogGamesExchanges extends React.Component {
   }
 }
 
-export default injectIntl(UlogGamesExchanges);
+const mapStateToProps = state => ({
+  authenticated: getIsAuthenticated(state),
+});
+export default connect(mapStateToProps)(injectIntl(UlogGamesExchanges));

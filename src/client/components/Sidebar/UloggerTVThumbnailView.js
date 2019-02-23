@@ -4,7 +4,7 @@ import '../Avatar.less';
 import './User.less';
 
 const UloggerTVThumbnail = ({ video }) => (
-  <div className="User__links_overflow_x_auto">
+  <div className="User__links_overflow_x_auto" key={video.id.videoId}>
     <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`}>
       <div
         className="Avatar"
