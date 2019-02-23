@@ -124,7 +124,7 @@ class ChatBar extends React.Component {
 
   render() {
     const { users, loading, noUsers } = this.state;
-    const { intl } = this.props;
+    const { intl, authenticated } = this.props;
     if (noUsers) {
       return <div />;
     }
@@ -132,9 +132,9 @@ class ChatBar extends React.Component {
     if (loading) {
       return <Loading />;
     }
-
+    console.log('authenticated', authenticated);
     return (
-      <Collapse defaultActiveKey={['1']}>
+      <Collapse accordion>
         <Collapse.Panel
           header={<FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />}
           key="1"
@@ -149,6 +149,7 @@ class ChatBar extends React.Component {
                   key={user.name}
                   user={user}
                   handleUserAccountClick={this.handleUserAccountClick}
+                  authenticated={authenticated}
                 />
               ))}
           </div>

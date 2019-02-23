@@ -2,9 +2,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Collapse } from 'antd';
+import { Collapse, Button, Icon } from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
 import VerifiedUloggers from '../components/VerifiedUloggers/VerifiedUloggers';
 
 @injectIntl
@@ -3082,10 +3081,14 @@ class UlogCaption extends React.Component {
                 justifyContent: 'center',
               }}
             >
-              <Link to={`/${category}`}>
-                {' '}
-                <FormattedMessage id="post_now" defaultMessage="Post now" />
-              </Link>
+              <Button
+                size={'small'}
+                style={{ marginLeft: 8, fontSize: 12 }}
+                type={'primary'}
+                href={`/${category}`}
+              >
+                <FormattedMessage id="post_now" defaultMessage="Post now" /> <Icon type="down" />
+              </Button>
             </div>
           </Collapse.Panel>
         </Collapse>

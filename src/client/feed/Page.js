@@ -56,7 +56,11 @@ class Page extends React.Component {
     const shouldDisplaySelector = location.pathname !== '/' || (!authenticated && loaded);
     const displayTopicSelector = location.pathname === '/trending';
     const robots = location.pathname === '/' ? 'index,follow' : 'noindex,follow';
-
+    const displayUlogCaption =
+      category &&
+      category.match(
+        /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit|ulog-utopian|ulog-thejohalfiles|ulogifs|ulog-surfyogi|ulog-bobbylee|ulog-stellabelle|ulog-sweetsssj|ulog-dimimp|ulog-teamsteem|ulog-kusknee|ulog-papapepper|ulog-steemjet)$/,
+      );
     return (
       <div>
         <Helmet>
@@ -128,7 +132,7 @@ class Page extends React.Component {
         ) : (
           <HeroBannerContainer />
         )}
-        <UlogsBanner category={category} />
+        {displayUlogCaption && <UlogsBanner category={category} />}
         <MainMenu />
         <div className="shifted">
           <div className="feed-layout container">
