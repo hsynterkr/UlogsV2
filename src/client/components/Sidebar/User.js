@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Avatar from '../Avatar';
 import FollowButton from '../../widgets/FollowButton';
+import DelegateButton from '../StoryFooter/DelegateButton';
 import './User.less';
 
 const User = ({ user }) => (
@@ -19,6 +20,11 @@ const User = ({ user }) => (
       <div className="User__follow">
         <FollowButton username={user.name} secondary />
       </div>
+      <DelegateButton
+        post={{
+          author: user.name,
+        }}
+      />
     </div>
     <div className="User__divider" />
   </div>
