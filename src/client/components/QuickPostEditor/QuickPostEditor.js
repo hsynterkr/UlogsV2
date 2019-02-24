@@ -78,7 +78,6 @@ class QuickPostEditor extends React.Component {
   getQuickPostData = () => {
     const currentPaths = this.props.location.pathname.split('/');
     const busyTag = 'ulog';
-    const secondTag = 'ulog-quotes';
     const tag = currentPaths[2];
     const tags = [];
     const images = _.map(this.state.currentImages, image => image.src);
@@ -115,7 +114,6 @@ class QuickPostEditor extends React.Component {
       tags.push(tag);
     } else {
       tags.push(busyTag);
-      tags.push(secondTag);
     }
 
     metaData.tags = tags;

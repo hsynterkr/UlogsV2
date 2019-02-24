@@ -29,14 +29,11 @@ const feedIdsList = (state = [], action) => {
     case feedTypes.GET_USER_COMMENTS.SUCCESS:
     case feedTypes.GET_REPLIES.SUCCESS:
     case feedTypes.GET_BOOKMARKS.SUCCESS:
-      return typeof action.payload.map === 'function' ? action.payload.map(getPostKey) : [];
+      return action.payload.map(getPostKey);
     case feedTypes.GET_MORE_FEED_CONTENT.SUCCESS:
     case feedTypes.GET_MORE_USER_COMMENTS.SUCCESS:
     case feedTypes.GET_MORE_REPLIES.SUCCESS:
-      return _.uniq([
-        ...state,
-        ...(typeof action.payload.map === 'function' ? action.payload.map(getPostKey) : []),
-      ]);
+      return _.uniq([...state, ...action.payload.map(getPostKey)]);
     default:
       return state;
   }

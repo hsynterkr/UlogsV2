@@ -14,6 +14,8 @@ import { checkWitnessVote } from '../../helpers/voteHelpers';
 import { updateRecommendations } from '../../user/userActions';
 import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUloggersWithAPI';
 import UlogStories from '../../components/Sidebar/UlogStories';
+import ChatBar from '../../components/Sidebar/ChatBar';
+import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
 import PostRecommendation from '../../components/Sidebar/PostRecommendation';
@@ -21,8 +23,6 @@ import Loading from '../../components/Icon/Loading';
 import UserActivitySearch from '../../activity/UserActivitySearch';
 import WalletSidebar from '../../components/Sidebar/WalletSidebar';
 import FeedSidebar from '../../components/Sidebar/FeedSidebar';
-import ChatBar from '../../components/Sidebar/ChatBar';
-import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
 
 @withRouter
 @connect(
@@ -47,7 +47,6 @@ export default class RightSidebar extends React.Component {
     updateRecommendations: PropTypes.func,
     followingList: PropTypes.arrayOf(PropTypes.string).isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
-    match: PropTypes.shape().isRequired,
   };
 
   static defaultProps = {
@@ -65,7 +64,6 @@ export default class RightSidebar extends React.Component {
       isAuthFetching,
       followingList,
       isFetchingFollowingList,
-      match,
     } = this.props;
 
     if (isAuthFetching) {
@@ -81,22 +79,10 @@ export default class RightSidebar extends React.Component {
       }
     }
     const isWitnessVoted = checkVote();
-    const { category } = match.params;
-    const displayUlogCaption =
-      category &&
-      category.match(
-        /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit|ulog-utopian|ulog-thejohalfiles|ulogifs|ulog-surfyogi|ulog-bobbylee|ulog-stellabelle|ulog-sweetsssj|ulog-dimimp|ulog-teamsteem|ulog-kusknee|ulog-papapepper|ulog-steemjet)$/,
-      );
-    console.log('displayUlogCaption', displayUlogCaption);
+
     return (
       <div>
         {!authenticated && <SignUp />}
-        {displayUlogCaption &&
-          !authenticated && <UlogGamesExchanges isFetchingFollowingList={false} />}
-        {displayUlogCaption &&
-          !authenticated && (
-            <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
-          )}
         <Switch>
           <Route path="/activity" component={UserActivitySearch} />
           <Route path="/@:name/activity" component={UserActivitySearch} />
@@ -123,7 +109,17 @@ export default class RightSidebar extends React.Component {
               <div>
                 {authenticated && !showPostRecommendation ? (
                   <div>
+                    <UlogGamesExchanges
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
                     <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <ChatBar
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
@@ -137,6 +133,11 @@ export default class RightSidebar extends React.Component {
                 ) : (
                   <div>
                     <UlogStories
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <UlogGamesExchanges
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
