@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { Collapse } from 'antd';
 import _ from 'lodash';
 import User from './User';
 import Loading from '../../components/Icon/Loading';
@@ -12,10 +13,6 @@ import './SidebarContentBlock.less';
 @withRouter
 class InterestingUloggersWithAPI extends React.Component {
   static propTypes = {
-    authenticatedUser: PropTypes.shape({
-      name: PropTypes.string,
-    }),
-    match: PropTypes.shape().isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
   };
 
@@ -48,7 +45,6 @@ class InterestingUloggersWithAPI extends React.Component {
       this.getCertifiedUloggers();
     }
   }
-
 
   getCertifiedUloggers() {
     steemAPI
@@ -97,23 +93,49 @@ class InterestingUloggersWithAPI extends React.Component {
     }
 
     return (
-      <div className="SidebarContentBlock">
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="interesting_people" defaultMessage="Interesting Uloggers" />
-          <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
-            <i className="iconfont icon-refresh" />
-          </button>
-        </h4>
-        <div className="SidebarContentBlock__content">
-          {users && users.map(user => <User key={user.name} user={user} />)}
-          <h4 className="InterestingPeople__more">
-            <Link to={'/discover'}>
-              <FormattedMessage id="discover_more_people" defaultMessage="Discover More Uloggers" />
-            </Link>
-          </h4>
-        </div>
-      </div>
+      <Collapse>
+        <Collapse.Panel
+          header={
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
+              <FormattedMessage id="interesting_people" defaultMessage="Interesting Uloggers" />
+              <button
+                onClick={this.getCertifiedUloggers}
+                className="InterestingPeople__button-refresh"
+              >
+                <i
+                  className="iconfont icon-refresh"
+                  style={{
+                    marginRight: 15,
+                  }}
+                />
+              </button>
+            </div>
+          }
+          key="1"
+        >
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowY: 'auto', height: '300px', paddingLeft: 0 }}
+          >
+            {users && users.map(user => <User key={user.name} user={user} />)}
+            <h4 className="InterestingPeople__more">
+              <Link to={'/discover'}>
+                <FormattedMessage
+                  id="discover_more_people"
+                  defaultMessage="Discover More Uloggers"
+                />
+              </Link>
+            </h4>
+          </div>
+        </Collapse.Panel>
+      </Collapse>
     );
   }
 }
