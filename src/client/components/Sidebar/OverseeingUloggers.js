@@ -4,14 +4,14 @@ import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Collapse } from 'antd';
 import _ from 'lodash';
-import User from './User';
+import UlogOverseer from './UlogOverseer';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 
 @withRouter
-class InterestingUloggersWithAPI extends React.Component {
+class OverseeingUloggers extends React.Component {
   static propTypes = {
     isFetchingFollowingList: PropTypes.bool.isRequired,
   };
@@ -32,58 +32,30 @@ class InterestingUloggersWithAPI extends React.Component {
       noUsers: false,
     };
 
-    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
+    this.getUlogOverseers = this.getUlogOverseers.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
+      this.getUlogOverseers();
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
+      this.getUlogOverseers();
     }
   }
 
-  getCertifiedUloggers() {
-    steemAPI
-      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
-      .then(result => {
-        const userNames = _.sortBy(result, 'following')
-          .map(user => {
-            let name = _.get(user, 0);
-
-            if (_.isEmpty(name)) {
-              name = _.get(user, 'following');
-            }
-            return {
-              name,
-            };
-          });
-        if (userNames.length > 0) {
-          this.setState({
-            userNames,
-          });
-        } else {
-          this.setState({
-            noUsers: true,
-          });
-        }
-      })
-      .then(() => {
-        const uloggers = this.state.userNames.map(user => {
-            return user.name;
-          });
-        steemAPI.sendAsync('get_accounts', [uloggers]).then(users =>
-          this.setState({
-            users,
-            loading: false,
-            noUsers: false,
-          })
-        );
-     })
+  getUlogOverseers() {
+    steemAPI.sendAsync('get_accounts', [["ulogs"]])
+      .then(users =>
+        this.setState({
+          users,
+          loading: false,
+          noUsers: false,
+        })
+      )
      .catch(() => {
         this.setState({
           noUsers: true,
@@ -116,7 +88,7 @@ class InterestingUloggersWithAPI extends React.Component {
               <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
               <FormattedMessage id="overseeing_uloggers" defaultMessage="Overseeing Uloggers" />
               <button
-                onClick={this.getCertifiedUloggers}
+                onClick={this.getUlogOverseers}
                 className="InterestingPeople__button-refresh"
               >
                 <i
@@ -132,17 +104,9 @@ class InterestingUloggersWithAPI extends React.Component {
         >
           <div
             className="SidebarContentBlock__content"
-            style={{ textAlign: 'center', overflowY: 'auto', height: '300px', paddingLeft: 0 }}
+            style={{ textAlign: 'center', overflowY: 'auto', height: 'auto', paddingLeft: 0 }}
           >
-            {users && users.map(user => <User key={user.name} user={user} />)}
-            <h4 className="InterestingPeople__more">
-              <Link to={'/discover'}>
-                <FormattedMessage
-                  id="discover_more_people"
-                  defaultMessage="Discover More Uloggers"
-                />
-              </Link>
-            </h4>
+            {users && users.map(user => <UlogOverseer key={user.name} user={user} />)}
           </div>
         </Collapse.Panel>
       </Collapse>
@@ -150,4 +114,4 @@ class InterestingUloggersWithAPI extends React.Component {
   }
 }
 
-export default InterestingUloggersWithAPI;
+export default OverseeingUloggers;
