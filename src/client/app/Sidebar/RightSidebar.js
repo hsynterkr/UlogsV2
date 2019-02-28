@@ -129,7 +129,7 @@ export default class RightSidebar extends React.Component {
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
-                    <OverseeingUloggers
+                    <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
