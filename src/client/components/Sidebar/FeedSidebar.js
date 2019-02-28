@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { getIsAuthenticated, getRecommendations, getAuthenticatedUser } from '../../reducers';
+import {
+  getIsAuthenticated,
+  getRecommendations,
+  getAuthenticatedUser,
+} from '../../reducers';
 import { getCryptoDetails } from '../../helpers/cryptosHelper';
 import { updateRecommendations } from '../../user/userActions';
-import InterestingPeople from './InterestingPeople';
+import OverseeingUloggers from './OverseeingUloggers';
 import CryptoTrendingCharts from './CryptoTrendingCharts';
 import ChatBar from '../../components/Sidebar/ChatBar';
 import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
@@ -23,6 +27,7 @@ import VideoExample from './VideoExample';
 class FeedSidebar extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
+    authenticatedUser: PropTypes.shape().isRequired,
     recommendations: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })).isRequired,
     updateRecommendations: PropTypes.func.isRequired,
     match: PropTypes.shape().isRequired,
@@ -38,7 +43,7 @@ class FeedSidebar extends React.Component {
   }
 
   render() {
-    const { authenticated, recommendations, match } = this.props;
+    const { authenticated, authenticatedUser, recommendations, match } = this.props;
     const isAuthenticated = authenticated && recommendations.length > 0;
     const currentTag = _.get(this.props, 'match.params.tag', '');
     const currentCrypto = getCryptoDetails(currentTag);
@@ -57,9 +62,8 @@ class FeedSidebar extends React.Component {
             <VideoExample />
             <UlogGamesExchanges isFetchingFollowingList={false} />
             <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
-            <InterestingPeople
-              users={recommendations}
-              onRefresh={this.handleInterestingPeopleRefresh}
+            <OverseeingUloggers
+              authenticatedUser={authenticatedUser}
             />
           </React.Fragment>
         )}
