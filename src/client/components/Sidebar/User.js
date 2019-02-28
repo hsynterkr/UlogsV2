@@ -20,11 +20,6 @@ const User = ({ user }) => (
       <div className="User__follow">
         <FollowButton username={user.name} secondary />
       </div>
-      <DelegateButton
-        post={{
-          author: user.name,
-        }}
-      />
     </div>
     <div className="User__divider" />
   </div>

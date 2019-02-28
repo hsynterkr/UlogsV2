@@ -114,7 +114,7 @@ class InterestingUloggersWithAPI extends React.Component {
               }}
             >
               <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-              <FormattedMessage id="overseeing_uloggers" defaultMessage="Overseeing Uloggers" />
+              <FormattedMessage id="interesting_uloggers" defaultMessage="Interesting Uloggers" />
               <button
                 onClick={this.getCertifiedUloggers}
                 className="InterestingPeople__button-refresh"

@@ -12,10 +12,6 @@ import './SidebarContentBlock.less';
 
 @withRouter
 class OverseeingUloggers extends React.Component {
-  static propTypes = {
-    isFetchingFollowingList: PropTypes.bool.isRequired,
-  };
-
   static defaultProps = {
     authenticatedUser: {
       name: '',
@@ -36,15 +32,7 @@ class OverseeingUloggers extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.isFetchingFollowingList) {
-      this.getUlogOverseers();
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.isFetchingFollowingList) {
-      this.getUlogOverseers();
-    }
+    this.getUlogOverseers();
   }
 
   getUlogOverseers() {
