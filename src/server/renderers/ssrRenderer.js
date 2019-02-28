@@ -19,7 +19,6 @@ export default function renderSsrPage(store, html, assets, template, noindex) {
     if (asset.js) scripts += `<script src="${asset.js}" defer></script>`;
   });
 
-  scripts += '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
   const production = process.env.NODE_ENV === 'production';
 
   const nightmode = preloadedState && preloadedState.settings && preloadedState.settings.nightmode;

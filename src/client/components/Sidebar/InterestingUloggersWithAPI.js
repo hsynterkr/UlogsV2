@@ -27,6 +27,7 @@ class InterestingUloggersWithAPI extends React.Component {
 
     this.state = {
       users: [],
+      userNames: [],
       loading: true,
       noUsers: false,
     };
@@ -48,10 +49,9 @@ class InterestingUloggersWithAPI extends React.Component {
 
   getCertifiedUloggers() {
     steemAPI
-      .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
+      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.shuffle(result)
-          .slice(0, 5)
+        const userNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
@@ -62,11 +62,9 @@ class InterestingUloggersWithAPI extends React.Component {
               name,
             };
           });
-        if (users.length > 0) {
+        if (userNames.length > 0) {
           this.setState({
-            users,
-            loading: false,
-            noUsers: false,
+            userNames,
           });
         } else {
           this.setState({
@@ -74,7 +72,19 @@ class InterestingUloggersWithAPI extends React.Component {
           });
         }
       })
-      .catch(() => {
+      .then(() => {
+        const uloggers = this.state.userNames.map(user => {
+            return user.name;
+          });
+        steemAPI.sendAsync('get_accounts', [uloggers]).then(users =>
+          this.setState({
+            users,
+            loading: false,
+            noUsers: false,
+          })
+        );
+     })
+     .catch(() => {
         this.setState({
           noUsers: true,
         });
@@ -104,7 +114,7 @@ class InterestingUloggersWithAPI extends React.Component {
               }}
             >
               <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-              <FormattedMessage id="interesting_people" defaultMessage="Interesting Uloggers" />
+              <FormattedMessage id="interesting_uloggers" defaultMessage="Interesting Uloggers" />
               <button
                 onClick={this.getCertifiedUloggers}
                 className="InterestingPeople__button-refresh"
