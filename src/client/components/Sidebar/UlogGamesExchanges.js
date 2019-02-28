@@ -183,11 +183,6 @@ class UlogGamesExchanges extends React.Component {
                   paddingLeft: 25,
                 }}
               >
-                <i
-                  role="presentation"
-                  className="iconfont icon-back-top left-icon"
-                  onClick={() => moveLeftDiv('ulogsGameContainer')}
-                />
                 {users &&
                   users.map(user => (
                     <UlogGamesExchangesUser
@@ -202,11 +197,6 @@ class UlogGamesExchanges extends React.Component {
                       authenticated={authenticated}
                     />
                   ))}
-                <i
-                  className="iconfont icon-back-top right-icon"
-                  role="presentation"
-                  onClick={() => moveRightDiv('ulogsGameContainer')}
-                />
               </div>
               <h4 className="SidebarContentBlock__title">
                 <FormattedMessage id="uloggerstv" defaultMessage="UloggersTV" />
@@ -216,20 +206,10 @@ class UlogGamesExchanges extends React.Component {
                 className="SidebarContentBlock__content"
                 style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
               >
-                <i
-                  className="iconfont icon-back-top left-icon"
-                  role="presentation"
-                  onClick={() => moveLeftDiv('ulogsVideoContainer')}
-                />
                 {uloggersTvVideos &&
                   uloggersTvVideos.items.map(video => (
                     <UloggerTVThumbnailView key={video.id.videoId} video={video} />
                   ))}
-                <i
-                  className="iconfont icon-back-top right-icon"
-                  role="presentation"
-                  onClick={() => moveRightDiv('ulogsVideoContainer')}
-                />
               </div>
             </div>
             <h4 className="SidebarContentBlock__title">
@@ -240,11 +220,6 @@ class UlogGamesExchanges extends React.Component {
               className="SidebarContentBlock__content"
               style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
             >
-              <i
-                className="iconfont icon-back-top left-icon"
-                role="presentation"
-                onClick={() => moveLeftDiv('ulogsExchangesContainer')}
-              />
               {users &&
                 users.map(user => (
                   <UlogGamesExchangesUser
@@ -259,11 +234,6 @@ class UlogGamesExchanges extends React.Component {
                     authenticated={authenticated}
                   />
                 ))}
-              <i
-                className="iconfont icon-back-top right-icon"
-                role="presentation"
-                onClick={() => moveRightDiv('ulogsExchangesContainer')}
-              />
             </div>
           </React.Fragment>
         </Collapse.Panel>
