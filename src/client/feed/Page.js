@@ -70,7 +70,7 @@ class Page extends React.Component {
         <ScrollToTop />
 
         <ScrollToTopOnMount />
-        {authenticated ? (
+        {(authenticated && !displayUlogCaption) ? (
           <Carousel autoplay className="feed-carousel">
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
