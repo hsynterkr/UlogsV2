@@ -356,11 +356,6 @@ class Story extends React.Component {
             </a>
             {this.renderStoryPreview()}
           </div>
-          <ins className='adsbygoogle'
-            style={{ display: 'block' }}
-            data-ad-format='fluid'
-            data-ad-client='ca-pub-2353631475559839'
-            data-ad-format='auto' />
           <div className="Story__footer">
             <StoryFooter
               user={user}
