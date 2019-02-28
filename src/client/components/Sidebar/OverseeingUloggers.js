@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { Collapse } from 'antd';
+import { Button, Collapse, Modal } from 'antd';
+import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
 import UlogOverseer from './UlogOverseer';
 import Loading from '../../components/Icon/Loading';
@@ -29,6 +30,7 @@ class OverseeingUloggers extends React.Component {
     };
 
     this.getUlogOverseers = this.getUlogOverseers.bind(this);
+    this.handleUserAccountClick = this.handleUserAccountClick.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +53,21 @@ class OverseeingUloggers extends React.Component {
       });
   }
 
+  handleUserAccountClick(event) {
+    event.preventDefault();
+    const alertText = `This feature is coming soon.`
+    Modal.info({
+      content: (
+        <div>
+          <p>
+            <ReactMarkdown source={alertText} />
+          </p>
+        </div>
+      ),
+      onOk() {},
+    });
+  };
+
   render() {
     const { users, loading, noUsers } = this.state;
 
@@ -63,7 +80,7 @@ class OverseeingUloggers extends React.Component {
     }
 
     return (
-      <Collapse>
+      <Collapse defaultActiveKey={['1']}>
         <Collapse.Panel
           header={
             <div
@@ -95,6 +112,7 @@ class OverseeingUloggers extends React.Component {
             style={{ textAlign: 'center', overflowY: 'auto', height: 'auto', paddingLeft: 0 }}
           >
             {users && users.map(user => <UlogOverseer key={user.name} user={user} />)}
+            <Button type="primary" onClick={this.handleUserAccountClick}>Join The Community</Button>
           </div>
         </Collapse.Panel>
       </Collapse>
