@@ -112,7 +112,12 @@ class OverseeingUloggers extends React.Component {
             style={{ textAlign: 'center', overflowY: 'auto', height: 'auto', paddingLeft: 0 }}
           >
             {users && users.map(user => <UlogOverseer key={user.name} user={user} />)}
-            <Button type="primary" onClick={this.handleUserAccountClick}>Join The Community</Button>
+            <Button
+              type="primary"
+              href="https://discord.gg/wWrnSXK"
+              target="_blank">
+              Join The Community
+            </Button>
           </div>
         </Collapse.Panel>
       </Collapse>
