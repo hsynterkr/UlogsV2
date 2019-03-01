@@ -24,6 +24,7 @@ import WalletSidebar from '../../components/Sidebar/WalletSidebar';
 import FeedSidebar from '../../components/Sidebar/FeedSidebar';
 import ChatBar from '../../components/Sidebar/ChatBar';
 import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
+import VideoExample from '../../components/Sidebar/VideoExample';
 
 @withRouter
 @connect(
@@ -92,6 +93,7 @@ export default class RightSidebar extends React.Component {
     return (
       <div>
         {!authenticated && <SignUp />}
+        <VideoExample />
         <Switch>
           <Route path="/activity" component={UserActivitySearch} />
           <Route path="/@:name/activity" component={UserActivitySearch} />
@@ -123,6 +125,8 @@ export default class RightSidebar extends React.Component {
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
+                    <UlogGamesExchanges isFetchingFollowingList={false} />
+                    <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
                     <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
@@ -136,6 +140,8 @@ export default class RightSidebar extends React.Component {
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
+                    <UlogGamesExchanges isFetchingFollowingList={false} />
+                    <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
                   </div>
                 )}
                 {authenticated && !isWitnessVoted ? <WitnessVote /> : ''}

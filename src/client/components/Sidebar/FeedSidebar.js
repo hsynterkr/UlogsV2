@@ -14,7 +14,6 @@ import CryptoTrendingCharts from './CryptoTrendingCharts';
 import ChatBar from '../../components/Sidebar/ChatBar';
 import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
 import UlogCaption from '../../feed/UlogCaption';
-import VideoExample from './VideoExample';
 
 @connect(
   state => ({
@@ -58,7 +57,6 @@ class FeedSidebar extends React.Component {
         {!_.isEmpty(currentCrypto) && <CryptoTrendingCharts cryptos={[currentTag]} />}
         <React.Fragment>
           {displayUlogCaption && <UlogCaption category={tag} />}
-          <VideoExample />
           <OverseeingUloggers authenticatedUser={authenticatedUser} />
           <UlogGamesExchanges isFetchingFollowingList={false} />
           <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
