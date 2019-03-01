@@ -92,12 +92,6 @@ export default class RightSidebar extends React.Component {
     return (
       <div>
         {!authenticated && <SignUp />}
-        {displayUlogCaption &&
-          !authenticated && <UlogGamesExchanges isFetchingFollowingList={false} />}
-        {displayUlogCaption &&
-          !authenticated && (
-            <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
-          )}
         <Switch>
           <Route path="/activity" component={UserActivitySearch} />
           <Route path="/@:name/activity" component={UserActivitySearch} />

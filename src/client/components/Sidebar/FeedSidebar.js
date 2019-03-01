@@ -56,17 +56,13 @@ class FeedSidebar extends React.Component {
     return (
       <div>
         {!_.isEmpty(currentCrypto) && <CryptoTrendingCharts cryptos={[currentTag]} />}
-        {isAuthenticated && (
-          <React.Fragment>
-            {displayUlogCaption && <UlogCaption category={tag} />}
-            <VideoExample />
-            <UlogGamesExchanges isFetchingFollowingList={false} />
-            <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
-            <OverseeingUloggers
-              authenticatedUser={authenticatedUser}
-            />
-          </React.Fragment>
-        )}
+        <React.Fragment>
+          {displayUlogCaption && <UlogCaption category={tag} />}
+          <VideoExample />
+          <OverseeingUloggers authenticatedUser={authenticatedUser} />
+          <UlogGamesExchanges isFetchingFollowingList={false} />
+          <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
+        </React.Fragment>
       </div>
     );
   }
