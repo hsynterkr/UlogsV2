@@ -8,7 +8,7 @@ import './HeroBannerSlider.less';
 
 const handleUserAccountClick = (event) => {
   event.preventDefault();
-  const alertText = `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-exchanges](https://ulogs.org/created/ulog-exchanges). Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`
+  const alertText = `This feature is available only to 'certified uloggers'. Kindly get ['certified'](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate), then contact [uloggers@gmail.com](mailto:uloggers@gmail.com) for further inquiries.`
   Modal.info({
     content: (
       <div>
