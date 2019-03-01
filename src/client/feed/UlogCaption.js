@@ -3085,7 +3085,7 @@ class UlogCaption extends React.Component {
                 size={'small'}
                 style={{ marginLeft: 8, fontSize: 12 }}
                 type={'primary'}
-                href={`/${category}`}
+                href={`/main-editor`}
               >
                 <FormattedMessage id="post_now" defaultMessage="Post now" /> <Icon type="down" />
               </Button>
