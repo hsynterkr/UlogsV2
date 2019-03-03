@@ -121,6 +121,7 @@ export default class RightSidebar extends React.Component {
                 {authenticated && !showPostRecommendation ? (
                   <div>
                     <UlogStories
+                      authenticated={authenticated}
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
@@ -136,6 +137,7 @@ export default class RightSidebar extends React.Component {
                 ) : (
                   <div>
                     <UlogStories
+                      authenticated={authenticated}
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
