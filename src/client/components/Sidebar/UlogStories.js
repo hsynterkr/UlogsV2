@@ -7,21 +7,28 @@ import _ from 'lodash';
 import Story from './Story';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
+import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 import { Modal } from 'antd';
+import {
+  getIsAuthenticated,
+} from '../../reducers';
 
 @withRouter
 class UlogStories extends React.Component {
   static propTypes = {
+    authenticated: PropTypes.bool.isRequired,
     authenticatedUser: PropTypes.shape({
       name: PropTypes.string,
     }),
+    location: PropTypes.shape().isRequired,
     match: PropTypes.shape().isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
+    authenticated: false,
     authenticatedUser: {
       name: '',
     },
@@ -104,6 +111,8 @@ class UlogStories extends React.Component {
 
   render() {
     const { users, loading, noUsers, showModalLogin } = this.state;
+    const { authenticated, location } = this.props;
+    const next = location.pathname.length > 1 ? location.pathname : '';
 
     if (noUsers) {
       return <div />;
@@ -123,8 +132,11 @@ class UlogStories extends React.Component {
           </button>
         </h4>
         <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
-        <Button onClick={this.showModal} type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
-
+          {authenticated ? (
+            <Button onClick={this.showModal} type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
+          ) : (
+            <Button href={SteemConnect.getLoginURL(next)} type="primary" shape="circle" icon="plus-circle" size={'large'} style={{ float: 'left' }} />
+          )}
           <div style={{ fontWeight: 'bold', paddingTop: 10 }}>Add A Ulog-Story</div>
           <br/>
           <div style={{ textAlign: 'left', padding: 3 }}>
