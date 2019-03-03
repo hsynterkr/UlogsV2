@@ -165,13 +165,16 @@ class UlogGamesExchanges extends React.Component {
     }
 
     return (
-      <Collapse accordion>
+      <Collapse accordion defaultActiveKey={['1']}>
         <Collapse.Panel
-          header={<FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />}
+          header="..."
           key="1"
         >
           <React.Fragment>
             <div>
+              <h4 className="SidebarContentBlock__title">
+                <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />
+              </h4>
               <div
                 id="ulogsGameContainer"
                 className="SidebarContentBlock__content"
@@ -213,7 +216,7 @@ class UlogGamesExchanges extends React.Component {
               </div>
             </div>
             <h4 className="SidebarContentBlock__title">
-              <FormattedMessage id="ulogs_games" defaultMessage="Ulogs-Games" />
+              <FormattedMessage id="ulogs_exchanges" defaultMessage="Ulogs-Exchanges" />
             </h4>
             <div
               id="ulogsExchangesContainer"

@@ -103,7 +103,7 @@ class InterestingUloggersWithAPI extends React.Component {
     }
 
     return (
-      <Collapse>
+      <Collapse defaultActiveKey={['1']}>
         <Collapse.Panel
           header={
             <div

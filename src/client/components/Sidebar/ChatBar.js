@@ -134,7 +134,7 @@ class ChatBar extends React.Component {
     }
     console.log('authenticated', authenticated);
     return (
-      <Collapse accordion>
+      <Collapse accordion defaultActiveKey={['1']}>
         <Collapse.Panel
           header={<FormattedMessage id="direct_messaging" defaultMessage="Direct Messaging" />}
           key="1"
