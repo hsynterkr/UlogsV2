@@ -3068,6 +3068,21 @@ class UlogCaption extends React.Component {
     }
     const about = `About #${category}`;
 
+    // check if sub-tag already has its own editor
+    const withOwnEditor =
+    category &&
+    category.match(
+      /^(ulog-diy|ulog-howto|ulog-ned|ulog-quotes|ulog-surpassinggoolge|teardrops|untalented)$/,
+    );
+
+    // set post now link to /main-editor then override if sub-tag editor already available
+    let postNowLink = ""
+    if (withOwnEditor) {
+      postNowLink = category
+    } else {
+      postNowLink = "/main-editor"
+    }
+
     return (
       <div className="ulog-quotes">
         <Collapse defaultActiveKey={['1']}>
@@ -3085,29 +3100,13 @@ class UlogCaption extends React.Component {
                 size={'small'}
                 style={{ marginLeft: 8, fontSize: 12 }}
                 type={'primary'}
-                href={`/main-editor`}
+                href={`/${postNowLink}`}
               >
                 <FormattedMessage id="post_now" defaultMessage="Post now" /> <Icon type="down" />
               </Button>
             </div>
           </Collapse.Panel>
         </Collapse>
-        {category === 'ulog-snookmademedoit' && (
-          <Collapse defaultActiveKey={['2']}>
-            <Collapse.Panel
-              header={'Verified/Certified @uloggers who oversee #ulog-snookmademedoit currently:'}
-              key="2"
-            >
-              <div className="VerifiedUloggers-container">
-                <VerifiedUloggers contactURL={'https://discord.gg/wTmMt8W'} username={'snook'} />
-                <VerifiedUloggers
-                  contactURL={'https://discord.gg/wTmMt8W'}
-                  username={'shadowspub'}
-                />
-              </div>
-            </Collapse.Panel>
-          </Collapse>
-        )}
       </div>
     );
   }
