@@ -27,7 +27,7 @@ const UlogsBanner = ({ category }) => (
       <div className="HeroBanner__content-container">
         <div className="HeroBanner__content">
           <Link to={"/#"} onClick={handleUserAccountClick}>
-            (+)
+            <span style={{fontSize: '72px'}}>( + )</span>
           </Link>
         </div>
       </div>
