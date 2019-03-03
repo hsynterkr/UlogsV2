@@ -3072,7 +3072,7 @@ class UlogCaption extends React.Component {
     const withOwnEditor =
     category &&
     category.match(
-      /^(ulog-diy|ulog-howto|ulog-ned|ulog-quotes|ulog-surpassinggoolge|teardrops|untalented)$/,
+      /^(ulog-diy|ulog-howto|ulog-ned|ulog-quotes|ulog-surpassinggoogle|teardrops|untalented)$/,
     );
 
     // set post now link to /main-editor then override if sub-tag editor already available
