@@ -11,6 +11,9 @@ import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 import { Modal } from 'antd';
+import {
+  getIsAuthenticated,
+} from '../../reducers';
 
 @withRouter
 class UlogStories extends React.Component {
@@ -107,8 +110,8 @@ class UlogStories extends React.Component {
   }
 
   render() {
-    const { authenticated, users, loading, noUsers, showModalLogin } = this.state;
-    const { location } = this.props;
+    const { users, loading, noUsers, showModalLogin } = this.state;
+    const { authenticated, location } = this.props;
     const next = location.pathname.length > 1 ? location.pathname : '';
 
     if (noUsers) {
