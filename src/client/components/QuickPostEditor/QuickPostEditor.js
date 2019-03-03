@@ -77,8 +77,7 @@ class QuickPostEditor extends React.Component {
 
   getQuickPostData = () => {
     const currentPaths = this.props.location.pathname.split('/');
-    const busyTag = 'ulog';
-    const secondTag = 'ulog-quotes';
+    const ulogTag = 'ulog';
     const tag = currentPaths[2];
     const tags = [];
     const images = _.map(this.state.currentImages, image => image.src);
@@ -111,16 +110,23 @@ class QuickPostEditor extends React.Component {
       metaData.image = images;
     }
 
-    if (!_.isEmpty(tag)) {
+    // if url location is not under a tag, set 'ulog' as default tag
+    if (_.isEmpty(tag)) {
+      tags.push(ulogTag);
+
+    // if a ulog subtag, set ulog as first tag, then the ulog-subtag next
+    } else if (tag && tag.indexOf('ulog-') >= 0) {
+      tags.push(ulogTag);
       tags.push(tag);
+
+    // if not a ulog subtag, set it as is
     } else {
-      tags.push(busyTag);
-      tags.push(secondTag);
+      tags.push(tag);
     }
 
     metaData.tags = tags;
 
-    data.parentPermlink = _.isEmpty(tag) ? busyTag : tag;
+    data.parentPermlink = _.isEmpty(tag) ? ulogTag : tag;
     data.permlink = _.kebabCase(postTitle);
     data.jsonMetadata = metaData;
 
