@@ -153,7 +153,6 @@ class Ulogging extends React.Component {
       marginTop: 8,
       border: '2px solid purple',
       color: 'purple',
-      textAlign: 'center',
       borderRadius: '5px',
     };
 
@@ -181,17 +180,11 @@ class Ulogging extends React.Component {
 
     return (
       <div className="shifted">
-        <div className="post-layout container">
-          <Affix className="rightContainer" stickPosition={77}>
-            <div className="right">
-            </div>
-          </Affix>
+        <div className="container">
           <div className="center" style={{marginBottom: '50px'}}>
             <h2 style={{ color: 'purple', textDecoration: 'underline', textAlign: 'center'}}>Grow</h2>
             <Collapse
-              defaultActiveKey={defaultActiveKey}
-              activeKey={this.state.activeKey}
-              onChange={this.callback}>
+              defaultActiveKey={['1']}>
               <Collapse.Panel
                 header="About GROW"
                 key="1"
@@ -207,11 +200,7 @@ class Ulogging extends React.Component {
             <Card
               bordered={false}
               bodyStyle={customCardStyle}>
-              <h3 style={{color: 'purple'}}>Write A Ulog?</h3>
-              <p>
-                Writing a ulog is easier with the right editor. Simply expand the tab below to choose the appropriate editor.<br/>
-                Ulogging is for "everyone", both private and public figures!<br/>
-              </p>
+              <h3 style={{color: 'purple'}}>Let Us Help Fix Matters</h3>
             </Card>
 
             <Collapse
