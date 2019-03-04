@@ -31,6 +31,20 @@
   }
 }
 
+.User__links_overflow_x_auto {
+  display: flex;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  align-items: center;
+
+  & > a {
+    font-weight: bold;
+    vertical-align: middle;
+    max-width: 100%;
+  }
+}
+
 .User__follow {
   display: flex;
   vertical-align: middle;
@@ -66,4 +80,8 @@ div[data-dir='rtl'] .User__name {
   background-color: #e9e7e7;
 }
 
+.User__online {
+  color: rgb(66, 183, 42);
+  font-weight: bold;
+}
 @import 'User-nightmode';

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { Collapse } from 'antd';
 import _ from 'lodash';
 import User from './User';
 import Loading from '../../components/Icon/Loading';
@@ -12,10 +13,6 @@ import './SidebarContentBlock.less';
 @withRouter
 class InterestingUloggersWithAPI extends React.Component {
   static propTypes = {
-    authenticatedUser: PropTypes.shape({
-      name: PropTypes.string,
-    }),
-    match: PropTypes.shape().isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
   };
 
@@ -30,6 +27,7 @@ class InterestingUloggersWithAPI extends React.Component {
 
     this.state = {
       users: [],
+      userNames: [],
       loading: true,
       noUsers: false,
     };
@@ -49,13 +47,11 @@ class InterestingUloggersWithAPI extends React.Component {
     }
   }
 
-
   getCertifiedUloggers() {
     steemAPI
-      .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
+      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.shuffle(result)
-          .slice(0, 5)
+        const userNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
@@ -66,11 +62,9 @@ class InterestingUloggersWithAPI extends React.Component {
               name,
             };
           });
-        if (users.length > 0) {
+        if (userNames.length > 0) {
           this.setState({
-            users,
-            loading: false,
-            noUsers: false,
+            userNames,
           });
         } else {
           this.setState({
@@ -78,7 +72,19 @@ class InterestingUloggersWithAPI extends React.Component {
           });
         }
       })
-      .catch(() => {
+      .then(() => {
+        const uloggers = this.state.userNames.map(user => {
+            return user.name;
+          });
+        steemAPI.sendAsync('get_accounts', [uloggers]).then(users =>
+          this.setState({
+            users,
+            loading: false,
+            noUsers: false,
+          })
+        );
+     })
+     .catch(() => {
         this.setState({
           noUsers: true,
         });
@@ -97,23 +103,49 @@ class InterestingUloggersWithAPI extends React.Component {
     }
 
     return (
-      <div className="SidebarContentBlock">
-        <h4 className="SidebarContentBlock__title">
-          <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
-          <FormattedMessage id="interesting_people" defaultMessage="Interesting Uloggers" />
-          <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
-            <i className="iconfont icon-refresh" />
-          </button>
-        </h4>
-        <div className="SidebarContentBlock__content">
-          {users && users.map(user => <User key={user.name} user={user} />)}
-          <h4 className="InterestingPeople__more">
-            <Link to={'/discover'}>
-              <FormattedMessage id="discover_more_people" defaultMessage="Discover More Uloggers" />
-            </Link>
-          </h4>
-        </div>
-      </div>
+      <Collapse defaultActiveKey={['1']}>
+        <Collapse.Panel
+          header={
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
+              <FormattedMessage id="interesting_uloggers" defaultMessage="Interesting Uloggers" />
+              <button
+                onClick={this.getCertifiedUloggers}
+                className="InterestingPeople__button-refresh"
+              >
+                <i
+                  className="iconfont icon-refresh"
+                  style={{
+                    marginRight: 15,
+                  }}
+                />
+              </button>
+            </div>
+          }
+          key="1"
+        >
+          <div
+            className="SidebarContentBlock__content"
+            style={{ textAlign: 'center', overflowY: 'auto', height: '300px', paddingLeft: 0 }}
+          >
+            {users && users.map(user => <User key={user.name} user={user} />)}
+            <h4 className="InterestingPeople__more">
+              <Link to={'/discover'}>
+                <FormattedMessage
+                  id="discover_more_people"
+                  defaultMessage="Discover More Uloggers"
+                />
+              </Link>
+            </h4>
+          </div>
+        </Collapse.Panel>
+      </Collapse>
     );
   }
 }

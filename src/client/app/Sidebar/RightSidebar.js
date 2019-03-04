@@ -13,6 +13,7 @@ import {
 import { checkWitnessVote } from '../../helpers/voteHelpers';
 import { updateRecommendations } from '../../user/userActions';
 import InterestingUloggersWithAPI from '../../components/Sidebar/InterestingUloggersWithAPI';
+import OverseeingUloggers from '../../components/Sidebar/OverseeingUloggers';
 import UlogStories from '../../components/Sidebar/UlogStories';
 import SignUp from '../../components/Sidebar/SignUp';
 import WitnessVote from '../../components/Sidebar/WitnessVote';
@@ -21,6 +22,9 @@ import Loading from '../../components/Icon/Loading';
 import UserActivitySearch from '../../activity/UserActivitySearch';
 import WalletSidebar from '../../components/Sidebar/WalletSidebar';
 import FeedSidebar from '../../components/Sidebar/FeedSidebar';
+import ChatBar from '../../components/Sidebar/ChatBar';
+import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
+import VideoExample from '../../components/Sidebar/VideoExample';
 
 @withRouter
 @connect(
@@ -42,10 +46,10 @@ export default class RightSidebar extends React.Component {
     authenticatedUser: PropTypes.shape().isRequired,
     isAuthFetching: PropTypes.bool.isRequired,
     showPostRecommendation: PropTypes.bool,
-    recommendations: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })).isRequired,
     updateRecommendations: PropTypes.func,
     followingList: PropTypes.arrayOf(PropTypes.string).isRequired,
     isFetchingFollowingList: PropTypes.bool.isRequired,
+    match: PropTypes.shape().isRequired,
   };
 
   static defaultProps = {
@@ -63,6 +67,7 @@ export default class RightSidebar extends React.Component {
       isAuthFetching,
       followingList,
       isFetchingFollowingList,
+      match,
     } = this.props;
 
     if (isAuthFetching) {
@@ -78,10 +83,17 @@ export default class RightSidebar extends React.Component {
       }
     }
     const isWitnessVoted = checkVote();
+    const { category } = match.params;
+    const displayUlogCaption =
+      category &&
+      category.match(
+        /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit|ulog-utopian|ulog-thejohalfiles|ulogifs|ulog-surfyogi|ulog-bobbylee|ulog-stellabelle|ulog-sweetsssj|ulog-dimimp|ulog-teamsteem|ulog-kusknee|ulog-papapepper|ulog-steemjet)$/,
+      );
 
     return (
       <div>
         {!authenticated && <SignUp />}
+        <VideoExample />
         <Switch>
           <Route path="/activity" component={UserActivitySearch} />
           <Route path="/@:name/activity" component={UserActivitySearch} />
@@ -106,22 +118,33 @@ export default class RightSidebar extends React.Component {
             path="/"
             render={() => (
               <div>
-                {authenticated &&
-                !showPostRecommendation ? (
+                {authenticated && !showPostRecommendation ? (
                   <div>
-                    <InterestingUloggersWithAPI
+                    <UlogStories
+                      authenticated={authenticated}
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
-                    <UlogStories
+                    <UlogGamesExchanges isFetchingFollowingList={false} />
+                    <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
+                    <InterestingUloggersWithAPI
                       authenticatedUser={authenticatedUser}
                       followingList={followingList}
                       isFetchingFollowingList={isFetchingFollowingList}
                     />
                   </div>
                 ) : (
-                  <div />
+                  <div>
+                    <UlogStories
+                      authenticated={authenticated}
+                      authenticatedUser={authenticatedUser}
+                      followingList={followingList}
+                      isFetchingFollowingList={isFetchingFollowingList}
+                    />
+                    <UlogGamesExchanges isFetchingFollowingList={false} />
+                    <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
+                  </div>
                 )}
                 {authenticated && !isWitnessVoted ? <WitnessVote /> : ''}
               </div>

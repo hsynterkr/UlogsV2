@@ -6,7 +6,6 @@ import Cookie from 'js-cookie';
 import _ from 'lodash';
 import { showPostModal } from '../app/appActions';
 import { getFeedContent, getMoreFeedContent } from './feedActions';
-
 import {
   getFeedFromState,
   getFeedLoadingFromState,

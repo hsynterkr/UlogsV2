@@ -6,7 +6,7 @@ import FollowButton from '../../widgets/FollowButton';
 import DelegateButton from '../StoryFooter/DelegateButton';
 import './User.less';
 
-const User = ({ user }) => (
+const UlogOverseer = ({ user }) => (
   <div key={user.name} className="User">
     <div className="User__top">
       <div className="User__links">
@@ -17,16 +17,17 @@ const User = ({ user }) => (
           <span className="username">{user.name}</span>
         </Link>
       </div>
-      <div className="User__follow">
-        <FollowButton username={user.name} secondary />
-      </div>
+      <DelegateButton
+        post={{
+          author: user.name,
+        }}
+      />
     </div>
-    <div className="User__divider" />
   </div>
 );
 
-User.propTypes = {
+UlogOverseer.propTypes = {
   user: PropTypes.shape().isRequired,
 };
 
-export default User;
+export default UlogOverseer;
