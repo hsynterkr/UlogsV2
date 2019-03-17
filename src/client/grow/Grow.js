@@ -2,14 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { Layout, Card, Icon, Avatar, Row, Col, Collapse, Menu, Dropdown, Button } from 'antd';
+import {
+  Layout,
+  Card,
+  Icon,
+  Avatar,
+  Row,
+  Col,
+  Collapse,
+  Menu,
+  Dropdown,
+  Button,
+  List
+} from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import LeftSidebar from '../app/Sidebar/LeftSidebar';
 import Affix from '../components/Utils/Affix';
 import Editor from '../components/Editor/Editor';
+import GrowVideoEmbed from './GrowVideoEmbed';
 
 @injectIntl
-class Ulogging extends React.Component {
+class Grow extends React.Component {
   static propTypes = {
     intl: PropTypes.shape().isRequired,
     location: PropTypes.shape().isRequired,
@@ -144,13 +157,12 @@ class Ulogging extends React.Component {
 
     const customPanelStyle = {
       marginBottom: 5,
-      overflow: 'hidden',
-      textAlign: 'center',
+      overflow: 'hidden'
     };
 
     const customCardStyle = {
-      marginBottom: 8,
-      marginTop: 8,
+      marginBottom: '3px',
+      marginTop: '3px',
       border: '2px solid purple',
       color: 'purple',
       borderRadius: '5px',
@@ -182,7 +194,7 @@ class Ulogging extends React.Component {
       <div className="shifted">
         <div className="container">
           <div className="center" style={{marginBottom: '50px'}}>
-            <h2 style={{ color: 'purple', textDecoration: 'underline', textAlign: 'center'}}>Grow</h2>
+            <h2 style={{ color: 'purple', textAlign: 'center'}}>GROW</h2>
             <Collapse
               defaultActiveKey={['1']}>
               <Collapse.Panel
@@ -197,167 +209,60 @@ class Ulogging extends React.Component {
               </Collapse.Panel>
             </Collapse>
 
+            <Collapse
+              defaultActiveKey={['1']}>
+              <Collapse.Panel showArrow={false} header="Let Us Help Fix Matters" key="1">
+
+                <List
+                  itemLayout="vertical"
+                  size="large"
+                >
+                    <List.Item
+                      key='Submit A Video To One Of Our TV(s)'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Submit A Video To One Of Our TV(s)</h3>
+                      <div>
+                      Across the ulogs.org ecosystem, we have 3 TV(s) i.e UloggersTV, UntalentedTV and TeardropsTV. We seek to use the media to impact the world and you can help matters. We welcome your contributions. We will feature your contribution on a corresponding TV. In the future, your contributions may feature in our Uloggers Game App. <br/><br/> While we only feature 'certified uloggers' on our TV(s), if you are not yet a 'certified ulogger' and you submit a video, we will also look to feature your video and once we do so, you will become a 'certified ulogger'.
+                      </div>
+                    </List.Item>
+
+
+                    <List.Item
+                      key='Write To Ulogs.org'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <div>
+                      The ulogs.org ecosystem also has an un(dis)talented paradigm. Thus, when you visit this space, relegate reservations and write to us freely. Whatever your dream is, we believe that in a world of 'uloggers' (true celebrities) every noble dream is build-able. 
+                      <br/>
+                      Tell us what you want and let's discuss. Don't undervalue the power of 'conversation', for at any moment, it can pop out something. Tell us of your forgotten dreams, let's resuscitate it. Do you need inspiration, assistance, mentoring, direction etc? Then, write to us! We are building an ecosystem of 'true celebrities', where everyone is your 'true fan'. At the very least, 'you are the celebrity; we are your fan'.
+                      </div>
+                    </List.Item>
+
+                </List>
+              </Collapse.Panel>
+            </Collapse>
+
             <Card
+              size="small"
               bordered={false}
               bodyStyle={customCardStyle}>
-              <h3 style={{color: 'purple'}}>Let Us Help Fix Matters</h3>
+              <span style={{color: 'purple'}}>Let Us Help Fix Matters</span>
             </Card>
 
-            <Collapse
-              defaultActiveKey={defaultActiveKey}
-              activeKey={this.state.activeKey}
-              onChange={this.callback}>
-              <Collapse.Panel
-                header="Go To The Main Ulog Editor"
-                key="2"
-                style={customPanelStyle}>
-                <p>
-                  You can write an <b>entire ulog</b> today, with the aim of <b>recounting your entire day</b> and all the activities in it. The <b>U</b> in <b>U</b>log stands for "You".<br/>
-                  <i>Ulogging is for both public & private figures.</i><br/>
-                  <b>A ulog</b> is a kind of content that is <b>freshly-created by "You"</b>, containing only experiences, events, feelings, moments, knowledge etc <b>drawn from a particular day.</b><br/>
-                  <b>A ulog written today</b>, should not have existed anywhere online, yesterday; as <i>"each day and 'you' in it, carries its own freshness.</i><br/>
-                  Our aim while ulogging is to <b>"mine the human into its awesomest version"</b>, while managing to <i>reshape the entire internet</i>. Thus, while ulogging, we aim to <b>gift the internet with our "freshly-made" content</b>, at least once a day, <b>instead of resourcing from the internet.</b><br/>
-                  You can write an entire ulog right now. To do so, simply select our <b>"main ulog editor"</b> below.<br/><br/>
-                </p>
-                <Button>
-                  <Link to="/main-editor">Main Ulog Editor</Link>
-                </Button>
-              </Collapse.Panel>
-            </Collapse>
 
-            <Card
-              bordered={false}
-              bodyStyle={customCardStyle}>
-              <h3 style={{color: 'purple'}}>Do You Want To Ulog Under A Ulog-Subtag?</h3>
-              <p>
-                Ulogging under a ulogsubtag allows you to contribute ulogs to specific niches (per day). This further simplifies "the art of ulogging", while maintaining the power and essence of ulogging.<br/>
-                Simply expand any of the tabs below, to select an appropriate specialized editor.<br/>
-              </p>
-            </Card>
-
-            <Collapse
-              defaultActiveKey={defaultActiveKey}
-              activeKey={this.state.activeKey}
-              onChange={this.callback}>
-              <Collapse.Panel
-                header="ULOG-Knowledge-Bank"
-                key="3"
-                style={customPanelStyle}>
-                <p>
-                  We like to reward #ulogging contributions born solely out of <i>"your experience"</i> per day. We seek to incentivize you to learn something new per day, for the sake of #ulogging. This way, <i>"not a day slips emptily by"</i> and not a day aren't you capable of reshaping the INTERNET; touching your <i>"true fans"</i> and attaining <i>"true celebrity-hood"</i> etc <br/>
-                  Deposit to our Knowledge-bank by trying one of our #ulogging editors from the dropdown below. Withdraw knowledge by using the search box above. <br/>
-                </p>
-                <Dropdown overlay={knowledgeBankMenu} trigger={['click']}>
-                  <Button>
-                    Select An Editor <Icon type="down" />
-                  </Button>
-                </Dropdown>
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header="ULOG-fanlove (BeLikeTerry)"
-                key="4"
-                style={customPanelStyle}>
-                <p>
-                  To become like me, you will need to stubbornly become the <i>"awesomest version of YOU"</i>. @surpassinggoogle <br/>
-                  Choose an editor from the dropdown below to be <i>"true fans"</i> of a project, community, ULOGGER, steemian etc by using your #ulogging to emulate, show gratitude, learn about, write about, share moments with etc (per day for freshness). <br/>
-                  e.g you can learn about Ned for the sake of <i>#ulogging under #ulog-ned</i> etc You will also be able to do likewise for projects, communities etc <br/>
-                </p>
-                <Dropdown overlay={fanLoveMenu} trigger={['click']}>
-                  <Button>
-                    Select An Editor <Icon type="down" />
-                  </Button>
-                </Dropdown>
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header="SurpassingGoogle"
-                key="5"
-                style={customPanelStyle}>
-                <p>
-                  Note that ulogs.org integrates 4 websites into one. Thus, we are integrating all the paradigms from SurpassingGoogle, Teardrops, Un(dis)Talented into ulogs.org, so that instead of 4 standalone steem-based websites, we can have one grand website that "mines the human" into its awesomest version. <br/>
-                  <i>When you see a great man/woman, a legend, an icon, a "true celebrity" etc you know it. You feel something. It is different. One reason is; "great men", "legends", "icons", "true celebrities" are still a rarity on Mama Earth. When we remove this rarity, we Surpass Google.</i> @surpassinggoogle <br/><br/>
-                  Use this segment to "mine the human" some more. <br/>
-                </p>
-                <Dropdown overlay={surpassingGoogleMenu} trigger={['click']}>
-                  <Button>
-                    Select An Editor <Icon type="down" />
-                  </Button>
-                </Dropdown>
-              </Collapse.Panel>
-            </Collapse>
-
-            <Card
-              bordered={false}
-              bodyStyle={customCardStyle}
-              key="11">
-              <h3 style={{color: 'purple'}}>Write A Post Related To #teardrops or #untalented?</h3>
-              <p>
-                Do you remember #teardrops or #untalented on Steemit? You can continue contributing "your content" under these hashtags by selecting the appropriate editor from the expandable area below.
-              </p>
-            </Card>
-
-            <Collapse
-              defaultActiveKey={defaultActiveKey}
-              activeKey={this.state.activeKey}
-              onChange={this.callback}>
-              <Collapse.Panel
-                header="Go To The #teardrops Editor"
-                key="6"
-                style={customPanelStyle}>
-                <p>
-                  Share your @teardrops moments. We reward "proof of  tears".<br/>
-                  As you "mine the human" & en-route "breakthrough", there will be many tears, happy, sad or un-fell. "Each tear has value". We will celebrate <b>each tear</b> with a <b>"breakthrough token"</b> & <b>"emblem of human"</b> called the <b>"Teardrops Smart Media Tokens".</b> <br/>
-                  Write a #teardrops post today. You may get some imaginary Teardrops SMT today, in the form of steem. Select the editor below to write a post now.<br/><br/>
-                </p>
-                <Button>
-                  <Link to="/teardrops">Teardrops Editor</Link>
-                </Button>
-              </Collapse.Panel>
-
-              <Collapse.Panel
-                header="Go To The #untalented Editor"
-                key="7"
-                style={customPanelStyle}>
-                <p>
-                  We don't want any level of talent or potential talent to go amiss without celebrating it. We seek to reward  even <b>"attempts at out-of-the-boxness"</b>. <i>If we remove bum, smart or  average, "we are genius".</i><br/>
-                  #untalented is a home (an important aspect of  ulogs.org) where <b>"flaws are allowed".</b> When you write under #untalented, <b>"relegate reservations".</b> We will sift even the non<b>sense</b> to find <b>sense</b> therein. <br/>
-                  <i>Not too confident? Confident? Too confident?</i> Write under a post now under <b>"#untalented".</b> Select the editor below!<br/><br/>
-                </p>
-                <Button>
-                  <Link to="/untalented">Untalented Editor</Link>
-                </Button>
-              </Collapse.Panel>
-            </Collapse>
-
-            <Card
-              bordered={false}
-              bodyStyle={customCardStyle}
-              key="10">
-              <h3 style={{color: 'purple'}}>Write A Post?</h3>
-              <p>
-                On Ulogs.org "your content" is queen. Whether it is a blog, ulog, or vlog, we want you to create fresh content daily. If you want to "write a post" (post to Steem) like you normally would, simply go to our general purpose editor below.
-              </p>
-            </Card>
-
-            <Collapse
-              defaultActiveKey={defaultActiveKey}
-              activeKey={this.state.activeKey}
-              onChange={this.callback}>
-              <Collapse.Panel
-                header="Go To The General-Purpose Editor"
-                key="8"
-                style={customPanelStyle}>
-                <p>
-                  <b>On ulogs.org, your freshly-made content is queen.</b> We want to incite you create content on a daily basis as that in itself is rewarding. Anytime you invest in creating "your own content" you have managed to "mine the human" some more. This is world adjusting!<br/>
-                  <b>Ulogs.org allows you to explore and enjoy the entire steem ecosystem.</b> Thus, whether is it is a blog, ulog or vlog, we welcome your contributions and will look forward to celebrating <b>'the you'</b> in it; <b>we as your "true fans".</b><br/>
-                  You can post to steem like you normally would (<b>e.g blogs etc</b>), using the <b>"General-Purpose" editor below.</b><br/><br/>
-                </p>
-                <Button>
-                  <Link to="/editor">General Purpose Editor</Link>
-                </Button>
-              </Collapse.Panel>
-            </Collapse>
           </div>
         </div>
       </div>
@@ -365,4 +270,4 @@ class Ulogging extends React.Component {
   }
 };
 
-export default Ulogging;
+export default Grow;
