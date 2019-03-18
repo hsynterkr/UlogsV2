@@ -1,7 +1,13 @@
 export const aboutGrow = `
 On Ulogs.org, it is **"true celebrity-hood for everyone, once and for all"**. We measure our success in terms of **'real human growth'**. We want to create **more value for 'humans'** in a world were cryptokitties, superman, millionaire-cats, human-clones etc is beginning to garner more value than 'humans'.
 
+&nbsp;
+&nbsp;
+
 Thus, we will incessantly seek innovative ways of inciting each ulogger to **'mine the human' into its awesomest version**. In the future, we will seek to celebrate a world filled with **'true celebrities'**, using the [TearDrops SMT](https://ulogs.org/teardrops/@surpassinggoogle/the-teardrops-smt-is-still-in-its-imaginary-state-but-it-is-time-to-start-gathering-read-this-and-consider-joining-our-telegram), 'a breakthrough token & emblem of human' that will reward 'proof of tears', for en-route attaining the awesomest version of human, there will be many tears, happy, sad or un-fell.
+
+&nbsp;
+&nbsp;
 
 We seek to remove 'all barriers to entry' from 'everything good', so that every(any)one can shine. The world needs more shine! @surpassinggoogle
 `;

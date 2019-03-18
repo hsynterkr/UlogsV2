@@ -23,16 +23,25 @@ export default class GrowVideoEmbed extends React.Component {
     };
   }
 
+  /*
+   * Show iframe after user clicks on the video image 
+   */
   handleThumbClick = e => {
     e.preventDefault();
     this.setState({ showIframe: true });
   };
 
+  /*
+   * Render video's iframe
+   */
   renderWithIframe = embed => (
     // eslint-disable-next-line react/no-danger
     <div className="VideoEmbed__container" dangerouslySetInnerHTML={{ __html: embed }} />
   );
 
+  /*
+   * Render video thumbnail
+   */
   renderThumbFirst(thumb) {
     return (
       <div role="presentation" className="VideoEmbed" onClick={this.handleThumbClick}>

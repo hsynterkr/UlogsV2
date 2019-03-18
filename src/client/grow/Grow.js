@@ -1,26 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import {
   message,
-  Layout,
-  Card,
-  Icon,
-  Avatar,
-  Row,
-  Col,
   Collapse,
-  Menu,
-  Dropdown,
   Button,
   List
 } from 'antd';
-import { injectIntl, FormattedMessage } from 'react-intl';
-import LeftSidebar from '../app/Sidebar/LeftSidebar';
-import Affix from '../components/Utils/Affix';
-import Editor from '../components/Editor/Editor';
+import { injectIntl } from 'react-intl';
 import GrowVideoEmbed from './GrowVideoEmbed';
 import * as growSections from '../helpers/growSections';
 
@@ -31,169 +18,32 @@ class Grow extends React.Component {
     location: PropTypes.shape().isRequired,
   };
 
-  state = {
-    activeKey: [],
-  }
-
   constructor(props) {
     super(props);
-
-    let defaultActiveKey = [];
-    const location = this.props.location.pathname.split('/')[1];
-    if (location === 'art-of-ulogging') {
-      defaultActiveKey = ['1'];
-    } else if (location === 'main-editor') {
-      defaultActiveKey = ['2'];
-    } else if (location === 'ulog-knowledge-bank') {
-      defaultActiveKey = ['3'];
-    } else if (location === 'ulog-fanlove') {
-      defaultActiveKey = ['4'];
-    } else if (location === 'surpassinggoogle') {
-      defaultActiveKey = ['5'];
-    } else if (location === 'teardrops-editor') {
-      defaultActiveKey = ['6'];
-    } else if (location === 'untalented-editor') {
-      defaultActiveKey = ['7'];
-    } else if (location === 'general-editor') {
-      defaultActiveKey = ['8'];
-    } else {
-      defaultActiveKey = ['0'];
-    }
-    this.state = { activeKey: defaultActiveKey };
+    // bind the component's methods so that it can be called within render() using this.displayComingSoon()
     this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
-  callback = (key) => {
-    this.setState({ activeKey: key });
-  }
-
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
   displayComingSoon = () => {
     message.success('Coming soon!', 3);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      const location = this.props.location.pathname.split('/')[1];
-      if (location === 'art-of-ulogging') {
-        this.setState({ activeKey : ['1']});
-      } else if (location === 'main-editor') {
-        this.setState({ activeKey : ['2']});
-      } else if (location === 'ulog-knowledge-bank') {
-        this.setState({ activeKey : ['3']});
-      } else if (location === 'ulog-fanlove') {
-        this.setState({ activeKey : ['4']});
-      } else if (location === 'surpassinggoogle') {
-        this.setState({ activeKey : ['5']});
-      } else if (location === 'teardrops-editor') {
-        this.setState({ activeKey : ['6']});
-      } else if (location === 'untalented-editor') {
-        this.setState({ activeKey : ['7']});
-      } else if (location === 'general-editor') {
-        this.setState({ activeKey : ['8']});
-      } else {
-        this.setState({ activeKey : ['0']});
-      }
-    }
-  }
-
   render() {
 
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">
-          <Link to={'/ulogging/#art-of-ulogging'}>The art of ULOGGING</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to={'/ulogging/#main-editor'}>Go To The Main Ulog Editor</Link>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
-        <Menu.Item key="4">
-          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
-        </Menu.Item>
-        <Menu.Item key="5">
-          <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
-        </Menu.Item>
-        <Menu.Item key="6">
-          <Link to={'/ulogging#teardrops-editor'}>Go To The #teardrops Editor</Link>
-        </Menu.Item>
-        <Menu.Item key="7">
-          <Link to={'/ulogging#untalented-editor'}>Go To The #untalented Editor</Link>
-        </Menu.Item>
-        <Menu.Item key="8">
-          <Link to={'/ulogging#general-editor'}>Go To Our General-Purpose Editor</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
-    const knowledgeBankMenu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/ulog-diy'}>#ulog-diy (Fresh DIY per day)</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/ulog-howto'}>#ulog-howto</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
-    const fanLoveMenu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/ulog-ned'}>#ulog-ned (Emulate, Learn, Gratitude, Celebrate etc @ned)</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/ulog-surpassinggoogle'}>#ulog-surpassinggoogle (Emulate, Learn, Gratitude, Celebrate etc @surpassinggoogle)</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to={'/ulog-quotes'}>#ulog-quotes</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
-    const surpassingGoogleMenu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/teardrops'}>#teardrops (Share your teardrops moments, happy/sad/un-fell etc)</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/untalented'}>#untalented (Share all levels of talent/attempts/out-of-the-boxness)</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
+    // for the 'About Ulog' style
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden'
     };
 
+    // style for the different grow sections
     const customCardStyle = {
       marginBottom: '10px',
       marginTop: '10px',
     };
-
-    const location = this.props.location.pathname.split('/')[1];
-    let defaultActiveKey = [];
-    if (location === 'art-of-ulogging') {
-      defaultActiveKey = ['1'];
-    } else if (location === 'main-editor') {
-      defaultActiveKey = ['2'];
-    } else if (location === 'ulog-knowledge-bank') {
-      defaultActiveKey = ['3'];
-    } else if (location === 'ulog-fanlove') {
-      defaultActiveKey = ['4'];
-    } else if (location === 'surpassinggoogle') {
-      defaultActiveKey = ['5'];
-    } else if (location === 'teardrops-editor') {
-      defaultActiveKey = ['6'];
-    } else if (location === 'untalented-editor') {
-      defaultActiveKey = ['7'];
-    } else if (location === 'general-editor') {
-      defaultActiveKey = ['8'];
-    } else {
-      defaultActiveKey = ['0'];
-    }
 
     return (
       <div className="shifted">
