@@ -18,32 +18,28 @@ class Grow extends React.Component {
     location: PropTypes.shape().isRequired,
   };
 
-  state = {
-    activeKey: [],
-  }
-
   constructor(props) {
     super(props);
-
-    this.state = { activeKey: defaultActiveKey };
+    // bind the component's methods so that it can be called within render() using this.displayComingSoon()
     this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
-  callback = (key) => {
-    this.setState({ activeKey: key });
-  }
-
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
   displayComingSoon = () => {
     message.success('Coming soon!', 3);
   }
 
   render() {
 
+    // for the 'About Ulog' style
     const customPanelStyle = {
       marginBottom: 5,
       overflow: 'hidden'
     };
 
+    // style for the different grow sections
     const customCardStyle = {
       marginBottom: '10px',
       marginTop: '10px',
