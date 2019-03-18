@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import {
+  message,
   Layout,
   Card,
   Icon,
@@ -20,6 +22,7 @@ import LeftSidebar from '../app/Sidebar/LeftSidebar';
 import Affix from '../components/Utils/Affix';
 import Editor from '../components/Editor/Editor';
 import GrowVideoEmbed from './GrowVideoEmbed';
+import * as growSections from '../helpers/growSections';
 
 @injectIntl
 class Grow extends React.Component {
@@ -57,10 +60,15 @@ class Grow extends React.Component {
       defaultActiveKey = ['0'];
     }
     this.state = { activeKey: defaultActiveKey };
+    this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
   callback = (key) => {
     this.setState({ activeKey: key });
+  }
+
+  displayComingSoon = () => {
+    message.success('Coming soon!', 3);
   }
 
   componentDidUpdate(prevProps) {
@@ -161,11 +169,8 @@ class Grow extends React.Component {
     };
 
     const customCardStyle = {
-      marginBottom: '3px',
-      marginTop: '3px',
-      border: '2px solid purple',
-      color: 'purple',
-      borderRadius: '5px',
+      marginBottom: '10px',
+      marginTop: '10px',
     };
 
     const location = this.props.location.pathname.split('/')[1];
@@ -202,9 +207,7 @@ class Grow extends React.Component {
                 key="1"
                 style={customPanelStyle}>
                 <p>
-                  On Ulogs.org, it is "true celebrity-hood for everyone, once and for all". We measure our success in terms of 'real human growth'. We want to create more value for 'humans' in a world were cryptokitties, superman, millionaire-cats, human-clones etc is beginning to garner more value than 'humans'.<br/>
-                  Thus, we will incessantly seek innovative ways of inciting each ulogger to 'mine the human' into its awesomest version. In the future, we will seek to celebrate a world filled with 'true celebrities', using the TearDrops SMT, 'a breakthrough token & emblem of human' that will reward 'proof of tears', for en-route attaining the awesomest version of human, there will be many tears, happy, sad or un-fell.<br/>
-                  We seek to remove 'all barriers to entry' from 'everything good', so that every(any)one can shine. The world needs more shine! @surpassinggoogle
+                  <ReactMarkdown source={growSections.aboutGrow} />
                 </p>
               </Collapse.Panel>
             </Collapse>
@@ -228,11 +231,11 @@ class Grow extends React.Component {
                       />}
                     >
                       <h3>Submit A Video To One Of Our TV(s)</h3>
-                      <div>
-                      Across the ulogs.org ecosystem, we have 3 TV(s) i.e UloggersTV, UntalentedTV and TeardropsTV. We seek to use the media to impact the world and you can help matters. We welcome your contributions. We will feature your contribution on a corresponding TV. In the future, your contributions may feature in our Uloggers Game App. <br/><br/> While we only feature 'certified uloggers' on our TV(s), if you are not yet a 'certified ulogger' and you submit a video, we will also look to feature your video and once we do so, you will become a 'certified ulogger'.
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.submitAVideo} />
                       </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
                     </List.Item>
-
 
                     <List.Item
                       key='Write To Ulogs.org'
@@ -244,24 +247,135 @@ class Grow extends React.Component {
                         }}
                       />}
                     >
-                      <div>
-                      The ulogs.org ecosystem also has an un(dis)talented paradigm. Thus, when you visit this space, relegate reservations and write to us freely. Whatever your dream is, we believe that in a world of 'uloggers' (true celebrities) every noble dream is build-able. 
-                      <br/>
-                      Tell us what you want and let's discuss. Don't undervalue the power of 'conversation', for at any moment, it can pop out something. Tell us of your forgotten dreams, let's resuscitate it. Do you need inspiration, assistance, mentoring, direction etc? Then, write to us! We are building an ecosystem of 'true celebrities', where everyone is your 'true fan'. At the very least, 'you are the celebrity; we are your fan'.
+                      <h3>Write To Ulogs.org</h3>
+                      <div style={customCardStyle}>
+                      <ReactMarkdown source={growSections.writeToUlogs} />
                       </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='15 Mins Session With Your Favorite Mentor'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>15 Mins Session With Your Favorite Mentor</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.fifteenMinuteMentor} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='Apply To Give A 30 Mins Symposium About Your Project On A Popular Steem Community'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Apply To Give A 30 Mins Symposium About Your Project On A Popular Steem Community</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.thirtyMinuteSymposium} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='How About Extra Clout On Steem Or Outside Steem'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>How About Extra Clout On Steem Or Outside Steem</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.extraClout} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='Do You Need Extra Confidence To Make A Life-Changing Move?'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Do You Need Extra Confidence To Make A Life-Changing Move?</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.extraConfidence} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='Are You Dealing With Hard-To-Explain Ailment e.g Depression?'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Are You Dealing With Hard-To-Explain Ailment e.g Depression?</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.hardToExplainAilment} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='Send Us A Letter, Gift Or Mail'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Send Us A Letter, Gift Or Mail</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.sendUsSomething} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
+                    </List.Item>
+
+                    <List.Item
+                      key='Inspire Us'
+                      extra={<GrowVideoEmbed key="embed"
+                        embed={{
+                          provider_name: 'YouTube',
+                          thumbnail: 'https://steemitimages.com/360x203/https://img.youtube.com/vi/kKZ1CixLG2s/0.jpg',
+                          embed: '<iframe width="270" height="158" src="https://www.youtube.com/embed/kKZ1CixLG2s?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>',
+                        }}
+                      />}
+                    >
+                      <h3>Inspire Us</h3>
+                      <div style={customCardStyle}>
+                        <ReactMarkdown source={growSections.inspireUs} />
+                      </div>
+                      <Button type="primary" onClick={this.displayComingSoon}>Click Here</Button>
                     </List.Item>
 
                 </List>
               </Collapse.Panel>
             </Collapse>
-
-            <Card
-              size="small"
-              bordered={false}
-              bodyStyle={customCardStyle}>
-              <span style={{color: 'purple'}}>Let Us Help Fix Matters</span>
-            </Card>
-
 
           </div>
         </div>
