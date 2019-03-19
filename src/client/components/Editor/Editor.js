@@ -456,7 +456,10 @@ class Editor extends React.Component {
             <Checkbox onChange={this.onUpdate} disabled={isUpdating}>
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
-          )}
+            <Checkbox onChange={this.onUpdate} disabled={isUpdating}>
+              <FormattedMessage id="like_post" defaultMessage="Like this post" />
+            </Checkbox>,
+        )}
         </Form.Item>
         <div className="Editor__bottom">
           <span className="Editor__bottom__info">

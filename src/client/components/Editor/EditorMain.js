@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import ReactDOM from 'react-dom';
-import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import readingTime from 'reading-time';
-import { Checkbox, Form, Input, Select, Button, Collapse, Menu, Dropdown, Icon } from 'antd';
+import { message, Checkbox, Form, Input, Select, Button, Collapse } from 'antd';
 import { rewardsValues } from '../../../common/constants/rewards';
 import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
@@ -78,6 +77,7 @@ class EditorMain extends React.Component {
     this.throttledUpdate = this.throttledUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
   componentDidMount() {
@@ -213,6 +213,13 @@ class EditorMain extends React.Component {
     e.stopPropagation();
     e.preventDefault();
     this.props.onDelete();
+  }
+
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
+  displayComingSoon = () => {
+    message.success('Coming soon!', 3);
   }
 
   render() {
@@ -408,6 +415,9 @@ Want to "mine the human" some more, you can also try one of our specialized edit
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
           )}
+          <Checkbox onChange={this.displayComingSoon} disabled={isUpdating}>
+            <FormattedMessage id="extra_monetization" πdeefaultMessage="Extra Monitezation" />
+          </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">
           <span className="Editor__bottom__info">
