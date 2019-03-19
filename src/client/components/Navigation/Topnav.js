@@ -266,6 +266,9 @@ class Topnav extends React.Component {
                   <PopoverMenuItem key="custom-profile">
                     <FormattedMessage id="custom_profile" defaultMessage="Custom Profile"/>
                   </PopoverMenuItem>
+                  <PopoverMenuItem key="grow">
+                    <FormattedMessage id="grow" defaultMessage="Grow"/>
+                  </PopoverMenuItem>
                   <PopoverMenuItem key="get-certified">
                     <FormattedMessage id="get_certified" defaultMessage='Get "Certified"'/>
                   </PopoverMenuItem>
