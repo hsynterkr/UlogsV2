@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import url from 'url';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import { LocaleProvider, Layout } from 'antd';
+import { Alert, LocaleProvider, Layout } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import Cookie from 'js-cookie';
 import { findLanguage, getRequestLocale, getBrowserLocale, loadLanguage } from './translations';
@@ -41,6 +41,7 @@ import Topnav from './components/Navigation/Topnav';
 import Transfer from './wallet/Transfer';
 import PowerUpOrDown from './wallet/PowerUpOrDown';
 import BBackTop from './components/BBackTop';
+import * as announcement from './announcements/content'
 
 @withRouter
 @connect(
@@ -254,6 +255,18 @@ export default class Wrapper extends React.PureComponent {
         <LocaleProvider locale={enUS}>
           <Layout data-dir={language && language.rtl ? 'rtl' : 'ltr'}>
             <Layout.Header style={{ position: 'fixed', width: '100%', zIndex: 1050 }}>
+              {announcement.displayBanner && (
+                <Alert
+                  style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center'}}
+                  showIcon={false} type="info" banner closable 
+                  message={
+                    <span>
+                        <span style={{marginRight: '5px'}}>{announcement.message}</span>
+                        <Link to={announcement.link}>{announcement.linkMessage}</Link>
+                    </span>
+                  }
+                />
+              )}
               <Topnav username={user.name} onMenuItemClick={this.handleMenuItemClick} />
             </Layout.Header>
             <div className="content">
