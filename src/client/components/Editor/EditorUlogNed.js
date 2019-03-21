@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import ReactDOM from 'react-dom';
-import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import readingTime from 'reading-time';
-import { Checkbox, Form, Input, Select, Button, Collapse, Menu, Dropdown, Icon } from 'antd';
+import { Checkbox, Form, Input, Select, Button, Collapse } from 'antd';
 import { rewardsValues } from '../../../common/constants/rewards';
 import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
@@ -74,7 +73,6 @@ class EditorUlogNed extends React.Component {
     };
 
     this.onUpdate = this.onUpdate.bind(this);
-    this.onHashtagUpdate = this.onHashtagUpdate.bind(this)
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);
     this.throttledUpdate = this.throttledUpdate.bind(this);
@@ -116,10 +114,6 @@ class EditorUlogNed extends React.Component {
 
   onUpdate() {
     _.throttle(this.throttledUpdate, 200, { leading: false, trailing: true })();
-  }
-
-  onHashtagUpdate(value) {
-    console.log(value);
   }
 
   setValues(post) {

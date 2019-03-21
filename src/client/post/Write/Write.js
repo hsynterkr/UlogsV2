@@ -7,7 +7,8 @@ import _ from 'lodash';
 import 'url-search-params-polyfill';
 import { injectIntl } from 'react-intl';
 import uuidv4 from 'uuid/v4';
-import { getHtml } from '../../components/Story/Body';
+import { message } from 'antd';
+
 import VideoEmbed from '../../components/Sidebar/VideoEmbed';
 import improve from '../../helpers/improve';
 import { createPostMetadata } from '../../helpers/postHelpers';
@@ -35,9 +36,7 @@ import EditorUlogQuotes from '../../components/Editor/EditorUlogQuotes';
 import EditorUlogHowto from '../../components/Editor/EditorUlogHowto';
 import EditorUlogSurpassingGoogle from '../../components/Editor/EditorUlogSurpassingGoogle';
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
-import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
 import Affix from '../../components/Utils/Affix';
-import { message } from 'antd';
 import steemAPI from '../../steemAPI';
 
 @injectIntl
@@ -65,6 +64,7 @@ class Write extends React.Component {
     draftPosts: PropTypes.shape().isRequired,
     loading: PropTypes.bool.isRequired,
     intl: PropTypes.shape().isRequired,
+    location: PropTypes.shape().isRequired,
     saving: PropTypes.bool,
     draftId: PropTypes.string,
     upvoteSetting: PropTypes.bool,
@@ -73,6 +73,7 @@ class Write extends React.Component {
     createPost: PropTypes.func,
     saveDraft: PropTypes.func,
     replace: PropTypes.func,
+    isFetchingFollowingList: PropTypes.func,
   };
 
   static defaultProps = {
@@ -85,6 +86,7 @@ class Write extends React.Component {
     saveDraft: () => {},
     notify: () => {},
     replace: () => {},
+    isFetchingFollowingList: () => {},
   };
 
   constructor(props) {
@@ -232,8 +234,6 @@ class Write extends React.Component {
     return data;
   };
 
-  handleCancelDeleteDraft = () => this.setState({ showModalDelete: false });
-
   getCertifiedUloggers() {
     steemAPI
       .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
@@ -250,6 +250,8 @@ class Write extends React.Component {
       });
   }
 
+  handleCancelDeleteDraft = () => this.setState({ showModalDelete: false });
+
   saveDraft = _.debounce(form => {
     if (this.props.saving) return;
 
@@ -264,7 +266,7 @@ class Write extends React.Component {
     const redirect = id !== this.draftId;
     const editorUrl = this.props.location.pathname.split('/')[1];
 
-    this.props.saveDraft({ postData: data, id: this.draftId, editorUrl: editorUrl }, redirect, this.props.intl);
+    this.props.saveDraft({ postData: data, id: this.draftId, editorUrl }, redirect, this.props.intl);
   }, 2000);
 
   /*

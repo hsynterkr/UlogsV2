@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { withRouter, Link } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import { Alert, LocaleProvider, Layout } from 'antd';
+import { message, Alert, LocaleProvider, Layout } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import Cookie from 'js-cookie';
 import { findLanguage, getRequestLocale, getBrowserLocale, loadLanguage } from './translations';
@@ -188,6 +188,13 @@ export default class Wrapper extends React.PureComponent {
     this.props.setUsedLocale(lang);
   }
 
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
+  messageComingSoon = () => {
+    message.success('Coming soon!', 3);
+  }
+
   handleMenuItemClick(key) {
     switch (key) {
       case 'logout':
@@ -238,7 +245,7 @@ export default class Wrapper extends React.PureComponent {
       case 'merchandise':
       case 'exchange':
       case 'teardrop-smt':
-        alert("Coming soon!")
+        this.messageComingSoon();
         break;
       default:
         break;
