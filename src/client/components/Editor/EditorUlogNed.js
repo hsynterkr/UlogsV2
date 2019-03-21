@@ -416,7 +416,7 @@ He sustains the steem blockchain; he is birthing <span className="bold-italic">S
             </Checkbox>,
           )}
           <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
-            <FormattedMessage id="extra_monetization" πdeefaultMessage="Extra Monitezation" />
+            <FormattedMessage id="extra_monetization" defaultMessage="Extra Monitezation" />
           </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">

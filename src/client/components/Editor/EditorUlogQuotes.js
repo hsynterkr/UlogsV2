@@ -435,7 +435,7 @@ class EditorUlogQuotes extends React.Component {
             </Checkbox>,
           )}
           <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
-            <FormattedMessage id="extra_monetization" πdeefaultMessage="Extra Monitezation" />
+            <FormattedMessage id="extra_monetization" defaultMessage="Extra Monitezation" />
           </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">
