@@ -69,7 +69,6 @@ const routes = [
           '/(editor|main-editor|teardrops|untalented|fanlove|ulog-ned|ulog-surpassinggoogle|ulog-diy|ulog-howto|ulog-quotes)',
         exact: true,
         component: Editor,
-        exact: true,
       },
       {
         path: '/settings',

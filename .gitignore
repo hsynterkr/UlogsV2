@@ -38,5 +38,6 @@ build/Release
 node_modules
 .tern-port
 .envrc
+.env
 
 build/

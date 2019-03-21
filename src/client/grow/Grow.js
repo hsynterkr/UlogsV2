@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import {
   message,
@@ -7,16 +6,10 @@ import {
   Button,
   List
 } from 'antd';
-import { injectIntl } from 'react-intl';
 import GrowVideoEmbed from './GrowVideoEmbed';
 import * as growSections from '../helpers/growSections';
 
-@injectIntl
 class Grow extends React.Component {
-  static propTypes = {
-    intl: PropTypes.shape().isRequired,
-    location: PropTypes.shape().isRequired,
-  };
 
   constructor(props) {
     super(props);

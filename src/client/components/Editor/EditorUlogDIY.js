@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import ReactDOM from 'react-dom';
-import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import readingTime from 'reading-time';
-import { Checkbox, Form, Input, Select, Button, Collapse, Menu, Dropdown, Icon } from 'antd';
+import { Checkbox, Form, Input, Select, Button, Collapse } from 'antd';
 import { rewardsValues } from '../../../common/constants/rewards';
 import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
@@ -41,6 +40,7 @@ class EditorUlogDIY extends React.Component {
     onError: PropTypes.func,
     onImageUpload: PropTypes.func,
     onImageInvalid: PropTypes.func,
+    handleExtraMonetization: PropTypes.func,
   };
 
   static defaultProps = {
@@ -61,6 +61,7 @@ class EditorUlogDIY extends React.Component {
     onError: () => {},
     onImageUpload: () => {},
     onImageInvalid: () => {},
+    handleExtraMonetization: () => {},
   };
 
   constructor(props) {
@@ -72,7 +73,6 @@ class EditorUlogDIY extends React.Component {
     };
 
     this.onUpdate = this.onUpdate.bind(this);
-    this.onHashtagUpdate = this.onHashtagUpdate.bind(this)
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);
     this.throttledUpdate = this.throttledUpdate.bind(this);
@@ -114,10 +114,6 @@ class EditorUlogDIY extends React.Component {
 
   onUpdate() {
     _.throttle(this.throttledUpdate, 200, { leading: false, trailing: true })();
-  }
-
-  onHashtagUpdate(value) {
-    console.log(value);
   }
 
   setValues(post) {
@@ -219,25 +215,8 @@ class EditorUlogDIY extends React.Component {
     const { intl, form, loading, isUpdating, saving, draftId } = this.props;
     const { getFieldDecorator } = form;
     const { body, bodyHTML } = this.state;
-
     const { words, minutes } = readingTime(bodyHTML);
-
-    const menu = (
-      <Menu>
-        <Menu.Item key="0">
-          <Link to={'/ulogging#knowledge-bank'}>ULOG-KnowledgeBank</Link>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <Link to={'/ulogging#surpassing-google'}>SurpassingGoogle</Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to={'/ulogging#be-like-terry'}>BeLikeTerry (Fan Love)</Link>
-        </Menu.Item>
-      </Menu>
-    );
-
     const Panel = Collapse.Panel;
-
 
     return (
       <div>
@@ -437,6 +416,9 @@ class EditorUlogDIY extends React.Component {
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
           )}
+          <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
+            <FormattedMessage id="extra_monetization" defaultMessage="Extra Monitezation" />
+          </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">
           <span className="Editor__bottom__info">

@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import ReactDOM from 'react-dom';
-import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import readingTime from 'reading-time';
-import { Checkbox, Form, Input, Select, Button, Collapse, Menu, Dropdown, Icon } from 'antd';
+import { Checkbox, Form, Input, Select, Button, Collapse } from 'antd';
 import { rewardsValues } from '../../../common/constants/rewards';
 import Action from '../Button/Action';
 import requiresLogin from '../../auth/requiresLogin';
 import withEditor from './withEditor';
 import EditorInput from './EditorInput';
-import UlogDropdown from './UlogDropdown';
 import { remarkable } from '../Story/Body';
 import BodyContainer from '../../containers/Story/BodyContainer';
 import './Editor.less';
@@ -41,6 +39,7 @@ class EditorUlogQuotes extends React.Component {
     onError: PropTypes.func,
     onImageUpload: PropTypes.func,
     onImageInvalid: PropTypes.func,
+    handleExtraMonetization: PropTypes.func,
   };
 
   static defaultProps = {
@@ -61,6 +60,7 @@ class EditorUlogQuotes extends React.Component {
     onError: () => {},
     onImageUpload: () => {},
     onImageInvalid: () => {},
+    handleExtraMonetization: () => {},
   };
 
   constructor(props) {
@@ -72,7 +72,6 @@ class EditorUlogQuotes extends React.Component {
     };
 
     this.onUpdate = this.onUpdate.bind(this);
-    this.onHashtagUpdate = this.onHashtagUpdate.bind(this)
     this.setValues = this.setValues.bind(this);
     this.setBodyAndRender = this.setBodyAndRender.bind(this);
     this.throttledUpdate = this.throttledUpdate.bind(this);
@@ -114,10 +113,6 @@ class EditorUlogQuotes extends React.Component {
 
   onUpdate() {
     _.throttle(this.throttledUpdate, 200, { leading: false, trailing: true })();
-  }
-
-  onHashtagUpdate(value) {
-    console.log(value);
   }
 
   setValues(post) {
@@ -439,6 +434,9 @@ class EditorUlogQuotes extends React.Component {
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
           )}
+          <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
+            <FormattedMessage id="extra_monetization" defaultMessage="Extra Monitezation" />
+          </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">
           <span className="Editor__bottom__info">
