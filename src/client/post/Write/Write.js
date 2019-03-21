@@ -37,6 +37,8 @@ import EditorUlogSurpassingGoogle from '../../components/Editor/EditorUlogSurpas
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
 import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
 import Affix from '../../components/Utils/Affix';
+import { message } from 'antd';
+import steemAPI from '../../steemAPI';
 
 @injectIntl
 @withRouter
@@ -96,7 +98,10 @@ class Write extends React.Component {
       initialUpdatedDate: Date.now(),
       isUpdating: false,
       showModalDelete: false,
+      certifiedUloggers: [],
     };
+
+    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
   }
 
   componentDidMount() {
@@ -135,6 +140,10 @@ class Write extends React.Component {
     } else {
       this.draftId = uuidv4();
     }
+
+    if (!this.props.isFetchingFollowingList) {
+      this.getCertifiedUloggers();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -164,6 +173,10 @@ class Write extends React.Component {
         initialBody,
         initialTopics,
       });
+    }
+
+    if (!nextProps.isFetchingFollowingList) {
+      this.getCertifiedUloggers();
     }
   }
 
@@ -221,6 +234,22 @@ class Write extends React.Component {
 
   handleCancelDeleteDraft = () => this.setState({ showModalDelete: false });
 
+  getCertifiedUloggers() {
+    steemAPI
+      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
+      .then(result => {
+        const certifiedUloggers = _.sortBy(result, 'following')
+          .map(user => {
+            let name = _.get(user, 0);
+            if (_.isEmpty(name)) {
+              name = _.get(user, 'following');
+            }
+            return name;
+          });
+        this.setState({ certifiedUloggers });
+      });
+  }
+
   saveDraft = _.debounce(form => {
     if (this.props.saving) return;
 
@@ -237,6 +266,19 @@ class Write extends React.Component {
 
     this.props.saveDraft({ postData: data, id: this.draftId, editorUrl: editorUrl }, redirect, this.props.intl);
   }, 2000);
+
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
+  handleExtraMonetization = () => {
+    const { user } =  this.props
+    
+    if (this.state.certifiedUloggers.indexOf(user.name) >= 0) {
+      message.success('Coming soon!', 3);
+    } else {
+      message.success("This feature is only available to 'certified uloggers'. Click here to get certified!!", 3);
+    }
+  }
 
   render() {
     const { initialTitle, initialTopics, initialBody, initialReward, initialUpvote } = this.state;
@@ -292,6 +334,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import ReactMarkdown from 'react-markdown';
 import _ from 'lodash';
 import readingTime from 'reading-time';
 import { message, Checkbox, Form, Input, Select, Button, Collapse } from 'antd';
@@ -40,6 +41,7 @@ class EditorMain extends React.Component {
     onError: PropTypes.func,
     onImageUpload: PropTypes.func,
     onImageInvalid: PropTypes.func,
+    handleExtraMonetization: PropTypes.func,
   };
 
   static defaultProps = {
@@ -60,6 +62,7 @@ class EditorMain extends React.Component {
     onError: () => {},
     onImageUpload: () => {},
     onImageInvalid: () => {},
+    handleExtraMonetization: () => {},
   };
 
   constructor(props) {
@@ -77,7 +80,6 @@ class EditorMain extends React.Component {
     this.throttledUpdate = this.throttledUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
   componentDidMount() {
@@ -213,13 +215,6 @@ class EditorMain extends React.Component {
     e.stopPropagation();
     e.preventDefault();
     this.props.onDelete();
-  }
-
-  /*
-   * Display a coming soon message when user clicks on any "Click Here" button
-   */
-  displayComingSoon = () => {
-    message.success('Coming soon!', 3);
   }
 
   render() {
@@ -415,7 +410,7 @@ Want to "mine the human" some more, you can also try one of our specialized edit
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
           )}
-          <Checkbox onChange={this.displayComingSoon} disabled={isUpdating}>
+          <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
             <FormattedMessage id="extra_monetization" πdeefaultMessage="Extra Monitezation" />
           </Checkbox>
         </Form.Item>
