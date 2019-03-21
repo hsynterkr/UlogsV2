@@ -41,7 +41,7 @@ import Topnav from './components/Navigation/Topnav';
 import Transfer from './wallet/Transfer';
 import PowerUpOrDown from './wallet/PowerUpOrDown';
 import BBackTop from './components/BBackTop';
-import * as announcement from './announcements/content'
+import * as announcement from './announcements/announcement'
 
 @withRouter
 @connect(
@@ -249,21 +249,29 @@ export default class Wrapper extends React.PureComponent {
     const { user, usedLocale, translations } = this.props;
 
     const language = findLanguage(usedLocale);
+    const displayBanner = announcement.displayBanner1 || announcement.displayBanner2
 
     return (
       <IntlProvider key={language.id} locale={language.localeData} messages={translations}>
         <LocaleProvider locale={enUS}>
           <Layout data-dir={language && language.rtl ? 'rtl' : 'ltr'}>
             <Layout.Header style={{ position: 'fixed', width: '100%', zIndex: 1050 }}>
-              {announcement.displayBanner && (
+              {displayBanner && (
                 <Alert
                   style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center'}}
                   showIcon={false} type="info" banner closable 
-                  message={
-                    <span>
-                        <span style={{marginRight: '5px'}}>{announcement.message}</span>
-                        <Link to={announcement.link}>{announcement.linkMessage}</Link>
-                    </span>
+                  message="Ulog Updates"
+                  description={
+                    <div>
+                      <p>
+                        <span style={{marginRight: '5px'}}>{announcement.message1}</span>
+                        <Link to={announcement.link1}>{announcement.linkMessage1}</Link>.
+                      </p>
+                      <p>
+                        <span style={{marginRight: '5px'}}>{announcement.message2}</span>
+                        <Link to={announcement.link2}>{announcement.linkMessage2}</Link>.
+                      </p>
+                    </div>
                   }
                 />
               )}
