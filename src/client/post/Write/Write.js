@@ -355,6 +355,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -375,6 +376,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -395,6 +397,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -415,6 +418,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -435,6 +439,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -455,6 +460,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -475,6 +481,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -495,6 +502,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />

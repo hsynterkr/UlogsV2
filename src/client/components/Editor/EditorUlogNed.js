@@ -41,6 +41,7 @@ class EditorUlogNed extends React.Component {
     onError: PropTypes.func,
     onImageUpload: PropTypes.func,
     onImageInvalid: PropTypes.func,
+    handleExtraMonetization: PropTypes.func,
   };
 
   static defaultProps = {
@@ -61,6 +62,7 @@ class EditorUlogNed extends React.Component {
     onError: () => {},
     onImageUpload: () => {},
     onImageInvalid: () => {},
+    handleExtraMonetization: () => {},
   };
 
   constructor(props) {
@@ -419,6 +421,9 @@ He sustains the steem blockchain; he is birthing <span className="bold-italic">S
               <FormattedMessage id="like_post" defaultMessage="Like this post" />
             </Checkbox>,
           )}
+          <Checkbox onChange={this.props.handleExtraMonetization} disabled={isUpdating}>
+            <FormattedMessage id="extra_monetization" πdeefaultMessage="Extra Monitezation" />
+          </Checkbox>
         </Form.Item>
         <div className="Editor__bottom">
           <span className="Editor__bottom__info">
