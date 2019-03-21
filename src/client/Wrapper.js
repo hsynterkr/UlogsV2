@@ -260,18 +260,27 @@ export default class Wrapper extends React.PureComponent {
                 <Alert
                   style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center'}}
                   showIcon={false} type="info" banner closable 
-                  message="Ulog Updates"
-                  description={
-                    <div>
+                  message={
+                    <span>
                       <p>
                         <span style={{marginRight: '5px'}}>{announcement.message1}</span>
-                        <Link to={announcement.link1}>{announcement.linkMessage1}</Link>.
+                        <Link 
+                          style={{color: '#F0E68C'}}
+                          to={announcement.link1}
+                        >
+                          {announcement.linkMessage1}
+                        </Link>
                       </p>
                       <p>
-                        <span style={{marginRight: '5px'}}>{announcement.message2}</span>
-                        <Link to={announcement.link2}>{announcement.linkMessage2}</Link>.
+                        <span style={{margin: '0px 5px'}}>{announcement.message2}</span>
+                        <Link 
+                          style={{color: '#F0E68C'}}
+                          to={announcement.link2}
+                        >
+                          {announcement.linkMessage2}
+                        </Link>
                       </p>
-                    </div>
+                    </span>
                   }
                 />
               )}
