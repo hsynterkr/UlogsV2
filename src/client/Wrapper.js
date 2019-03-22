@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import url from 'url';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { message, Alert, LocaleProvider, Layout } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
@@ -42,6 +42,7 @@ import Transfer from './wallet/Transfer';
 import PowerUpOrDown from './wallet/PowerUpOrDown';
 import BBackTop from './components/BBackTop';
 import * as announcement from './announcements/announcement'
+import AnnouncementBanner from './components/AnnouncementBanner'
 
 @withRouter
 @connect(
@@ -256,7 +257,12 @@ export default class Wrapper extends React.PureComponent {
     const { user, usedLocale, translations } = this.props;
 
     const language = findLanguage(usedLocale);
-    const displayBanner = announcement.displayBanner1 || announcement.displayBanner2
+
+    // check if any of of the announcement message is set
+    const displayBanner = announcement.message1 || announcement.message2
+
+    // if both announcement messages are set, display a two-liner banner
+    const displayTwoLiner = (announcement.message1 && announcement.message2 !== "")
 
     return (
       <IntlProvider key={language.id} locale={language.localeData} messages={translations}>
@@ -264,32 +270,7 @@ export default class Wrapper extends React.PureComponent {
           <Layout data-dir={language && language.rtl ? 'rtl' : 'ltr'}>
             <Layout.Header style={{ position: 'fixed', width: '100%', zIndex: 1050 }}>
               {displayBanner && (
-                <Alert
-                  style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center'}}
-                  showIcon={false} type="info" banner closable 
-                  message={
-                    <span>
-                      <p>
-                        <span style={{marginRight: '5px'}}>{announcement.message1}</span>
-                        <Link 
-                          style={{color: '#F0E68C'}}
-                          to={announcement.link1}
-                        >
-                          {announcement.linkMessage1}
-                        </Link>
-                      </p>
-                      <p>
-                        <span style={{margin: '0px 5px'}}>{announcement.message2}</span>
-                        <Link 
-                          style={{color: '#F0E68C'}}
-                          to={announcement.link2}
-                        >
-                          {announcement.linkMessage2}
-                        </Link>
-                      </p>
-                    </span>
-                  }
-                />
+                <AnnouncementBanner displayTwoLiner={displayTwoLiner} />
               )}
               <Topnav username={user.name} onMenuItemClick={this.handleMenuItemClick} />
             </Layout.Header>
