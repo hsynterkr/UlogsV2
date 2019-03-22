@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { take, find } from 'lodash';
 import { injectIntl, FormattedNumber, FormattedMessage } from 'react-intl';
-import { Icon } from 'antd';
+import { Button, Icon, message } from 'antd';
 import { getUpvotes, getDownvotes } from '../../helpers/voteHelpers';
 import { sortVotes } from '../../helpers/sortHelpers';
 import { calculatePayout } from '../../vendor/steemitHelpers';
@@ -12,6 +12,7 @@ import ReactionsModal from '../Reactions/ReactionsModal';
 import withAuthActions from '../../auth/withAuthActions';
 import USDDisplay from '../Utils/USDDisplay';
 import PayoutDetail from '../PayoutDetail';
+import DelegateButton from './DelegateButton'
 
 @injectIntl
 @withAuthActions
@@ -25,6 +26,7 @@ class Buttons extends React.Component {
     editable: PropTypes.bool,
     editing: PropTypes.bool,
     replying: PropTypes.bool,
+    isCertifiedUlogger: PropTypes.bool,
     pendingVotes: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -41,6 +43,7 @@ class Buttons extends React.Component {
     editable: false,
     editing: false,
     replying: false,
+    isCertifiedUlogger: false,
     pendingVotes: [],
     onLikeClick: () => {},
     onDislikeClick: () => {},
@@ -59,6 +62,7 @@ class Buttons extends React.Component {
     this.handleDislikeClick = this.handleDislikeClick.bind(this);
     this.handleShowReactions = this.handleShowReactions.bind(this);
     this.handleCloseReactions = this.handleCloseReactions.bind(this);
+    this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
   handleLikeClick() {
@@ -79,6 +83,13 @@ class Buttons extends React.Component {
     this.setState({
       reactionsModalVisible: false,
     });
+  }
+
+  /*
+   * Display a coming soon message.
+   */
+  displayComingSoon = () => {
+    message.success('Coming soon!', 3);
   }
 
   render() {
@@ -165,7 +176,7 @@ class Buttons extends React.Component {
     const payoutValue = payout.cashoutInTime ? payout.potentialPayout : payout.pastPayouts;
 
     return (
-      <div>
+      <div style={{display: 'flex', alignItems: 'center'}}>
         <BTooltip title={likeTooltip}>
           <a
             role="presentation"
@@ -269,6 +280,20 @@ class Buttons extends React.Component {
             </a>
           </span>
         )}
+        {(this.props.isCertifiedUlogger) && (
+          <DelegateButton post={comment} />
+        )}
+        <div style={{ flex: '1 0 auto' }} />
+        {this.props.isCertifiedUlogger &&
+          <Button
+            size={'small'}
+            style={{ marginLeft: 8, fontSize: 12, alignSelf: 'center' }}
+            type={'primary'}
+            onClick={this.displayComingSoon}
+          >
+            U-Promote
+          </Button>
+        }
         <ReactionsModal
           visible={this.state.reactionsModalVisible}
           upVotes={upVotes}

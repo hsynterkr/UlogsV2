@@ -332,6 +332,7 @@ class Comment extends React.Component {
             onDislikeClick={this.props.onDislikeClick}
             onReplyClick={this.handleReplyClick}
             onEditClick={this.handleEditClick}
+            isCertifiedUlogger={isCertifiedUlogger}
           />
           {this.state.replyOpen &&
             user.name && (
