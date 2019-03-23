@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Alert } from 'antd';
+import { Alert, Icon } from 'antd';
 import * as announcement from '../announcements/announcement'
 
 const AnnouncementBanner = ({ displayTwoLiner }) => {
   return (displayTwoLiner ? (
       <Alert
         style={{ backgroundColor: 'blue', color: 'white', textAlign: 'center'}}
-        showIcon={false} type="info" banner closable 
+        showIcon={false} type="info" banner closable
+        closeText={<Icon type="cross" style={{ color: 'white'}} />}
         message={
           <span>
             <p>

@@ -495,7 +495,8 @@ class StoryFull extends React.Component {
               <div style={{ flex: '1 0 auto' }} />
               {postState.isCertifiedUlogger &&
                 <Button
-                  style={{ alignSelf: 'center'}}
+                  size="small"
+                  style={{ alignSelf: 'center', flex: '0 1 auto'}}
                   type="primary"
                   onClick={this.displayComingSoon}
                 >
