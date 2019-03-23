@@ -7,7 +7,8 @@ import _ from 'lodash';
 import 'url-search-params-polyfill';
 import { injectIntl } from 'react-intl';
 import uuidv4 from 'uuid/v4';
-import { getHtml } from '../../components/Story/Body';
+import { message } from 'antd';
+
 import VideoEmbed from '../../components/Sidebar/VideoEmbed';
 import improve from '../../helpers/improve';
 import { createPostMetadata } from '../../helpers/postHelpers';
@@ -35,8 +36,8 @@ import EditorUlogQuotes from '../../components/Editor/EditorUlogQuotes';
 import EditorUlogHowto from '../../components/Editor/EditorUlogHowto';
 import EditorUlogSurpassingGoogle from '../../components/Editor/EditorUlogSurpassingGoogle';
 import EditorBeLikeTerry from '../../components/Editor/EditorBeLikeTerry';
-import EditorSurpassingGoogle from '../../components/Editor/EditorSurpassingGoogle';
 import Affix from '../../components/Utils/Affix';
+import steemAPI from '../../steemAPI';
 
 @injectIntl
 @withRouter
@@ -63,6 +64,7 @@ class Write extends React.Component {
     draftPosts: PropTypes.shape().isRequired,
     loading: PropTypes.bool.isRequired,
     intl: PropTypes.shape().isRequired,
+    location: PropTypes.shape().isRequired,
     saving: PropTypes.bool,
     draftId: PropTypes.string,
     upvoteSetting: PropTypes.bool,
@@ -71,6 +73,7 @@ class Write extends React.Component {
     createPost: PropTypes.func,
     saveDraft: PropTypes.func,
     replace: PropTypes.func,
+    isFetchingFollowingList: PropTypes.func,
   };
 
   static defaultProps = {
@@ -83,6 +86,7 @@ class Write extends React.Component {
     saveDraft: () => {},
     notify: () => {},
     replace: () => {},
+    isFetchingFollowingList: () => {},
   };
 
   constructor(props) {
@@ -96,7 +100,10 @@ class Write extends React.Component {
       initialUpdatedDate: Date.now(),
       isUpdating: false,
       showModalDelete: false,
+      certifiedUloggers: [],
     };
+
+    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
   }
 
   componentDidMount() {
@@ -135,6 +142,10 @@ class Write extends React.Component {
     } else {
       this.draftId = uuidv4();
     }
+
+    if (!this.props.isFetchingFollowingList) {
+      this.getCertifiedUloggers();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -164,6 +175,10 @@ class Write extends React.Component {
         initialBody,
         initialTopics,
       });
+    }
+
+    if (!nextProps.isFetchingFollowingList) {
+      this.getCertifiedUloggers();
     }
   }
 
@@ -219,6 +234,22 @@ class Write extends React.Component {
     return data;
   };
 
+  getCertifiedUloggers() {
+    steemAPI
+      .sendAsync('call', ['condenser_api', 'get_following', ['uloggers', '', 'blog', 100]])
+      .then(result => {
+        const certifiedUloggers = _.sortBy(result, 'following')
+          .map(user => {
+            let name = _.get(user, 0);
+            if (_.isEmpty(name)) {
+              name = _.get(user, 'following');
+            }
+            return name;
+          });
+        this.setState({ certifiedUloggers });
+      });
+  }
+
   handleCancelDeleteDraft = () => this.setState({ showModalDelete: false });
 
   saveDraft = _.debounce(form => {
@@ -235,8 +266,21 @@ class Write extends React.Component {
     const redirect = id !== this.draftId;
     const editorUrl = this.props.location.pathname.split('/')[1];
 
-    this.props.saveDraft({ postData: data, id: this.draftId, editorUrl: editorUrl }, redirect, this.props.intl);
+    this.props.saveDraft({ postData: data, id: this.draftId, editorUrl }, redirect, this.props.intl);
   }, 2000);
+
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
+  handleExtraMonetization = () => {
+    const { user } =  this.props
+    
+    if (this.state.certifiedUloggers.indexOf(user.name) >= 0) {
+      message.success('Coming soon!', 3);
+    } else {
+      message.success("This feature is only available to 'certified uloggers'. Click here to get certified!!", 3);
+    }
+  }
 
   render() {
     const { initialTitle, initialTopics, initialBody, initialReward, initialUpvote } = this.state;
@@ -292,6 +336,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -312,6 +357,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -332,6 +378,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -352,6 +399,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -372,6 +420,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -392,6 +441,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -412,6 +462,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -432,6 +483,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />
@@ -452,6 +504,7 @@ class Write extends React.Component {
                     onUpdate={this.saveDraft}
                     onSubmit={this.onSubmit}
                     onDelete={this.onDelete}
+                    handleExtraMonetization={this.handleExtraMonetization}
                   />
                 )}
               />

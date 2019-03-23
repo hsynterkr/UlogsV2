@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import { LocaleProvider, Layout } from 'antd';
+import { message, Alert, LocaleProvider, Layout } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import Cookie from 'js-cookie';
 import { findLanguage, getRequestLocale, getBrowserLocale, loadLanguage } from './translations';
@@ -41,6 +41,8 @@ import Topnav from './components/Navigation/Topnav';
 import Transfer from './wallet/Transfer';
 import PowerUpOrDown from './wallet/PowerUpOrDown';
 import BBackTop from './components/BBackTop';
+import * as announcement from './announcements/announcement'
+import AnnouncementBanner from './components/AnnouncementBanner'
 
 @withRouter
 @connect(
@@ -187,6 +189,13 @@ export default class Wrapper extends React.PureComponent {
     this.props.setUsedLocale(lang);
   }
 
+  /*
+   * Display a coming soon message when user clicks on any "Click Here" button
+   */
+  messageComingSoon = () => {
+    message.success('Coming soon!', 3);
+  }
+
   handleMenuItemClick(key) {
     switch (key) {
       case 'logout':
@@ -237,7 +246,7 @@ export default class Wrapper extends React.PureComponent {
       case 'merchandise':
       case 'exchange':
       case 'teardrop-smt':
-        alert("Coming soon!")
+        this.messageComingSoon();
         break;
       default:
         break;
@@ -249,11 +258,20 @@ export default class Wrapper extends React.PureComponent {
 
     const language = findLanguage(usedLocale);
 
+    // check if any of of the announcement message is set
+    const displayBanner = announcement.message1 || announcement.message2
+
+    // if both announcement messages are set, display a two-liner banner
+    const displayTwoLiner = (announcement.message1 && announcement.message2 !== "")
+
     return (
       <IntlProvider key={language.id} locale={language.localeData} messages={translations}>
         <LocaleProvider locale={enUS}>
           <Layout data-dir={language && language.rtl ? 'rtl' : 'ltr'}>
             <Layout.Header style={{ position: 'fixed', width: '100%', zIndex: 1050 }}>
+              {displayBanner && (
+                <AnnouncementBanner displayTwoLiner={displayTwoLiner} />
+              )}
               <Topnav username={user.name} onMenuItemClick={this.handleMenuItemClick} />
             </Layout.Header>
             <div className="content">

@@ -12,7 +12,7 @@ import {
   FormattedNumber,
 } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { Icon } from 'antd';
+import { Button, Icon, message } from 'antd';
 import Lightbox from 'react-image-lightbox';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { getFromMetadata, extractImageTags } from '../../helpers/parser';
@@ -100,6 +100,7 @@ class StoryFull extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleContentClick = this.handleContentClick.bind(this);
+    this.displayComingSoon = this.displayComingSoon.bind(this);
   }
 
   componentDidMount() {
@@ -153,6 +154,13 @@ class StoryFull extends React.Component {
         }
       }
     }
+  }
+
+  /*
+   * Display a coming soon message.
+   */
+  displayComingSoon = () => {
+    message.success('Coming soon!', 3);
   }
 
   renderDtubeEmbedPlayer() {
@@ -484,7 +492,17 @@ class StoryFull extends React.Component {
               {_.uniq(tags)
                 .filter(_.isString)
                 .map(tag => <Topic key={tag} name={tag} />)}
-              <div style={{ flex: '0 0 20px' }} />
+              <div style={{ flex: '1 0 auto' }} />
+              {postState.isCertifiedUlogger &&
+                <Button
+                  size="small"
+                  style={{ alignSelf: 'center', flex: '0 1 auto'}}
+                  type="primary"
+                  onClick={this.displayComingSoon}
+                >
+                  U-Promote
+                </Button>
+              }
             </div>
           </Scrollbars>
         </div>
