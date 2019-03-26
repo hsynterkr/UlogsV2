@@ -262,7 +262,7 @@ export default class Wrapper extends React.PureComponent {
     const displayBanner = announcement.message1 || announcement.message2
 
     // if both announcement messages are set, display a two-liner banner
-    const displayTwoLiner = (announcement.message1 && announcement.message2 !== "")
+    const displayTwoLiner = (announcement.message1 && announcement.message2) !== ""
 
     return (
       <IntlProvider key={language.id} locale={language.localeData} messages={translations}>
