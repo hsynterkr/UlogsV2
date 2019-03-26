@@ -56,7 +56,7 @@ export const saveDraft = (post, redirect, intl) => dispatch => {
     },
     meta: { postId: post.id },
   }).then(() => {
-    if (redirect) dispatch(push(`/editor?draft=${post.id}`));
+    if (redirect) dispatch(push(`/${post.editorUrl}?draft=${post.id}`));
   });
 }
 
@@ -79,10 +79,9 @@ export const editPost = (post, intl) => dispatch => {
     isUpdating: true,
   };
 
-  const editorLocation = getEditorLocation(draft.jsonMetadata.tags);
-  console.log(editorLocation);
-  dispatch(saveDraft({ postData: draft, id: post.id })).then(() =>
-    dispatch(push(`/${editorLocation}?draft=${post.id}`)),
+  const editorUrl = getEditorLocation(draft.jsonMetadata.tags);
+  dispatch(saveDraft({ postData: draft, id: post.id, editorUrl })).then(() =>
+    dispatch(push(`/${editorUrl}?draft=${post.id}`)),
   );
 };
 
