@@ -1,3 +1,4 @@
+require('dotenv').config()
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const paths = require('../scripts/paths');
