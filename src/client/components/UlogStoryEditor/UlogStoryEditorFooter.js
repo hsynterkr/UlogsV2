@@ -104,6 +104,7 @@ UlogStoryEditorFooter.propTypes = {
   submittingPostText: PropTypes.string,
   handleCreatePost: PropTypes.func,
   handleImageChange: PropTypes.func,
+  handleCategoryChange: PropTypes.func,
   onRemoveImage: PropTypes.func,
   handleFooterFocus: PropTypes.func,
 };
@@ -116,6 +117,7 @@ UlogStoryEditorFooter.defaultProps = {
   submittingPostText: 'Submitting',
   handleCreatePost: () => {},
   handleImageChange: () => {},
+  handleCategoryChange: () => {},
   onRemoveImage: () => {},
   handleFooterFocus: () => {},
 };
