@@ -5,7 +5,22 @@ import classNames from 'classnames';
 import { Icon, Select } from 'antd';
 import Action from '../Button/Action';
 
-const Option = Select.Option
+const Option = Select.Option;
+const categories = [
+  'ulog-images',
+  'ulography',
+  'ulog-graphics',
+  'ulogifs',
+  'ulog-news',
+  'ulog-arts',
+  'ulog-unfinishedarts',
+  'ulog-drafts',
+  'ulog-memes',
+  'ulog-resolutions',
+  'ulog-quotes',
+  'ulog-showerthoughts',
+  'ulog-snookmademedoit',
+];
 
 const UlogStoryEditorFooter = ({
   currentImages,
@@ -13,6 +28,7 @@ const UlogStoryEditorFooter = ({
   postCreationLoading,
   handleCreatePost,
   handleImageChange,
+  handleCategoryChange,
   postText,
   submittingPostText,
   onRemoveImage,
@@ -61,20 +77,13 @@ const UlogStoryEditorFooter = ({
         )}
       </label>
     </div>
-    <Select defaultValue="ulog-images" style={{ width: 120 }}>
-      <Option value="ulog-images">#ulog-images</Option>
-      <Option value="ulography">#ulography</Option>
-      <Option value="ulog-graphics">#ulog-graphics</Option>
-      <Option value="ulogifs">#ulogifs</Option>
-      <Option value="ulog-news">#ulog-news</Option>
-      <Option value="ulog-arts">#ulog-arts</Option>
-      <Option value="luculog-unfinishedartsy">#ulog-unfinishedarts</Option>
-      <Option value="ulog-drafts">#ulog-drafts</Option>
-      <Option value="ulog-memes">#ulog-memes</Option>
-      <Option value="ulog-resolutions">#ulog-resolutions</Option>
-      <Option value="ulog-quotes">#ulog-quotes</Option>
-      <Option value="ulog-showerthoughts">#ulog-showerthoughts</Option>
-      <Option value="ulog-snookmademedoit">#ulog-snookmademedoit</Option>
+    <Select
+      style={{ flex: "1 0", margin: "5px" }}
+      onChange={handleCategoryChange}
+    >
+      {_.map(categories, category => (
+        <Option value={category}>#{category}</Option>
+      ))}
     </Select>
     <Action
       primary

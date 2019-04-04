@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Modal, Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import Story from './Story';
@@ -10,7 +10,7 @@ import steemAPI from '../../steemAPI';
 import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
-import { Modal } from 'antd';
+import UlogStoryEditor from '../UlogStoryEditor/UlogStoryEditor';
 import {
   getIsAuthenticated,
 } from '../../reducers';
@@ -113,6 +113,7 @@ class UlogStories extends React.Component {
     const { users, loading, noUsers, showModalLogin } = this.state;
     const { authenticated, location } = this.props;
     const next = location.pathname.length > 1 ? location.pathname : '';
+    const Option = Select.Option;
 
     if (noUsers) {
       return <div />;
@@ -144,8 +145,14 @@ class UlogStories extends React.Component {
           </div>
           {users && users.map(user => <Story key={user.name} user={user} />)}
         </div>
-        <Modal title="Title" visible={showModalLogin} onOk={this.modalHandleOk} onCancel={this.modalHandleOk}>
-          <p>This features requires login, else sign-up</p>
+        <Modal
+          title="Ulog Story"
+          visible={showModalLogin}
+          onOk={this.modalHandleOk}
+          onCancel={this.modalHandleOk}
+          footer={null}
+        >
+          <UlogStoryEditor />
         </Modal>
       </div>
     );

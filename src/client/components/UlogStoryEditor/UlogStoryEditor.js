@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
-import { Input, Dropdown, Menu, Icon, Select } from 'antd';
+import { Input } from 'antd';
 import uuidv4 from 'uuid/v4';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { getAuthenticatedUser, getIsEditorLoading, getUpvoteSetting } from '../../reducers';
@@ -56,6 +56,7 @@ class UlogStoryEditor extends React.Component {
     imageUploading: false,
     dropzoneActive: false,
     currentInputValue: '',
+    currentCategory: '',
     currentImages: [],
     focusedInput: false,
     inputMinRows: 1,
@@ -76,10 +77,6 @@ class UlogStoryEditor extends React.Component {
   };
 
   getQuickPostData = () => {
-    const currentPaths = this.props.location.pathname.split('/');
-    const ulogTag = 'ulog';
-    const tag = currentPaths[2];
-    const tags = [];
     const images = _.map(this.state.currentImages, image => image.src);
     const postBody = _.reduce(
       this.state.currentImages,
@@ -110,20 +107,13 @@ class UlogStoryEditor extends React.Component {
       metaData.image = images;
     }
 
-    // if url location is not under a tag, set 'ulog' as default tag
-    if (_.isEmpty(tag)) {
-      tags.push(ulogTag);
-
-    // if a ulog subtag, set ulog as first tag, then the ulog-subtag next
-    } else if (tag && tag.indexOf('ulog-') >= 0) {
-      tags.push(ulogTag);
-      tags.push(tag);
-
-    // if not a ulog subtag, set it as is
-    } else {
-      tags.push(tag);
+    // set 'ulog' as default tag, and selected category as second
+    const ulogTag = 'ulog';
+    const tag = this.state.currentCategory;
+    const tags = [ulogTag];
+    if (tag) {
+      tags.push(tag)
     }
-
     metaData.tags = tags;
 
     data.parentPermlink = _.isEmpty(tag) ? ulogTag : tag;
@@ -185,7 +175,6 @@ class UlogStoryEditor extends React.Component {
   };
 
   handleImageChange = e => {
-    console.log("handle image change: prevent default")
     e.preventDefault();
     e.stopPropagation();
 
@@ -240,6 +229,12 @@ class UlogStoryEditor extends React.Component {
       currentInputValue: e.target.value,
     });
 
+  handleCategoryChange = value => {
+    this.setState({
+      currentCategory: value,
+    });
+  }
+
   handleRemoveImage = currentImage => {
     const imageIndex = _.findIndex(this.state.currentImages, image => image.id === currentImage.id);
     const currentImages = [...this.state.currentImages];
@@ -247,15 +242,9 @@ class UlogStoryEditor extends React.Component {
     this.setState({ currentImages });
   };
 
-  handleChange = value => {
-    console.log(`selected ${value}`);
-  };
-  
   render() {
     const { imageUploading, focusedInput, currentImages, inputMinRows } = this.state;
     const { user, postCreationLoading, intl } = this.props;
-
-    const Option = Select.Option;
 
     return (
       <div className="UlogStoryEditor">
@@ -285,6 +274,7 @@ class UlogStoryEditor extends React.Component {
               <Input.TextArea
                 autosize={{ minRows: inputMinRows, maxRows: 12 }}
                 onChange={this.handleUpdateCurrentInputValue}
+                onBlur={this.handleUnfocusInput}
                 ref={ref => this.setInput(ref)}
                 placeholder={intl.formatMessage({
                   id: 'ulog_write_quick_post',
@@ -301,6 +291,7 @@ class UlogStoryEditor extends React.Component {
           postCreationLoading={postCreationLoading}
           handleCreatePost={this.handleCreatePost}
           handleImageChange={this.handleImageChange}
+          handleCategoryChange={this.handleCategoryChange}
           postText={intl.formatMessage({
             id: 'post_send',
             defaultMessage: 'Post',
