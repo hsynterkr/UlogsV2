@@ -146,7 +146,12 @@ class UlogStories extends React.Component {
           {users && users.map(user => <Story key={user.name} user={user} />)}
         </div>
         <Modal
-          title="Ulog Story"
+          title={
+            <FormattedMessage
+              id="ulog_story_quick_post_title"
+              defaultMessage="Ulog Story - Save the day! Tell us what you see; what is on your mind; what's going on around you currently..."
+            />
+          }
           visible={showModalLogin}
           onOk={this.modalHandleOk}
           onCancel={this.modalHandleOk}
