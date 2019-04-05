@@ -82,7 +82,7 @@ const UlogStoryEditorFooter = ({
       onChange={handleCategoryChange}
     >
       {_.map(categories, category => (
-        <Option value={category}>#{category}</Option>
+        <Option value={category} key={category}>#{category}</Option>
       ))}
     </Select>
     <Action

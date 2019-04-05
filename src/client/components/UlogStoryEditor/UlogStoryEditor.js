@@ -34,6 +34,7 @@ const version = require('../../../../package.json').version;
   },
 )
 class UlogStoryEditor extends React.Component {
+  // component's property types for checking
   static propTypes = {
     postCreationLoading: PropTypes.bool.isRequired,
     user: PropTypes.shape().isRequired,
@@ -121,10 +122,6 @@ class UlogStoryEditor extends React.Component {
     data.jsonMetadata = metaData;
 
     return data;
-  };
-
-  resizeTextArea = () => {
-    if (this.originalInput) this.originalInput.resizeTextarea();
   };
 
   insertImage = (image, imageName = 'image') => {
@@ -277,8 +274,8 @@ class UlogStoryEditor extends React.Component {
                 onBlur={this.handleUnfocusInput}
                 ref={ref => this.setInput(ref)}
                 placeholder={intl.formatMessage({
-                  id: 'ulog_write_quick_post',
-                  defaultMessage: `Save the day! Tell us what you see; what is on your mind; what's going on around you currently...`,
+                  id: 'write_ulog_story',
+                  defaultMessage: `Write a ulog story...`,
                 })}
                 value={this.state.currentInputValue}
                 maxLength="255"
