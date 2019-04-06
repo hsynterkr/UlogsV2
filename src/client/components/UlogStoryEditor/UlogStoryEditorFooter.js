@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
 import { Icon, Select } from 'antd';
+import ReactMarkdown from 'react-markdown';
 import Action from '../Button/Action';
 
 const Option = Select.Option;
@@ -26,6 +27,7 @@ const UlogStoryEditorFooter = ({
   currentImages,
   imageUploading,
   postCreationLoading,
+  isCertifiedUlogger,
   handleCreatePost,
   handleImageChange,
   handleCategoryChange,
@@ -93,6 +95,11 @@ const UlogStoryEditorFooter = ({
     >
       {postCreationLoading ? submittingPostText : postText}
     </Action>
+    {!isCertifiedUlogger && 
+      <div>
+        <ReactMarkdown source={`Please note that while you will be able to successfully post to steem and ofcourse have your post appear on ulogs.org (as a post), your post will not be displayed on our "Ulog-Stories" display-column as this column is reserved for "certified uloggers" only. However, every(any)one can become "certified". We invite you to contact us!`} />
+      </div>
+    }
   </div>
 );
 

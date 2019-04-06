@@ -72,8 +72,7 @@ class UlogStories extends React.Component {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.shuffle(result)
-          .slice(0, 5)
+        const users = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
@@ -111,9 +110,9 @@ class UlogStories extends React.Component {
 
   render() {
     const { users, loading, noUsers, showModalLogin } = this.state;
+    const splicedUloggers = _.shuffle(users).slice(0, 5);
     const { authenticated, location } = this.props;
     const next = location.pathname.length > 1 ? location.pathname : '';
-    const Option = Select.Option;
 
     if (noUsers) {
       return <div />;
@@ -143,7 +142,7 @@ class UlogStories extends React.Component {
           <div style={{ textAlign: 'left', padding: 3 }}>
             Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
           </div>
-          {users && users.map(user => <Story key={user.name} user={user} />)}
+          {splicedUloggers && splicedUloggers.map(user => <Story key={user.name} user={user} />)}
         </div>
         <Modal
           title={
