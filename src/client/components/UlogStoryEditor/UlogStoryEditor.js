@@ -296,6 +296,7 @@ class UlogStoryEditor extends React.Component {
         <UlogStoryEditorFooter
           imageUploading={imageUploading}
           postCreationLoading={postCreationLoading}
+          isCertifiedUlogger={isCertifiedUlogger}
           handleCreatePost={this.handleCreatePost}
           handleImageChange={this.handleImageChange}
           handleCategoryChange={this.handleCategoryChange}
