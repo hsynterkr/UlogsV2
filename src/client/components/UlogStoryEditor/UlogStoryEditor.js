@@ -8,7 +8,12 @@ import _ from 'lodash';
 import { Input } from 'antd';
 import uuidv4 from 'uuid/v4';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import { getAuthenticatedUser, getIsEditorLoading, getUpvoteSetting } from '../../reducers';
+import {
+  getAuthenticatedUser,
+  getIsEditorLoading,
+  getUpvoteSetting,
+  getUloggersFollowingList,
+} from '../../reducers';
 import { isValidImage, MAXIMUM_UPLOAD_SIZE } from '../../helpers/image';
 import { notify } from '../../app/Notification/notificationActions';
 import withEditor from '../Editor/withEditor';
@@ -27,6 +32,7 @@ const version = require('../../../../package.json').version;
     user: getAuthenticatedUser(state),
     postCreationLoading: getIsEditorLoading(state),
     upvote: getUpvoteSetting(state),
+    certifiedUloggers: getUloggersFollowingList(state),
   }),
   {
     notify,
@@ -45,6 +51,7 @@ class UlogStoryEditor extends React.Component {
     onImageUpload: PropTypes.func,
     onImageInvalid: PropTypes.func,
     upvote: PropTypes.bool.isRequired,
+    certifiedUloggers: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
   static defaultProps = {
@@ -241,7 +248,10 @@ class UlogStoryEditor extends React.Component {
 
   render() {
     const { imageUploading, focusedInput, currentImages, inputMinRows } = this.state;
-    const { user, postCreationLoading, intl } = this.props;
+    const { user, postCreationLoading, intl, certifiedUloggers } = this.props;
+    const isCertifiedUlogger = certifiedUloggers.includes(user.name);
+
+    console.log('isCertifiedUlogger', isCertifiedUlogger)
 
     return (
       <div className="UlogStoryEditor">
