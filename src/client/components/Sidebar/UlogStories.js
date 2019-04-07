@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Button, Modal, Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
+import {
+  getUloggersFollowingList,
+} from '../../reducers';
 import Story from './Story';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
@@ -11,11 +15,13 @@ import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 import UlogStoryEditor from '../UlogStoryEditor/UlogStoryEditor';
-import {
-  getIsAuthenticated,
-} from '../../reducers';
 
 @withRouter
+@connect(
+  state => ({
+    certifiedUloggers: getUloggersFollowingList(state),
+  }),
+)
 class UlogStories extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
@@ -39,6 +45,7 @@ class UlogStories extends React.Component {
 
     this.state = {
       users: [],
+      certifiedUloggers: [],
       loading: true,
       noUsers: false,
       showModalLogin: false
@@ -73,6 +80,7 @@ class UlogStories extends React.Component {
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
         const users = _.sortBy(result, 'following')
+          .slice(0, 5)
           .map(user => {
             let name = _.get(user, 0);
 
@@ -108,9 +116,23 @@ class UlogStories extends React.Component {
     })
   }
 
+  handleLoadMore = () => {
+    const displayLimit = 5;
+    const { certifiedUloggers } = this.props;
+    const { users } = this.state;
+    const moreUsersStartIndex = users.length;
+    const moreUsers = certifiedUloggers.sort()
+      .slice(moreUsersStartIndex, moreUsersStartIndex + displayLimit);
+
+    steemAPI.sendAsync('get_accounts', [moreUsers]).then(moreUsersResponse =>
+      this.setState({
+        users: users.concat(moreUsersResponse),
+      }),
+    );
+  };
+
   render() {
     const { users, loading, noUsers, showModalLogin } = this.state;
-    const splicedUloggers = _.shuffle(users).slice(0, 5);
     const { authenticated, location } = this.props;
     const next = location.pathname.length > 1 ? location.pathname : '';
 
@@ -142,7 +164,10 @@ class UlogStories extends React.Component {
           <div style={{ textAlign: 'left', padding: 3 }}>
             Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
           </div>
-          {splicedUloggers && splicedUloggers.map(user => <Story key={user.name} user={user} />)}
+          {users.map(user => <Story key={user.name} user={user} />)}
+          <button onClick={this.handleLoadMore} >
+            View More
+          </button>
         </div>
         <Modal
           title={
