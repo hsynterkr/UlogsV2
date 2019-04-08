@@ -8,7 +8,7 @@ import _ from 'lodash';
 import {
   getUloggersFollowingList,
 } from '../../reducers';
-import Story from './Story';
+import UlogStory from './UlogStory';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import SteemConnect from '../../steemConnectAPI';
@@ -46,6 +46,7 @@ class UlogStories extends React.Component {
     this.state = {
       users: [],
       certifiedUloggers: [],
+      ulogStoriesObj: {},
       loading: true,
       noUsers: false,
       showModalLogin: false
@@ -55,6 +56,7 @@ class UlogStories extends React.Component {
     this.showModal = this.showModal.bind(this);
     this.modalHandleOk = this.modalHandleOk.bind(this);
   }
+
   showModal(){
     const {showModalLogin} = this.state;
     this.setState({
@@ -74,8 +76,7 @@ class UlogStories extends React.Component {
     }
   }
 
-
-  getCertifiedUloggers() {
+  async getCertifiedUloggers() {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
@@ -92,11 +93,30 @@ class UlogStories extends React.Component {
             };
           });
         if (users.length > 0) {
-          this.setState({
-            users,
-            loading: false,
-            noUsers: false,
+          users.forEach(user => {
+            var query = {
+              tag: user.name, // This tag is used to filter the results by a specific post tag
+              limit: 1, // This limit allows us to limit the overall results returned to 5
+            };
+
+            steemAPI
+              .sendAsync('get_discussions_by_blog', [query])
+              .then(result  => {
+                let { ulogStoriesObj } = this.state;
+                ulogStoriesObj[result[0].author] = result[0].permlink;
+                this.setState({
+                  ulogStoriesObj,
+                });
+              })
+              .then(() => {
+                this.setState({
+                  loading: false,
+                  noUsers: false,
+                });
+              });
+              
           });
+
         } else {
           this.setState({
             noUsers: true,
@@ -109,6 +129,7 @@ class UlogStories extends React.Component {
         });
       });
   }
+
   modalHandleOk(){
     const showModalLogin = this.state;
     this.setState({
@@ -132,7 +153,7 @@ class UlogStories extends React.Component {
   };
 
   render() {
-    const { users, loading, noUsers, showModalLogin } = this.state;
+    const { users, ulogStoriesObj, loading, noUsers, showModalLogin } = this.state;
     const { authenticated, location } = this.props;
     const next = location.pathname.length > 1 ? location.pathname : '';
 
@@ -164,10 +185,12 @@ class UlogStories extends React.Component {
           <div style={{ textAlign: 'left', padding: 3 }}>
             Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
           </div>
-          {users.map(user => <Story key={user.name} user={user} />)}
-          <button onClick={this.handleLoadMore} >
+          {Object.entries(ulogStoriesObj).map(story => 
+            <UlogStory key={story[0]} story={{author: story[0], permlink: story[1]}} />
+          )}
+          <Button onClick={this.handleLoadMore} type="primary">
             View More
-          </button>
+          </Button>
         </div>
         <Modal
           title={
