@@ -1,6 +1,6 @@
 import React from 'react';
 import Brocard from './Brocard';
-import './bropro.css';
+//import './bropro.css';
 
 class Bropro extends React.Component {
   constructor(props) {
