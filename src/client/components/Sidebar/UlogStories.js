@@ -88,13 +88,15 @@ class UlogStories extends React.Component {
         
         // if there are certified uloggers
         if (certifiedUloggerNames.length > 0) {
-
-          // get the first post of each certified ulogger
+          // get the latest posts from each certified ulogger
           certifiedUloggerNames.forEach(userName => {
             var query = {
-              tag: userName, // This tag is used to filter the results by a specific post tag
-              limit: 1, // This limit allows us to limit the overall results returned to 5
+              tag: userName, // This tag is used to filter the results by a specific post author
+              limit: 5, // This limit allows us to limit the overall results returned
             };
+            this.setState({
+              loading: true,
+            });
 
             steemAPI
               .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
@@ -112,23 +114,10 @@ class UlogStories extends React.Component {
                   }
                 );
 
-                // sort ulog stories by descending created date
-                ulogStoriesArr.sort((a, b) => {
-                  var keyA = new Date(a.created),
-                      keyB = new Date(b.created);
-                  if(keyA > keyB) return -1;
-                  if(keyA < keyB) return 1;
-                  return 0;
-                });
-
                 // set ulog stories to state
+                // set loading and no users to false to display ulog stories
                 this.setState({
                   ulogStoriesArr,
-                });
-              })
-              // set loading and no users to false to display ulog stories
-              .then(() => {
-                this.setState({
                   loading: false,
                   noUsers: false,
                 });
@@ -136,6 +125,7 @@ class UlogStories extends React.Component {
               
           });
 
+          // set the initial list to display the first 5 ulog stories
           this.setState({ displayStories: 5 });
 
         } else {
@@ -165,6 +155,15 @@ class UlogStories extends React.Component {
 
   render() {
     const { ulogStoriesArr, loading, noUsers, showModalLogin, displayStories } = this.state;
+    // sort ulog stories by descending created date
+    ulogStoriesArr.sort((a, b) => {
+      var keyA = new Date(a.created),
+          keyB = new Date(b.created);
+      if(keyA > keyB) return -1;
+      if(keyA < keyB) return 1;
+      return 0;
+    });
+
     const slicedUlogStories = ulogStoriesArr.slice(0, displayStories);
     const { authenticated, location } = this.props;
     const hasMoreStories = (displayStories < ulogStoriesArr.length);
@@ -199,7 +198,7 @@ class UlogStories extends React.Component {
             <UlogStory key={story.permlink} story={{ author: story.author, permlink: story.permlink }} />
           )}
           {hasMoreStories && 
-            <Button onClick={this.handleLoadMore} type="primary" disabled>
+            <Button onClick={this.handleLoadMore} type="primary">
               View More
             </Button>
           }
