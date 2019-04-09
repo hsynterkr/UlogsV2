@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Button, Modal, Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
-import Story from './Story';
+import {
+  getUloggersFollowingList,
+} from '../../reducers';
+import UlogStory from './UlogStory';
 import Loading from '../../components/Icon/Loading';
 import steemAPI from '../../steemAPI';
 import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
 import './SidebarContentBlock.less';
 import UlogStoryEditor from '../UlogStoryEditor/UlogStoryEditor';
-import {
-  getIsAuthenticated,
-} from '../../reducers';
 
 @withRouter
+@connect(
+  state => ({
+    certifiedUloggers: getUloggersFollowingList(state),
+  }),
+)
 class UlogStories extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
@@ -38,16 +44,21 @@ class UlogStories extends React.Component {
     super(props);
 
     this.state = {
-      users: [],
+      certifiedUloggerNames: [],
+      certifiedUloggers: [],
+      ulogStoriesObj: {},
+      ulogStoriesArr: [],
       loading: true,
       noUsers: false,
-      showModalLogin: false
+      showModalLogin: false,
+      displayStories: 0,
     };
 
-    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
+    this.getUlogStories = this.getUlogStories.bind(this);
     this.showModal = this.showModal.bind(this);
     this.modalHandleOk = this.modalHandleOk.bind(this);
   }
+
   showModal(){
     const {showModalLogin} = this.state;
     this.setState({
@@ -56,39 +67,67 @@ class UlogStories extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
-    }
+    this.getUlogStories();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
-    }
-  }
-
-
-  getCertifiedUloggers() {
+  getUlogStories() {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.sortBy(result, 'following')
+
+        // get certified ulogger names
+        const certifiedUloggerNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
             if (_.isEmpty(name)) {
               name = _.get(user, 'following');
             }
-            return {
-              name,
+            return name;
+          });
+        
+        // if there are certified uloggers
+        if (certifiedUloggerNames.length > 0) {
+          // get the latest posts from each certified ulogger
+          certifiedUloggerNames.forEach(userName => {
+            var query = {
+              tag: userName, // This tag is used to filter the results by a specific post author
+              limit: 5, // This limit allows us to limit the overall results returned
             };
+            this.setState({
+              loading: true,
+            });
+
+            steemAPI
+              .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
+              .then(result  => {
+                // filter-out posts from non-certified users
+                if(certifiedUloggerNames.indexOf(result[0].author) < 0) return;
+
+                // push post to ulog stories array
+                let { ulogStoriesArr } = this.state;
+                ulogStoriesArr.push(
+                  { 
+                    author: result[0].author, 
+                    permlink: result[0].permlink, 
+                    created: result[0].created
+                  }
+                );
+
+                // set ulog stories to state
+                // set loading and no users to false to display ulog stories
+                this.setState({
+                  ulogStoriesArr,
+                  loading: false,
+                  noUsers: false,
+                });
+              });
+              
           });
-        if (users.length > 0) {
-          this.setState({
-            users,
-            loading: false,
-            noUsers: false,
-          });
+
+          // set the initial list to display the first 5 ulog stories
+          this.setState({ displayStories: 5 });
+
         } else {
           this.setState({
             noUsers: true,
@@ -101,6 +140,7 @@ class UlogStories extends React.Component {
         });
       });
   }
+
   modalHandleOk(){
     const showModalLogin = this.state;
     this.setState({
@@ -108,10 +148,25 @@ class UlogStories extends React.Component {
     })
   }
 
+  handleLoadMore = () => {
+    const { displayStories } = this.state;
+    this.setState({ displayStories: displayStories + 5 });
+  };
+
   render() {
-    const { users, loading, noUsers, showModalLogin } = this.state;
-    const splicedUloggers = _.shuffle(users).slice(0, 5);
+    const { ulogStoriesArr, loading, noUsers, showModalLogin, displayStories } = this.state;
+    // sort ulog stories by descending created date
+    ulogStoriesArr.sort((a, b) => {
+      var keyA = new Date(a.created),
+          keyB = new Date(b.created);
+      if(keyA > keyB) return -1;
+      if(keyA < keyB) return 1;
+      return 0;
+    });
+
+    const slicedUlogStories = ulogStoriesArr.slice(0, displayStories);
     const { authenticated, location } = this.props;
+    const hasMoreStories = (displayStories < ulogStoriesArr.length);
     const next = location.pathname.length > 1 ? location.pathname : '';
 
     if (noUsers) {
@@ -127,9 +182,6 @@ class UlogStories extends React.Component {
         <h4 className="SidebarContentBlock__title">
           <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
           <FormattedMessage id="ulog_stories" defaultMessage="Ulog Stories" />
-          <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
-            <i className="iconfont icon-refresh" />
-          </button>
         </h4>
         <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
           {authenticated ? (
@@ -142,7 +194,14 @@ class UlogStories extends React.Component {
           <div style={{ textAlign: 'left', padding: 3 }}>
             Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
           </div>
-          {splicedUloggers && splicedUloggers.map(user => <Story key={user.name} user={user} />)}
+          {slicedUlogStories.map(story => 
+            <UlogStory key={story.permlink} story={{ author: story.author, permlink: story.permlink }} />
+          )}
+          {hasMoreStories && 
+            <Button onClick={this.handleLoadMore} type="primary">
+              View More
+            </Button>
+          }
         </div>
         <Modal
           title={

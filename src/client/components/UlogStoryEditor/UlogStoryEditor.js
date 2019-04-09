@@ -251,8 +251,6 @@ class UlogStoryEditor extends React.Component {
     const { user, postCreationLoading, intl, certifiedUloggers } = this.props;
     const isCertifiedUlogger = certifiedUloggers.includes(user.name);
 
-    console.log('isCertifiedUlogger', isCertifiedUlogger)
-
     return (
       <div className="UlogStoryEditor">
         <div className="UlogStoryEditor__contents">
