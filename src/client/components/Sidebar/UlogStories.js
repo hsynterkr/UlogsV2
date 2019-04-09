@@ -44,15 +44,17 @@ class UlogStories extends React.Component {
     super(props);
 
     this.state = {
-      users: [],
+      certifiedUloggerNames: [],
       certifiedUloggers: [],
       ulogStoriesObj: {},
+      ulogStoriesArr: [],
       loading: true,
       noUsers: false,
-      showModalLogin: false
+      showModalLogin: false,
+      displayStories: 0,
     };
 
-    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
+    this.getUlogStories = this.getUlogStories.bind(this);
     this.showModal = this.showModal.bind(this);
     this.modalHandleOk = this.modalHandleOk.bind(this);
   }
@@ -65,49 +67,66 @@ class UlogStories extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
-    }
+    this.getUlogStories();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
-    }
-  }
-
-  async getCertifiedUloggers() {
+  getUlogStories() {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.sortBy(result, 'following')
-          .slice(0, 5)
+
+        // get certified ulogger names
+        const certifiedUloggerNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
             if (_.isEmpty(name)) {
               name = _.get(user, 'following');
             }
-            return {
-              name,
-            };
+            return name;
           });
-        if (users.length > 0) {
-          users.forEach(user => {
+        
+        // if there are certified uloggers
+        if (certifiedUloggerNames.length > 0) {
+
+          // get the first post of each certified ulogger
+          certifiedUloggerNames.forEach(userName => {
             var query = {
-              tag: user.name, // This tag is used to filter the results by a specific post tag
+              tag: userName, // This tag is used to filter the results by a specific post tag
               limit: 1, // This limit allows us to limit the overall results returned to 5
             };
 
             steemAPI
-              .sendAsync('get_discussions_by_blog', [query])
+              .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
               .then(result  => {
-                let { ulogStoriesObj } = this.state;
-                ulogStoriesObj[result[0].author] = result[0].permlink;
+                // filter-out posts from non-certified users
+                if(certifiedUloggerNames.indexOf(result[0].author) < 0) return;
+
+                // push post to ulog stories array
+                let { ulogStoriesArr } = this.state;
+                ulogStoriesArr.push(
+                  { 
+                    author: result[0].author, 
+                    permlink: result[0].permlink, 
+                    created: result[0].created
+                  }
+                );
+
+                // sort ulog stories by descending created date
+                ulogStoriesArr.sort((a, b) => {
+                  var keyA = new Date(a.created),
+                      keyB = new Date(b.created);
+                  if(keyA > keyB) return -1;
+                  if(keyA < keyB) return 1;
+                  return 0;
+                });
+
+                // set ulog stories to state
                 this.setState({
-                  ulogStoriesObj,
+                  ulogStoriesArr,
                 });
               })
+              // set loading and no users to false to display ulog stories
               .then(() => {
                 this.setState({
                   loading: false,
@@ -116,6 +135,8 @@ class UlogStories extends React.Component {
               });
               
           });
+
+          this.setState({ displayStories: 5 });
 
         } else {
           this.setState({
@@ -138,23 +159,15 @@ class UlogStories extends React.Component {
   }
 
   handleLoadMore = () => {
-    const displayLimit = 5;
-    const { certifiedUloggers } = this.props;
-    const { users } = this.state;
-    const moreUsersStartIndex = users.length;
-    const moreUsers = certifiedUloggers.sort()
-      .slice(moreUsersStartIndex, moreUsersStartIndex + displayLimit);
-
-    steemAPI.sendAsync('get_accounts', [moreUsers]).then(moreUsersResponse =>
-      this.setState({
-        users: users.concat(moreUsersResponse),
-      }),
-    );
+    const { displayStories } = this.state;
+    this.setState({ displayStories: displayStories + 5 });
   };
 
   render() {
-    const { users, ulogStoriesObj, loading, noUsers, showModalLogin } = this.state;
+    const { ulogStoriesArr, loading, noUsers, showModalLogin, displayStories } = this.state;
+    const slicedUlogStories = ulogStoriesArr.slice(0, displayStories);
     const { authenticated, location } = this.props;
+    const hasMoreStories = (displayStories < ulogStoriesArr.length);
     const next = location.pathname.length > 1 ? location.pathname : '';
 
     if (noUsers) {
@@ -170,9 +183,6 @@ class UlogStories extends React.Component {
         <h4 className="SidebarContentBlock__title">
           <i className="iconfont icon-group SidebarContentBlock__icon" />{' '}
           <FormattedMessage id="ulog_stories" defaultMessage="Ulog Stories" />
-          <button onClick={this.getCertifiedUloggers} className="InterestingPeople__button-refresh">
-            <i className="iconfont icon-refresh" />
-          </button>
         </h4>
         <div className="SidebarContentBlock__content" style={{ textAlign: 'center' }} >
           {authenticated ? (
@@ -185,12 +195,14 @@ class UlogStories extends React.Component {
           <div style={{ textAlign: 'left', padding: 3 }}>
             Share images, ulography, graphics, ulog-news, ulog-arts plain text etc freshly-created by you, today.
           </div>
-          {Object.entries(ulogStoriesObj).map(story => 
-            <UlogStory key={story[0]} story={{author: story[0], permlink: story[1]}} />
+          {slicedUlogStories.map(story => 
+            <UlogStory key={story.permlink} story={{ author: story.author, permlink: story.permlink }} />
           )}
-          <Button onClick={this.handleLoadMore} type="primary">
-            View More
-          </Button>
+          {hasMoreStories && 
+            <Button onClick={this.handleLoadMore} type="primary" disabled>
+              View More
+            </Button>
+          }
         </div>
         <Modal
           title={
