@@ -1,6 +1,8 @@
 import Wrapper from '../client/Wrapper';
 
 import Bookmarks from '../client/bookmarks/Bookmarks';
+import Bropro from '../client/bropro/Bropro';
+import Contact from '../client/contact/Contact';
 import Drafts from '../client/post/Write/Drafts';
 import Replies from '../client/replies/Replies';
 import Activity from '../client/activity/Activity';
@@ -163,6 +165,14 @@ const routes = [
       {
         path: '/grow',
         component: Grow,
+      },
+      {
+        path: '/bropro',
+        component: Bropro,
+      },
+      {
+        path: '/contact',
+        component: Contact,
       },
       {
         path: '/exit',
