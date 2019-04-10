@@ -1,0 +1,83 @@
+.banner {
+    background-color: purple;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.09'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.banner .innerWrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.banner .innerWrapper > * {
+    color: #fff !important;
+}
+
+.broproCards {
+    margin: 10px -13px 0px -13px;
+}
+
+.broproCards:after {
+    clear:both;
+    content:'';
+    display:table;
+}
+
+.bro-card-wrapper {
+    padding: 0 13px;
+    float:left;
+}
+
+.bro-card {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 25px;
+    height: 330px;
+    width: 300px;
+}
+
+.bro-card a {
+    display:block;
+    margin-bottom:20px;
+} 
+
+.bro-card h4 {
+    color: purple;
+    font-weight:bold;
+}
+
+.bro-card h6 {
+    margin: 20px;
+    font-size: 14px;
+}
+
+.bro-card img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.bro-card button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+}
