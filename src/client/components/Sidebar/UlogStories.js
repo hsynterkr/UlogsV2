@@ -10,6 +10,7 @@ import {
 } from '../../reducers';
 import UlogStory from './UlogStory';
 import Loading from '../../components/Icon/Loading';
+import { ulogStoriesTags } from '../../helpers/constants';
 import steemAPI from '../../steemAPI';
 import SteemConnect from '../../steemConnectAPI';
 import './InterestingPeople.less';
@@ -91,8 +92,8 @@ class UlogStories extends React.Component {
           // get the latest posts from each certified ulogger
           certifiedUloggerNames.forEach(userName => {
             var query = {
-              tag: userName, // This tag is used to filter the results by a specific post author
-              limit: 5, // This limit allows us to limit the overall results returned
+              tag: userName, // Filter the results by a specific post author
+              limit: 5, // Limit the number of posts returned
             };
             this.setState({
               loading: true,
@@ -101,16 +102,32 @@ class UlogStories extends React.Component {
             steemAPI
               .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
               .then(result  => {
+                const posts = Array.isArray(result) ? result : [];
+                const post = posts[0];
+
                 // filter-out posts from non-certified users
-                if(certifiedUloggerNames.indexOf(result[0].author) < 0) return;
+                if(certifiedUloggerNames.indexOf(post.author) < 0) return;
+                console.log('post', post);
+
+                // Add 'ulog' and 'ulogs' as valid ulog story tags
+                ulogStoriesTags.push('ulog', 'ulogs');
+                // filter posts that do not contain valid ulog tags
+                let containsUlogTag = false;
+                ulogStoriesTags.forEach(subtag => {
+                  const tags = post.tags;
+                  if (tags.indexOf(subtag) >= 0) {
+                    containsUlogTag = true;
+                  }
+                })
+                if (!containsUlogTag) return;
 
                 // push post to ulog stories array
                 let { ulogStoriesArr } = this.state;
                 ulogStoriesArr.push(
                   { 
-                    author: result[0].author, 
-                    permlink: result[0].permlink, 
-                    created: result[0].created
+                    author: post.author, 
+                    permlink: post.permlink, 
+                    created: post.created
                   }
                 );
 
