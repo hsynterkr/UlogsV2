@@ -26,7 +26,7 @@ export const people = [
   'surpassinggoogle',
 ];
 
-const ulogStoriesTags = [
+export const ulogStoriesTags = [
   'ulog-images',
   'ulography',
   'ulog-graphics',

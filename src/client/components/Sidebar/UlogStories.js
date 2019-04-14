@@ -107,14 +107,13 @@ class UlogStories extends React.Component {
 
                 // filter-out posts from non-certified users
                 if(certifiedUloggerNames.indexOf(post.author) < 0) return;
-                console.log('post', post);
 
                 // Add 'ulog' and 'ulogs' as valid ulog story tags
                 ulogStoriesTags.push('ulog', 'ulogs');
                 // filter posts that do not contain valid ulog tags
                 let containsUlogTag = false;
                 ulogStoriesTags.forEach(subtag => {
-                  const tags = post.tags;
+                  const tags = JSON.parse(post.json_metadata).tags;
                   if (tags.indexOf(subtag) >= 0) {
                     containsUlogTag = true;
                   }
