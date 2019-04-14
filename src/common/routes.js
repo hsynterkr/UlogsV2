@@ -2,6 +2,9 @@ import Wrapper from '../client/Wrapper';
 
 import Bookmarks from '../client/bookmarks/Bookmarks';
 import Bropro from '../client/bropro/Bropro';
+import FavoriteMentor from '../client/bropro/FavoriteMentor';
+import PopularCommunity from '../client/bropro/PopularCommunity';
+import ExtraClout from '../client/bropro/ExtraClout';
 import Contact from '../client/contact/Contact';
 import Drafts from '../client/post/Write/Drafts';
 import Replies from '../client/replies/Replies';
@@ -171,7 +174,19 @@ const routes = [
         component: Bropro,
       },
       {
-        path: '/contact',
+        path: '/favorite-mentor',
+        component: FavoriteMentor,
+      },
+      {
+        path: '/popular-community',
+        component: PopularCommunity,
+      },
+      {
+        path: '/extra-clout',
+        component: ExtraClout,
+      },
+      {
+        path: '/send-us-a-gift',
         component: Contact,
       },
       {
