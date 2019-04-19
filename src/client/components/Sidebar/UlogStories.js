@@ -50,7 +50,6 @@ class UlogStories extends React.Component {
       ulogStoriesObj: {},
       ulogStoriesArr: [],
       loading: true,
-      noUsers: false,
       showModalLogin: false,
       displayStories: 0,
     };
@@ -104,9 +103,19 @@ class UlogStories extends React.Component {
               .then(result  => {
                 const posts = Array.isArray(result) ? result : [];
                 const post = posts[0];
+                this.setState({
+                  loading: false,
+                });
 
                 // filter-out posts from non-certified users
                 if(certifiedUloggerNames.indexOf(post.author) < 0) return;
+
+                // filter posts that have been created more than 3 days ago
+                const today = new Date();
+                const threeDaysAgo = new Date();
+                threeDaysAgo.setDate(today.getDate() - 3);
+                const created = new Date(post.created);
+                if(created < threeDaysAgo) return;
 
                 // Add 'ulog' and 'ulogs' as valid ulog story tags
                 ulogStoriesTags.push('ulog', 'ulogs');
@@ -134,8 +143,6 @@ class UlogStories extends React.Component {
                 // set loading and no users to false to display ulog stories
                 this.setState({
                   ulogStoriesArr,
-                  loading: false,
-                  noUsers: false,
                 });
               });
               
@@ -144,16 +151,7 @@ class UlogStories extends React.Component {
           // set the initial list to display the first 5 ulog stories
           this.setState({ displayStories: 5 });
 
-        } else {
-          this.setState({
-            noUsers: true,
-          });
         }
-      })
-      .catch(() => {
-        this.setState({
-          noUsers: true,
-        });
       });
   }
 
@@ -170,7 +168,7 @@ class UlogStories extends React.Component {
   };
 
   render() {
-    const { ulogStoriesArr, loading, noUsers, showModalLogin, displayStories } = this.state;
+    const { ulogStoriesArr, loading, showModalLogin, displayStories } = this.state;
     // sort ulog stories by descending created date
     ulogStoriesArr.sort((a, b) => {
       var keyA = new Date(a.created),
@@ -184,10 +182,6 @@ class UlogStories extends React.Component {
     const { authenticated, location } = this.props;
     const hasMoreStories = (displayStories < ulogStoriesArr.length);
     const next = location.pathname.length > 1 ? location.pathname : '';
-
-    if (noUsers) {
-      return <div />;
-    }
 
     if (loading) {
       return <Loading />;
