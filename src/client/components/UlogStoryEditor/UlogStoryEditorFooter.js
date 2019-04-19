@@ -5,23 +5,9 @@ import classNames from 'classnames';
 import { Icon, Select } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import Action from '../Button/Action';
+import { ulogStoriesTags } from '../../helpers/constants';
 
 const Option = Select.Option;
-const categories = [
-  'ulog-images',
-  'ulography',
-  'ulog-graphics',
-  'ulogifs',
-  'ulog-news',
-  'ulog-arts',
-  'ulog-unfinishedarts',
-  'ulog-drafts',
-  'ulog-memes',
-  'ulog-resolutions',
-  'ulog-quotes',
-  'ulog-showerthoughts',
-  'ulog-snookmademedoit',
-];
 
 const UlogStoryEditorFooter = ({
   currentImages,
@@ -83,7 +69,7 @@ const UlogStoryEditorFooter = ({
       style={{ flex: "1 0", margin: "5px" }}
       onChange={handleCategoryChange}
     >
-      {_.map(categories, category => (
+      {_.map(ulogStoriesTags, category => (
         <Option value={category} key={category}>#{category}</Option>
       ))}
     </Select>

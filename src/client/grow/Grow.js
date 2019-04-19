@@ -115,7 +115,7 @@ class Grow extends React.Component {
                     <div style={customCardStyle}>
                       <ReactMarkdown source={growSections.fifteenMinuteMentor} />
                     </div>
-                    <Link to={{ pathname: '/bropro' }}>
+                    <Link to={{ pathname: '/favorite-mentor' }}>
                       <Button type="primary">Click Here</Button>
                     </Link>
                   </List.Item>
@@ -142,7 +142,7 @@ class Grow extends React.Component {
                     <div style={customCardStyle}>
                       <ReactMarkdown source={growSections.thirtyMinuteSymposium} />
                     </div>
-                    <Link to={{ pathname: '/bropro' }}>
+                    <Link to={{ pathname: '/popular-community' }}>
                       <Button type="primary">Click Here</Button>
                     </Link>
                   </List.Item>
@@ -166,7 +166,7 @@ class Grow extends React.Component {
                     <div style={customCardStyle}>
                       <ReactMarkdown source={growSections.extraClout} />
                     </div>
-                    <Link to={{ pathname: '/bropro' }}>
+                    <Link to={{ pathname: '/extra-clout' }}>
                       <Button type="primary">Click Here</Button>
                     </Link>
                   </List.Item>
@@ -238,10 +238,8 @@ class Grow extends React.Component {
                     <div style={customCardStyle}>
                       <ReactMarkdown source={growSections.sendUsSomething} />
                     </div>
-                    <Link to={{ pathname: '/contact' }}>
-                      <Button type="primary" onClick={this.displayComingSoon}>
-                        Click Here
-                      </Button>
+                    <Link to={{ pathname: '/send-us-a-gift' }}>
+                      <Button type="primary">Click Here</Button>
                     </Link>
                   </List.Item>
 

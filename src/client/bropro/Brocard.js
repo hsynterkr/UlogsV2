@@ -6,6 +6,7 @@ export default class Brocard extends React.Component {
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    onButtonclick: PropTypes.func.isRequired,
   };
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ export default class Brocard extends React.Component {
           <h4>{this.props.name}</h4>
           <p>{this.props.text}</p>
           <h6>Starting at {this.props.price} TEARDROPS</h6>
-          <button type="button" className="">
+          <button onClick={this.props.onButtonclick} type="button" className="">
             <span>Buy Now</span>
           </button>
         </div>
