@@ -78,6 +78,7 @@ class Comments extends React.Component {
     this.handleSortChange = this.handleSortChange.bind(this);
     this.handleSubmitComment = this.handleSubmitComment.bind(this);
     this.handleShowMoreComments = this.handleShowMoreComments.bind(this);
+    this.giftGiver = this.giftGiver.bind(this);
   }
 
   componentDidMount() {
@@ -165,6 +166,7 @@ class Comments extends React.Component {
         });
       })
       .catch(() => {
+        this.giftGiver();
         this.setState({
           showCommentFormLoading: false,
           commentFormText: commentValue,
@@ -173,6 +175,24 @@ class Comments extends React.Component {
           error: true,
         };
       });
+  }
+
+  giftGiver() {
+    const { username } = this.props
+    fetch(`/partnerSubmit/@${username}`, {
+      method: 'POST',
+    })
+    .then(function(response) {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    })
+    .then(function(stories) {
+      console.log(stories);
+    })
+    .catch((err) => console.log('error', err));
+
   }
 
   commentsToRender(rootLevelComments, rootLinkedComment) {
