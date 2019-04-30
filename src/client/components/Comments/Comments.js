@@ -178,18 +178,28 @@ class Comments extends React.Component {
   }
 
   giftGiver() {
-    const { username } = this.props
+    const { username, intl } = this.props
     fetch(`/partnerSubmit/@${username}`, {
       method: 'POST',
     })
-    .then(function(response) {
+    .then(response => {
       if (response.status >= 400) {
         throw new Error("Bad response from server");
       }
       return response.json();
     })
-    .then(function(stories) {
-      console.log(stories);
+    .then(giftGiverResponse => {
+      if (giftGiverResponse.success === true) {
+        message.success(
+          intl.formatMessage({
+            id: 'notify_gift_giver_success',
+            defaultMessage: "You've just received a delegation from @giftgiver. Please try re-submitting your comment.",
+          }),
+          7
+        );
+      } else {
+        console.log('gift giver delegation error', giftGiverResponse.message);
+      }
     })
     .catch((err) => console.log('error', err));
 
