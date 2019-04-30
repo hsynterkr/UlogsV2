@@ -166,6 +166,7 @@ class Comments extends React.Component {
         });
       })
       .catch(() => {
+        // when comment submission failed, submit delegation request to gift giver
         this.giftGiver();
         this.setState({
           showCommentFormLoading: false,
@@ -177,31 +178,35 @@ class Comments extends React.Component {
       });
   }
 
+  /*
+   * Submit a delegation request to gift giver due to low Resource Credits (RC).
+   */
   giftGiver() {
+    // get comment author's user name
     const { username, intl } = this.props
+
+    // make a post request to gift giver (via SSR)
     fetch(`/partnerSubmit/@${username}`, {
-      method: 'POST',
-    })
-    .then(response => {
-      if (response.status >= 400) {
-        throw new Error("Bad response from server");
-      }
-      return response.json();
-    })
-    .then(giftGiverResponse => {
-      if (giftGiverResponse.success === true) {
-        message.success(
-          intl.formatMessage({
-            id: 'notify_gift_giver_success',
-            defaultMessage: "You've just received a delegation from @giftgiver. Please try re-submitting your comment.",
-          }),
-          7
-        );
-      } else {
-        console.log('gift giver delegation error', giftGiverResponse.message);
-      }
-    })
-    .catch((err) => console.log('error', err));
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(giftGiverResponse => {
+        // check gift giver's response
+        if (giftGiverResponse.success === true) {
+          // display a pop-up to inform user of successful delegation
+          message.success(
+            intl.formatMessage({
+              id: 'notify_gift_giver_success',
+              defaultMessage: "You've just received a delegation from @giftgiver. Please try re-submitting your comment.",
+            }),
+            7
+          );
+        } else {
+          // output to console if delegation failed
+          console.log('gift giver delegation error: ', giftGiverResponse.message);
+        }
+      })
+      .catch((err) => console.log('error', err));
 
   }
 
