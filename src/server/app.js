@@ -7,6 +7,8 @@ import createSsrHandler from './handlers/createSsrHandler';
 import createAmpHandler from './handlers/createAmpHandler';
 import steemAPI from './steemAPI';
 
+const request = require('request');
+
 const indexPath = `${paths.templates}/index.hbs`;
 const indexHtml = fs.readFileSync(indexPath, 'utf-8');
 const template = Handlebars.compile(indexHtml);
@@ -23,6 +25,7 @@ const CACHE_AGE = 1000 * 60 * 60 * 24 * 7;
 const app = express();
 
 const IS_DEV = process.env.NODE_ENV === 'development';
+const GIFT_GIVER_KEY = process.env.GIFT_GIVER_KEY || 'API_KEY';
 
 app.use(cookieParser());
 
@@ -84,6 +87,25 @@ app.get('/:category/@:author/:permlink/amp', (req, res) => {
 app.get('/:category/@:author/:permlink', (req, res) => {
   const { author, permlink } = req.params;
   res.redirect(301, `/@${author}/${permlink}`);
+});
+
+// add ssr api for gift-giver
+app.post('/partnerSubmit/@:account', (req, res) => {
+
+  // get user account to delegate to
+  const { account } = req.params;
+  // get gift giver API key
+  const form = {key: GIFT_GIVER_KEY, user: account};
+
+  // define gift giver API URL and header-content
+  const url = 'https://giftgiver.me/partnerSubmit';
+  const headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+
+  // submit post request to gift-giver
+  request.post({ url: url, form: form, headers: headers}, function (e, r, body) {
+      res.status(200).send(body);
+  });
+
 });
 app.get('/*', ssrHandler);
 
