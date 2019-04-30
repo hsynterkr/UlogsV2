@@ -189,10 +189,15 @@ class Comments extends React.Component {
     fetch(`/partnerSubmit/@${username}`, {
         method: 'POST',
       })
-      .then(response => response.json())
+      .then(response => {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
       .then(giftGiverResponse => {
         // check gift giver's response
-        if (giftGiverResponse.success === true) {
+        if (giftGiverResponse.delegated === true) {
           // display a pop-up to inform user of successful delegation
           message.success(
             intl.formatMessage({
