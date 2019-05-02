@@ -80,62 +80,99 @@ class UlogGamesExchanges extends React.Component {
     this.state = {
       users: [],
       loading: true,
-      noUsers: false,
       allUsers: [],
+      ulogGames: [],
       showUlogsGames: true,
     };
 
-    this.getCertifiedUloggers = this.getCertifiedUloggers.bind(this);
+    this.getUlogGames = this.getUlogGames.bind(this);
     this.getUloggersTVVideaos = this.getUloggersTVVideaos.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
+      this.getUlogGames();
       this.getUloggersTVVideaos();
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isFetchingFollowingList) {
-      this.getCertifiedUloggers();
+      this.getUlogGames();
       this.getUloggersTVVideaos();
     }
   }
 
-  getCertifiedUloggers() {
+  getUlogGames() {
     steemAPI
-      .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 1000]])
+      .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
-        const users = _.shuffle(result)
-          // .slice(0, 5)
+
+        // get certified ulogger names
+        const certifiedUloggerNames = _.sortBy(result, 'following')
           .map(user => {
             let name = _.get(user, 0);
 
             if (_.isEmpty(name)) {
               name = _.get(user, 'following');
             }
-            return {
-              name,
+            return name;
+          });
+        
+        // if there are certified uloggers
+        if (certifiedUloggerNames.length > 0) {
+          // get the latest posts from each certified ulogger
+          certifiedUloggerNames.forEach(userName => {
+            var query = {
+              tag: userName, // Filter the results by a specific post author
+              limit: 5, // Limit the number of posts returned
             };
+            this.setState({
+              loading: true,
+            });
+
+            steemAPI
+              .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
+              .then(result  => {
+                const posts = Array.isArray(result) ? result : [];
+                const post = posts[0];
+                this.setState({
+                  loading: false,
+                });
+
+                // filter-out posts from non-certified users
+                if(certifiedUloggerNames.indexOf(post.author) < 0) return;
+
+                // filter posts that have been created more than 3 days ago
+                const today = new Date();
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(today.getDate() - 7);
+                const created = new Date(post.created);
+                if(created < sevenDaysAgo) return;
+
+                // filter posts that do not contain #ulog-games tag
+                const tags = JSON.parse(post.json_metadata).tags;
+                if (tags.indexOf("ulog-games") < 0) return;
+
+                // push post to ulog stories array
+                let { ulogGames } = this.state;
+                ulogGames.push(
+                  { 
+                    author: post.author, 
+                    permlink: post.permlink, 
+                    created: post.created
+                  }
+                );
+
+                // set ulog stories to state
+                this.setState({
+                  ulogGames,
+                });
+              });
+              
           });
-        if (users.length > 0) {
-          this.setState({
-            users,
-            allUsers: result,
-            loading: false,
-            noUsers: false,
-          });
-        } else {
-          this.setState({
-            noUsers: true,
-          });
+
         }
-      })
-      .catch(() => {
-        this.setState({
-          noUsers: true,
-        });
       });
   }
 
@@ -154,11 +191,8 @@ class UlogGamesExchanges extends React.Component {
   }
 
   render() {
-    const { users, loading, noUsers, uloggersTvVideos } = this.state;
+    const { loading, ulogGames, uloggersTvVideos } = this.state;
     const { authenticated } = this.props;
-    if (noUsers) {
-      return <div />;
-    }
 
     if (loading) {
       return <Loading />;
@@ -186,20 +220,13 @@ class UlogGamesExchanges extends React.Component {
                   paddingLeft: 25,
                 }}
               >
-                {users &&
-                  users.map(user => (
-                    <UlogGamesExchangesUser
-                      key={user.name}
-                      user={user}
-                      handleUserAccountClick={event => {
-                        handleUserAccountClick(
-                          event,
-                          `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-games](https://ulogs.org/created/ulog-games). In the long term, there will be an entire #ulog-games application playable by the entire globe. Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
-                        );
-                      }}
-                      authenticated={authenticated}
-                    />
-                  ))}
+                {ulogGames.map(story => 
+                  <UlogGamesExchangesUser
+                    key={story.permlink}
+                    story={{ author: story.author, permlink: story.permlink }}
+                    authenticated={authenticated}
+                  />
+                )}
               </div>
               <h4 className="SidebarContentBlock__title">
                 <FormattedMessage id="uloggerstv" defaultMessage="UloggersTV" />
@@ -223,20 +250,13 @@ class UlogGamesExchanges extends React.Component {
               className="SidebarContentBlock__content"
               style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
             >
-              {users &&
-                users.map(user => (
-                  <UlogGamesExchangesUser
-                    key={user.name}
-                    user={user}
-                    handleUserAccountClick={event => {
-                      handleUserAccountClick(
-                        event,
-                        `This feature is coming soon. In the near term, this column will only display posts from 'certified uloggers' created under [#ulog-exchanges](https://ulogs.org/created/ulog-exchanges). Click [here](https://ulogs.org/@surpassinggoogle/do-you-want-to-become-certified-uloggers-kindly-fill-up-this-form-if-you-are-already-a-certified-ulogger-there-is-a-separate) to get certified.`,
-                      );
-                    }}
-                    authenticated={authenticated}
-                  />
-                ))}
+              {ulogGames.map(story => 
+                <UlogGamesExchangesUser
+                  key={story.permlink}
+                  story={{ author: story.author, permlink: story.permlink }}
+                  authenticated={authenticated}
+                />
+              )}
             </div>
           </React.Fragment>
         </Collapse.Panel>
