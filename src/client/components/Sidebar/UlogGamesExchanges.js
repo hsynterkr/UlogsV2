@@ -131,6 +131,7 @@ class UlogGamesExchanges extends React.Component {
               loading: true,
             });
 
+            // call STEEM API to get the latest posts from certified ulogger
             steemAPI
               .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
               .then(result  => {
@@ -143,7 +144,7 @@ class UlogGamesExchanges extends React.Component {
                 // filter-out posts from non-certified users
                 if(certifiedUloggerNames.indexOf(post.author) < 0) return;
 
-                // filter posts that have been created more than 3 days ago
+                // filter posts that have been created more than 7 days ago
                 const today = new Date();
                 const sevenDaysAgo = new Date();
                 sevenDaysAgo.setDate(today.getDate() - 7);
@@ -154,7 +155,7 @@ class UlogGamesExchanges extends React.Component {
                 const tags = JSON.parse(post.json_metadata).tags;
                 if (tags.indexOf("ulog-games") < 0) return;
 
-                // push post to ulog stories array
+                // push post to array
                 let { ulogGames } = this.state;
                 ulogGames.push(
                   { 
@@ -164,12 +165,12 @@ class UlogGamesExchanges extends React.Component {
                   }
                 );
 
-                // set ulog stories to state
+                // set array to state
                 this.setState({
                   ulogGames,
                 });
               });
-              
+
           });
 
         }
