@@ -5,7 +5,7 @@ import Avatar from '../Avatar';
 import './User.less';
 
 const UlogGamesExchangesUser = ({ story, authenticated }) => (
-  <div className="User__links_overflow_x_auto" key={story.author}>
+  <div className="User__links_overflow_x_auto" key={story.permlink}>
     {authenticated && (
       <Link to={`/@${story.author}/${story.permlink}`} >
         <Avatar username={story.author} size={34} />
