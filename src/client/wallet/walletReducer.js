@@ -11,6 +11,7 @@ const initialState = {
   totalVestingShares: '',
   totalVestingFundSteem: '',
   usersTransactions: {},
+  usersTokenTransactions: {},
   usersAccountHistory: {},
   usersEstAccountsValues: {},
   usersAccountHistoryLoading: true,
@@ -20,6 +21,7 @@ const initialState = {
   accountHistoryFilter: [],
   currentDisplayedActions: [],
   currentFilteredActions: [],
+  userTearDrops: '',
 };
 
 export default function walletReducer(state = initialState, action) {
@@ -76,6 +78,10 @@ export default function walletReducer(state = initialState, action) {
         usersTransactions: {
           ...state.usersTransactions,
           [getUserDetailsKey(action.payload.username)]: action.payload.userWalletTransactions,
+        },
+        usersTokenTransactions: {
+          ...state.usersTokenTransactions,
+          [getUserDetailsKey(action.payload.username)]: action.payload.userTokenTransactions,
         },
         usersAccountHistory: {
           ...state.usersAccountHistory,
@@ -185,6 +191,11 @@ export default function walletReducer(state = initialState, action) {
         ...state,
         loadingMoreUsersAccountHistory: true,
       };
+    case walletActions.GET_USER_TEARDROPS_BALANCE.SUCCESS:
+      return {
+        ...state,
+        userTearDrops: action.payload,
+      };
     default:
       return state;
   }
@@ -197,6 +208,7 @@ export const getIsPowerDown = state => state.powerDown;
 export const getTotalVestingShares = state => state.totalVestingShares;
 export const getTotalVestingFundSteem = state => state.totalVestingFundSteem;
 export const getUsersTransactions = state => state.usersTransactions;
+export const getUsersTokenTransactions = state => state.usersTokenTransactions;
 export const getUsersEstAccountsValues = state => state.usersEstAccountsValues;
 export const getUsersAccountHistoryLoading = state => state.usersAccountHistoryLoading;
 export const getLoadingEstAccountValue = state => state.loadingEstAccountValue;
@@ -210,3 +222,4 @@ export const getUserHasMoreAccountHistory = (state, username) => {
 export const getAccountHistoryFilter = state => state.accountHistoryFilter;
 export const getCurrentDisplayedActions = state => state.currentDisplayedActions;
 export const getCurrentFilteredActions = state => state.currentFilteredActions;
+export const getUsersTearDrops = state => state.userTearDrops;

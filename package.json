@@ -108,6 +108,7 @@
     "secure-random": "^1.1.1",
     "showdown": "^1.8.6",
     "speakingurl": "^11.0.0",
+    "sscjs": "0.0.7",
     "steemscript": "https://github.com/bonuschain/steemscript",
     "store": "^1.3.20",
     "striptags": "^2.1.1",
