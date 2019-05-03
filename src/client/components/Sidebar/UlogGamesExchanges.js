@@ -82,28 +82,23 @@ class UlogGamesExchanges extends React.Component {
       loading: true,
       allUsers: [],
       ulogGames: [],
-      showUlogsGames: true,
+      ulogExchanges: [],
     };
 
-    this.getUlogGames = this.getUlogGames.bind(this);
+    this.getUlogGamesAndExchanges = this.getUlogGamesAndExchanges.bind(this);
     this.getUloggersTVVideaos = this.getUloggersTVVideaos.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.isFetchingFollowingList) {
-      this.getUlogGames();
+      this.getUlogGamesAndExchanges();
       this.getUloggersTVVideaos();
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.isFetchingFollowingList) {
-      this.getUlogGames();
-      this.getUloggersTVVideaos();
-    }
-  }
+  getUlogGamesAndExchanges() {
+    this.setState({ ulogGames: [], ulogExchanges: [] });
 
-  getUlogGames() {
     steemAPI
       .sendAsync('call', ['follow_api', 'get_following', ['uloggers', '', 'blog', 100]])
       .then(result => {
@@ -136,39 +131,46 @@ class UlogGamesExchanges extends React.Component {
               .sendAsync('call', ['condenser_api', 'get_discussions_by_blog', [query]])
               .then(result  => {
                 const posts = Array.isArray(result) ? result : [];
-                const post = posts[0];
                 this.setState({
                   loading: false,
                 });
 
-                // filter-out posts from non-certified users
-                if(certifiedUloggerNames.indexOf(post.author) < 0) return;
-
-                // filter posts that have been created more than 7 days ago
-                const today = new Date();
-                const sevenDaysAgo = new Date();
-                sevenDaysAgo.setDate(today.getDate() - 7);
-                const created = new Date(post.created);
-                if(created < sevenDaysAgo) return;
-
-                // filter posts that do not contain #ulog-games tag
-                const tags = JSON.parse(post.json_metadata).tags;
-                if (tags.indexOf("ulog-games") < 0) return;
-
-                // push post to array
-                let { ulogGames } = this.state;
-                ulogGames.push(
-                  { 
+                posts.forEach(post => {
+                  // filter-out posts from non-certified users
+                  if(certifiedUloggerNames.indexOf(post.author) < 0) return;
+  
+                  // filter posts that have been created more than 7 days ago
+                  const today = new Date();
+                  const sevenDaysAgo = new Date();
+                  sevenDaysAgo.setDate(today.getDate() - 7);
+                  const created = new Date(post.created);
+                  if(created < sevenDaysAgo) return;
+  
+                  // filter posts that do not contain #ulog-games or #ulog-exchanges tags
+                  const tags = JSON.parse(post.json_metadata).tags;
+                  if (tags.indexOf("ulog-games") < 0 && tags.indexOf("ulog-exchanges") < 0) return;
+  
+                  // create story object from post
+                  const story = { 
                     author: post.author, 
                     permlink: post.permlink, 
                     created: post.created
                   }
-                );
+  
+                  // push story to appropriate array
+                  if (tags.indexOf("ulog-games") >= 0) {
+                    let { ulogGames } = this.state;
+                    ulogGames.push(story);
+                    this.setState({ ulogGames });
+  
+                  } else if (tags.indexOf("ulog-exchanges") >= 0) {
+                    let { ulogExchanges } = this.state;
+                    ulogExchanges.push(story);
+                    this.setState({ ulogExchanges });
+                  }
+  
+                })
 
-                // set array to state
-                this.setState({
-                  ulogGames,
-                });
               });
 
           });
@@ -192,7 +194,7 @@ class UlogGamesExchanges extends React.Component {
   }
 
   render() {
-    const { loading, ulogGames, uloggersTvVideos } = this.state;
+    const { loading, ulogGames, ulogExchanges, uloggersTvVideos } = this.state;
     const { authenticated } = this.props;
 
     if (loading) {
@@ -221,6 +223,7 @@ class UlogGamesExchanges extends React.Component {
                   paddingLeft: 25,
                 }}
               >
+                {ulogGames.length === 0 && <div>No Ulog games to display.</div>}
                 {ulogGames.map(story => 
                   <UlogGamesExchangesUser
                     key={story.permlink}
@@ -235,7 +238,12 @@ class UlogGamesExchanges extends React.Component {
               <div
                 id="ulogsVideoContainer"
                 className="SidebarContentBlock__content"
-                style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+                style={{
+                  textAlign: 'center',
+                  overflowX: 'auto',
+                  width: '260px',
+                  display: 'flex',
+                }}
               >
                 {uloggersTvVideos &&
                   uloggersTvVideos.items.map(video => (
@@ -249,9 +257,16 @@ class UlogGamesExchanges extends React.Component {
             <div
               id="ulogsExchangesContainer"
               className="SidebarContentBlock__content"
-              style={{ textAlign: 'center', overflowX: 'auto', width: '260px', display: 'flex' }}
+              style={{
+                textAlign: 'center',
+                overflowX: 'auto',
+                width: '260px',
+                display: 'flex',
+                paddingLeft: 25,
+              }}
             >
-              {ulogGames.map(story => 
+              {ulogExchanges.length === 0 && <div>No Ulog exchanges to display.</div>}
+              {ulogExchanges.map(story => 
                 <UlogGamesExchangesUser
                   key={story.permlink}
                   story={{ author: story.author, permlink: story.permlink }}
