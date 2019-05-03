@@ -41,6 +41,23 @@ const getFormattedTotalDelegatedSP = (user, totalVestingShares, totalVestingFund
   return null;
 };
 
+const FormattedTearDropsMessage = () => (
+  <FormattedMessage
+    id="teardrops_info"
+    defaultMessage="{text} {link}."
+    values={{
+      text: (
+        <p>
+          A steem-based token that you can use across steemgigs.org, ulogs.org and macrohard.pro.
+          TEARDROPS can be transferred, used or <em>kept to be powered up in the near future</em>.
+          Get some TEARDROPS .
+        </p>
+      ),
+      link: <a href="https://steem-engine.com/?p=market&t=TEARDROPS">here</a>,
+    }}
+  />
+);
+
 const UserWalletSummary = ({
   user,
   loading,
@@ -50,6 +67,7 @@ const UserWalletSummary = ({
   steemRate,
   sbdRate,
   steemRateLoading,
+  totalTearDrops,
 }) => (
   <div className="UserWalletSummary">
     <div className="UserWalletSummary__item">
@@ -109,6 +127,27 @@ const UserWalletSummary = ({
         )}
       </div>
     </div>
+    <div className="UserWalletSummary__item__teardrops">
+      <div className="UserWalletSummary__item">
+        <i className="iconfont icon-Teardrops UserWalletSummary__icon" />
+        <div className="UserWalletSummary__label">
+          <FormattedMessage id="teardrops" defaultMessage="TEARDROPS" />
+        </div>
+        <div className="UserWalletSummary__value">
+          {loading ? (
+            <Loading />
+          ) : (
+            <span>
+              <FormattedNumber value={parseFloat(totalTearDrops)} />
+              {' TEARDROPS'}
+            </span>
+          )}
+        </div>
+      </div>
+      <div className="UserWalletSummary__item__teardrops-info">
+        <FormattedTearDropsMessage />
+      </div>
+    </div>
     <div className="UserWalletSummary__item">
       <i className="iconfont icon-savings UserWalletSummary__icon" />
       <div className="UserWalletSummary__label">
@@ -160,6 +199,7 @@ UserWalletSummary.propTypes = {
   sbdRate: PropTypes.number,
   loading: PropTypes.bool,
   steemRateLoading: PropTypes.bool,
+  totalTearDrops: PropTypes.string.isRequired,
 };
 
 UserWalletSummary.defaultProps = {

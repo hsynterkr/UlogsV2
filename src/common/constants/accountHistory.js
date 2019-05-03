@@ -24,6 +24,9 @@ export const TRANSFER_TO_SAVINGS = 'transfer_to_savings';
 export const DELEGATE_VESTING_SHARES = 'delegate_vesting_shares';
 export const CLAIM_REWARD_BALANCE = 'claim_reward_balance';
 
+// Steem Engine types
+export const TRANSFER_TOKENS = 'transfer_tokens';
+
 // Filter Types - General
 export const DOWNVOTED = 'downvoted';
 export const UPVOTED = 'upvoted';

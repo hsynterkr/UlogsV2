@@ -102,9 +102,12 @@ export const getFetchFollowListError = state => fromUser.getFetchFollowListError
 export const getLatestNotification = state => fromUser.getLatestNotification(state.user);
 
 export const getUloggersFollowingList = state => fromUser.getUloggersFollowingList(state.user);
-export const getIsFetchingUloggersFollowingList = state => fromUser.getIsFetchingUloggersFollowingList(state.user);
-export const getUloggersFollowingFetched = state => fromUser.getUloggersFollowingFetched(state.user);
-export const getFetchUloggersFollowListError = state => fromUser.getFetchUloggersFollowListError(state.user);
+export const getIsFetchingUloggersFollowingList = state =>
+  fromUser.getIsFetchingUloggersFollowingList(state.user);
+export const getUloggersFollowingFetched = state =>
+  fromUser.getUloggersFollowingFetched(state.user);
+export const getFetchUloggersFollowListError = state =>
+  fromUser.getFetchUloggersFollowListError(state.user);
 
 export const getUser = (state, username) => fromUsers.getUser(state.users, username);
 export const getIsUserFetching = (state, username) =>
@@ -137,6 +140,8 @@ export const getUseBeta = state => fromSettings.getUseBeta(state.settings);
 export const getTotalVestingShares = state => fromWallet.getTotalVestingShares(state.wallet);
 export const getTotalVestingFundSteem = state => fromWallet.getTotalVestingFundSteem(state.wallet);
 export const getUsersTransactions = state => fromWallet.getUsersTransactions(state.wallet);
+export const getUsersTokenTransactions = state =>
+  fromWallet.getUsersTokenTransactions(state.wallet);
 export const getUsersAccountHistory = state => fromWallet.getUsersAccountHistory(state.wallet);
 export const getUsersAccountHistoryLoading = state =>
   fromWallet.getUsersAccountHistoryLoading(state.wallet);
@@ -155,6 +160,7 @@ export const getCurrentDisplayedActions = state =>
   fromWallet.getCurrentDisplayedActions(state.wallet);
 export const getCurrentFilteredActions = state =>
   fromWallet.getCurrentFilteredActions(state.wallet);
+export const getUsersTearDrops = state => fromWallet.getUsersTearDrops(state.wallet);
 
 export const getSearchLoading = state => fromSearch.getSearchLoading(state.search);
 export const getSearchResults = state => fromSearch.getSearchResults(state.search);
