@@ -4,24 +4,23 @@ import { Link } from 'react-router-dom';
 import Avatar from '../Avatar';
 import './User.less';
 
-const UlogGamesExchangesUser = ({ user, handleUserAccountClick, authenticated }) => (
-  <div className="User__links_overflow_x_auto" key={user.name}>
+const UlogGamesExchangesUser = ({ story, authenticated }) => (
+  <div className="User__links_overflow_x_auto" key={story.permlink}>
     {authenticated && (
-      <Link to={`/@${user.name}`} onClick={handleUserAccountClick}>
-        <Avatar username={user.name} size={34} />
+      <Link to={`/@${story.author}/${story.permlink}`} >
+        <Avatar username={story.author} size={34} />
       </Link>
     )}
     {!authenticated && (
       <a target="_blank" rel="noopener noreferrer" href={process.env.SIGNUP_URL}>
-        <Avatar username={user.name} size={34} />
+        <Avatar username={story.author} size={34} />
       </a>
     )}
   </div>
 );
 
 UlogGamesExchangesUser.propTypes = {
-  user: PropTypes.shape().isRequired,
-  handleUserAccountClick: PropTypes.func.isRequired,
+  story: PropTypes.shape().isRequired,
   authenticated: PropTypes.bool.isRequired,
 };
 
