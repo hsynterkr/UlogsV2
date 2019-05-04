@@ -207,10 +207,23 @@ export default class PowerUpOrDown extends React.Component {
             />
           </Form.Item>
         </Form>
-        <FormattedMessage
-          id="transfer_modal_info"
-          defaultMessage="Click the button below to be redirected to SteemConnect to complete your transaction."
-        />
+        <div className="Transfer__modal-info">
+          <FormattedMessage
+            id="transfer_modal_info"
+            defaultMessage="Click the button below to be redirected to SteemConnect to complete your transaction."
+          />
+        </div>
+        <div className="Transfer__teardrops-info">
+          <FormattedMessage
+            id="transfer_modal_teardrops_info"
+            defaultMessage="{text} {link}."
+            link={<a href="https://steem-engine.com/?p=market&t=TEARDROPS">here</a>}
+            values={{
+              text: 'Note: You will soon be able to power up TEARDROPS too. Get some TEARDROPS',
+              link: <a href="https://steem-engine.com/?p=market&t=TEARDROPS">here</a>,
+            }}
+          />
+        </div>
       </Modal>
     );
   }

@@ -88,6 +88,15 @@ const WalletTransaction = ({
           timestamp={transaction.timestamp}
         />
       );
+    case accountHistoryConstants.TRANSFER_TOKENS:
+      return (
+        <TransferTransaction
+          to={transactionDetails.to}
+          memo={transactionDetails.memo}
+          amount={getFormattedTransactionAmount(transactionDetails.amount, 'TEARDROPS')}
+          timestamp={transaction.timestamp}
+        />
+      );
     default:
       return null;
   }

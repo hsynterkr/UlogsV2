@@ -15,6 +15,7 @@ import {
   getIsTransferVisible,
   getTransferTo,
   getCryptosPriceHistory,
+  getUsersTearDrops,
 } from '../reducers';
 import './Transfer.less';
 
@@ -28,6 +29,7 @@ const InputGroup = Input.Group;
     authenticated: getIsAuthenticated(state),
     user: getAuthenticatedUser(state),
     cryptosPriceHistory: getCryptosPriceHistory(state),
+    totalTearDrops: getUsersTearDrops(state),
   }),
   {
     closeTransfer,
@@ -46,6 +48,7 @@ export default class Transfer extends React.Component {
     cryptosPriceHistory: PropTypes.shape().isRequired,
     getCryptoPriceHistory: PropTypes.func.isRequired,
     closeTransfer: PropTypes.func,
+    totalTearDrops: PropTypes.number.isRequired,
   };
 
   static defaultProps = {
@@ -62,6 +65,7 @@ export default class Transfer extends React.Component {
   static CURRENCIES = {
     STEEM: 'STEEM',
     SBD: 'SBD',
+    TEARDROPS: 'TEARDROPS',
   };
 
   state = {
@@ -122,6 +126,28 @@ export default class Transfer extends React.Component {
     })}`;
   }
 
+  getBalanceForSelectedCurrency = () =>
+    ({
+      [Transfer.CURRENCIES.STEEM]: this.props.user.balance,
+      [Transfer.CURRENCIES.SBD]: this.props.user.sbd_balance,
+      [Transfer.CURRENCIES.TEARDROPS]: this.props.totalTearDrops,
+    }[this.state.currency]);
+
+  transferTokens = values => {
+    const { amount, currency, memo, to } = values;
+
+    let url = `https://app.steemconnect.com/sign/custom-json?`;
+    url += `required_auths=%5B%22${this.props.user.name}%22%5D`;
+    url += `&required_posting_auths=%5B%5D`;
+    url += `&id=ssc-mainnet1`;
+    url += `&json=%7B%22contractName%22%3A%22tokens%22%2C%22contractAction%22%3A%22transfer%22%2C%22contractPayload%22%3A%7B%22symbol%22%3A%22${currency}%22%2C%22to%22%3A%22${to}%22%2C%22quantity%22%3A%22${amount}%22%2C%22memo%22%3A%22${memo}%22%7D%7D`;
+    const win = window.open(url, '_blank');
+
+    win.focus();
+
+    this.props.closeTransfer();
+  };
+
   handleBalanceClick = event => {
     const { oldAmount } = this.state;
     const value = parseFloat(event.currentTarget.innerText);
@@ -144,15 +170,19 @@ export default class Transfer extends React.Component {
     const { form } = this.props;
     form.validateFields({ force: true }, (errors, values) => {
       if (!errors) {
-        const transferQuery = {
-          to: values.to,
-          amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
-        };
-        if (values.memo) transferQuery.memo = values.memo;
+        if (this.state.currency === Transfer.CURRENCIES.TEARDROPS) {
+          this.transferTokens(values);
+        } else {
+          const transferQuery = {
+            to: values.to,
+            amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
+          };
+          if (values.memo) transferQuery.memo = values.memo;
 
-        const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
-        win.focus();
-        this.props.closeTransfer();
+          const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
+          win.focus();
+          this.props.closeTransfer();
+        }
       }
     });
   };
@@ -262,7 +292,7 @@ export default class Transfer extends React.Component {
   };
 
   validateBalance = (rule, value, callback) => {
-    const { intl, authenticated, user } = this.props;
+    const { intl, authenticated } = this.props;
 
     const currentValue = parseFloat(value);
 
@@ -278,8 +308,7 @@ export default class Transfer extends React.Component {
       return;
     }
 
-    const selectedBalance =
-      this.state.currency === Transfer.CURRENCIES.STEEM ? user.balance : user.sbd_balance;
+    const selectedBalance = this.getBalanceForSelectedCurrency();
 
     if (authenticated && currentValue !== 0 && currentValue > parseFloat(selectedBalance)) {
       callback([
@@ -293,11 +322,10 @@ export default class Transfer extends React.Component {
   };
 
   render() {
-    const { intl, visible, authenticated, user } = this.props;
+    const { intl, visible, authenticated } = this.props;
     const { getFieldDecorator } = this.props.form;
 
-    const balance =
-      this.state.currency === Transfer.CURRENCIES.STEEM ? user.balance : user.sbd_balance;
+    const balance = this.getBalanceForSelectedCurrency();
 
     const currencyPrefix = getFieldDecorator('currency', {
       initialValue: this.state.currency,
@@ -305,6 +333,9 @@ export default class Transfer extends React.Component {
       <Radio.Group onChange={this.handleCurrencyChange} className="Transfer__amount__type">
         <Radio.Button value={Transfer.CURRENCIES.STEEM}>{Transfer.CURRENCIES.STEEM}</Radio.Button>
         <Radio.Button value={Transfer.CURRENCIES.SBD}>{Transfer.CURRENCIES.SBD}</Radio.Button>
+        <Radio.Button value={Transfer.CURRENCIES.TEARDROPS}>
+          {Transfer.CURRENCIES.TEARDROPS}
+        </Radio.Button>
       </Radio.Group>,
     );
 
@@ -312,6 +343,8 @@ export default class Transfer extends React.Component {
 
     return (
       <Modal
+        className="modal-wide"
+        centered
         visible={visible}
         title={intl.formatMessage({ id: 'transfer_modal_title', defaultMessage: 'Transfer funds' })}
         okText={intl.formatMessage({ id: 'continue', defaultMessage: 'Continue' })}

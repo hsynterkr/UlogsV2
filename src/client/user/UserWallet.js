@@ -15,17 +15,20 @@ import {
   getTotalVestingShares,
   getTotalVestingFundSteem,
   getUsersTransactions,
+  getUsersTokenTransactions,
   getUsersAccountHistory,
   getUsersAccountHistoryLoading,
   getLoadingGlobalProperties,
   getLoadingMoreUsersAccountHistory,
   getUserHasMoreAccountHistory,
   getCryptosPriceHistory,
+  getUsersTearDrops,
 } from '../reducers';
 import {
   getGlobalProperties,
   getUserAccountHistory,
   getMoreUserAccountHistory,
+  getUserTearDrops,
 } from '../wallet/walletActions';
 import { getAccount } from './usersActions';
 
@@ -40,6 +43,7 @@ import { getAccount } from './usersActions';
     totalVestingShares: getTotalVestingShares(state),
     totalVestingFundSteem: getTotalVestingFundSteem(state),
     usersTransactions: getUsersTransactions(state),
+    usersTokenTransactions: getUsersTokenTransactions(state),
     usersAccountHistory: getUsersAccountHistory(state),
     usersAccountHistoryLoading: getUsersAccountHistoryLoading(state),
     loadingGlobalProperties: getLoadingGlobalProperties(state),
@@ -51,12 +55,14 @@ import { getAccount } from './usersActions';
         : getUser(state, ownProps.match.params.name).name,
     ),
     cryptosPriceHistory: getCryptosPriceHistory(state),
+    totalTearDrops: getUsersTearDrops(state),
   }),
   {
     getGlobalProperties,
     getUserAccountHistory,
     getMoreUserAccountHistory,
     getAccount,
+    getUserTearDrops,
   },
 )
 class Wallet extends Component {
@@ -69,7 +75,9 @@ class Wallet extends Component {
     getUserAccountHistory: PropTypes.func.isRequired,
     getMoreUserAccountHistory: PropTypes.func.isRequired,
     getAccount: PropTypes.func.isRequired,
+    getUserTearDrops: PropTypes.func.isRequired,
     usersTransactions: PropTypes.shape().isRequired,
+    usersTokenTransactions: PropTypes.shape().isRequired,
     usersAccountHistory: PropTypes.shape().isRequired,
     cryptosPriceHistory: PropTypes.shape().isRequired,
     usersAccountHistoryLoading: PropTypes.bool.isRequired,
@@ -78,6 +86,7 @@ class Wallet extends Component {
     userHasMoreActions: PropTypes.bool.isRequired,
     isCurrentUser: PropTypes.bool,
     authenticatedUserName: PropTypes.string,
+    totalTearDrops: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -93,6 +102,7 @@ class Wallet extends Component {
       user,
       isCurrentUser,
       authenticatedUserName,
+      totalTearDrops,
     } = this.props;
     const username = isCurrentUser
       ? authenticatedUserName
@@ -109,6 +119,10 @@ class Wallet extends Component {
     if (_.isEmpty(user)) {
       this.props.getAccount(username);
     }
+
+    if (_.isEmpty(totalTearDrops)) {
+      this.props.getUserTearDrops(username);
+    }
   }
 
   render() {
@@ -116,16 +130,20 @@ class Wallet extends Component {
       user,
       totalVestingShares,
       totalVestingFundSteem,
+      totalTearDrops,
       loadingGlobalProperties,
       usersTransactions,
+      usersTokenTransactions,
       usersAccountHistoryLoading,
       loadingMoreUsersAccountHistory,
       userHasMoreActions,
       usersAccountHistory,
       cryptosPriceHistory,
     } = this.props;
+
     const userKey = getUserDetailsKey(user.name);
-    const transactions = _.get(usersTransactions, userKey, []);
+    const tokenTransactions = _.get(usersTokenTransactions, userKey, []);
+    const walletTransactions = _.get(usersTransactions, userKey, []);
     const actions = _.get(usersAccountHistory, userKey, []);
     const currentSteemRate = _.get(
       cryptosPriceHistory,
@@ -138,6 +156,9 @@ class Wallet extends Component {
       null,
     );
     const steemRateLoading = _.isNull(currentSteemRate) || _.isNull(currentSBDRate);
+    const transactions = tokenTransactions
+      .concat(walletTransactions)
+      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
     return (
       <div>
@@ -150,6 +171,7 @@ class Wallet extends Component {
           steemRate={currentSteemRate}
           sbdRate={currentSBDRate}
           steemRateLoading={steemRateLoading}
+          totalTearDrops={totalTearDrops}
         />
         {transactions.length === 0 && usersAccountHistoryLoading ? (
           <Loading style={{ marginTop: '20px' }} />

@@ -1,7 +1,18 @@
 @import (reference) '../styles/custom.less';
 @import (reference) '../styles/modules/variables.less';
 
+.modal-wide {
+  width: 800px !important;
+  .ant-modal-content {
+    width: 800px !important;
+  }
+}
+
 .Transfer {
+  .ant-modal-content {
+    width: 800px;
+  }
+
   input.ant-input {
     height: 38px !important;
   }
@@ -53,7 +64,7 @@
 
         .ant-input-group-addon {
           text-align: right;
-          width: 160px !important;
+          width: 280px !important;
           position: relative;
         }
 
@@ -90,6 +101,14 @@
     @media @medium {
       width: 105px !important;
     }
+  }
+
+  &__modal-info {
+    margin-bottom: 5px;
+  }
+
+  &__teardrops-info {
+    color: @red;
   }
 }
 
