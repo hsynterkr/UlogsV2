@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { Carousel } from 'antd';
+import ReactMarkdown from 'react-markdown';
+import { Carousel, Collapse } from 'antd';
 import YoutubePlayer from 'react-player/lib/players/YouTube';
 import { getFeedContent } from './feedActions';
 import { getIsLoaded, getIsAuthenticated } from '../reducers';
@@ -61,6 +62,12 @@ class Page extends React.Component {
       category.match(
         /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit|ulog-utopian|ulog-thejohalfiles|ulogifs|ulog-surfyogi|ulog-bobbylee|ulog-stellabelle|ulog-sweetsssj|ulog-dimimp|ulog-teamsteem|ulog-kusknee|ulog-papapepper|ulog-steemjet)$/,
       );
+    const isStartsWithUlog = category && category.startsWith('ulog-');
+
+    const convertUlogTag = `Thank you for beginning the process of creating a Ulog-Community. To further the process, start by contributing ulogs under this very ulog-subtag and inviting others to do the same. You can start now! Simply visit this editor on 'https://ulogs.org/main-editor' to contribute a ulog and make sure to use the ulog-subtag here as one of the tags underneath your post.&nbsp;  
+      To complete the process of creating a Ulog-Community, kindly send an email containing your intention to [uloggers@gmail.com](mailto:uloggers@gmail.com) &nbsp;  
+      Note: Anyone can choose to complete the process!`
+
     return (
       <div>
         <Helmet>
@@ -70,7 +77,7 @@ class Page extends React.Component {
         <ScrollToTop />
 
         <ScrollToTopOnMount />
-        {(authenticated && !displayUlogCaption) ? (
+        {(authenticated && !displayUlogCaption && !isStartsWithUlog) ? (
           <Carousel autoplay className="feed-carousel">
             <div>
               <a href="ulog/@uloggers/uloggers-today-s-certified-and-verified-ulogger-true-celebrity-is-jejes-join-in-as-her-true-fans-we-will-fix-many-worries">
@@ -133,6 +140,7 @@ class Page extends React.Component {
           <HeroBannerContainer />
         )}
         {displayUlogCaption && <UlogsBanner category={category} />}
+        {(!displayUlogCaption && isStartsWithUlog) && <UlogsBanner category={category} />}
         <MainMenu />
         <div className="shifted">
           <div className="feed-layout container">
@@ -147,6 +155,15 @@ class Page extends React.Component {
               </div>
             </Affix>
             <div className="center">
+              {(!displayUlogCaption && isStartsWithUlog) && 
+                <Collapse>
+                  <Collapse.Panel header={'Convert #' + category + ' To A Ulog-Community'} key="1">
+                    <p>
+                      <ReactMarkdown source={convertUlogTag} />
+                    </p>
+                  </Collapse.Panel>
+                </Collapse>
+              }
               {displayTopicSelector && <TrendingTagsMenu />}
               {shouldDisplaySelector && (
                 <TopicSelector
