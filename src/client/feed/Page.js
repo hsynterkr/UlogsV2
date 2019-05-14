@@ -139,8 +139,8 @@ class Page extends React.Component {
         ) : (
           <HeroBannerContainer />
         )}
-        {displayUlogCaption && <UlogsBanner category={category} />}
-        {(!displayUlogCaption && isStartsWithUlog) && <UlogsBanner category={category} />}
+        {(authenticated && displayUlogCaption) && <UlogsBanner category={category} />}
+        {(authenticated && !displayUlogCaption && isStartsWithUlog) && <UlogsBanner category={category} />}
         <MainMenu />
         <div className="shifted">
           <div className="feed-layout container">
