@@ -14,6 +14,7 @@ import CryptoTrendingCharts from './CryptoTrendingCharts';
 import ChatBar from '../../components/Sidebar/ChatBar';
 import UlogGamesExchanges from '../../components/Sidebar/UlogGamesExchanges';
 import UlogCaption from '../../feed/UlogCaption';
+import UlogGenericCaption from '../../feed/UlogGenericCaption';
 
 @connect(
   state => ({
@@ -52,11 +53,13 @@ class FeedSidebar extends React.Component {
       tag.match(
         /^(ulog-quotes|ulog-howto|ulog-diy|ulog-surpassinggoogle|teardrops|untalented|ulog-ned|ulography|ulog-gratefulvibes|ulog-resolutions|ulog-memes|ulog-blocktrades|ulog-showerthoughts|ulog-snookmademedoit|ulog-utopian|ulog-thejohalfiles|ulogifs|ulog-surfyogi|ulog-bobbylee|ulog-stellabelle|ulog-sweetsssj|ulog-dimimp|ulog-teamsteem|ulog-kusknee|ulog-papapepper|ulog-steemjet)$/,
       );
+    const isStartsWithUlog = tag && tag.startsWith('ulog-');
     return (
       <div>
         {!_.isEmpty(currentCrypto) && <CryptoTrendingCharts cryptos={[currentTag]} />}
         <React.Fragment>
           {displayUlogCaption && <UlogCaption category={tag} />}
+          {(!displayUlogCaption && isStartsWithUlog) && <UlogGenericCaption category={tag} />}
           <OverseeingUloggers authenticatedUser={authenticatedUser} />
           <UlogGamesExchanges isFetchingFollowingList={false} />
           <ChatBar isFetchingFollowingList={false} authenticated={authenticated} />
