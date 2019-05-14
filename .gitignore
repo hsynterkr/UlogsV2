@@ -2,6 +2,7 @@
 .save
 *.css.map
 *.css
+*.DS_Store
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
