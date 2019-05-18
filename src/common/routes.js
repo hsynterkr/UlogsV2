@@ -29,6 +29,7 @@ import Discover from '../client/discover/Discover';
 import Search from '../client/search/Search';
 import Ulogging from '../client/ulogging/Ulogging';
 import Grow from '../client/grow/Grow';
+import CreateCommunity from '../client/community/CreateCommunity';
 import Notifications from '../client/notifications/Notifications';
 import Error404 from '../client/statics/Error404';
 import ExitPage from '../client/statics/ExitPage';
@@ -168,6 +169,10 @@ const routes = [
       {
         path: '/grow',
         component: Grow,
+      },
+      {
+        path: '/create-community',
+        component: CreateCommunity,
       },
       {
         path: '/bropro',
