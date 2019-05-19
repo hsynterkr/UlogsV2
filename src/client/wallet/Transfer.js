@@ -135,17 +135,42 @@ export default class Transfer extends React.Component {
 
   transferTokens = values => {
     const { amount, currency, memo, to } = values;
+    const properties = this.props;
+    const json_id = "ssc-mainnet1";
 
-    let url = `https://app.steemconnect.com/sign/custom-json?`;
-    url += `required_auths=%5B%22${this.props.user.name}%22%5D`;
-    url += `&required_posting_auths=%5B%5D`;
-    url += `&id=ssc-mainnet1`;
-    url += `&json=%7B%22contractName%22%3A%22tokens%22%2C%22contractAction%22%3A%22transfer%22%2C%22contractPayload%22%3A%7B%22symbol%22%3A%22${currency}%22%2C%22to%22%3A%22${to}%22%2C%22quantity%22%3A%22${amount}%22%2C%22memo%22%3A%22${memo}%22%7D%7D`;
-    const win = window.open(url, '_blank');
+    if(window.steem_keychain) {
+      steem_keychain.requestCustomJson(
+        this.props.user.name,
+        json_id,
+        'Active',
+        JSON.stringify({
+          contractName: 'tokens',
+          contractAction: 'transfer',
+          contractPayload: {
+            symbol: `${currency}`,
+            to: `${to}`,
+            quantity: `${amount}`,
+            memo: `${memo}`
+          }
+        }),
+        'Transfer TEARDROPS',
+        function(response) {
+          console.log('main js response - custom JSON');
+          console.log(response);
+          properties.closeTransfer();
+        }
+      );
+    } else {
+      let url = `https://app.steemconnect.com/sign/custom-json?`;
+      url += `required_auths=%5B%22${this.props.user.name}%22%5D`;
+      url += `&required_posting_auths=%5B%5D`;
+      url += `&id=${json_id}`;
+      url += `&json=%7B%22contractName%22%3A%22tokens%22%2C%22contractAction%22%3A%22transfer%22%2C%22contractPayload%22%3A%7B%22symbol%22%3A%22${currency}%22%2C%22to%22%3A%22${to}%22%2C%22quantity%22%3A%22${amount}%22%2C%22memo%22%3A%22${memo}%22%7D%7D`;
+      const win = window.open(url, '_blank');
+      win.focus();
+      this.props.closeTransfer();
+    }
 
-    win.focus();
-
-    this.props.closeTransfer();
   };
 
   handleBalanceClick = event => {
@@ -173,15 +198,32 @@ export default class Transfer extends React.Component {
         if (this.state.currency === Transfer.CURRENCIES.TEARDROPS) {
           this.transferTokens(values);
         } else {
-          const transferQuery = {
-            to: values.to,
-            amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
-          };
-          if (values.memo) transferQuery.memo = values.memo;
-
-          const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
-          win.focus();
-          this.props.closeTransfer();
+          if(window.steem_keychain) {
+            const properties = this.props;
+            steem_keychain.requestTransfer(
+              this.props.user.name,
+              values.to,
+              parseFloat(values.amount).toFixed(3),
+              values.memo,
+              values.currency, 
+              function(response) {
+                if (response.success) {
+                  properties.closeTransfer();
+                }
+              },
+              false
+            );
+          } else {
+            const transferQuery = {
+              to: values.to,
+              amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
+            };
+            if (values.memo) transferQuery.memo = values.memo;
+  
+            const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
+            win.focus();
+            this.props.closeTransfer();
+          }
         }
       }
     });
