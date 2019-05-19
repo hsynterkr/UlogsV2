@@ -173,15 +173,32 @@ export default class Transfer extends React.Component {
         if (this.state.currency === Transfer.CURRENCIES.TEARDROPS) {
           this.transferTokens(values);
         } else {
-          const transferQuery = {
-            to: values.to,
-            amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
-          };
-          if (values.memo) transferQuery.memo = values.memo;
-
-          const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
-          win.focus();
-          this.props.closeTransfer();
+          if(window.steem_keychain) {
+            const properties = this.props;
+            steem_keychain.requestTransfer(
+              this.props.user.name,
+              values.to,
+              parseFloat(values.amount).toFixed(3),
+              values.memo,
+              values.currency, 
+              function(response) {
+                if (response.success) {
+                  properties.closeTransfer();
+                }
+              },
+              false
+            );
+          } else {
+            const transferQuery = {
+              to: values.to,
+              amount: `${parseFloat(values.amount).toFixed(3)} ${values.currency}`,
+            };
+            if (values.memo) transferQuery.memo = values.memo;
+  
+            const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
+            win.focus();
+            this.props.closeTransfer();
+          }
         }
       }
     });
