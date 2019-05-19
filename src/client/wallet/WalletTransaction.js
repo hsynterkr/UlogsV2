@@ -89,6 +89,16 @@ const WalletTransaction = ({
         />
       );
     case accountHistoryConstants.TRANSFER_TOKENS:
+      if (transactionDetails.to === currentUsername) {
+        return (
+          <ReceiveTransaction
+            from={transactionDetails.from}
+            memo={transactionDetails.memo}
+            amount={getFormattedTransactionAmount(transactionDetails.amount, 'TEARDROPS')}
+            timestamp={transaction.timestamp}
+          />
+        );
+      }
       return (
         <TransferTransaction
           to={transactionDetails.to}
