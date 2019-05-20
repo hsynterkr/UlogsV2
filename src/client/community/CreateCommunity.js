@@ -10,7 +10,7 @@ import { getAuthenticatedUser, getIsEditorLoading, getUpvoteSetting } from '../r
 import Action from '../components/Button/Action';
 import { notify } from '../app/Notification/notificationActions';
 import { createPost } from '../post/Write/editorActions';
-import * as community from '../helpers/community';
+import * as CommunityHelper from '../helpers/community';
 
 const version = require('../../../package.json').version;
 
@@ -46,7 +46,7 @@ class CreateCommunity extends React.Component {
   };
 
   static minAccountLength = 3;
-  static maxAccountLength = 16;
+  static maxAccountLength = 19;
 
   constructor(props) {
     super(props);
@@ -133,11 +133,12 @@ class CreateCommunity extends React.Component {
    */
   getQuickPostData = () => {
     const { form } = this.props;
-    const postBody = "";
-    const community = form.getFieldValue('community');
-    const ulogSubTag = "ulog-" + community;
-    const postTitle = `A New Ulog Community - ${ulogSubTag} - Has Been Created!`;
-    const tags = [ulogSubTag];
+    const communityName = form.getFieldValue('community');
+    const ulogSubTag = "ulog-" + communityName;
+    const postBody = CommunityHelper.interpolate(ulogSubTag);
+    console.log('community post body', postBody)
+    const postTitle = `A New 'Prospective Ulog-Community Namely '${ulogSubTag}' Has Been Created! Visit It On 'https://ulogs.org/created/${ulogSubTag}'.`;
+    const tags = ['ulog', ulogSubTag];
     const data = {
       body: postBody,
       title: postTitle,
@@ -215,7 +216,7 @@ class CreateCommunity extends React.Component {
             <h2 style={{ color: 'purple', textAlign: 'center' }}>Create A Ulog-Community</h2>
             <Collapse defaultActiveKey={['1']}>
               <Collapse.Panel header="About Communities" key="1" style={customPanelStyle}>
-                <ReactMarkdown source={community.aboutCommunities} />
+                <ReactMarkdown source={CommunityHelper.aboutCommunities} />
               </Collapse.Panel>
             </Collapse>
 
@@ -227,7 +228,7 @@ class CreateCommunity extends React.Component {
                   >
                     <h3>Create A Ulog-Community</h3>
                     <div style={customCardStyle}>
-                      <ReactMarkdown source={community.createCommunity} />
+                      <ReactMarkdown source={CommunityHelper.createCommunity} />
                     </div>
                     <Form onSubmit={this.handleCreatePost}>
                       <Form.Item>
