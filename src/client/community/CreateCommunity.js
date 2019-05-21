@@ -10,7 +10,7 @@ import { getAuthenticatedUser, getIsEditorLoading, getUpvoteSetting } from '../r
 import Action from '../components/Button/Action';
 import { notify } from '../app/Notification/notificationActions';
 import { createPost } from '../post/Write/editorActions';
-import * as community from '../helpers/community';
+import * as CommunityHelper from '../helpers/community';
 
 const version = require('../../../package.json').version;
 
@@ -46,10 +46,11 @@ class CreateCommunity extends React.Component {
   };
 
   static minAccountLength = 3;
-  static maxAccountLength = 16;
+  static maxAccountLength = 24; // 24 including "ulog-"; 19 if excluding;
 
   constructor(props) {
     super(props);
+
     // bind the component's methods so that it can be called within render() using this.method()
     this.validateCommunity = this.validateCommunity.bind(this);
     this.handleCreatePost = this.handleCreatePost.bind(this);
@@ -66,11 +67,8 @@ class CreateCommunity extends React.Component {
       return;
     }
 
-    // prefix the community name with 'ulog-'
-    const ulogSubTag = 'ulog-' + value;
-
     // if subtag is less than min length
-    if (ulogSubTag.length < CreateCommunity.minAccountLength) {
+    if (value.length < CreateCommunity.minAccountLength) {
       callback([
         new Error(
           intl.formatMessage(
@@ -79,13 +77,16 @@ class CreateCommunity extends React.Component {
               defaultMessage: 'Ulog subtag {subtag} is too short.',
             },
             {
-              subtag: ulogSubTag,
+              subtag: value,
             },
           ),
         ),
       ]);
       return;
     }
+
+    // prefix the community name with 'ulog-'
+    const ulogSubTag = 'ulog-' + value;
 
     // if subtag is more than max length
     if (ulogSubTag.length > CreateCommunity.maxAccountLength) {
@@ -105,27 +106,8 @@ class CreateCommunity extends React.Component {
       return;
     }
 
-    // check if subtag already exists by using get_discussions API
-    steemAPI.sendAsync('get_discussions_by_created', [{ tag: ulogSubTag, limit: 1 }]).then(result => {
-      // if no posts already exists, return without error
-      if (result.length === 0) {
-        callback();
-      } else {
-        callback([
-          new Error(
-            intl.formatMessage(
-              {
-                id: 'community_error_found_tag',
-                defaultMessage: "Ulog community {subtag} already exists. Please try another one.",
-              },
-              {
-                subtag: ulogSubTag,
-              },
-            ),
-          ),
-        ]);
-      }
-    });
+    callback();
+    return;
   };
 
   /*
@@ -133,11 +115,11 @@ class CreateCommunity extends React.Component {
    */
   getQuickPostData = () => {
     const { form } = this.props;
-    const postBody = "";
-    const community = form.getFieldValue('community');
-    const ulogSubTag = "ulog-" + community;
-    const postTitle = `A New Ulog Community - ${ulogSubTag} - Has Been Created!`;
-    const tags = [ulogSubTag];
+    const communityName = form.getFieldValue('community');
+    const ulogSubTag = "ulog-" + communityName;
+    const postBody = CommunityHelper.interpolate(ulogSubTag);
+    const postTitle = `A New 'Prospective Ulog-Community Namely '${ulogSubTag}' Has Been Created! Visit It On 'https://ulogs.org/created/${ulogSubTag}'.`;
+    const tags = ['ulog', ulogSubTag];
     const data = {
       body: postBody,
       title: postTitle,
@@ -215,7 +197,7 @@ class CreateCommunity extends React.Component {
             <h2 style={{ color: 'purple', textAlign: 'center' }}>Create A Ulog-Community</h2>
             <Collapse defaultActiveKey={['1']}>
               <Collapse.Panel header="About Communities" key="1" style={customPanelStyle}>
-                <ReactMarkdown source={community.aboutCommunities} />
+                <ReactMarkdown source={CommunityHelper.aboutCommunities} />
               </Collapse.Panel>
             </Collapse>
 
@@ -227,7 +209,7 @@ class CreateCommunity extends React.Component {
                   >
                     <h3>Create A Ulog-Community</h3>
                     <div style={customCardStyle}>
-                      <ReactMarkdown source={community.createCommunity} />
+                      <ReactMarkdown source={CommunityHelper.createCommunity} />
                     </div>
                     <Form onSubmit={this.handleCreatePost}>
                       <Form.Item>
@@ -239,6 +221,14 @@ class CreateCommunity extends React.Component {
                               id: 'community_error_empty',
                               defaultMessage: 'Community is required.',
                             }),
+                          },
+                          {
+                            message: intl.formatMessage({
+                              id: 'community_error_name_incorrect',
+                              defaultMessage:
+                                "This doesn't seem to be valid community name. Only lowercase alphabet letters are allowed.",
+                            }),
+                            pattern: /^[a-z]+$/,
                           },
                           { validator: this.validateCommunity },
                         ],
