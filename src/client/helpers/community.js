@@ -25,7 +25,7 @@ Certified users can become actual owners of these spaces and grow these ulog-com
 
 Anyone can apply to grow a ulog-community and make it bigger but you need to be a 'certified user' to do so.
 
-To 'get certified' is easy. You simple need to complete the 5 simple steps [here](https://ulogs.org/@surpassinggoogle/syi5zn5a). Thereafter, you can send an email to '[smt@teardrops.network](mailto:smt@teardrops.network)' to indicate your interest in overseeing your desired ulog-community.
+To 'get certified' is easy. You simply need to complete the 5 simple steps [here](https://ulogs.org/@surpassinggoogle/syi5zn5a). Thereafter, you can send an email to '[smt@teardrops.network](mailto:smt@teardrops.network)' to indicate your interest in overseeing your desired ulog-community.
 
 If you want to create your very own ulog-community, click [here](https://ulogs.org/create-community) to do so now!
 
