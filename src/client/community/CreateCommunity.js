@@ -106,6 +106,8 @@ class CreateCommunity extends React.Component {
       return;
     }
 
+    callback();
+    return;
   };
 
   /*
@@ -116,7 +118,6 @@ class CreateCommunity extends React.Component {
     const communityName = form.getFieldValue('community');
     const ulogSubTag = "ulog-" + communityName;
     const postBody = CommunityHelper.interpolate(ulogSubTag);
-    console.log('community post body', postBody)
     const postTitle = `A New 'Prospective Ulog-Community Namely '${ulogSubTag}' Has Been Created! Visit It On 'https://ulogs.org/created/${ulogSubTag}'.`;
     const tags = ['ulog', ulogSubTag];
     const data = {
