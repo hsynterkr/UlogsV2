@@ -140,6 +140,7 @@ class CreateCommunity extends React.Component {
     data.parentPermlink = ulogSubTag;
     data.permlink = _.kebabCase(postTitle);
     data.jsonMetadata = metaData;
+    data.redirectToUlogCommunity = `/created/${ulogSubTag}`;
 
     return data;
   };
