@@ -180,6 +180,7 @@ export function createPost(postData) {
       upvote,
       draftId,
       isUpdating,
+      redirectToUlogCommunity,
     } = postData;
     const getPermLink = isUpdating
       ? Promise.resolve(postData.permlink)
@@ -221,7 +222,11 @@ export function createPost(postData) {
               dispatch(deleteDraft(draftId));
               dispatch(addEditedPost(permlink));
             }
-            dispatch(push(`/@${author}/${permlink}`));
+            if (redirectToUlogCommunity) {
+              dispatch(push(redirectToUlogCommunity));
+            } else {
+              dispatch(push(`/@${author}/${permlink}`));
+            }
 
             if (window.analytics) {
               window.analytics.track('Post', {
