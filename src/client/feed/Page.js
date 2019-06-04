@@ -156,7 +156,7 @@ class Page extends React.Component {
             </Affix>
             <div className="center">
               {(!displayUlogCaption && isStartsWithUlog) && 
-                <Collapse>
+                <Collapse defaultActiveKey={['1']}>
                   <Collapse.Panel header={'Convert #' + category + ' To A Ulog-Community'} key="1">
                     <p>
                       <ReactMarkdown source={convertUlogTag} />
